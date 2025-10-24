@@ -1,26 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Heart, Phone, Sparkles, Shield } from "lucide-react";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
-import logoImage from "@/assets/liebenberg-logo.png";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      {/* Header/Navbar */}
-      <header className="fixed left-0 right-0 top-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-        <div className="mx-auto max-w-7xl px-6 py-4">
-          <img 
-            src={logoImage} 
-            alt="Liebenberg AI Logo" 
-            className="h-12 w-auto"
-          />
-        </div>
-      </header>
-
       {/* Hero Section */}
-      <section className="px-6 py-16 pt-32 md:py-24 md:pt-40 lg:py-32 lg:pt-48">
+      <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-4xl font-bold tracking-tight font-serif md:text-5xl lg:text-6xl">
+          <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Slimme Voice Assistenten voor bedrijven
           </h1>
           <p className="mb-10 text-lg text-muted-foreground md:text-xl lg:text-2xl">
@@ -56,7 +44,7 @@ const Index = () => {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                     <Sparkles className="h-6 w-6 text-primary" />
                   </div>
-                  <h2 className="text-2xl font-semibold font-serif md:text-3xl">Hoe het werkt</h2>
+                  <h2 className="text-2xl font-semibold md:text-3xl">Hoe het werkt</h2>
                 </div>
                 <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
               <p>
@@ -92,7 +80,7 @@ const Index = () => {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
                 <Clock className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold font-serif">Bespaart tijd</h3>
+              <h3 className="mb-3 text-xl font-semibold">Bespaart tijd</h3>
               <p className="text-muted-foreground">
                 Geen gemiste oproepen meer. Jouw AI-assistent werkt 24/7 zonder pauzes of vrije dagen.
               </p>
@@ -103,7 +91,7 @@ const Index = () => {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
                 <Users className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold font-serif">Helpt meer klanten</h3>
+              <h3 className="mb-3 text-xl font-semibold">Helpt meer klanten</h3>
               <p className="text-muted-foreground">
                 Behandel meerdere oproepen tegelijk en help elke klant direct, zonder wachttijd.
               </p>
@@ -114,7 +102,7 @@ const Index = () => {
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-xl bg-primary/10">
                 <Heart className="h-7 w-7 text-primary" />
               </div>
-              <h3 className="mb-3 text-xl font-semibold font-serif">Geeft rust</h3>
+              <h3 className="mb-3 text-xl font-semibold">Geeft rust</h3>
               <p className="text-muted-foreground">
                 Focus op wat belangrijk is. De AI handelt routine-vragen af, jij concentreert je op groei.
               </p>
@@ -131,7 +119,7 @@ const Index = () => {
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
                 <Shield className="h-6 w-6 text-primary" />
               </div>
-              <h2 className="text-2xl font-semibold font-serif md:text-3xl">Maatwerk voor jouw bedrijf</h2>
+              <h2 className="text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
             </div>
             <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
               <p>
