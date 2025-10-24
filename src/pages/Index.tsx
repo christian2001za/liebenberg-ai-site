@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Clock, Users, Heart, Phone, Sparkles, Shield } from "lucide-react";
+import voiceAssistantImage from "@/assets/voice-assistant.png";
 
 const Index = () => {
   return (
@@ -28,15 +29,24 @@ const Index = () => {
 
       {/* How it works Section */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl bg-card p-8 shadow-soft md:p-12">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-                <Sparkles className="h-6 w-6 text-primary" />
+            <div className="mb-8 flex flex-col items-center gap-6 md:flex-row md:items-start">
+              <div className="flex-shrink-0">
+                <img 
+                  src={voiceAssistantImage} 
+                  alt="Voice AI Assistent met headset" 
+                  className="h-48 w-48 object-contain md:h-56 md:w-56"
+                />
               </div>
-              <h2 className="text-2xl font-semibold md:text-3xl">Hoe het werkt</h2>
-            </div>
-            <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
+              <div className="flex-1">
+                <div className="mb-6 flex items-center gap-3">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                    <Sparkles className="h-6 w-6 text-primary" />
+                  </div>
+                  <h2 className="text-2xl font-semibold md:text-3xl">Hoe het werkt</h2>
+                </div>
+                <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
               <p>
                 Onze Voice AI Assistent neemt gesprekken aan als jij even niet kunt opnemen.
               </p>
@@ -54,6 +64,8 @@ const Index = () => {
               <p className="font-medium">
                 Alles is aanpasbaar aan jouw bedrijf.
               </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
