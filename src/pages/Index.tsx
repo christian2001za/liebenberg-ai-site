@@ -1,8 +1,23 @@
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Clock, Users, Heart, Phone, Sparkles, Shield } from "lucide-react";
+import { Clock, Users, Heart, Phone, Sparkles, Shield, Play, Pause } from "lucide-react";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
+import debatwijzerImage from "@/assets/ai-debatwijzer.png";
+import demoVapiAudio from "@/assets/demo-vapi.wav";
 
 const Index = () => {
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  const handleToggleDemo = () => {
+    if (!audioRef.current) return;
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch(() => undefined);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
@@ -11,9 +26,38 @@ const Index = () => {
           <h1 className="mb-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl">
             Slimme Voice Assistenten voor bedrijven
           </h1>
-          <p className="mb-10 text-lg text-muted-foreground md:text-xl lg:text-2xl">
+          <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
             Onze AI-stemassistenten nemen 24/7 de telefoon op en klinken net als echte mensen.
           </p>
+          <div className="mt-8 mb-12 flex items-center justify-center gap-3">
+            <Button
+              variant="secondary"
+              size="lg"
+              onClick={handleToggleDemo}
+              className="gap-2"
+              aria-label={
+                isPlaying
+                  ? "Pauzeer voice assistent demo"
+                  : "Speel voice assistent demo af"
+              }
+            >
+              {isPlaying ? <Pause className="h-5 w-5" /> : <Play className="h-5 w-5" />}
+              {isPlaying ? "Pause" : "Play"}
+            </Button>
+            <span className="text-base text-muted-foreground md:text-lg">
+              Hoor zelf een assistent in actie
+            </span>
+          </div>
+          <audio
+            ref={audioRef}
+            src={demoVapiAudio}
+            preload="auto"
+            className="hidden"
+            aria-hidden="true"
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
+            onEnded={() => setIsPlaying(false)}
+          />
           <Button 
             variant="hero" 
             size="xl"
@@ -21,9 +65,53 @@ const Index = () => {
             className="mb-4"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Boek een demo
+              Boek een gesprek
             </a>
           </Button>
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-2xl bg-card p-8 text-center shadow-soft md:p-12">
+            <div className="mb-8">
+              <h2 className="text-2xl font-semibold md:text-3xl">Projects</h2>
+              <p className="mt-3 text-muted-foreground">
+                Ontdek waar AI het verschil maakt in onze recente projecten.
+              </p>
+            </div>
+            <a
+              href="https://debat.liebenberg.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mx-auto mb-6 block max-w-sm"
+            >
+              <img
+                src={debatwijzerImage}
+                alt="AI Debatwijzer 2025"
+                className="w-full rounded-xl shadow-medium transition-transform duration-200 group-hover:scale-[1.02]"
+              />
+            </a>
+            <h3 className="text-xl font-medium">AI Debatwijzer 2025</h3>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken.
+            </p>
+            <Button
+              variant="secondary"
+              size="lg"
+              asChild
+              className="mt-6"
+            >
+              <a
+                href="https://debat.liebenberg.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Start een debat
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
