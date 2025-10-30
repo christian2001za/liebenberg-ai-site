@@ -27,7 +27,7 @@ const Index = () => {
             Slimme Voice Assistenten voor bedrijven
           </h1>
           <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-            Onze AI-stemassistenten nemen 24/7 de telefoon op en klinken net als echte mensen.
+            Onze AI assistenten nemen 24/7 de telefoon op en klinken net als echte mensen.
           </p>
           <div className="mt-8 mb-12 flex items-center justify-center gap-3">
             <Button
