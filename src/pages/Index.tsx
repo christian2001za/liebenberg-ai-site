@@ -65,7 +65,7 @@ const Index = () => {
             className="mb-4"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Boek een gesprek
+              Boek een intro gesprek
             </a>
           </Button>
         </div>
@@ -240,7 +240,7 @@ const Index = () => {
             className="mb-6"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Boek een gesprek
+              Boek een intro gesprek
             </a>
           </Button>
           
