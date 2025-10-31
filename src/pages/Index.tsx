@@ -4,6 +4,7 @@ import voiceAssistantImage from "@/assets/voice-assistant.png";
 import debatwijzerImage from "@/assets/debat.png";
 import demoVapiAudio from "@/assets/demo-vapi.wav";
 import logo from "@/assets/logo.svg";
+import underlineStroke from "@/assets/streep.png";
 
 const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -32,14 +33,22 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="px-6 py-16 md:py-24 lg:py-32">
-        <div className="mx-auto max-w-4xl text-center">
+        <div className="mx-auto max-w-6xl text-center">
           <h1 className="mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
-            Slimme Voice Assistenten voor bedrijven
+            Slimme Voice Assistenten
+            <span className="mx-auto inline-block font-heading">
+              voor bedrijven
+              <img
+                src={underlineStroke}
+                alt=""
+                className="mt-1 h-auto w-full"
+              />
+            </span>
           </h1>
           <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
             Onze AI assistenten nemen 24/7 de telefoon op en klinken net als echte mensen.
           </p>
-          <div className="mt-8 mb-12 flex items-center justify-center gap-3">
+          <div className="mt-19 mb-12 flex items-center justify-center gap-3">
             <Button
               variant="secondary"
               size="lg"
@@ -70,7 +79,7 @@ const Index = () => {
             variant="hero" 
             size="xl"
             asChild
-            className="mb-4"
+            className="mt-2"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
               Boek een intro gesprek
@@ -197,7 +206,7 @@ const Index = () => {
 
       {/* Custom Solutions Section */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:p-12">
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
@@ -220,11 +229,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="px-6 py-16 pb-24">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="mb-8 inline-flex items-center justify-center rounded-full bg-primary/10 px-6 py-3">
-            <span className="font-medium text-primary">Klaar om te beginnen?</span>
-          </div>
-          
+        <div className="mx-auto max-w-3xl text-center">
           <Button 
             variant="hero" 
             size="xl"
@@ -235,7 +240,6 @@ const Index = () => {
               Boek een intro gesprek
             </a>
           </Button>
-          
           <p className="text-muted-foreground">
             Of mail naar{" "}
             <a 
