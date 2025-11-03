@@ -59,7 +59,7 @@ const Index = () => {
                   : "Speel voice assistent demo af"
               }
             >
-              {isPlaying ? "Pause" : "Play"}
+              {isPlaying ? "Pause" : "Play"}  
             </Button>
             <span className="text-base text-muted-foreground md:text-lg">
               Hoor zelf een assistent in actie
