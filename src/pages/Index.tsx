@@ -153,15 +153,15 @@ const Index = () => {
                 Onze Voice AI Assistent neemt gesprekken aan als jij even niet kunt of wilt opnemen.
               </p>
               <p>
-                Het is jouw antwoordapparaat op steroïden. Zij begrijpt vragen van klanten, boekt afspraken, 
+                Het is jouw antwoordapparaat op steroïden. Onze assistent boekt afspraken, 
                 stuurt SMSjes, en beantwoordt veelgestelde vragen.
               </p>
               <p>
-                Als een klant liever met een echt persoon wil spreken of de vraag te moeilijk is, 
-                schakelen we door of sturen we je een alert om terug te bellen.
+                Als een klant liever met een echt persoon wil spreken of er niet uitkomt met de assistent, 
+                schakelen we door of sturen we je een melding om terug te bellen.
               </p>
               <p>
-                Na elk gesprek ontvang je automatisch een e-mail met de samenvatting.
+                Na elk gesprek ontvang je automatisch een e-mail met de samenvatting em opname.
               </p>
               <p className="font-medium">
                 Alles is aanpasbaar aan jouw bedrijf.
@@ -197,7 +197,7 @@ const Index = () => {
             <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft transition-all duration-200 hover:shadow-medium">
               <h3 className="mb-3 text-xl font-semibold">Geeft rust</h3>
               <p className="text-muted-foreground">
-                Focus op wat belangrijk is. De AI handelt routine-vragen af, jij concentreert je op groei.
+                Focus op wat belangrijk is. De AI handelt oproepen af, jij concentreert je op groei.
               </p>
             </div>
           </div>
