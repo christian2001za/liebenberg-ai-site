@@ -46,7 +46,7 @@ const Index = () => {
             </span>
           </h1>
           <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-            Beantwoordt vragen, maakt afspraken en klinkt net als een echte medewerker.
+            Je AI receptionist beantwoordt vragen, maakt afspraken en klinkt net als een echte medewerker.
           </p>
           <div className="mt-19 mb-12 flex items-center justify-center gap-3">
             <Button
