@@ -29,7 +29,7 @@ const Index = () => {
       description: [
         "Een antwoordapparaat. Op steroïden.",
         "Onze AI-assistent springt bij in deze praktijk wanneer het druk is:",
-        "beantwoordt vragen, boekt afspraken en stuurt SMSjes naar klanten.",
+        "beantwoordt vragen, boekt afspraken en stuurt berichtjes naar klanten.",
       ],
       ctaLabel: "Hoor de assistent",
       ctaType: "toggleAudio" as const,
