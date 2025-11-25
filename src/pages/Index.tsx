@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
 import debatwijzerImage from "@/assets/debat.png";
+import snelleSchrijverImage from "@/assets/snelle_schrijver.png";
 import demoVapiAudio from "@/assets/demo-vapi.wav";
 import logo from "@/assets/logo.svg";
 import underlineStroke from "@/assets/streep.png";
@@ -9,6 +11,45 @@ import underlineStroke from "@/assets/streep.png";
 const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const projects = [
+    {
+      title: "AI Debatwijzer 2025",
+      description: [
+        "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken.",
+        "Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.",
+      ],
+      ctaLabel: "Start een debat",
+      ctaHref: "https://debat.liebenberg.ai",
+      image: debatwijzerImage,
+      imageAlt: "AI Debatwijzer 2025",
+      link: "https://debat.liebenberg.ai",
+    },
+    {
+      title: "Optometrie AI receptionist",
+      description: [
+        "Een antwoordapparaat. Op steroïden.",
+        "Onze AI-assistent springt bij in deze praktijk wanneer het druk is:",
+        "beantwoordt vragen, boekt afspraken en stuurt SMSjes naar klanten.",
+      ],
+      ctaLabel: "Hoor de assistent",
+      ctaType: "toggleAudio" as const,
+      image: voiceAssistantImage,
+      imageAlt: "Voice AI Assistent",
+      link: null,
+    },
+    {
+      title: "Luisterend Oor",
+      description: [
+        "Forward je spraakbericht naar dit WhatsApp nummer en ontvang binnen seconden een samenvatting + transcriptie.",
+      ],
+      ctaLabel: "Plan een demo",
+      ctaHref: "https://cal.com/christian2001za",
+      image: snelleSchrijverImage,
+      imageAlt: "Luisterend Oor WhatsApp samenvatter",
+      link: null,
+    },
+  ];
+  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
 
   const handleToggleDemo = () => {
     if (!audioRef.current) return;
@@ -18,6 +59,16 @@ const Index = () => {
       audioRef.current.play().catch(() => undefined);
     }
   };
+
+  const handleNextProject = () =>
+    setActiveProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
+
+  const handlePreviousProject = () =>
+    setActiveProjectIndex((prevIndex) =>
+      (prevIndex - 1 + projects.length) % projects.length,
+    );
+
+  const activeProject = projects[activeProjectIndex];
 
   return (
     <div className="min-h-screen bg-background">
@@ -35,7 +86,7 @@ const Index = () => {
       <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl text-center">
           <h1 className="mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
-            AI die je telefoon opneemt.
+            AI tools die direct werken.
             <span className="mx-auto inline-block font-heading text-muted-foreground">
               Dag en nacht.
               <img
@@ -46,25 +97,8 @@ const Index = () => {
             </span>
           </h1>
           <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-            Onze AI receptionist beantwoordt vragen, maakt afspraken en klinkt net als een echte medewerker.
+          Van WhatsApp agents tot voice AI - custom oplossingen die tijd besparen en processen automatiseren
           </p>
-          <div className="mt-19 mb-12 flex items-center justify-center gap-3">
-            <Button
-              variant="secondary"
-              size="lg"
-              onClick={handleToggleDemo}
-              aria-label={
-                isPlaying
-                  ? "Pauzeer voice assistent demo"
-                  : "Speel voice assistent demo af"
-              }
-            >
-              {isPlaying ? "Pause" : "Play"}  
-            </Button>
-            <span className="text-base text-muted-foreground md:text-lg">
-              Hoor zelf een assistent in actie
-            </span>
-          </div>
           <audio
             ref={audioRef}
             src={demoVapiAudio}
@@ -92,115 +126,103 @@ const Index = () => {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-4xl">
           <div className="rounded-2xl bg-[#E6E6D1] p-8 text-center shadow-soft md:p-12">
-            <div className="mb-8">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">Projecten</h2>
-              <p className="mt-3 text-muted-foreground">
-                Ontdek waar AI het verschil maakt in onze recente projecten.
-              </p>
+            <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
+              <div className="text-center md:text-left">
+                <h2 className="font-heading text-2xl font-semibold md:text-3xl">Projecten</h2>
+                <p className="mt-3 text-muted-foreground">
+                  Ontdek waar AI het verschil maakt in onze recente projecten.
+                </p>
+              </div>
+              <div className="flex items-center gap-2">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handlePreviousProject}
+                  aria-label="Vorige project"
+                >
+                  <ArrowLeft className="h-5 w-5" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={handleNextProject}
+                  aria-label="Volgende project"
+                >
+                  <ArrowRight className="h-5 w-5" />
+                </Button>
+              </div>
             </div>
-            <a
-              href="https://debat.liebenberg.ai"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mx-auto mb-6 block max-w-sm"
-            >
-              <img
-                src={debatwijzerImage}
-                alt="AI Debatwijzer 2025"
-                className="w-full rounded-xl shadow-medium transition-transform duration-200 group-hover:scale-[1.02]"
-              />
-            </a>
-            <h3 className="text-xl font-medium">AI Debatwijzer 2025</h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-             <p>Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken. </p> 
-             Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.
-            </p>
-            <Button
-              variant="secondary"
-              size="lg"
-              asChild
-              className="mt-6"
-            >
-              <a
-                href="https://debat.liebenberg.ai"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Start een debat
-              </a>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* How it works Section */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:p-12">
-            <div className="mb-8 flex flex-col items-center gap-6 md:flex-row md:items-start">
-              <div className="flex-shrink-0">
-                <img 
-                  src={voiceAssistantImage} 
-                  alt="Voice AI Assistent met headset" 
-                  className="h-48 w-48 object-contain md:h-56 md:w-56"
+            <div className="group mx-auto mb-6 block max-w-sm">
+              {activeProject.link ? (
+                <a
+                  href={activeProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {activeProject.image ? (
+                    <img
+                      src={activeProject.image}
+                      alt={activeProject.imageAlt}
+                      className="w-full rounded-xl shadow-medium transition-transform duration-200 group-hover:scale-[1.02]"
+                    />
+                  ) : (
+                    <div className="flex h-64 items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium transition-transform duration-200 group-hover:scale-[1.02]">
+                      <span className="text-sm font-medium text-muted-foreground">
+                        Foto wordt hier geplaatst
+                      </span>
+                    </div>
+                  )}
+                </a>
+              ) : activeProject.image ? (
+                <img
+                  src={activeProject.image}
+                  alt={activeProject.imageAlt}
+                  className="w-full rounded-xl shadow-medium"
                 />
-              </div>
-              <div className="flex-1">
-                <div className="mb-6">
-                  <h2 className="font-heading text-2xl font-semibold md:text-3xl">Hoe het werkt</h2>
+              ) : (
+                <div className="flex h-64 items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium">
+                  <span className="text-sm font-medium text-muted-foreground">
+                    Foto wordt hier geplaatst
+                  </span>
                 </div>
-                <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
-              <p>
-              Je antwoordapparaat. Op steroïden.
-              </p>
-              <p>
-              Onze AI-assistent springt bij wanneer jij het druk hebt: beantwoordt 
-              vragen, boekt afspraken en stuurt SMSjes naar klanten.
-              </p>
-              <p>
-              Wil iemand liever een echt persoon? We schakelen direct door of 
-              je krijgt een melding om terug te bellen.
-              </p>
-              <p>
-              Na elk gesprek ontvang je een samenvatting en opname per e-mail.
-              </p>
-              <p className="font-medium">
-                Alles is aanpasbaar aan jouw bedrijf.
-              </p>
-                </div>
-              </div>
+              )}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Benefits Section */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid gap-8 md:grid-cols-3">
-            {/* Benefit 1 */}
-            <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft transition-all duration-200 hover:shadow-medium">
-              <h3 className="mb-3 text-xl font-semibold">Altijd bereikbaar</h3>
-              <p className="text-muted-foreground">
-              Geen gemiste oproepen meer. Jouw AI-assistent werkt 24/7, ook 's avonds en in het weekend.
-              </p>
+            <h3 className="text-xl font-medium">{activeProject.title}</h3>
+            <div className="mt-2 space-y-2 text-sm text-muted-foreground">
+              {activeProject.description.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
+              ))}
             </div>
-
-            {/* Benefit 2 */}
-            <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft transition-all duration-200 hover:shadow-medium">
-              <h3 className="mb-3 text-xl font-semibold">Helpt meer klanten</h3>
-              <p className="text-muted-foreground">
-                Behandel meerdere oproepen tegelijk, zonder wachttijd. Elke klant krijgt direct antwoord.
-              </p>
-            </div>
-
-            {/* Benefit 3 */}
-            <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft transition-all duration-200 hover:shadow-medium">
-              <h3 className="mb-3 text-xl font-semibold">Rust in je hoofd</h3>
-              <p className="text-muted-foreground">
-               Stop met constant je telefoon checken. Focus op het werk dat jij het beste doet.
-              </p>
-            </div>
+            {activeProject.ctaType === "toggleAudio" ? (
+              <Button
+                variant="secondary"
+                size="lg"
+                className="mt-6"
+                onClick={handleToggleDemo}
+                aria-label={
+                  isPlaying
+                    ? "Pauzeer voice assistent demo"
+                    : "Speel voice assistent demo af"
+                }
+              >
+                {isPlaying ? "Pause" : activeProject.ctaLabel}
+              </Button>
+            ) : activeProject.ctaHref ? (
+              <Button
+                variant="secondary"
+                size="lg"
+                asChild
+                className="mt-6"
+              >
+                <a
+                  href={activeProject.ctaHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {activeProject.ctaLabel}
+                </a>
+              </Button>
+            ) : null}
           </div>
         </div>
       </section>
@@ -212,18 +234,12 @@ const Index = () => {
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
             </div>
-            <div className="space-y-4 text-base leading-relaxed text-foreground md:text-lg">
-              <p>
-                Naast Voice AI assistenten bouwen we ook andere automatiseringen.
-              </p>
-              <p>
-                Samen kijken we waar technologie het meeste verschil kan maken in jouw bedrijf. Vervolgens
-                implementeren we dat met aandacht.
-              </p>
-              <p className="font-medium text-[#1A1A1A]">
-                Niet tevreden? Dan krijg je gewoon je geld terug.
-              </p>
-            </div>
+            <ul className="mt-4 list-disc space-y-3 text-left text-base leading-relaxed text-foreground md:text-lg md:pl-6">
+              <li>AI webapplicaties</li>
+              <li>WhatsApp &amp; Voice AI agents en automations</li>
+              <li>Klantenservice AI (chat, voice, WhatsApp)</li>
+              <li>Process automisation</li>
+            </ul>
           </div>
         </div>
       </section>
