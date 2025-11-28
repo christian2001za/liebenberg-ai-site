@@ -86,7 +86,7 @@ const Index = () => {
       <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl text-center">
           <h1 className="mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
-            AI tools die direct werken.
+            AI applicaties die direct werken.
             <span className="mx-auto inline-block font-heading text-muted-foreground">
               Dag en nacht.
               <img
