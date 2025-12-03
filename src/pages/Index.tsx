@@ -3,6 +3,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
 import debatwijzerImage from "@/assets/debat.png";
+import emailDrafterImage from "@/assets/email_drafter.png";
 import snelleSchrijverImage from "@/assets/snelle_schrijver.png";
 import demoVapiAudio from "@/assets/demo-vapi.wav";
 import logo from "@/assets/logo.svg";
@@ -23,6 +24,20 @@ const Index = () => {
       image: debatwijzerImage,
       imageAlt: "AI Debatwijzer 2025",
       link: "https://debat.liebenberg.ai",
+    },
+    {
+      title: "AI email drafter",
+      description: [
+        "Dit is een AI tool voor bedrijven die ingewikkelde vragen krijgen van klanten.",
+        "De AI tool snapt uw bedrijf en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
+        "Daarnaast heeft hij handige manieren om handmatig of met prompts de email te finetunen.",
+        "Denk niet meer uren lang over hoe je een moeilijke mail gaat beantwoorden.",
+      ],
+      ctaLabel: "Bekijk de app",
+      ctaHref: "https://email-drafter-nine.vercel.app/",
+      image: emailDrafterImage,
+      imageAlt: "AI email drafter",
+      link: "https://email-drafter-nine.vercel.app/",
     },
     {
       title: "Optometrie AI receptionist",
@@ -86,7 +101,7 @@ const Index = () => {
       <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl text-center">
           <h1 className="mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
-            AI applicaties die direct werken.
+            Laat AI werken voor je bedrijf.
             <span className="mx-auto inline-block font-heading text-muted-foreground">
               Dag en nacht.
               <img
@@ -97,7 +112,7 @@ const Index = () => {
             </span>
           </h1>
           <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-          Van WhatsApp agents tot voice AI - custom oplossingen die tijd besparen en processen automatiseren
+          Van AI applicaties tot voice agents - custom oplossingen die tijd besparen en processen automatiseren
           </p>
           <audio
             ref={audioRef}
@@ -235,9 +250,9 @@ const Index = () => {
               <h2 className="font-heading text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
             </div>
             <ul className="mt-4 list-disc space-y-3 text-left text-base leading-relaxed text-foreground md:text-lg md:pl-6">
-              <li>AI webapplicaties</li>
-              <li>WhatsApp &amp; Voice AI agents en automations</li>
-              <li>Klantenservice AI (chat, voice, WhatsApp)</li>
+              <li>AI (web)applicaties</li>
+              <li>AI (voice) agents</li>
+              <li>Klantenservice AI (chat, email,voice, WhatsApp)</li>
               <li>Process automisation</li>
             </ul>
           </div>
