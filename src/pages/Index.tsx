@@ -1,10 +1,11 @@
-import { useRef, useState } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
 import debatwijzerImage from "@/assets/debat.png";
 import emailDrafterImage from "@/assets/email_drafter.png";
 import snelleSchrijverImage from "@/assets/snelle_schrijver.png";
+import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
 import demoVapiAudio from "@/assets/demo-vapi.wav";
 import logo from "@/assets/logo.svg";
 import underlineStroke from "@/assets/streep.png";
@@ -65,6 +66,27 @@ const Index = () => {
     },
   ];
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
+  const autoRotateRef = useRef<number | null>(null);
+
+  const stopAutoRotate = () => {
+    if (autoRotateRef.current) {
+      window.clearInterval(autoRotateRef.current);
+      autoRotateRef.current = null;
+    }
+  };
+
+  const startAutoRotate = () => {
+    if (autoRotateRef.current) return;
+    autoRotateRef.current = window.setInterval(
+      () => setActiveProjectIndex((prevIndex) => (prevIndex + 1) % projects.length),
+      5000,
+    );
+  };
+
+  useEffect(() => {
+    startAutoRotate();
+    return () => stopAutoRotate();
+  }, [projects.length]);
 
   const handleToggleDemo = () => {
     if (!audioRef.current) return;
@@ -75,13 +97,17 @@ const Index = () => {
     }
   };
 
-  const handleNextProject = () =>
+  const handleNextProject = () => {
+    stopAutoRotate();
     setActiveProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
 
-  const handlePreviousProject = () =>
-    setActiveProjectIndex((prevIndex) =>
-      (prevIndex - 1 + projects.length) % projects.length,
+  const handlePreviousProject = () => {
+    stopAutoRotate();
+    setActiveProjectIndex(
+      (prevIndex) => (prevIndex - 1 + projects.length) % projects.length,
     );
+  };
 
   const activeProject = projects[activeProjectIndex];
 
@@ -100,19 +126,19 @@ const Index = () => {
       {/* Hero Section */}
       <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl text-center">
-          <h1 className="mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
+          <h1 className="hero-animate mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
             Laat AI werken voor je bedrijf.
-            <span className="mx-auto inline-block font-heading text-muted-foreground">
+            <span className="mx-auto inline-block font-heading text-muted-foreground hero-delay-1 hero-animate">
               Dag en nacht.
               <img
                 src={underlineStroke}
                 alt=""
-                className="mt-4 h-auto w-full"
+                className="hero-underline mt-4 h-auto w-full"
               />
             </span>
           </h1>
-          <p className="mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-          Van AI applicaties tot voice agents - custom oplossingen die tijd besparen en processen automatiseren
+          <p className="hero-animate hero-delay-2 mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
+            Custom AI-oplossingen die administratief werk overnemen. Jij houdt de controle.
           </p>
           <audio
             ref={audioRef}
@@ -128,7 +154,7 @@ const Index = () => {
             variant="hero" 
             size="xl"
             asChild
-            className="mt-2"
+            className="hero-animate hero-delay-3 mt-2"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
               Boek een intro gesprek
@@ -167,94 +193,147 @@ const Index = () => {
                 </Button>
               </div>
             </div>
-            <div className="group mx-auto mb-6 block max-w-sm">
-              {activeProject.link ? (
-                <a
-                  href={activeProject.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+            <div
+              key={activeProject.title}
+              className="project-animate flex min-h-[540px] flex-col items-center md:min-h-[620px]"
+            >
+              <div className="group mx-auto mb-6 block max-w-sm">
+                {activeProject.link ? (
+                  <a
+                    href={activeProject.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {activeProject.image ? (
+                      <img
+                        src={activeProject.image}
+                        alt={activeProject.imageAlt}
+                        className="h-[320px] w-full rounded-xl object-cover shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]"
+                      />
+                    ) : (
+                      <div className="flex h-[320px] items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]">
+                        <span className="text-sm font-medium text-muted-foreground">
+                          Foto wordt hier geplaatst
+                        </span>
+                      </div>
+                    )}
+                  </a>
+                ) : activeProject.image ? (
+                  <img
+                    src={activeProject.image}
+                    alt={activeProject.imageAlt}
+                    className="h-[320px] w-full rounded-xl object-cover shadow-medium md:h-[360px]"
+                  />
+                ) : (
+                  <div className="flex h-[320px] items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium md:h-[360px]">
+                    <span className="text-sm font-medium text-muted-foreground">
+                      Foto wordt hier geplaatst
+                    </span>
+                  </div>
+                )}
+              </div>
+              <h3 className="text-xl font-medium">{activeProject.title}</h3>
+              <div className="mt-2 space-y-2 text-sm text-muted-foreground">
+                {activeProject.description.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+              {activeProject.ctaType === "toggleAudio" ? (
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  className="mt-6"
+                  onClick={handleToggleDemo}
+                  aria-label={
+                    isPlaying
+                      ? "Pauzeer voice assistent demo"
+                      : "Speel voice assistent demo af"
+                  }
                 >
-                  {activeProject.image ? (
-                    <img
-                      src={activeProject.image}
-                      alt={activeProject.imageAlt}
-                      className="w-full rounded-xl shadow-medium transition-transform duration-200 group-hover:scale-[1.02]"
-                    />
-                  ) : (
-                    <div className="flex h-64 items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium transition-transform duration-200 group-hover:scale-[1.02]">
-                      <span className="text-sm font-medium text-muted-foreground">
-                        Foto wordt hier geplaatst
-                      </span>
-                    </div>
-                  )}
-                </a>
-              ) : activeProject.image ? (
-                <img
-                  src={activeProject.image}
-                  alt={activeProject.imageAlt}
-                  className="w-full rounded-xl shadow-medium"
-                />
-              ) : (
-                <div className="flex h-64 items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium">
-                  <span className="text-sm font-medium text-muted-foreground">
-                    Foto wordt hier geplaatst
-                  </span>
-                </div>
-              )}
-            </div>
-            <h3 className="text-xl font-medium">{activeProject.title}</h3>
-            <div className="mt-2 space-y-2 text-sm text-muted-foreground">
-              {activeProject.description.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-            {activeProject.ctaType === "toggleAudio" ? (
-              <Button
-                variant="secondary"
-                size="lg"
-                className="mt-6"
-                onClick={handleToggleDemo}
-                aria-label={
-                  isPlaying
-                    ? "Pauzeer voice assistent demo"
-                    : "Speel voice assistent demo af"
-                }
-              >
-                {isPlaying ? "Pause" : activeProject.ctaLabel}
-              </Button>
-            ) : activeProject.ctaHref ? (
-              <Button
-                variant="secondary"
-                size="lg"
-                asChild
-                className="mt-6"
-              >
-                <a
-                  href={activeProject.ctaHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {isPlaying ? "Pause" : activeProject.ctaLabel}
+                </Button>
+              ) : activeProject.ctaHref ? (
+                <Button
+                  variant="secondary"
+                  size="lg"
+                  asChild
+                  className="mt-6"
                 >
-                  {activeProject.ctaLabel}
-                </a>
-              </Button>
-            ) : null}
+                  <a
+                    href={activeProject.ctaHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {activeProject.ctaLabel}
+                  </a>
+                </Button>
+              ) : null}
+            </div>
           </div>
         </div>
       </section>
 
       {/* Custom Solutions Section */}
       <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:p-12">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="inline-block text-left">
             <div className="mb-6">
               <h2 className="font-heading text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
             </div>
-            <ul className="mt-4 list-disc space-y-3 text-left text-base leading-relaxed text-foreground md:text-lg md:pl-6">
-              <li>AI (web)applicaties</li>
+            <ul className="mt-4 list-disc space-y-3 pl-6 text-base leading-relaxed text-foreground md:text-lg md:pl-6">
+              <li>Custom AI software</li>
               <li>AI (voice) agents</li>
               <li>Klantenservice AI (chat, email,voice, WhatsApp)</li>
-              <li>Process automisation</li>
+              <li>Process automation</li>
             </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* About Section */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-5xl">
+          <div className="grid gap-8 rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:grid-cols-[1fr,1.1fr] md:p-12">
+            <div className="overflow-hidden rounded-xl bg-white/70 shadow-medium">
+              <img
+                src={founderPortrait}
+                alt="Christian Liebenberg"
+                className="h-full w-full object-cover"
+              />
+            </div>
+            <div className="flex flex-col space-y-4">
+              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+                Over ons
+              </h2>
+              <p className="text-base leading-relaxed text-foreground md:text-lg">
+                Liebenberg AI bouwt custom AI-oplossingen voor bedrijven die slimmer willen werken.
+              </p>
+              <p className="text-base leading-relaxed text-foreground md:text-lg">
+                Geen standaard tools, maar maatwerk dat past bij jouw processen. Onze oplossingen versnellen je werk, maar jij houdt de controle.
+              </p>
+              <div className="pt-2">
+                <p className="text-sm font-semibold text-foreground md:text-base">
+                  Christian Liebenberg{" "}
+                  <span className="font-normal text-muted-foreground">- Oprichter</span>
+                </p>
+                <p className="mt-2 text-base leading-relaxed text-foreground md:text-lg">
+                  Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt. Ik sta altijd open voor een gesprek of koffietje.
+                </p>
+                <div className="pt-4">
+                  <Button variant="secondary" size="lg" asChild>
+                    <a
+                      href="https://linkedin.com/in/christian-liebenberg-a0511060"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2"
+                    >
+                      <Linkedin className="h-5 w-5" aria-hidden="true" />
+                      LinkedIn
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

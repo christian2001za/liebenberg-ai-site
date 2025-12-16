@@ -139,4 +139,72 @@ All colors MUST be HSL.
   .shadow-medium {
     box-shadow: var(--shadow-medium);
   }
+
+  .hero-animate {
+    animation: heroFadeUp 900ms cubic-bezier(0.18, 0.67, 0.12, 1) both;
+  }
+
+  .hero-delay-1 {
+    animation-delay: 120ms;
+  }
+
+  .hero-delay-2 {
+    animation-delay: 240ms;
+  }
+
+  .hero-delay-3 {
+    animation-delay: 360ms;
+  }
+
+  .hero-underline {
+    transform-origin: left center;
+    animation: underlineReveal 1s cubic-bezier(0.23, 1, 0.32, 1) both 320ms;
+  }
+
+  .project-animate {
+    animation: projectFade 520ms cubic-bezier(0.18, 0.67, 0.12, 1) both;
+  }
+
+  @keyframes heroFadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.98);
+      filter: blur(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes underlineReveal {
+    from {
+      opacity: 0;
+      transform: scaleX(0.6);
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      opacity: 1;
+      transform: scaleX(1);
+    }
+  }
+
+  @keyframes projectFade {
+    from {
+      opacity: 0;
+      transform: translateY(12px) scale(0.995);
+      filter: blur(1px);
+    }
+    65% {
+      filter: blur(0);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
 }
