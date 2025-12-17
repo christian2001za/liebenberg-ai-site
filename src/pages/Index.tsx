@@ -367,10 +367,10 @@ const Index = () => {
           <p className="text-muted-foreground">
             Of mail naar{" "}
             <a 
-              href="mailto:christian2001za@gmail.com" 
+              href="mailto:christian@liebenberg.nl" 
               className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
             >
-              christian2001za@gmail.com
+              christian@liebenberg.nl
             </a>
           </p>
         </div>
