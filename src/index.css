@@ -165,6 +165,13 @@ All colors MUST be HSL.
     animation: projectFade 520ms cubic-bezier(0.18, 0.67, 0.12, 1) both;
   }
 
+  .project-description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 12;
+    overflow: hidden;
+  }
+
   @keyframes heroFadeUp {
     from {
       opacity: 0;

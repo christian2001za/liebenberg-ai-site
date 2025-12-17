@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import voiceAssistantImage from "@/assets/voice-assistant.png";
@@ -13,56 +13,59 @@ import underlineStroke from "@/assets/streep.png";
 const Index = () => {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const projects = [
-    {
-      title: "AI Debatwijzer 2025",
-      description: [
-        "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken. (al 300+ debatten)",
-        "Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.",
-      ],
-      ctaLabel: "Start een debat",
-      ctaHref: "https://debat.liebenberg.ai",
-      image: debatwijzerImage,
-      imageAlt: "AI Debatwijzer 2025",
-      link: "https://debat.liebenberg.ai",
-    },
-    {
-      title: "AI email drafter",
-      description: [
-        "Deze AI tool wordt getraind op uw bedrijfsdata en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
-        "Denk nooit meer uren lang na over hoe je een ingewikkelde mail van een klant gaat beantwoorden.",
-      ],
-      ctaLabel: "Bekijk de app",
-      ctaHref: "https://email-drafter-nine.vercel.app/",
-      image: emailDrafterImage,
-      imageAlt: "AI email drafter",
-      link: "https://email-drafter-nine.vercel.app/",
-    },
-    {
-      title: "Optometrie AI receptionist",
-      description: [
-        "Een antwoordapparaat. Op steroïden.",
-        "Onze AI-assistent springt bij in deze praktijk wanneer het druk is:",
-        "beantwoordt vragen, boekt afspraken en stuurt berichtjes naar klanten.",
-      ],
-      ctaLabel: "Hoor de assistent",
-      ctaType: "toggleAudio" as const,
-      image: voiceAssistantImage,
-      imageAlt: "Voice AI Assistent",
-      link: null,
-    },
-    {
-      title: "Luisterend Oor",
-      description: [
-        "Forward je spraakbericht naar dit WhatsApp nummer en ontvang binnen seconden een samenvatting + transcriptie.",
-      ],
-      ctaLabel: "Plan een demo",
-      ctaHref: "https://cal.com/christian2001za",
-      image: snelleSchrijverImage,
-      imageAlt: "Luisterend Oor WhatsApp samenvatter",
-      link: null,
-    },
-  ];
+  const projects = useMemo(
+    () => [
+      {
+        title: "AI Debatwijzer 2025",
+        description: [
+          "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken. (al 300+ debatten)",
+          "Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.",
+        ],
+        ctaLabel: "Start een debat",
+        ctaHref: "https://debat.liebenberg.ai",
+        image: debatwijzerImage,
+        imageAlt: "AI Debatwijzer 2025",
+        link: "https://debat.liebenberg.ai",
+      },
+      {
+        title: "AI email drafter",
+        description: [
+          "Deze AI tool wordt getraind op uw bedrijfsdata en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
+          "Denk nooit meer uren lang na over hoe je een ingewikkelde mail van een klant gaat beantwoorden.",
+        ],
+        ctaLabel: "Bekijk de app",
+        ctaHref: "https://email-drafter-nine.vercel.app/",
+        image: emailDrafterImage,
+        imageAlt: "AI email drafter",
+        link: "https://email-drafter-nine.vercel.app/",
+      },
+      {
+        title: "Optometrie AI receptionist",
+        description: [
+          "Een antwoordapparaat. Op steroïden.",
+          "Onze AI-assistent springt bij in deze praktijk wanneer het druk is:",
+          "beantwoordt vragen, boekt afspraken en stuurt berichtjes naar klanten.",
+        ],
+        ctaLabel: "Hoor de assistent",
+        ctaType: "toggleAudio" as const,
+        image: voiceAssistantImage,
+        imageAlt: "Voice AI Assistent",
+        link: null,
+      },
+      {
+        title: "Luisterend Oor",
+        description: [
+          "Forward je spraakbericht naar dit WhatsApp nummer en ontvang binnen seconden een samenvatting + transcriptie.",
+        ],
+        ctaLabel: "Plan een demo",
+        ctaHref: "https://cal.com/christian2001za",
+        image: snelleSchrijverImage,
+        imageAlt: "Luisterend Oor WhatsApp samenvatter",
+        link: null,
+      },
+    ],
+    [],
+  );
   const [activeProjectIndex, setActiveProjectIndex] = useState(0);
   const autoRotateRef = useRef<number | null>(null);
 
@@ -85,6 +88,14 @@ const Index = () => {
     startAutoRotate();
     return () => stopAutoRotate();
   }, [projects.length]);
+
+  useEffect(() => {
+    projects.forEach((project) => {
+      if (!project.image) return;
+      const img = new Image();
+      img.src = project.image;
+    });
+  }, [projects]);
 
   const handleToggleDemo = () => {
     if (!audioRef.current) return;
@@ -230,42 +241,46 @@ const Index = () => {
                   </div>
                 )}
               </div>
-              <h3 className="text-xl font-medium">{activeProject.title}</h3>
-              <div className="mt-2 space-y-2 text-sm text-muted-foreground">
-                {activeProject.description.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+              <div className="flex w-full max-w-sm flex-1 flex-col items-center">
+                <h3 className="text-xl font-medium">{activeProject.title}</h3>
+                <div className="project-description mt-2 h-[260px] space-y-2 text-sm text-muted-foreground md:h-[210px]">
+                  {activeProject.description.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                {activeProject.ctaType === "toggleAudio" ? (
+                  <div className="mt-auto pt-6">
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      onClick={handleToggleDemo}
+                      aria-label={
+                        isPlaying
+                          ? "Pauzeer voice assistent demo"
+                          : "Speel voice assistent demo af"
+                      }
+                    >
+                      {isPlaying ? "Pause" : activeProject.ctaLabel}
+                    </Button>
+                  </div>
+                ) : activeProject.ctaHref ? (
+                  <div className="mt-auto pt-6">
+                    <Button
+                      variant="secondary"
+                      size="lg"
+                      asChild
+                    >
+                      <a
+                        href={activeProject.ctaHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {activeProject.ctaLabel}
+                      </a>
+                    </Button>
+                  </div>
+                ) : null}
               </div>
-              {activeProject.ctaType === "toggleAudio" ? (
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="mt-6"
-                  onClick={handleToggleDemo}
-                  aria-label={
-                    isPlaying
-                      ? "Pauzeer voice assistent demo"
-                      : "Speel voice assistent demo af"
-                  }
-                >
-                  {isPlaying ? "Pause" : activeProject.ctaLabel}
-                </Button>
-              ) : activeProject.ctaHref ? (
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  asChild
-                  className="mt-6"
-                >
-                  <a
-                    href={activeProject.ctaHref}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {activeProject.ctaLabel}
-                  </a>
-                </Button>
-              ) : null}
             </div>
           </div>
         </div>
