@@ -243,7 +243,7 @@ const Index = () => {
               </div>
               <div className="flex w-full max-w-sm flex-1 flex-col items-center">
                 <h3 className="text-xl font-medium">{activeProject.title}</h3>
-                <div className="project-description mt-2 h-[260px] space-y-2 text-sm text-muted-foreground md:h-[210px]">
+                <div className="project-description mt-2 h-[200px] space-y-2 text-sm text-muted-foreground md:h-[150px]">
                   {activeProject.description.map((paragraph) => (
                     <p key={paragraph}>{paragraph}</p>
                   ))}
