@@ -17,7 +17,7 @@ const Index = () => {
     {
       title: "AI Debatwijzer 2025",
       description: [
-        "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken.",
+        "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken. (al 300+ debatten)",
         "Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.",
       ],
       ctaLabel: "Start een debat",
@@ -29,10 +29,8 @@ const Index = () => {
     {
       title: "AI email drafter",
       description: [
-        "Dit is een AI tool voor bedrijven die ingewikkelde vragen krijgen van klanten.",
-        "De AI tool snapt uw bedrijf en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
-        "Daarnaast heeft hij handige manieren om handmatig of met prompts de email te finetunen.",
-        "Denk niet meer uren lang over hoe je een moeilijke mail gaat beantwoorden.",
+        "Deze AI tool wordt getraind op uw bedrijfsdata en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
+        "Denk nooit meer uren lang na over hoe je een ingewikkelde mail van een klant gaat beantwoorden.",
       ],
       ctaLabel: "Bekijk de app",
       ctaHref: "https://email-drafter-nine.vercel.app/",
