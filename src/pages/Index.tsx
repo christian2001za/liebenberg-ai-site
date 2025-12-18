@@ -322,7 +322,10 @@ const Index = () => {
                 Liebenberg AI bouwt custom AI-oplossingen voor bedrijven die slimmer willen werken.
               </p>
               <p className="text-base leading-relaxed text-foreground md:text-lg">
-                Geen standaard tools, maar maatwerk dat past bij jouw processen. Onze oplossingen versnellen je werk, maar jij houdt de controle.
+                Geen standaard tools, maar maatwerk dat past bij jouw processen. Bovendien monitoren we extensief en schalen we mee je organisatie. Onze oplossingen versnellen je werk, maar jij houdt de controle.
+              </p>
+              <p className="text-base leading-relaxed text-foreground md:text-lg">
+              Nog te veel mensen doen robotwerk. Wij bouwen AI die dat overneemt — zodat jij weer mens kunt zijn in je werk.
               </p>
               <div className="pt-2">
                 <p className="text-sm font-semibold text-foreground md:text-base">
