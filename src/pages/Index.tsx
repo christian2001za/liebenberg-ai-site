@@ -330,7 +330,7 @@ const Index = () => {
               <div className="pt-2">
                 <p className="text-sm font-semibold text-foreground md:text-base">
                   Christian Liebenberg{" "}
-                  <span className="font-normal text-muted-foreground">- Oprichter</span>
+                  <span className="font-normal text-muted-foreground">- Oprichter | AI engineer & consultant</span>
                 </p>
                 <p className="mt-2 text-base leading-relaxed text-foreground md:text-lg">
                   Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt. Ik sta altijd open voor een gesprek of koffietje.
