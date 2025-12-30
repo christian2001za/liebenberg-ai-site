@@ -1,124 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, Linkedin } from "lucide-react";
+import { useState } from "react";
+import { Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import voiceAssistantImage from "@/assets/voice-assistant.png";
 import debatwijzerImage from "@/assets/debat.png";
-import emailDrafterImage from "@/assets/email_drafter.png";
-import snelleSchrijverImage from "@/assets/snelle_schrijver.png";
+import emailDrafterUiImage from "@/assets/UI email drafter.png";
+import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
-import demoVapiAudio from "@/assets/demo-vapi.wav";
 import logo from "@/assets/logo.svg";
 import underlineStroke from "@/assets/streep.png";
 
 const Index = () => {
-  const audioRef = useRef<HTMLAudioElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const projects = useMemo(
-    () => [
-      {
-        title: "AI Debatwijzer 2025",
-        description: [
-          "Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken. (al 300+ debatten)",
-          "Stel een vraag en start het debat. Inclusief citaten uit verkiezingsprogramma's.",
-        ],
-        ctaLabel: "Start een debat",
-        ctaHref: "https://debat.liebenberg.ai",
-        image: debatwijzerImage,
-        imageAlt: "AI Debatwijzer 2025",
-        link: "https://debat.liebenberg.ai",
-      },
-      {
-        title: "AI email drafter",
-        description: [
-          "Deze AI tool wordt getraind op uw bedrijfsdata en is flexibel en gemakkelijk zelf aan te passen naar uw smaak.",
-          "Denk nooit meer uren lang na over hoe je een ingewikkelde mail van een klant gaat beantwoorden.",
-        ],
-        ctaLabel: "Bekijk de app",
-        ctaHref: "https://email-drafter-nine.vercel.app/",
-        image: emailDrafterImage,
-        imageAlt: "AI email drafter",
-        link: "https://email-drafter-nine.vercel.app/",
-      },
-      {
-        title: "Optometrie AI receptionist",
-        description: [
-          "Een antwoordapparaat. Op steroïden.",
-          "Onze AI-assistent springt bij in deze praktijk wanneer het druk is:",
-          "beantwoordt vragen, boekt afspraken en stuurt berichtjes naar klanten.",
-        ],
-        ctaLabel: "Hoor de assistent",
-        ctaType: "toggleAudio" as const,
-        image: voiceAssistantImage,
-        imageAlt: "Voice AI Assistent",
-        link: null,
-      },
-      {
-        title: "Luisterend Oor",
-        description: [
-          "Forward je spraakbericht naar dit WhatsApp nummer en ontvang binnen seconden een samenvatting + transcriptie.",
-        ],
-        ctaLabel: "Plan een demo",
-        ctaHref: "https://cal.com/christian2001za",
-        image: snelleSchrijverImage,
-        imageAlt: "Luisterend Oor WhatsApp samenvatter",
-        link: null,
-      },
-    ],
-    [],
-  );
-  const [activeProjectIndex, setActiveProjectIndex] = useState(0);
-  const autoRotateRef = useRef<number | null>(null);
-
-  const stopAutoRotate = () => {
-    if (autoRotateRef.current) {
-      window.clearInterval(autoRotateRef.current);
-      autoRotateRef.current = null;
-    }
-  };
-
-  const startAutoRotate = () => {
-    if (autoRotateRef.current) return;
-    autoRotateRef.current = window.setInterval(
-      () => setActiveProjectIndex((prevIndex) => (prevIndex + 1) % projects.length),
-      5000,
-    );
-  };
-
-  useEffect(() => {
-    startAutoRotate();
-    return () => stopAutoRotate();
-  }, [projects.length]);
-
-  useEffect(() => {
-    projects.forEach((project) => {
-      if (!project.image) return;
-      const img = new Image();
-      img.src = project.image;
-    });
-  }, [projects]);
-
-  const handleToggleDemo = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play().catch(() => undefined);
-    }
-  };
-
-  const handleNextProject = () => {
-    stopAutoRotate();
-    setActiveProjectIndex((prevIndex) => (prevIndex + 1) % projects.length);
-  };
-
-  const handlePreviousProject = () => {
-    stopAutoRotate();
-    setActiveProjectIndex(
-      (prevIndex) => (prevIndex - 1 + projects.length) % projects.length,
-    );
-  };
-
-  const activeProject = projects[activeProjectIndex];
+  const [isCaseStudyImageOpen, setIsCaseStudyImageOpen] = useState(false);
 
   return (
     <div className="min-h-screen bg-background">
@@ -136,9 +27,9 @@ const Index = () => {
       <section className="px-6 py-16 md:py-24 lg:py-32">
         <div className="mx-auto max-w-6xl text-center">
           <h1 className="hero-animate mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
-            Laat AI werken voor je bedrijf.
+            Minder Admin.
             <span className="mx-auto inline-block font-heading text-muted-foreground hero-delay-1 hero-animate">
-              Dag en nacht.
+              Meer Output.
               <img
                 src={underlineStroke}
                 alt=""
@@ -147,18 +38,19 @@ const Index = () => {
             </span>
           </h1>
           <p className="hero-animate hero-delay-2 mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-            Custom AI-oplossingen die administratief werk overnemen. Jij houdt de controle.
+          Custom AI-oplossingen voor administratieve processen. Gebouwd met econometrische precisie en AI-expertise. Geen standaard tools, maar maatwerk dat direct tijd vrijmaakt voor wat echt telt.
           </p>
-          <audio
-            ref={audioRef}
-            src={demoVapiAudio}
-            preload="auto"
-            className="hidden"
-            aria-hidden="true"
-            onPlay={() => setIsPlaying(true)}
-            onPause={() => setIsPlaying(false)}
-            onEnded={() => setIsPlaying(false)}
-          />
+          <ul className="hero-animate hero-delay-2 mx-auto mb-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-base text-muted-foreground md:text-lg">
+            <li>
+              <strong>Pilot draait binnen in 2-4 weken.</strong> 
+            </li>
+            <li>
+              <strong>Jij behoudt volledige controle.</strong> 
+            </li>
+            <li>
+              <strong>Transparant en meetbaar resultaat.</strong> 
+            </li>
+          </ul>
           <Button 
             variant="hero" 
             size="xl"
@@ -166,139 +58,321 @@ const Index = () => {
             className="hero-animate hero-delay-3 mt-2"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Boek een intro gesprek
+              Plan procesanalyse
             </a>
           </Button>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-[#E6E6D1] p-8 text-center shadow-soft md:p-12">
-            <div className="mb-8 flex flex-col items-center justify-between gap-4 md:flex-row">
-              <div className="text-center md:text-left">
-                <h2 className="font-heading text-2xl font-semibold md:text-3xl">Projecten</h2>
-                <p className="mt-3 text-muted-foreground">
-                  Ontdek waar AI het verschil maakt in onze recente projecten.
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handlePreviousProject}
-                  aria-label="Vorige project"
-                >
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={handleNextProject}
-                  aria-label="Volgende project"
-                >
-                  <ArrowRight className="h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-            <div
-              key={activeProject.title}
-              className="project-animate flex min-h-[540px] flex-col items-center md:min-h-[620px]"
-            >
-              <div className="group mx-auto mb-6 block max-w-sm">
-                {activeProject.link ? (
-                  <a
-                    href={activeProject.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {activeProject.image ? (
-                      <img
-                        src={activeProject.image}
-                        alt={activeProject.imageAlt}
-                        className="h-[320px] w-full rounded-xl object-cover shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]"
-                      />
-                    ) : (
-                      <div className="flex h-[320px] items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]">
-                        <span className="text-sm font-medium text-muted-foreground">
-                          Foto wordt hier geplaatst
-                        </span>
-                      </div>
-                    )}
-                  </a>
-                ) : activeProject.image ? (
-                  <img
-                    src={activeProject.image}
-                    alt={activeProject.imageAlt}
-                    className="h-[320px] w-full rounded-xl object-cover shadow-medium md:h-[360px]"
-                  />
-                ) : (
-                  <div className="flex h-[320px] items-center justify-center rounded-xl bg-[#dcdccb] shadow-medium md:h-[360px]">
-                    <span className="text-sm font-medium text-muted-foreground">
-                      Foto wordt hier geplaatst
-                    </span>
-                  </div>
-                )}
-              </div>
-              <div className="flex w-full max-w-sm flex-1 flex-col items-center">
-                <h3 className="text-xl font-medium">{activeProject.title}</h3>
-                <div className="project-description mt-2 h-[200px] space-y-2 text-sm text-muted-foreground md:h-[150px]">
-                  {activeProject.description.map((paragraph) => (
-                    <p key={paragraph}>{paragraph}</p>
-                  ))}
-                </div>
-                {activeProject.ctaType === "toggleAudio" ? (
-                  <div className="mt-auto pt-6">
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      onClick={handleToggleDemo}
-                      aria-label={
-                        isPlaying
-                          ? "Pauzeer voice assistent demo"
-                          : "Speel voice assistent demo af"
-                      }
-                    >
-                      {isPlaying ? "Pause" : activeProject.ctaLabel}
-                    </Button>
-                  </div>
-                ) : activeProject.ctaHref ? (
-                  <div className="mt-auto pt-6">
-                    <Button
-                      variant="secondary"
-                      size="lg"
-                      asChild
-                    >
-                      <a
-                        href={activeProject.ctaHref}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {activeProject.ctaLabel}
-                      </a>
-                    </Button>
-                  </div>
-                ) : null}
-              </div>
-            </div>
-          </div>
+          <p className="mt-3 text-sm text-muted-foreground">
+            Vrijblijvend en 30 minuten
+          </p>
         </div>
       </section>
 
       {/* Custom Solutions Section */}
       <section className="px-6 py-16">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="inline-block text-left">
-            <div className="mb-6">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">Maatwerk voor jouw bedrijf</h2>
+          <div>
+            <div className="mb-8">
+              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+                Diensten
+              </h2>
             </div>
-            <ul className="mt-4 list-disc space-y-3 pl-6 text-base leading-relaxed text-foreground md:text-lg md:pl-6">
-              <li>Custom AI software</li>
-              <li>AI (voice) agents</li>
-              <li>Klantenservice AI (chat, email,voice, WhatsApp)</li>
-              <li>Process automation</li>
-            </ul>
+            <div className="grid gap-4 text-left sm:grid-cols-2">
+              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
+                <p className="text-base font-medium text-foreground md:text-lg">
+                  Document processing
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Stop met overtypen. Laat AI je facturen, contracten en rapporten lezen, begrijpen en verwerken in je systemen.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
+                <p className="text-base font-medium text-foreground md:text-lg">
+                  Intelligente communicatie
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Je inbox onder controle. AI die e-mails klaatzet in jouw tone-of-voice, klantvragen direct beantwoordt en je team uren per week bespaart.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
+                <p className="text-base font-medium text-foreground md:text-lg">
+                Interne kennis & support
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                  Stel je vragen aan je eigen documenten en procedures. Snel antwoord met bronverwijzing. Onboard sneller, zoek korter, meer overzicht.
+                </p>
+              </div>
+              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
+                <p className="text-base font-medium text-foreground md:text-lg">
+                  Process automation
+                </p>
+                <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                  We tekenen je processen uit en automatiseren het, zodat niets blijft liggen. Gecombineerd met human-in-the-loop zodat jij ten alle tijden controle houdt.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works Section */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+              Hoe het werkt
+            </h2>
+          </div>
+          <div className="rounded-3xl bg-[#F3F1E3] p-8 shadow-soft md:p-12">
+            <div className="space-y-5">
+              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
+                  01
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Stap 1
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                    Procesanalyse (gratis, 30 min)
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                    Welke processen kosten tijd? Ik analyseer en stel een aanpak voor.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
+                  02
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Stap 2
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                    Pilot ontwikkeling (2-4 weken)
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                    Ik bouw een werkende versie. Je test mee, geeft feedback, ik pas aan.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
+                  03
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Stap 3
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                    Optimalisatie (1-2 weken)
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                    Intensieve begeleiding en finetuning tot alles soepel draait.
+                  </p>
+                </div>
+              </div>
+              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
+                  04
+                </div>
+                <div>
+                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                    Stap 4
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
+                    Onderhoud
+                  </h3>
+                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                    Maandelijkse service om het systeem stabiel te houden. Doorontwikkeling
+                    en nieuwe features bespreken we op basis van je wensen.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-8 rounded-2xl border border-border/60 bg-white/70 p-6 text-left shadow-medium">
+              <p className="text-sm text-foreground md:text-base">
+                <span className="font-semibold">💡 Geen maandenlange projecten of onduidelijke trajecten.</span>{" "}
+                Je weet vooraf wat je krijgt, wanneer, en wat de volgende stap is.
+              </p>
+            </div>
+            <div className="mt-6 text-left">
+              <Button variant="secondary" size="lg" asChild>
+                <a
+                  href="https://cal.com/christian2001za"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Plan procesanalyse
+                </a>
+              </Button>
+              <p className="mt-2 text-xs text-muted-foreground">
+                Vrijblijvend en 30 minuten
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="px-6 py-16 bg-[#F6F4E8]">
+        <div className="mx-auto w-full max-w-none">
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+              Case Studies
+            </h2>
+            <p className="mt-3 text-muted-foreground">
+              Een korte inkijk in projecten waar we direct impact maken.
+            </p>
+          </div>
+          <div className="border-y border-border/60">
+            <div className="grid gap-8 py-10 md:grid-cols-[1.1fr,2fr]">
+              <div>
+                <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  Case study
+                </p>
+                <h3 className="mt-2 text-xl font-semibold md:text-2xl">
+                  Inbox AI voor optiekzaak
+                </h3>
+                <p className="mt-3 text-sm text-muted-foreground md:text-base">
+                  AI-software voor een optometrie praktijk die concepten genereert op inkomende mails. Onze AI is getraind op hun kennisbank en tone-of-voice, en de concepten zijn makkelijk handmatig of met AI-edit te finetunen. “Na meerdere tools te hebben getest, is dit de eerste oplossing die echt emails schrijft zoals ik.”
+                </p>
+                <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <button
+                    type="button"
+                    onClick={() => setIsCaseStudyImageOpen(true)}
+                    className="group flex w-full max-w-[280px] cursor-zoom-in items-center justify-center"
+                    aria-label="Vergroot UI Email Drafter"
+                  >
+                    <img
+                      src={emailDrafterUiImage}
+                      alt="UI Email Drafter"
+                      className="h-32 w-full rounded-2xl border border-border/60 object-cover shadow-medium blur-[1.5px] transition-all duration-200 group-hover:scale-[1.02] group-hover:blur-[0.8px]"
+                    />
+                  </button>
+                  <img
+                    src={optiekglasLogo}
+                    alt="Optiekglas logo"
+                    className="h-16 w-auto"
+                  />
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">
+                  Klik om te vergroten
+                </p>
+                <div className="mt-4">
+                  <Button variant="secondary" size="lg" asChild>
+                    <a
+                      href="https://email-drafter-nine.vercel.app/home"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Bekijk de app
+                    </a>
+                  </Button>
+                </div>
+              </div>
+              <div className="space-y-6">
+                <div className="border-b border-border/60 pb-6">
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Situatie
+                  </h4>
+                  <p className="mt-2 text-sm text-foreground md:text-base">
+                    Veel ingewikkelde herhaalvragen van klanten en handmatig typen en formuleren.
+                  </p>
+                </div>
+                <div className="border-b border-border/60 pb-6">
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Aanpak
+                  </h4>
+                  <p className="mt-2 text-sm text-foreground md:text-base">
+                    Onze AI, getraind op hun kennisbank en tone-of-voice, genereert concepten op inkomende mails.
+                    Makkelijk te finetunen, handmatig of met AI-edit.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="text-xs font-semibold uppercase tracking-[0.16em] text-muted-foreground">
+                    Resultaat
+                  </h4>
+                  <p className="mt-2 text-sm text-foreground md:text-base">
+                    Snellere antwoorden, consistentere communicatie, minder werkdruk.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {isCaseStudyImageOpen ? (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4 py-8"
+              role="dialog"
+              aria-modal="true"
+              aria-label="UI Email Drafter"
+              onClick={() => setIsCaseStudyImageOpen(false)}
+            >
+              <div
+                className="max-h-[85vh] w-full max-w-5xl cursor-zoom-out"
+                onClick={(event) => event.stopPropagation()}
+              >
+                <img
+                  src={emailDrafterUiImage}
+                  alt="UI Email Drafter"
+                  className="h-full w-full rounded-2xl object-contain shadow-2xl"
+                />
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </section>
+
+      {/* Builds & Prototypes Section */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:p-12">
+            <div className="mb-8 text-center">
+              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+                Publieke Projecten
+              </h2>
+              <p className="mt-3 text-muted-foreground">
+              Publieke projecten (geen klantwerk) die laten zien hoe ik AI-ervaringen bouw en ship.
+              </p>
+            </div>
+            <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
+              <a
+                href="https://debat.liebenberg.ai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group w-full max-w-sm"
+              >
+                <img
+                  src={debatwijzerImage}
+                  alt="AI Debatwijzer 2025"
+                  className="h-[320px] w-full rounded-xl object-cover shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]"
+                />
+              </a>
+              <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
+                <h3 className="text-xl font-medium">AI Debatwijzer 2025</h3>
+                <div className="mt-2 space-y-2 text-sm text-muted-foreground md:text-base">
+                  <p>
+                    Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken.
+                    (300+ debatten)
+                  </p>
+                  <p>
+                    Stel een vraag en start het debat. Inclusief citaten uit
+                    verkiezingsprogramma's.
+                  </p>
+                </div>
+                <div className="pt-6">
+                  <Button variant="secondary" size="lg" asChild>
+                    <a
+                      href="https://debat.liebenberg.ai"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Start een debat
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -322,7 +396,7 @@ const Index = () => {
                 Liebenberg AI bouwt custom AI-oplossingen voor bedrijven die slimmer willen werken.
               </p>
               <p className="text-base leading-relaxed text-foreground md:text-lg">
-                Geen standaard tools, maar maatwerk dat past bij jouw processen. Bovendien monitoren we extensief en schalen we mee met je organisatie. Onze oplossingen versnellen je werk, maar jij houdt de controle.
+                Geen standaard tools, maar maatwerk dat past bij jouw processen. Onze oplossingen versnellen je werk, maar jij houdt de controle.
               </p>
               <p className="text-base leading-relaxed text-foreground md:text-lg">
               Nog te veel mensen doen robotwerk. Wij bouwen AI die dat overneemt — zodat jij weer mens kunt zijn in je werk.
@@ -333,7 +407,7 @@ const Index = () => {
                   <span className="font-normal text-muted-foreground">- Oprichter | AI engineer & consultant</span>
                 </p>
                 <p className="mt-2 text-base leading-relaxed text-foreground md:text-lg">
-                  Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt. Ik sta altijd open voor een gesprek of koffietje.
+                  Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt. Ik sta altijd open voor een kennismaking — online of in persoon.
                 </p>
                 <div className="pt-4">
                   <Button variant="secondary" size="lg" asChild>
@@ -351,6 +425,88 @@ const Index = () => {
               </div>
             </div>
           </div>
+          <div className="mt-6 flex flex-col items-center text-center">
+            <Button variant="secondary" size="lg" asChild>
+              <a
+                href="https://cal.com/christian2001za"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Plan procesanalyse
+              </a>
+            </Button>
+            <p className="mt-2 text-xs text-muted-foreground">
+              Vrijblijvend en 30 minuten
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="px-6 py-16">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-8 text-center">
+            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+              FAQ
+            </h2>
+          </div>
+          <div className="space-y-4">
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Hoe lang duurt het voordat het werkt?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Een pilot draait binnen 2-4 weken. Daarna 1-2 weken optimalisatie.
+                Totaal: 4-8 weken van start tot finish.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Kan ik na de pilot stoppen?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Ja. De pilot is bedoeld om te testen of AI iets voor je bedrijf is.
+                Geen verplichtingen daarna.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Wat als het niet werkt zoals verwacht?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                → Dan passen we aan in de optimalisatiefase, of stoppen we.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Is mijn data veilig?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Ja. Ik werk met gerenommeerde AI-providers en volg privacy-richtlijnen.
+                Je data wordt niet gedeeld of gebruikt voor andere doeleinden.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Werkt het met mijn huidige systemen?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Meestal wel. Ik koppel aan veelgebruikte tools zoals Gmail, Excel,
+                Google Drive, en de meeste boekhoudsoftware. Tijdens de procesanalyse
+                checken we compatibiliteit.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
+              <h3 className="text-base font-semibold text-foreground md:text-lg">
+                ❓ Hoe weet ik of AI geschikt is voor mijn proces?
+              </h3>
+              <p className="mt-2 text-sm text-muted-foreground md:text-base">
+                Goed voor: repetitief werk, veel data verwerken, standaardvragen
+                beantwoorden, documenten doorzoeken. Twijfel? Plan een gratis
+                procesanalyse en ik geef eerlijk advies.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -364,9 +520,12 @@ const Index = () => {
             className="mb-6"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Boek een intro gesprek
+            Plan procesanalyse
             </a>
           </Button>
+          <p className="mb-6 text-sm text-muted-foreground">
+            Vrijblijvend en 30 minuten
+          </p>
           <p className="text-muted-foreground">
             Of mail naar{" "}
             <a 
