@@ -7,6 +7,7 @@ import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
 import logo from "@/assets/logo.svg";
 import underlineStroke from "@/assets/streep.png";
+import { TechStack } from "@/components/TechStack";
 
 const Index = () => {
   const [isCaseStudyImageOpen, setIsCaseStudyImageOpen] = useState(false);
@@ -24,180 +25,146 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="px-6 py-16 md:py-24 lg:py-32">
-        <div className="mx-auto max-w-6xl text-center">
-          <h1 className="hero-animate mb-6 text-6xl font-bold md:text-7xl lg:text-8xl">
+      {/* Hero Section */}
+      <section className="px-6 py-24 md:py-32 lg:py-40">
+        <div className="mx-auto max-w-4xl text-center">
+          <h1 className="hero-animate mb-8 text-6xl font-medium tracking-tight text-foreground md:text-7xl lg:text-8xl font-heading leading-[1.1]">
             Minder Admin.
-            <span className="mx-auto inline-block font-heading text-muted-foreground hero-delay-1 hero-animate">
+            <span className="block text-muted-foreground/80 hero-delay-1 hero-animate mt-2">
               Meer Output.
-              <img
-                src={underlineStroke}
-                alt=""
-                className="hero-underline mt-4 h-auto w-full"
-              />
             </span>
           </h1>
-          <p className="hero-animate hero-delay-2 mb-6 text-lg text-muted-foreground md:text-xl lg:text-2xl">
-          Custom AI-oplossingen voor administratieve processen. Gebouwd met econometrische precisie en AI-expertise. Geen standaard tools, maar maatwerk dat direct tijd vrijmaakt voor wat echt telt.
+          <p className="hero-animate hero-delay-2 mb-8 text-lg text-muted-foreground md:text-xl lg:text-2xl max-w-2xl mx-auto leading-relaxed">
+            Custom AI-oplossingen voor administratieve processen. Gebouwd met econometrische precisie. Geen standaard tools, maar maatwerk dat direct tijd vrijmaakt.
           </p>
-          <ul className="hero-animate hero-delay-2 mx-auto mb-6 max-w-2xl list-disc space-y-2 pl-6 text-left text-base text-muted-foreground md:text-lg">
-            <li>
-              <strong>Pilot draait binnen in 2-4 weken.</strong> 
-            </li>
-            <li>
-              <strong>Jij behoudt volledige controle.</strong> 
-            </li>
-            <li>
-              <strong>Transparant en meetbaar resultaat.</strong> 
-            </li>
-          </ul>
-          <Button 
-            variant="hero" 
-            size="xl"
-            asChild
-            className="hero-animate hero-delay-3 mt-2"
-          >
-            <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
-              Plan procesanalyse
-            </a>
-          </Button>
-          <p className="mt-3 text-sm text-muted-foreground">
-            Vrijblijvend en 30 minuten
-          </p>
+          <div className="hero-animate hero-delay-3 flex flex-col items-center gap-4">
+            <Button 
+              variant="hero" 
+              size="xl"
+              asChild
+              className="px-12 h-14"
+            >
+              <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
+                Plan procesanalyse
+              </a>
+            </Button>
+            <p className="text-sm text-muted-foreground/80">
+              Vrijblijvend en 30 minuten
+            </p>
+          </div>
+
+          {/* Value Props Row */}
+          <div className="hero-animate hero-delay-3 mt-12 flex flex-col items-center justify-center gap-y-4 gap-x-8 text-sm text-muted-foreground sm:flex-row md:text-base">
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span className="font-medium">Pilot in 2-4 weken</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span className="font-medium">Jij behoudt controle</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <span className="font-medium">Meetbaar resultaat</span>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* Tech Stack Marquee */}
+      <TechStack />
+
       {/* Custom Solutions Section */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl text-center">
-          <div>
-            <div className="mb-8">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
-                Diensten
-              </h2>
-            </div>
-            <div className="grid gap-4 text-left sm:grid-cols-2">
-              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
-                <p className="text-base font-medium text-foreground md:text-lg">
-                  Document processing
+      <section className="px-6 py-24">
+        <div className="mx-auto max-w-5xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl font-medium md:text-4xl text-foreground">
+              Diensten
+            </h2>
+          </div>
+          <div className="grid gap-6 text-left sm:grid-cols-2">
+            {[
+              {
+                title: "Document processing",
+                desc: "Stop met overtypen. Laat AI je facturen, contracten en rapporten lezen, begrijpen en verwerken in je systemen."
+              },
+              {
+                title: "Intelligente communicatie",
+                desc: "Je inbox onder controle. AI die e-mails klaarzet in jouw tone-of-voice, klantvragen direct beantwoordt en team-uren bespaart."
+              },
+              {
+                title: "Interne kennis & support",
+                desc: "Stel vragen aan je eigen documenten. Snel antwoord met bronverwijzing. Onboard sneller, zoek korter, meer overzicht."
+              },
+              {
+                title: "Process automation",
+                desc: "We tekenen je processen uit en automatiseren het, zodat niets blijft liggen. Human-in-the-loop voor volledige controle."
+              }
+            ].map((service, i) => (
+              <div key={i} className="group rounded-xl border border-border/50 bg-white/60 p-8 shadow-sm transition-all hover:shadow-md hover:bg-white/80 backdrop-blur-sm">
+                <p className="text-lg font-medium text-foreground">
+                  {service.title}
                 </p>
-                <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Stop met overtypen. Laat AI je facturen, contracten en rapporten lezen, begrijpen en verwerken in je systemen.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
-                <p className="text-base font-medium text-foreground md:text-lg">
-                  Intelligente communicatie
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Je inbox onder controle. AI die e-mails klaatzet in jouw tone-of-voice, klantvragen direct beantwoordt en je team uren per week bespaart.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
-                <p className="text-base font-medium text-foreground md:text-lg">
-                Interne kennis & support
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                  Stel je vragen aan je eigen documenten en procedures. Snel antwoord met bronverwijzing. Onboard sneller, zoek korter, meer overzicht.
-                </p>
-              </div>
-              <div className="rounded-2xl bg-[#E6E6D1] p-6 shadow-soft">
-                <p className="text-base font-medium text-foreground md:text-lg">
-                  Process automation
-                </p>
-                <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                  We tekenen je processen uit en automatiseren het, zodat niets blijft liggen. Gecombineerd met human-in-the-loop zodat jij ten alle tijden controle houdt.
+                <p className="mt-3 text-base text-muted-foreground leading-relaxed">
+                  {service.desc}
                 </p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* How It Works Section */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-24 bg-secondary/30">
         <div className="mx-auto max-w-4xl">
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl font-medium md:text-4xl">
               Hoe het werkt
             </h2>
           </div>
-          <div className="rounded-3xl bg-[#F3F1E3] p-8 shadow-soft md:p-12">
-            <div className="space-y-5">
-              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
-                  01
+          <div className="space-y-6">
+            {[
+              { step: "01", title: "Procesanalyse", desc: "Welke processen kosten tijd? We analyseren en stellen een aanpak voor." },
+              { step: "02", title: "Pilot ontwikkeling (2-4 weken)", desc: "We bouwen een werkende versie. Je test mee, geeft feedback, wij passen aan." },
+              { step: "03", title: "Optimalisatie (1-2 weken)", desc: "Intensieve begeleiding en finetuning tot alles soepel draait." },
+              { step: "04", title: "Onderhoud", desc: "Maandelijkse service om het systeem stabiel te houden. Doorontwikkeling op maat." }
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col gap-6 rounded-xl border border-border/40 bg-white/60 p-6 shadow-sm md:flex-row md:items-start transition-colors hover:bg-white/90">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-sm font-semibold text-foreground border border-secondary-foreground/10">
+                  {item.step}
                 </div>
                 <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Stap 1
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
-                    Procesanalyse
+                  <h3 className="text-lg font-medium text-foreground md:text-xl">
+                    {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    Welke processen kosten tijd? We analyseren en stellen een aanpak voor.
+                  <p className="mt-2 text-base text-muted-foreground leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
               </div>
-              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
-                  02
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Stap 2
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
-                    Pilot ontwikkeling (2-4 weken)
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    We bouwen een werkende versie. Je test mee, geeft feedback, wij passen aan.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
-                  03
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Stap 3
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
-                    Optimalisatie (1-2 weken)
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    Intensieve begeleiding en finetuning tot alles soepel draait.
-                  </p>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-2xl border border-border/60 bg-white/80 p-6 shadow-medium md:flex-row md:items-start">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#E6E6D1] text-sm font-semibold text-foreground">
-                  04
-                </div>
-                <div>
-                  <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
-                    Stap 4
-                  </p>
-                  <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
-                    Onderhoud
-                  </h3>
-                  <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    Maandelijkse service om het systeem stabiel te houden. Doorontwikkeling
-                    en nieuwe features bespreken we op basis van je wensen.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 rounded-2xl border border-border/60 bg-white/70 p-6 text-left shadow-medium">
+            ))}
+            
+            <div className="mt-8 rounded-xl bg-primary/5 p-6 text-left border border-primary/10">
               <p className="text-sm text-foreground md:text-base">
-                <span className="font-semibold">💡 Geen maandenlange projecten of onduidelijke trajecten.</span>{" "}
+                <span className="font-semibold text-primary">💡 Geen onduidelijke trajecten.</span>{" "}
                 Je weet vooraf wat je krijgt, wanneer, en wat de volgende stap is.
               </p>
             </div>
-            <div className="mt-6 text-left">
-              <Button variant="secondary" size="lg" asChild>
+            
+            <div className="mt-8 text-center md:text-left">
+              <Button variant="outline" size="lg" className="border-secondary-foreground/20" asChild>
                 <a
                   href="https://cal.com/christian2001za"
                   target="_blank"
@@ -206,26 +173,23 @@ const Index = () => {
                   Plan procesanalyse
                 </a>
               </Button>
-              <p className="mt-2 text-xs text-muted-foreground">
-                Vrijblijvend en 30 minuten
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Case Studies Section */}
-      <section className="px-6 py-16 bg-[#F6F4E8]">
-        <div className="mx-auto w-full max-w-none">
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+      <section className="px-6 py-24">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl font-medium md:text-4xl text-foreground">
               Case Studies
             </h2>
-            <p className="mt-3 text-muted-foreground">
+            <p className="mt-4 text-lg text-muted-foreground">
               Een korte inkijk in projecten waar we direct impact maken.
             </p>
           </div>
-          <div className="border-y border-border/60">
+          <div className="border-y border-border/40">
             <div className="grid gap-8 py-10 md:grid-cols-[1.1fr,2fr]">
               <div>
                 <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
@@ -324,44 +288,46 @@ const Index = () => {
       </section>
 
       {/* Builds & Prototypes Section */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-4xl">
-          <div className="rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:p-12">
-            <div className="mb-8 text-center">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+          <div className="rounded-xl bg-secondary/30 p-8 shadow-sm md:p-12 border border-secondary">
+            <div className="mb-12 text-center">
+              <h2 className="font-heading text-3xl font-medium md:text-4xl">
                 Publieke Projecten
               </h2>
-              <p className="mt-3 text-muted-foreground">
+              <p className="mt-4 text-muted-foreground leading-relaxed max-w-2xl mx-auto">
               Publieke projecten (geen klantwerk) die laten zien hoe wij AI-ervaringen bouwen en shippen.
               </p>
             </div>
-            <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
+            <div className="flex flex-col items-center gap-10 md:flex-row md:items-start">
               <a
                 href="https://debat.liebenberg.ai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group w-full max-w-sm"
+                className="group w-full max-w-sm block"
               >
-                <img
-                  src={debatwijzerImage}
-                  alt="AI Debatwijzer 2025"
-                  className="h-[320px] w-full rounded-xl object-cover shadow-medium transition-transform duration-200 group-hover:scale-[1.02] md:h-[360px]"
-                />
+                <div className="overflow-hidden rounded-xl shadow-md transition-all duration-300 group-hover:shadow-xl group-hover:scale-[1.02]">
+                  <img
+                    src={debatwijzerImage}
+                    alt="AI Debatwijzer 2025"
+                    className="h-[320px] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
               </a>
               <div className="flex flex-1 flex-col items-center text-center md:items-start md:text-left">
-                <h3 className="text-xl font-medium">AI Debatwijzer 2025</h3>
-                <div className="mt-2 space-y-2 text-sm text-muted-foreground md:text-base">
+                <h3 className="text-2xl font-serif text-foreground">AI Debatwijzer 2025</h3>
+                <div className="mt-4 space-y-3 text-base text-muted-foreground leading-relaxed">
                   <p>
                     Een slimme debatwijzer die kiezers helpt om standpunten te ontdekken.
-                    (300+ debatten)
+                    (300+ debatten geanalyseerd)
                   </p>
                   <p>
                     Stel een vraag en start het debat. Inclusief citaten uit
                     verkiezingsprogramma's.
                   </p>
                 </div>
-                <div className="pt-6">
-                  <Button variant="secondary" size="lg" asChild>
+                <div className="pt-8">
+                  <Button variant="default" size="lg" className="rounded-full px-8" asChild>
                     <a
                       href="https://debat.liebenberg.ai"
                       target="_blank"
@@ -378,55 +344,62 @@ const Index = () => {
       </section>
 
       {/* About Section */}
-      <section className="px-6 py-16">
+      <section className="px-6 py-24">
         <div className="mx-auto max-w-5xl">
-          <div className="grid gap-8 rounded-2xl bg-[#E6E6D1] p-8 shadow-soft md:grid-cols-[1fr,1.1fr] md:p-12">
-            <div className="overflow-hidden rounded-xl bg-white/70 shadow-medium">
+          <div className="grid gap-10 rounded-xl bg-secondary/30 p-8 shadow-sm md:grid-cols-[1fr,1.2fr] md:p-12 border border-secondary">
+            <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
               <img
                 src={founderPortrait}
                 alt="Christian Liebenberg"
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
               />
             </div>
-            <div className="flex flex-col space-y-4">
-              <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+            <div className="flex flex-col space-y-6 justify-center">
+              <h2 className="font-heading text-3xl font-medium md:text-4xl">
                 Over ons
               </h2>
-              <p className="text-base leading-relaxed text-foreground md:text-lg">
-                Liebenberg AI bouwt custom AI-oplossingen voor bedrijven die slimmer willen werken.
-              </p>
-              <p className="text-base leading-relaxed text-foreground md:text-lg">
-                Geen standaard tools, maar maatwerk dat past bij jouw processen. Onze oplossingen versnellen je werk, maar jij houdt de controle.
-              </p>
-              <p className="text-base leading-relaxed text-foreground md:text-lg">
-              Nog te veel mensen doen robotwerk. Wij bouwen AI die dat overneemt — zodat jij weer mens kunt zijn in je werk.
-              </p>
-              <div className="pt-2">
-                <p className="text-sm font-semibold text-foreground md:text-base">
-                  Christian Liebenberg{" "}
-                  <span className="font-normal text-muted-foreground">- Oprichter | AI engineer & consultant</span>
+              <div className="space-y-4 text-base leading-relaxed text-muted-foreground md:text-lg">
+                <p>
+                  Liebenberg AI bouwt custom AI-oplossingen voor bedrijven die slimmer willen werken.
                 </p>
-                <p className="mt-2 text-base leading-relaxed text-foreground md:text-lg">
-                  Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt. Ik sta altijd open voor een kennismaking — online of in persoon.
+                <p>
+                  Geen standaard tools, maar maatwerk dat past bij jouw processen. Onze oplossingen versnellen je werk, maar jij houdt de controle.
                 </p>
-                <div className="pt-4">
-                  <Button variant="secondary" size="lg" asChild>
+                <p>
+                  Nog te veel mensen doen robotwerk. Wij bouwen AI die dat overneemt — zodat jij weer mens kunt zijn in je werk.
+                </p>
+              </div>
+              
+              <div className="pt-4 border-t border-border/60">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-lg font-medium text-foreground">
+                      Christian Liebenberg
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Oprichter | AI Engineer & Consultant
+                    </p>
+                  </div>
+                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-white/50">
                     <a
                       href="https://linkedin.com/in/christian-liebenberg-a0511060"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2"
+                      className="text-foreground/80 hover:text-foreground"
                     >
                       <Linkedin className="h-5 w-5" aria-hidden="true" />
-                      LinkedIn
+                      <span className="sr-only">LinkedIn</span>
                     </a>
                   </Button>
                 </div>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  Achtergrond in econometrie (MSc) en consultancy. Ik duik in jouw processen, zoek uit waar tijd verloren gaat, en bouw iets dat echt werkt.
+                </p>
               </div>
             </div>
           </div>
-          <div className="mt-6 flex flex-col items-center text-center">
-            <Button variant="secondary" size="lg" asChild>
+          <div className="mt-12 flex flex-col items-center text-center">
+            <Button variant="outline" size="lg" className="border-primary/20 hover:bg-primary/5" asChild>
               <a
                 href="https://cal.com/christian2001za"
                 target="_blank"
@@ -435,7 +408,7 @@ const Index = () => {
                 Plan procesanalyse
               </a>
             </Button>
-            <p className="mt-2 text-xs text-muted-foreground">
+            <p className="mt-3 text-sm text-muted-foreground">
               Vrijblijvend en 30 minuten
             </p>
           </div>
@@ -443,94 +416,59 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="px-6 py-16">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-8 text-center">
-            <h2 className="font-heading text-2xl font-semibold md:text-3xl">
+      <section className="px-6 py-24 bg-secondary/10">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-12 text-center">
+            <h2 className="font-heading text-3xl font-medium md:text-4xl">
               FAQ
             </h2>
           </div>
           <div className="space-y-4">
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Hoe lang duurt het voordat het werkt?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Een pilot draait binnen 2-4 weken. Daarna 1-2 weken optimalisatie.
-                Totaal: 4-8 weken van start tot finish.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Kan ik na de pilot stoppen?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Ja. De pilot is bedoeld om te testen of AI iets voor je bedrijf is.
-                Geen verplichtingen daarna.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Wat als het niet werkt zoals verwacht?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                → Dan passen we aan in de optimalisatiefase, of stoppen we.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Is mijn data veilig?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Ja. We werken met gerenommeerde AI-providers en volg privacy-richtlijnen.
-                Je data wordt niet gedeeld of gebruikt voor andere doeleinden.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Werkt het met mijn huidige systemen?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Meestal wel. We koppelen aan veelgebruikte tools zoals Gmail, Excel,
-                Google Drive, en de meeste boekhoudsoftware. Tijdens de procesanalyse
-                checken we compatibiliteit.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-border/60 bg-white/70 p-6 shadow-medium">
-              <h3 className="text-base font-semibold text-foreground md:text-lg">
-                ❓ Hoe weet ik of AI geschikt is voor mijn proces?
-              </h3>
-              <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Goed voor: repetitief werk, veel data verwerken, standaardvragen
-                beantwoorden, documenten doorzoeken. Twijfel? Plan een gratis
-                procesanalyse en we geven eerlijk advies.
-              </p>
-            </div>
+            {[
+              { q: "Hoe lang duurt het voordat het werkt?", a: "Een pilot draait binnen 2-4 weken. Daarna 1-2 weken optimalisatie. Totaal: 4-8 weken van start tot finish." },
+              { q: "Kan ik na de pilot stoppen?", a: "Ja. De pilot is bedoeld om te testen of AI iets voor je bedrijf is. Geen verplichtingen daarna." },
+              { q: "Wat als het niet werkt zoals verwacht?", a: "Dan passen we aan in de optimalisatiefase, of stoppen we." },
+              { q: "Is mijn data veilig?", a: "Ja. We werken met gerenommeerde AI-providers en volgen privacy-richtlijnen. Je data wordt niet gedeeld." },
+              { q: "Werkt het met mijn huidige systemen?", a: "Meestal wel. We koppelen aan veelgebruikte tools zoals Gmail, Excel, Google Drive, en de meeste boekhoudsoftware." },
+              { q: "Hoe weet ik of AI geschikt is voor mijn proces?", a: "Goed voor: repetitief werk, veel data verwerken, standaardvragen beantwoorden. Twijfel? Plan een analyse." }
+            ].map((item, i) => (
+              <div key={i} className="rounded-xl border border-border/40 bg-white/70 p-6 shadow-sm transition-all hover:bg-white/95">
+                <h3 className="text-lg font-medium text-foreground">
+                  {item.q}
+                </h3>
+                <p className="mt-2 text-base text-muted-foreground leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-16 pb-24">
+      <section className="px-6 py-32">
         <div className="mx-auto max-w-3xl text-center">
+          <h2 className="mb-8 font-heading text-4xl font-medium md:text-5xl">
+            Klaar om tijd te besparen?
+          </h2>
           <Button 
             variant="hero" 
             size="xl"
             asChild
-            className="mb-6"
+            className="mb-6 px-12 h-14"
           >
             <a href="https://cal.com/christian2001za" target="_blank" rel="noopener noreferrer">
             Plan procesanalyse
             </a>
           </Button>
-          <p className="mb-6 text-sm text-muted-foreground">
+          <p className="mb-8 text-sm text-muted-foreground">
             Vrijblijvend en 30 minuten
           </p>
           <p className="text-muted-foreground">
             Of mail naar{" "}
             <a 
               href="mailto:christian@liebenberg.nl" 
-              className="font-medium text-primary underline-offset-4 transition-colors hover:underline"
+              className="font-medium text-foreground underline decoration-muted-foreground/30 underline-offset-4 transition-colors hover:decoration-foreground hover:text-foreground"
             >
               christian@liebenberg.nl
             </a>
