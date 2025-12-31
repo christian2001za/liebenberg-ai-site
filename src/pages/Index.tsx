@@ -232,7 +232,7 @@ const Index = () => {
                   Case study
                 </p>
                 <h3 className="mt-2 text-xl font-semibold md:text-2xl">
-                  Inbox AI voor optiekzaak
+                  Inbox AI voor optometrie praktijk
                 </h3>
                 <p className="mt-3 text-sm text-muted-foreground md:text-base">
                   AI-software voor een optometrie praktijk die concepten genereert op inkomende mails. Onze AI is getraind op hun kennisbank en tone-of-voice, en de concepten zijn makkelijk handmatig of met AI-edit te finetunen. “Na meerdere tools te hebben getest, is dit de eerste oplossing die echt emails schrijft zoals ik.”
