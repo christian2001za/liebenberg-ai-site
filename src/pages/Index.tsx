@@ -133,7 +133,7 @@ const Index = () => {
                     Stap 1
                   </p>
                   <h3 className="mt-2 text-lg font-semibold text-foreground md:text-xl">
-                    Procesanalyse (gratis, 30 min)
+                    Procesanalyse
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground md:text-base">
                     Welke processen kosten tijd? Ik analyseer en stel een aanpak voor.
@@ -257,7 +257,7 @@ const Index = () => {
                   />
                 </div>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Klik om te vergroten
+                  
                 </p>
                 <div className="mt-4">
                   <Button variant="secondary" size="lg" asChild>
