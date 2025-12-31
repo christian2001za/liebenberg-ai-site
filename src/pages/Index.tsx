@@ -136,7 +136,7 @@ const Index = () => {
                     Procesanalyse
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    Welke processen kosten tijd? Ik analyseer en stel een aanpak voor.
+                    Welke processen kosten tijd? We analyseren en stellen een aanpak voor.
                   </p>
                 </div>
               </div>
@@ -152,7 +152,7 @@ const Index = () => {
                     Pilot ontwikkeling (2-4 weken)
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                    Ik bouw een werkende versie. Je test mee, geeft feedback, ik pas aan.
+                    We bouwen een werkende versie. Je test mee, geeft feedback, wij passen aan.
                   </p>
                 </div>
               </div>
@@ -332,7 +332,7 @@ const Index = () => {
                 Publieke Projecten
               </h2>
               <p className="mt-3 text-muted-foreground">
-              Publieke projecten (geen klantwerk) die laten zien hoe ik AI-ervaringen bouw en ship.
+              Publieke projecten (geen klantwerk) die laten zien hoe wij AI-ervaringen bouwen en shippen.
               </p>
             </div>
             <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
@@ -482,7 +482,7 @@ const Index = () => {
                 ❓ Is mijn data veilig?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Ja. Ik werk met gerenommeerde AI-providers en volg privacy-richtlijnen.
+                Ja. We werken met gerenommeerde AI-providers en volg privacy-richtlijnen.
                 Je data wordt niet gedeeld of gebruikt voor andere doeleinden.
               </p>
             </div>
@@ -491,7 +491,7 @@ const Index = () => {
                 ❓ Werkt het met mijn huidige systemen?
               </h3>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Meestal wel. Ik koppel aan veelgebruikte tools zoals Gmail, Excel,
+                Meestal wel. We koppelen aan veelgebruikte tools zoals Gmail, Excel,
                 Google Drive, en de meeste boekhoudsoftware. Tijdens de procesanalyse
                 checken we compatibiliteit.
               </p>
@@ -503,7 +503,7 @@ const Index = () => {
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
                 Goed voor: repetitief werk, veel data verwerken, standaardvragen
                 beantwoorden, documenten doorzoeken. Twijfel? Plan een gratis
-                procesanalyse en ik geef eerlijk advies.
+                procesanalyse en we geven eerlijk advies.
               </p>
             </div>
           </div>
