@@ -8,6 +8,12 @@ import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
 import logo from "@/assets/logo.svg";
 import underlineStroke from "@/assets/streep.png";
 import { TechStack } from "@/components/TechStack";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const Index = () => {
   const [isCaseStudyImageOpen, setIsCaseStudyImageOpen] = useState(false);
@@ -54,30 +60,33 @@ const Index = () => {
           </div>
 
           {/* Value Props Row */}
-          <div className="hero-animate hero-delay-3 mt-12 flex flex-col items-center justify-center gap-y-4 gap-x-8 text-sm text-muted-foreground sm:flex-row md:text-base">
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+          {/* Value Props Row */}
+          <div className="hero-animate hero-delay-3 mt-12 flex justify-center text-sm text-muted-foreground md:text-base">
+            <div className="flex flex-col gap-y-4 gap-x-8 sm:flex-row sm:items-center">
+              <div className="flex items-center gap-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span className="font-medium">Pilot in 2-4 weken</span>
               </div>
-              <span className="font-medium">Pilot in 2-4 weken</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="flex items-center gap-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span className="font-medium">Jij behoudt controle</span>
               </div>
-              <span className="font-medium">Jij behoudt controle</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                  <polyline points="20 6 9 17 4 12"></polyline>
-                </svg>
+              <div className="flex items-center gap-2">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-primary">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                  </svg>
+                </div>
+                <span className="font-medium">Meetbaar resultaat</span>
               </div>
-              <span className="font-medium">Meetbaar resultaat</span>
             </div>
           </div>
         </div>
@@ -423,7 +432,7 @@ const Index = () => {
               FAQ
             </h2>
           </div>
-          <div className="space-y-4">
+          <Accordion type="single" collapsible className="w-full space-y-4">
             {[
               { q: "Hoe lang duurt het voordat het werkt?", a: "Een pilot draait binnen 2-4 weken. Daarna 1-2 weken optimalisatie. Totaal: 4-8 weken van start tot finish." },
               { q: "Kan ik na de pilot stoppen?", a: "Ja. De pilot is bedoeld om te testen of AI iets voor je bedrijf is. Geen verplichtingen daarna." },
@@ -432,16 +441,16 @@ const Index = () => {
               { q: "Werkt het met mijn huidige systemen?", a: "Meestal wel. We koppelen aan veelgebruikte tools zoals Gmail, Excel, Google Drive, en de meeste boekhoudsoftware." },
               { q: "Hoe weet ik of AI geschikt is voor mijn proces?", a: "Goed voor: repetitief werk, veel data verwerken, standaardvragen beantwoorden. Twijfel? Plan een analyse." }
             ].map((item, i) => (
-              <div key={i} className="rounded-xl border border-border/40 bg-white/70 p-6 shadow-sm transition-all hover:bg-white/95">
-                <h3 className="text-lg font-medium text-foreground">
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border/40 bg-white/70 px-6 py-2 rounded-xl shadow-sm transition-all hover:bg-white/95 data-[state=open]:bg-white/95 data-[state=open]:shadow-md">
+                <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline text-left">
                   {item.q}
-                </h3>
-                <p className="mt-2 text-base text-muted-foreground leading-relaxed">
+                </AccordionTrigger>
+                <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-4">
                   {item.a}
-                </p>
-              </div>
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
         </div>
       </section>
 

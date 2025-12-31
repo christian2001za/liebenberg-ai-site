@@ -1,16 +1,16 @@
 
 const technologies = [
-  { name: "OpenAI", slug: "openai" },
-  { name: "Anthropic", slug: "anthropic" },
-  { name: "Gemini", slug: "google" },
-  { name: "Python", slug: "python" },
-  { name: "Next.js", slug: "nextdotjs" },
-  { name: "FastAPI", slug: "fastapi" },
-  { name: "Supabase", slug: "supabase" },
   { name: "Vercel", slug: "vercel" },
   { name: "Railway", slug: "railway" },
   { name: "LangChain", slug: "langchain" },
+  { name: "Python", slug: "python" },
+  { name: "Gemini", slug: "google" },
+  { name: "Anthropic", slug: "anthropic" },
+  { name: "OpenAI", slug: "openai" },
+  { name: "Next.js", slug: "nextdotjs" },
+  { name: "FastAPI", slug: "fastapi" },
   { name: "n8n", slug: "n8n" },
+  { name: "Supabase", slug: "supabase" },
 ];
 
 export const TechStack = () => {
