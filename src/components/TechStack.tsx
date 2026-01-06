@@ -23,11 +23,11 @@ export const TechStack = () => {
       </div>
       
       <div className="relative flex w-full overflow-hidden mask-linear-fade">
-        <div className="flex animate-marquee gap-12 sm:gap-24 min-w-full items-center justify-around px-6">
+        <div className="flex animate-marquee gap-12 sm:gap-24 w-max items-center px-6">
           {technologies.map((tech) => (
             <div key={tech.name} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={`https://cdn.simpleicons.org/${tech.slug}/000000`}
+                src={`https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {
@@ -42,7 +42,7 @@ export const TechStack = () => {
           {technologies.map((tech) => (
              <div key={`${tech.name}-duplicate`} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={`https://cdn.simpleicons.org/${tech.slug}/000000`}
+                src={`https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {

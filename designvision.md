@@ -52,12 +52,12 @@ To achieve this premium look, generic photos must go. I need high-fidelity, purp
 *   **Context**: You standing at a large glass wall or whiteboard covered in complex flowcharts/diagrams.
 *   **Pose**: Back slightly to camera, pointing at a node, or profile view thinking.
 *   **Lighting**: Cinematic, moody. Focus is on the *thinking process*, not just the smile.
-*   **Wear**: Black turtleneck or very high-quality textured knitwear. Steve Jobs / Architect vibes.
+*   **Wear**: Very high-quality textured knitwear. Steve Jobs / Architect vibes.
 *   **Why**: Establishes you as the *designer* of systems, not just a coder.
 
 ### B. The "Deep Work" Shots (2-3 photos)
 *   **Context**: Low-angle shot of your hands on a premium mechanical keyboard, with code on the monitor blurring in the background.
-*   **Context**: Over-the-shoulder shot looking at a sleek n8n workflow or complex Python script.
+*   **Context**: Over-the-shoulder shot looking at a complex typescript script.
 *   **Why**: Proves technical depth and craftsmanship.
 
 ### C. The "Human Connection" Shot (1-2 photos)

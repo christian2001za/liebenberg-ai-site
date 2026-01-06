@@ -25,7 +25,7 @@ const Index = () => {
           <img
             src={logo}
             alt="Liebenberg AI"
-            className="h-5 w-auto"
+            className="h-5 w-auto brightness-0 invert"
           />
         </div>
       </header>
@@ -122,7 +122,7 @@ const Index = () => {
                 desc: "We tekenen je processen uit en automatiseren het, zodat niets blijft liggen. Human-in-the-loop voor volledige controle."
               }
             ].map((service, i) => (
-              <div key={i} className="group rounded-xl border border-border/50 bg-white/60 p-8 shadow-sm transition-all hover:shadow-md hover:bg-white/80 backdrop-blur-sm">
+              <div key={i} className="group rounded-xl border border-border/50 bg-secondary/10 p-8 shadow-sm transition-all hover:shadow-md hover:bg-secondary/20 backdrop-blur-sm">
                 <p className="text-lg font-medium text-foreground">
                   {service.title}
                 </p>
@@ -150,8 +150,8 @@ const Index = () => {
               { step: "03", title: "Optimalisatie (1-2 weken)", desc: "Intensieve begeleiding en finetuning tot alles soepel draait." },
               { step: "04", title: "Onderhoud", desc: "Maandelijkse service om het systeem stabiel te houden. Doorontwikkeling op maat." }
             ].map((item, i) => (
-              <div key={i} className="flex flex-col gap-6 rounded-xl border border-border/40 bg-white/60 p-6 shadow-sm md:flex-row md:items-start transition-colors hover:bg-white/90">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-sm font-semibold text-foreground border border-secondary-foreground/10">
+              <div key={i} className="flex flex-col gap-6 rounded-xl border border-border/40 bg-secondary/10 p-6 shadow-sm md:flex-row md:items-start transition-colors hover:bg-secondary/20">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary text-sm font-semibold text-foreground border border-white/5">
                   {item.step}
                 </div>
                 <div>
@@ -165,7 +165,7 @@ const Index = () => {
               </div>
             ))}
             
-            <div className="mt-8 rounded-xl bg-primary/5 p-6 text-left border border-primary/10">
+            <div className="mt-8 rounded-xl bg-primary/10 p-6 text-left border border-primary/20">
               <p className="text-sm text-foreground md:text-base">
                 <span className="font-semibold text-primary">💡 Geen onduidelijke trajecten.</span>{" "}
                 Je weet vooraf wat je krijgt, wanneer, en wat de volgende stap is.
@@ -356,11 +356,11 @@ const Index = () => {
       <section className="px-6 py-24">
         <div className="mx-auto max-w-5xl">
           <div className="grid gap-10 rounded-xl bg-secondary/30 p-8 shadow-sm md:grid-cols-[1fr,1.2fr] md:p-12 border border-secondary">
-            <div className="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-black/5">
+            <div className="overflow-hidden rounded-xl bg-secondary/10 shadow-sm ring-1 ring-white/10">
               <img
                 src={founderPortrait}
                 alt="Christian Liebenberg"
-                className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0"
+                className="h-full w-full object-cover grayscale transition-all duration-500 hover:grayscale-0 opacity-80 hover:opacity-100"
               />
             </div>
             <div className="flex flex-col space-y-6 justify-center">
@@ -389,7 +389,7 @@ const Index = () => {
                       Oprichter | AI Engineer & Consultant
                     </p>
                   </div>
-                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-white/50">
+                  <Button variant="ghost" size="icon" asChild className="rounded-full hover:bg-white/10">
                     <a
                       href="https://linkedin.com/in/christian-liebenberg-a0511060"
                       target="_blank"
@@ -441,7 +441,7 @@ const Index = () => {
               { q: "Werkt het met mijn huidige systemen?", a: "Meestal wel. We koppelen aan veelgebruikte tools zoals Gmail, Excel, Google Drive, en de meeste boekhoudsoftware." },
               { q: "Hoe weet ik of AI geschikt is voor mijn proces?", a: "Goed voor: repetitief werk, veel data verwerken, standaardvragen beantwoorden. Twijfel? Plan een analyse." }
             ].map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-border/40 bg-white/70 px-6 py-2 rounded-xl shadow-sm transition-all hover:bg-white/95 data-[state=open]:bg-white/95 data-[state=open]:shadow-md">
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border/40 bg-secondary/10 px-6 py-2 rounded-xl shadow-sm transition-all hover:bg-secondary/20 data-[state=open]:bg-secondary/20 data-[state=open]:shadow-md">
                 <AccordionTrigger className="text-lg font-medium text-foreground hover:no-underline text-left">
                   {item.q}
                 </AccordionTrigger>

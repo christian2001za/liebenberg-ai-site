@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import GrainOverlay from "./components/design/GrainOverlay";
+import DynamicGradientBackground from "./components/design/DynamicGradientBackground";
+import NeuralNetworkMesh from "./components/design/NeuralNetworkMesh";
 
 const queryClient = new QueryClient();
 
@@ -13,6 +16,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <GrainOverlay />
+      <DynamicGradientBackground />
+      <NeuralNetworkMesh />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

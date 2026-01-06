@@ -82,7 +82,7 @@ export default {
         },
         marquee: {
           from: { transform: "translateX(0)" },
-          to: { transform: "translateX(calc(-100% - 2rem))" },
+          to: { transform: "translateX(-50%)" },
         },
       },
       animation: {
