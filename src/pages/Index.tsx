@@ -147,7 +147,7 @@ const Index = () => {
             {[
               { step: "01", title: "Procesanalyse", desc: "Welke processen kosten tijd? We analyseren en stellen een aanpak voor." },
               { step: "02", title: "Pilot ontwikkeling (2-4 weken)", desc: "We bouwen een werkende versie. Je test mee, geeft feedback, wij passen aan." },
-              { step: "03", title: "Optimalisatie (1-2 weken)", desc: "Intensieve begeleiding en finetuning tot alles soepel draait." },
+              { step: "03", title: "Optimalisatie (2-8 weken)", desc: "Intensieve begeleiding en finetuning tot alles soepel draait." },
               { step: "04", title: "Onderhoud", desc: "Maandelijkse service om het systeem stabiel te houden. Doorontwikkeling op maat." }
             ].map((item, i) => (
               <div key={i} className="flex flex-col gap-6 rounded-xl border border-border/40 bg-secondary/10 p-6 shadow-sm md:flex-row md:items-start transition-colors hover:bg-secondary/20">
@@ -434,7 +434,7 @@ const Index = () => {
           </div>
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
-              { q: "Hoe lang duurt het voordat het werkt?", a: "Een pilot draait binnen 2-4 weken. Daarna 1-2 weken optimalisatie. Totaal: 4-8 weken van start tot finish." },
+              { q: "Hoe lang duurt het voordat het werkt?", a: "Een pilot draait binnen 2-4 weken. Daarna 2-8 weken optimalisatie. Totaal: 4-12 weken van start tot finish." },
               { q: "Kan ik na de pilot stoppen?", a: "Ja. De pilot is bedoeld om te testen of AI iets voor je bedrijf is. Geen verplichtingen daarna." },
               { q: "Wat als het niet werkt zoals verwacht?", a: "Dan passen we aan in de optimalisatiefase, of stoppen we." },
               { q: "Is mijn data veilig?", a: "Ja. We werken met gerenommeerde AI-providers en volgen privacy-richtlijnen. Je data wordt niet gedeeld." },
