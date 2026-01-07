@@ -349,7 +349,7 @@ const Index = () => {
                           De AI-markt wordt overspoeld door 'agencies' die simpele prompts verkopen zonder fundamentele kennis. Wij doen dat anders. Liebenberg AI is gebaseerd op een achtergrond in <strong>Econometrie</strong> en data-analyse.
                        </p>
                        <p>
-                          Wij begrijpen de wiskunde en data achter de modellen. Dat betekent dat we weten wanneer een model betrouwbaar is, en wanneer niet. We bouwen traditionelesoftware gecombineerd met AI die niet alleen 'werkt' in een demo, maar die <strong>veilig, schaalbaar en statistisch onderbouwd</strong> is in een productie-omgeving.
+                          Wij begrijpen de wiskunde en data achter de modellen. Dat betekent dat we weten wanneer een model betrouwbaar is, en wanneer niet. We bouwen traditionele software gecombineerd met AI die niet alleen 'werkt' in een demo, maar die <strong>veilig, schaalbaar en statistisch onderbouwd</strong> is in een productie-omgeving.
                        </p>
                     </div>
 
