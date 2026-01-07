@@ -44,7 +44,7 @@ const Index = () => {
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-6 hero-animate">
             <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-            Software Development for AI-driven Applications
+            Software Development for AI-driven Solutions
           </div>
           
           <h1 className="hero-animate mb-6 text-5xl font-medium tracking-tight text-foreground md:text-6xl lg:text-7xl font-heading leading-[1.1]">
