@@ -53,7 +53,7 @@ const Index = () => {
           </h1>
           
           <p className="hero-animate hero-delay-2 mb-10 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Wij bouwen robuuste AI-systemen met econometrische precisie. Geen "quick fixes" of onveilige wrappers, maar traditionele software gecombineerd met AI die integreert met jouw bedrijfskritische processen.
+            Wij bouwen robuuste AI-systemen met econometrische precisie. We verzorgen het gehele traject en bouwen traditionele software gecombineerd met AI die integreert met jouw bedrijfskritische processen.
           </p>
           
           <div className="hero-animate hero-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
