@@ -330,8 +330,8 @@ const Index = () => {
       <section className="px-6 py-24 bg-gradient-to-b from-background to-secondary/10">
         <div className="mx-auto max-w-4xl">
            <div className="rounded-3xl border border-white/10 bg-background/50 p-8 md:p-12 shadow-sm">
-              <div className="flex flex-col md:flex-row gap-10 items-start">
-                 <div className="shrink-0 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-2 border-primary/20 ring-4 ring-background">
+              <div className="flex flex-col md:flex-row gap-10 items-stretch">
+                 <div className="shrink-0 w-full md:w-64 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
                     <img src={founderPortrait} alt="Christian Liebenberg" className="w-full h-full object-cover" />
                  </div>
                  <div className="space-y-6">
