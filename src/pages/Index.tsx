@@ -215,7 +215,7 @@ const Index = () => {
                     Inbox AI Architecture
                   </h3>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                    Voor een high-volume optometrie praktijk ontwikkelden we een AI-gedreven inbox-applicatie. Het systeem is getraind op de kennisbank en tone-of-voice van de praktijk. Door de traditionele software die om de AI heen is gebouwd is deze applicatie geoptimaliseerd vcoor zijn specifieke use-case. Email concepten kunnen makkelijk handmatig en met AI-edit worden bijgesteld tot het gewenste resultaat is bereikt.
+                    Voor een high-volume optometrie praktijk ontwikkelden we een AI-gedreven inbox-applicatie. Het systeem is getraind op de kennisbank en tone-of-voice van de praktijk. Door de traditionele software die om de AI heen is gebouwd is deze applicatie geoptimaliseerd voor zijn specifieke use-case. Email concepten kunnen makkelijk handmatig en met AI-edit worden bijgesteld tot het gewenste resultaat is bereikt.
                   </p>
                   
                   <div className="space-y-4 mb-8">
