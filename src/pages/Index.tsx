@@ -263,7 +263,7 @@ const Index = () => {
                     AI Debatwijzer 2025
                   </h3>
                   <p className="text-muted-foreground mb-8 leading-relaxed">
-                     Een showcase van LLM en RAG technologie op grote schaal. We hebben een debat chatbot ontwikkeld die zijn informatie alleen haalt uit partijprogramma's, inclusief citaten. Tijdens de verkiezingen in 2025 zijn er 300+ debatten gevoerd met onze software. Dit soort toepassingen werken uitstekend voor interne chatbots om met uw eigen data te praten. 
+                     Een showcase van LLM en RAG technologie op grote schaal. We hebben een debat chatbot ontwikkeld die zijn informatie alleen haalt uit partijprogramma's, inclusief bronnen en citaten. Tijdens de verkiezingen in 2025 zijn er 300+ debatten gevoerd met onze software. Dit soort toepassingen werken uitstekend voor interne chatbots om met uw eigen data te praten. 
                   </p>
                   
                   <div className="space-y-4 mb-8">
@@ -273,11 +273,11 @@ const Index = () => {
                      </div>
                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span>LLM integration</span>
+                        <span>AI integratie</span>
                      </div>
                      <div className="flex items-center gap-3 text-sm text-muted-foreground">
                         <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span>Personalites</span>
+                        <span>Bronnen</span>
                      </div>
                   </div>
                 </div>
