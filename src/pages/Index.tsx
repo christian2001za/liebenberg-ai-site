@@ -1,9 +1,9 @@
-import { useState } from "react";
+
 import { Linkedin, ShieldCheck, Code2, Database, Terminal } from "lucide-react"; // Extra iconen voor tech-vibe
 import { Button } from "@/components/ui/button";
-import debatwijzerImage from "@/assets/debat.png";
-import debatwijzerUiImage from "@/assets/debatwijzer_UI.png";
-import emailDrafterUiImage from "@/assets/UI email drafter.png";
+
+
+
 import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
 import logo from "@/assets/logo.svg";
@@ -17,7 +17,7 @@ import {
 } from "@/components/ui/accordion";
 
 const Index = () => {
-  const [activeCaseStudyImage, setActiveCaseStudyImage] = useState<string | null>(null);
+
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
@@ -238,19 +238,18 @@ const Index = () => {
               </div>
 
               <div className="relative p-8 md:p-12 flex items-center justify-center">
-                 <button
-                    type="button"
-                    onClick={() => setActiveCaseStudyImage(emailDrafterUiImage)}
-                    className="relative group w-full max-w-md cursor-zoom-in"
-                  >
+                 <div className="relative group w-full max-w-md">
                     <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
-                      <img
-                        src={emailDrafterUiImage}
-                        alt="UI Email Drafter Interface"
-                        className="relative w-full h-auto object-cover"
-                      />
+                      <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
+                        <iframe
+                          src="https://www.loom.com/embed/3b2657c3394a4b589e276967c56147a0"
+                          frameBorder="0"
+                          allowFullScreen
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                        />
+                      </div>
                     </MacbookMockup>
-                  </button>
+                 </div>
               </div>
             </div>
           </div>
@@ -290,37 +289,23 @@ const Index = () => {
               </div>
 
               <div className="relative p-8 md:p-12 flex items-center justify-center bg-black/5">
-                 <button
-                    type="button"
-                    onClick={() => setActiveCaseStudyImage(debatwijzerUiImage)}
-                    className="relative group w-full max-w-md cursor-zoom-in"
-                  >
+                 <div className="relative group w-full max-w-md">
                     <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
-                      <img
-                        src={debatwijzerUiImage}
-                        alt="Debatwijzer Interface"
-                        className="relative w-full h-auto object-cover"
-                      />
+                      <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
+                        <iframe
+                          src="https://www.loom.com/embed/ab1576ce21094b31acb0c8969efb1a0d"
+                          frameBorder="0"
+                          allowFullScreen
+                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                        />
+                      </div>
                     </MacbookMockup>
-                  </button>
+                 </div>
               </div>
             </div>
           </div>
           
-          {activeCaseStudyImage && (
-            <div
-              className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm px-4 py-8"
-              onClick={() => setActiveCaseStudyImage(null)}
-            >
-              <div className="max-h-[90vh] w-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
-                <img
-                  src={activeCaseStudyImage}
-                  alt="Full UI"
-                  className="h-full w-full rounded-lg object-contain shadow-2xl ring-1 ring-white/10"
-                />
-              </div>
-            </div>
-          )}
+
         </div>
       </section>
 
