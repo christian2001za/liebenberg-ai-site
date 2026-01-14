@@ -55,7 +55,7 @@ const Index = () => {
               variant="outline" 
               size="xl"
               asChild
-              className="px-8 h-12 text-base font-medium bg-transparent border-white/10 hover:bg-white/5"
+              className="px-8 h-12 text-base font-medium bg-transparent border-input hover:bg-secondary"
             >
               <a href="#cases">
                 Bekijk Cases
@@ -84,7 +84,7 @@ const Index = () => {
       </section>
 
       {/* Tech Stack Marquee */}
-      <div className="border-y border-white/5 bg-white/[0.02]">
+      <div className="border-y border-border bg-secondary/5">
         <TechStack />
       </div>
 
@@ -123,7 +123,7 @@ const Index = () => {
                 desc: "Het trainen van generatieve AI-modellen op uw bedrijfsspecifieke tone-of-voice en data. Voor geautomatiseerde klantcommunicatie of content generatie die bijna niet van menselijk te onderscheiden is."
               }
             ].map((service, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl border border-white/10 bg-secondary/5 p-8 transition-all hover:bg-secondary/10 hover:border-primary/20">
+              <div key={i} className="group relative overflow-hidden rounded-2xl border border-border bg-secondary/30 p-8 transition-all hover:bg-secondary/50 hover:border-primary/20">
                 <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 border border-primary/20">
                   {service.icon}
                 </div>
@@ -140,7 +140,7 @@ const Index = () => {
       </section>
 
       {/* How It Works Section - More "Development Lifecycle" oriented */}
-      <section id="werkwijze" className="px-6 py-24 bg-secondary/5 border-y border-white/5">
+      <section id="werkwijze" className="px-6 py-24 bg-secondary/5 border-y border-border">
         <div className="mx-auto max-w-4xl">
           <div className="mb-16 md:text-center">
             <h2 className="font-heading text-3xl font-medium md:text-4xl mb-4">
@@ -159,10 +159,10 @@ const Index = () => {
               { step: "04", title: "Monitoring & Maintenance", desc: "Software leeft. Wij monitoren de performance van de modellen, updaten dependencies en zorgen dat het systeem stabiel blijft draaien en met uw organisatie meeschaalt." }
             ].map((item, i) => (
               <div key={i} className="relative flex items-start gap-6 md:gap-10 group">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background border border-white/10 shadow-sm z-10 group-hover:border-primary/50 transition-colors">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background border border-border shadow-sm z-10 group-hover:border-primary/50 transition-colors">
                   <span className="text-xs font-mono text-muted-foreground group-hover:text-primary">{item.step}</span>
                 </div>
-                <div className="rounded-xl border border-white/5 bg-background/50 p-6 shadow-sm flex-1 transition-all group-hover:bg-background/80 group-hover:border-white/10">
+                <div className="rounded-xl border border-border bg-background/50 p-6 shadow-sm flex-1 transition-all group-hover:bg-background/80 group-hover:border-border">
                   <h3 className="text-lg font-medium text-foreground">
                     {item.title}
                   </h3>
@@ -188,12 +188,12 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="border border-white/10 rounded-3xl bg-secondary/5 overflow-hidden">
+          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-secondary/5">
+              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                     <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-80 brightness-0 invert" />
+                     <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-80 brightness-0" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">
                     Inbox AI Architecture
@@ -238,9 +238,9 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="border border-white/10 rounded-3xl bg-secondary/5 overflow-hidden mt-12">
+          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden mt-12">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-               <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-secondary/5 order-last md:order-first">
+               <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5 order-last md:order-first">
                 <div>
                   <h3 className="text-2xl font-semibold mb-4">
                     AI Debatwijzer 2025
@@ -289,9 +289,9 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="border border-white/10 rounded-3xl bg-secondary/5 overflow-hidden mt-12">
+          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden mt-12">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-secondary/5">
+              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5">
                 <div>
                   <h3 className="text-2xl font-semibold mb-4">
                     Consultancy CV Generator
@@ -355,9 +355,9 @@ const Index = () => {
       {/* About Section - The "Why Us" */}
       <section className="px-6 py-24 bg-gradient-to-b from-background to-secondary/10">
         <div className="mx-auto max-w-4xl">
-           <div className="rounded-3xl border border-white/10 bg-background/50 p-8 md:p-12 shadow-sm">
+           <div className="rounded-3xl border border-border bg-background/50 p-8 md:p-12 shadow-sm">
               <div className="flex flex-col md:flex-row gap-10 items-stretch">
-                 <div className="shrink-0 w-full md:w-64 rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+                 <div className="shrink-0 w-full md:w-64 rounded-xl overflow-hidden border border-border shadow-2xl">
                     <img src={founderPortrait} alt="Christian Liebenberg" className="w-full h-full object-cover" />
                  </div>
                  <div className="space-y-6">
@@ -370,7 +370,7 @@ const Index = () => {
                        </p>
                     </div>
                     
-                    <div className="prose prose-invert text-muted-foreground leading-relaxed">
+                    <div className="prose text-muted-foreground leading-relaxed">
                        <p>
                           De AI-markt wordt overspoeld door 'agencies' die simpele prompts verkopen zonder fundamentele kennis. Wij doen dat anders. Liebenberg AI is gebaseerd op een achtergrond in <strong>Econometrie</strong> en data-analyse.
                        </p>
@@ -404,7 +404,7 @@ const Index = () => {
               { q: "Werkt dit met mijn verouderde software (legacy)?", a: "Vaak wel. Wij zijn gespecialiseerd in het bouwen van API-koppelingen en 'middleware' die moderne AI laat praten met oudere systemen zoals boekhoudpakketten of ERP's." },
               { q: "Hoe ziet het kostenplaatje eruit?", a: "Wij werken projectmatig of op retainer-basis. Na de technische intake ontvangt u een vaste prijsopgave voor de development, en een overzicht van de running costs (API-kosten/hosting)." }
             ].map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-white/10 bg-secondary/5 px-6 rounded-lg data-[state=open]:bg-secondary/10">
+              <AccordionItem key={i} value={`item-${i}`} className="border border-border bg-secondary/5 px-6 rounded-lg data-[state=open]:bg-secondary/10">
                 <AccordionTrigger className="text-base font-medium hover:no-underline hover:text-primary py-4 text-left">
                   {item.q}
                 </AccordionTrigger>
@@ -418,7 +418,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="px-6 py-32 border-t border-white/5 relative overflow-hidden">
+      <section className="px-6 py-32 border-t border-border relative overflow-hidden">
         <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
         <div className="mx-auto max-w-3xl text-center relative z-10">
           <h2 className="mb-8 font-heading text-4xl font-medium md:text-5xl">

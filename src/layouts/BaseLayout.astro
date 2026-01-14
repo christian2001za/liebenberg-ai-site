@@ -61,13 +61,13 @@ const logoSrc = typeof logo === "string" ? logo : logo.src;
     <GrainOverlay />
     <DynamicGradientBackground client:only="react" />
     <NeuralNetworkMesh client:only="react" />
-    <header class="px-6 py-6 border-b border-white/5 backdrop-blur-sm fixed top-0 w-full z-40 bg-background/80">
+    <header class="px-6 py-6 border-b border-border backdrop-blur-sm fixed top-0 w-full z-40 bg-background/80">
       <div class="mx-auto flex max-w-6xl items-center justify-between">
         <a href="/" aria-label="Liebenberg AI">
           <img
             src={logoSrc}
             alt="Liebenberg AI"
-            class="h-6 w-auto brightness-0 invert"
+            class="h-6 w-auto"
           />
         </a>
         <div class="hidden md:flex items-center gap-5">

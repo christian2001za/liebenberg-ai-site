@@ -9,7 +9,7 @@ export const MacbookMockup = ({ children, className = "" }: MacbookMockupProps) 
   return (
     <div className={`relative mx-auto ${className}`}>
       {/* Lid (Top Part) */}
-      <div className="relative rounded-[20px] bg-[#1a1a1a] p-[1.5%] ring-1 ring-white/10 shadow-2xl">
+      <div className="relative rounded-[20px] bg-[#1a1a1a] p-[1.5%] ring-1 ring-black/10 shadow-2xl">
         {/* Camera Notch */}
         <div className="absolute left-1/2 top-0 -translate-x-1/2 h-[7%] w-[18%] bg-black rounded-b-xl z-20 flex justify-center border-b border-white/5">
              <div className="h-full w-full relative flex items-center justify-center">

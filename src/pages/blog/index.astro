@@ -31,13 +31,13 @@ const posts = (await getCollection("blog"))
           {posts.map((post) => (
             <a
               href={`/blog/${post.slug}/`}
-              class="flex items-start gap-4 rounded-2xl border border-white/10 bg-secondary/5 p-6 transition-colors hover:border-white/20 hover:bg-secondary/10"
+              class="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 transition-colors hover:border-primary/20 hover:bg-secondary/10"
             >
               {post.data.heroImage ? (
                 <img
                   src={post.data.heroImage}
                   alt={post.data.title}
-                  class="h-16 w-16 shrink-0 rounded-xl border border-white/10 object-cover"
+                  class="h-16 w-16 shrink-0 rounded-xl border border-border object-cover"
                   loading="lazy"
                 />
               ) : (

@@ -27,7 +27,7 @@ export const TechStack = () => {
           {technologies.map((tech) => (
             <div key={tech.name} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
+                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/0F172A`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {
@@ -42,7 +42,7 @@ export const TechStack = () => {
           {technologies.map((tech) => (
              <div key={`${tech.name}-duplicate`} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
+                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/0F172A`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {
