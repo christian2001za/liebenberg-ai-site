@@ -304,6 +304,63 @@ const Index = () => {
               </div>
             </div>
           </div>
+
+          <div className="border border-white/10 rounded-3xl bg-secondary/5 overflow-hidden mt-12">
+            <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
+              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-secondary/5">
+                <div>
+                  <h3 className="text-2xl font-semibold mb-4">
+                    Consultancy CV Generator
+                  </h3>
+                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                    Vanuit mijn tijd in consultancy zag ik dat consultants en managers continu bezig zijn om
+                    projectervaringen te herschrijven en in de juiste huisstijl te krijgen. Daarom heb ik een platform gebouwd waar iedere
+                    consultant zijn ervaring ongestructureerd kan dumpen op een eigen account. Vul de projectomschrijving in en rolt er automatisch een CV uit in
+                    je huisstijl. Vervolgens kun je die handmatig of met AI bijstellen, waarbij het model
+                    alle context van je eerdere projecten begrijpt. Managers kunnen vanuit een overzicht
+                    consultants en projectomschrijving selecteren en direct concept-CV's genereren die de
+                    consultants alleen nog hoeven te controleren. Dit bespaart consultancy partijen veel tijd en geld.
+                  </p>
+
+                  <div className="space-y-4 mb-8">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span>Automatische CV's in klant-huisstijl</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span>Snelle selectie en reviewflow voor managers</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span>Grote tijds- en kostenbesparing voor consultancy teams</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button variant="outline" className="w-fit" asChild>
+                  <a href="https://www.loom.com/embed/634a958d7f0341ef8f26b9a7d7b09876" target="_blank" rel="noopener noreferrer">
+                    Bekijk de demo
+                  </a>
+                </Button>
+              </div>
+
+              <div className="relative p-8 md:p-12 flex items-center justify-center">
+                <div className="relative group w-full max-w-md">
+                  <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
+                    <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
+                      <iframe
+                        src="https://www.loom.com/embed/634a958d7f0341ef8f26b9a7d7b09876"
+                        frameBorder="0"
+                        allowFullScreen
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      />
+                    </div>
+                  </MacbookMockup>
+                </div>
+              </div>
+            </div>
+          </div>
           
 
         </div>
