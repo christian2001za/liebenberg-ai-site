@@ -6,7 +6,7 @@ const technologies = [
   { name: "Python", slug: "python" },
   { name: "Gemini", slug: "google" },
   { name: "Anthropic", slug: "anthropic" },
-  { name: "OpenAI", slug: "openai" },
+  { name: "OpenAI", slug: "openai", localSrc: "/openai.svg" },
   { name: "Next.js", slug: "nextdotjs" },
   { name: "FastAPI", slug: "fastapi" },
   { name: "n8n", slug: "n8n" },
@@ -27,7 +27,7 @@ export const TechStack = () => {
           {technologies.map((tech) => (
             <div key={tech.name} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={`https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
+                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {
@@ -42,7 +42,7 @@ export const TechStack = () => {
           {technologies.map((tech) => (
              <div key={`${tech.name}-duplicate`} className="flex items-center gap-3 shrink-0 opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0">
               <img 
-                src={`https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
+                src={tech.localSrc ?? `https://cdn.simpleicons.org/${tech.slug}/FFFFFF`}
                 alt={tech.name}
                 className="h-6 w-auto sm:h-8"
                 onError={(e) => {
@@ -55,9 +55,7 @@ export const TechStack = () => {
           ))}
         </div>
         
-        {/* Fade edges */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
+        
       </div>
     </section>
   );

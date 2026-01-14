@@ -1,0 +1,87 @@
+---
+import "../index.css";
+import GrainOverlay from "../components/design/GrainOverlay";
+import DynamicGradientBackground from "../components/design/DynamicGradientBackground";
+import NeuralNetworkMesh from "../components/design/NeuralNetworkMesh";
+import logo from "../assets/logo.svg";
+
+const {
+  title = "Liebenberg AI - Custom AI oplossingen .",
+  description = "Liebenberg AI - Custom AI oplossingen .",
+  canonical = "https://www.liebenberg.ai/",
+  image = "",
+  type = "website",
+} = Astro.props;
+
+const isHome = Astro.url.pathname === "/";
+const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+const logoSrc = typeof logo === "string" ? logo : logo.src;
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Liebenberg AI" />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;600&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="/icon.PNG" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={image} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@liebenberg_ai" />
+    <meta name="twitter:image" content={image} />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SN9V0NGW"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-G9SN9V0NGW");
+    </script>
+  </head>
+  <body>
+    <GrainOverlay />
+    <DynamicGradientBackground client:only="react" />
+    <NeuralNetworkMesh client:only="react" />
+    <header class="px-6 py-6 border-b border-white/5 backdrop-blur-sm fixed top-0 w-full z-40 bg-background/80">
+      <div class="mx-auto flex max-w-6xl items-center justify-between">
+        <a href="/" aria-label="Liebenberg AI">
+          <img
+            src={logoSrc}
+            alt="Liebenberg AI"
+            class="h-6 w-auto brightness-0 invert"
+          />
+        </a>
+        <div class="hidden md:flex items-center gap-5">
+          <nav class="flex gap-6 text-sm font-medium text-muted-foreground">
+            <a href={anchor("diensten")} class="hover:text-foreground transition-colors">Expertise</a>
+            <a href={anchor("werkwijze")} class="hover:text-foreground transition-colors">Werkwijze</a>
+            <a href={anchor("cases")} class="hover:text-foreground transition-colors">Cases</a>
+          </nav>
+          <a
+            href="/blog/"
+            class="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 active:scale-[0.98] border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3"
+          >
+            Blog
+          </a>
+        </div>
+      </div>
+    </header>
+    <slot />
+  </body>
+</html>

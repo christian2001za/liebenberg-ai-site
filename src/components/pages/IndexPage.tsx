@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 
 
 
-import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG";
-import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg";
-import logo from "@/assets/logo.svg";
+import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG?url";
+import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg?url";
 import { TechStack } from "@/components/TechStack";
 import { MacbookMockup } from "@/components/MacbookMockup";
 import {
@@ -21,21 +20,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      <header className="px-6 py-6 border-b border-white/5 backdrop-blur-sm fixed top-0 w-full z-40 bg-background/80">
-        <div className="mx-auto flex max-w-6xl items-center justify-between">
-          <img
-            src={logo}
-            alt="Liebenberg AI"
-            className="h-6 w-auto brightness-0 invert"
-          />
-          <nav className="hidden md:flex gap-6 text-sm font-medium text-muted-foreground">
-             <a href="#diensten" className="hover:text-foreground transition-colors">Expertise</a>
-             <a href="#werkwijze" className="hover:text-foreground transition-colors">Werkwijze</a>
-             <a href="#cases" className="hover:text-foreground transition-colors">Cases</a>
-          </nav>
-        </div>
-      </header>
-
       {/* Hero Section */}
       <section className="px-6 py-32 md:py-40 lg:py-48 relative overflow-hidden">
         {/* Abstract background element */}
@@ -209,7 +193,7 @@ const Index = () => {
               <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 bg-secondary/5">
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                     <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-80" />
+                     <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-80 brightness-0 invert" />
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">
                     Inbox AI Architecture
