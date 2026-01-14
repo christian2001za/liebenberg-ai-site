@@ -9,13 +9,14 @@ const {
   title = "Liebenberg AI - Custom AI oplossingen .",
   description = "Liebenberg AI - Custom AI oplossingen .",
   canonical = "https://www.liebenberg.ai/",
-  image = "",
+  image = "/icon.PNG",
   type = "website",
 } = Astro.props;
 
 const isHome = Astro.url.pathname === "/";
 const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 const logoSrc = typeof logo === "string" ? logo : logo.src;
+const ogImage = new URL(image, Astro.site).href;
 ---
 
 <!doctype html>
@@ -43,11 +44,11 @@ const logoSrc = typeof logo === "string" ? logo : logo.src;
     <meta property="og:description" content={description} />
     <meta property="og:type" content={type} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={image} />
+    <meta property="og:image" content={ogImage} />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@liebenberg_ai" />
-    <meta name="twitter:image" content={image} />
+    <meta name="twitter:image" content={ogImage} />
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SN9V0NGW"></script>
     <script is:inline>
