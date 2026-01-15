@@ -32,8 +32,7 @@ const Index = () => {
           </div>
           
           <h1 className="hero-animate mb-6 text-5xl font-medium tracking-tight text-foreground md:text-6xl lg:text-7xl font-heading leading-[1.1]">
-            Maatwerk Software.<br />
-            <span className="text-muted-foreground/80">Gedreven door AI.</span>
+            <span className="block font-heading">Maatwerk Software.</span> <span className="block font-sans text-muted-foreground/80">Gedreven door AI.</span>
           </h1>
           
           <p className="hero-animate hero-delay-2 mb-10 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto leading-relaxed">
