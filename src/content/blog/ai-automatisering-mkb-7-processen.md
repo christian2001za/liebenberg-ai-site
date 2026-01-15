@@ -138,7 +138,7 @@ Ik bied een korte procesanalyse aan voor MKB:
 Stuur me via het contactformulier je sector plus twee processen waar je klaar mee bent. Dan stuur ik je een concreet plan terug.
 
 <div class="not-prose mt-10 flex flex-col items-start gap-4 rounded-2xl border border-white/10 bg-secondary/5 p-6">
-  <h3 class="text-xl font-heading">Plan een kennismaking</h3>
+  <h3 class="text-xl font-heading text-black">Plan een kennismaking</h3>
   <p class="text-muted-foreground">
     Wil je sparren over jouw processen? Plan direct een korte kennismaking.
   </p>
