@@ -438,7 +438,7 @@ const Index = () => {
                </a>
              </Button>
              <p className="text-sm text-muted-foreground mt-4">
-                Direct contact: <a href="mailto:christian@liebenberg.ai" className="hover:text-primary transition-colors">christian@liebenberg.ai</a>
+                Direct contact: <a href="mailto:info@liebenberg.ai" className="hover:text-primary transition-colors">info@liebenberg.ai</a>
              </p>
           </div>
         </div>

@@ -91,7 +91,11 @@ const ogImage = new URL(image, Astro.site).href;
     <slot />
     <footer class="py-6 border-t border-border relative z-10 bg-background/50 backdrop-blur-sm">
       <div class="mx-auto max-w-6xl px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-        <p>&copy; 2026 Liebenberg AI. Alle rechten voorbehouden.</p>
+        <div class="flex flex-col md:flex-row items-center gap-4">
+          <p>&copy; 2026 Liebenberg AI. Alle rechten voorbehouden.</p>
+          <a href="/privacyverklaring" class="hover:text-foreground transition-colors">Privacyverklaring</a>
+          <a href="/algemene-voorwaarden" class="hover:text-foreground transition-colors">Algemene Voorwaarden</a>
+        </div>
         <p>KvK nummer: 98456598</p>
       </div>
     </footer>
