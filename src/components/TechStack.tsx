@@ -1,5 +1,11 @@
 
-const technologies = [
+interface Technology {
+  name: string;
+  slug: string;
+  localSrc?: string;
+}
+
+const technologies: Technology[] = [
   { name: "Vercel", slug: "vercel" },
   { name: "Railway", slug: "railway" },
   { name: "LangChain", slug: "langchain" },
@@ -9,7 +15,7 @@ const technologies = [
   { name: "OpenAI", slug: "openai", localSrc: "/openai.svg" },
   { name: "Next.js", slug: "nextdotjs" },
   { name: "FastAPI", slug: "fastapi" },
-  { name: "n8n", slug: "n8n" },
+  { name: "Azure", slug: "microsoftazure", localSrc: "/azure.svg" },
   { name: "Supabase", slug: "supabase" },
 ];
 
