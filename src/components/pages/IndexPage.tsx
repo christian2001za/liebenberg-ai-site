@@ -71,7 +71,7 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-2.5">
                 <ShieldCheck className="h-4 w-4 text-primary" />
-                <span className="font-medium">Security & Compliance</span>
+                <span className="font-medium">GDPR / AVG Compliant</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <Database className="h-4 w-4 text-primary" />
@@ -409,9 +409,25 @@ const Index = () => {
           <Accordion type="single" collapsible className="w-full space-y-4">
             {[
               { q: "Wat is het verschil tussen jullie en een standaard AI-agency?", a: "Wij zijn developers en econometristen, geen marketeers. Wij bouwen custom software en integraties in eigen beheer. Wij hebben een unieke combinatie van wiskunde, data, AI, en business kennis. Allemaal in-house. Hierdoor leveren wij oplossingen van een ander kaliber." },
-              { q: "Is mijn data veilig?", a: "Absoluut. Dit is onze topprioriteit. Wij bouwen systemen waar data uw omgeving niet hoeft te verlaten (local deployment) of werken met enterprise-grade versleuteling bij gerenommeerde providers." },
+              { q: "Is mijn data veilig?", a: (
+                <div className="space-y-4">
+                  <p className="font-medium text-foreground">Veiligheid en Privacy staan voorop bij Liebenberg AI</p>
+                  <p>Wij begrijpen dat uw bedrijfsdata gevoelig is. Daarom hebben wij ons platform gebouwd met 'Privacy by Design' als uitgangspunt.</p>
+                  <ul className="space-y-2">
+                    <li><strong className="text-foreground">100% Europese Hosting:</strong> Uw data verlaat de Europese Unie niet. Wij maken gebruik van beveiligde servers in Amsterdam en Frankfurt.</li>
+                    <li><strong className="text-foreground">Uw data blijft van u:</strong> Wij gebruiken uw invoer nooit om onze AI-modellen te trainen. Wat u bespreekt, blijft strikt vertrouwelijk.</li>
+                    <li><strong className="text-foreground">AVG/GDPR Compliant:</strong> Onze infrastructuur en processen voldoen aan de strenge Europese privacywetgeving.</li>
+                  </ul>
+                </div>
+              ) },
               { q: "Werkt dit met mijn verouderde software (legacy)?", a: "Vaak wel. Wij zijn gespecialiseerd in het bouwen van API-koppelingen en 'middleware' die moderne AI laat praten met oudere systemen zoals boekhoudpakketten of ERP's." },
-              { q: "Hoe ziet het kostenplaatje eruit?", a: "Wij werken projectmatig of op retainer-basis. Na de technische intake ontvangt u een vaste prijsopgave voor de development, en een overzicht van de running costs (API-kosten/hosting)." }
+              { q: "Hoe ziet het kostenplaatje eruit?", a: (
+                <div className="space-y-4">
+                  <p>Bij ons zijn we heel transparant. Op basis van het project analyseren we wat er gedaan moet worden en maken we samen een duidelijk plan, fases en een offerte die uitkomstgericht is.</p>
+                  <p>Wij geloven niet in <strong className="text-foreground">"uurtje, factuurtje."</strong> Wij vinden dat de doelen dan niet hetzelfde zijn. Daarom prijzen wij op uitkomst, op een project.</p>
+                  <p>Zo weet de klant precies waar hij aan toe is, in plaats van dat je achteraf een factuur krijgt met een heleboel uren.</p>
+                </div>
+              ) }
             ].map((item, i) => (
               <AccordionItem key={i} value={`item-${i}`} className="border border-border bg-secondary/5 px-6 rounded-lg data-[state=open]:bg-secondary/10">
                 <AccordionTrigger className="text-base font-medium hover:no-underline hover:text-primary py-4 text-left">
