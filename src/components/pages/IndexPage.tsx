@@ -378,6 +378,16 @@ const Index = () => {
                        </p>
                     </div>
 
+                    <div className="pt-6 border-t border-border/50">
+                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/70 mb-4">
+                          Ervaring opgedaan bij:
+                       </p>
+                       <div className="flex items-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
+                          <img src="/ING.svg" alt="ING" className="h-12 w-auto md:h-14" />
+                          <img src="/bunq.svg" alt="Bunq" className="h-20 w-auto md:h-24" />
+                       </div>
+                    </div>
+
                     <div className="flex items-center gap-4 pt-4">
                        <Button variant="ghost" size="sm" asChild className="gap-2 pl-0 hover:bg-transparent hover:text-primary">
                           <a href="https://linkedin.com/in/christian-liebenberg-a0511060" target="_blank" rel="noopener noreferrer">
