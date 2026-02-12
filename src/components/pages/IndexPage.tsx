@@ -271,7 +271,7 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="relative p-8 md:p-12 flex items-center justify-center bg-black/5">
+              <div className="relative p-8 md:p-12 flex items-center justify-center bg-secondary/5">
                  <div className="relative group w-full max-w-md">
                     <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
                       <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>

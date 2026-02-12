@@ -12,14 +12,14 @@ All colors MUST be HSL.
     --font-heading: 'EB Garamond', 'Garamond', serif;
 
     /* Premium Light Mode - DEFAULT */
-    --background: 0 0% 100%;
+    --background: 60 20% 94.1%; /* #F3F3ED - Warm Off-White */
     --foreground: 222 47% 11%; /* Deep Charcoal Blue for text #0F172A */
 
-    /* Clean White Cards */
-    --card: 0 0% 100%;
+    /* Clean Cards */
+    --card: 60 20% 94.1%; /* #F3F3ED */
     --card-foreground: 222 47% 11%;
 
-    --popover: 0 0% 100%;
+    --popover: 60 20% 94.1%; /* #F3F3ED */
     --popover-foreground: 222 47% 11%;
 
     /* Primary: Liebenberg Blue (LinkedIn-inspired) */
@@ -49,7 +49,7 @@ All colors MUST be HSL.
     --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
     --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 60 20% 94.1%; /* #F3F3ED */
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
