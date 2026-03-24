@@ -164,7 +164,7 @@ const Index = () => {
 
           <div className="space-y-0">
             {[
-              { step: "01", title: "Processanalyse & Audit", desc: "We duiken diep in uw huidige situatie, processen en wensen. Waar zit de inefficiëntie? Wat is technisch haalbaar? We leveren een voorstel met duidelijk gedefinieerde scope en een budget." },
+              { step: "01", title: "Procesanalyse & Audit", desc: "We duiken diep in uw huidige situatie, processen en wensen. Waar zit de inefficiëntie? Wat is technisch haalbaar? We leveren een voorstel met duidelijk gedefinieerde scope en een budget." },
               { step: "02", title: "Proof of Concept (PoC)", desc: "Binnen 2-4 weken bouwen we een werkend prototype in een afgeschermde omgeving. We valideren de output-kwaliteit met statistische methoden. We kijken samen naar de resultaten en bespreken de volgende stappen." },
               { step: "03", title: "Production Deployment", desc: "Na validatie bouwen we in iteraties de productie-versie. Focus op security, rate-limiting, error-handling en integratie met bestaande systemen." },
               { step: "04", title: "Monitoring & Maintenance", desc: "Software leeft. Wij monitoren de performance van de modellen, updaten dependencies en zorgen dat het systeem stabiel blijft draaien en met uw organisatie meeschaalt." }
