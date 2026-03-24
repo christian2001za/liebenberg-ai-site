@@ -4,7 +4,7 @@ import React from 'react';
 const GrainOverlay = () => {
   return (
     <>
-      <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.08] mix-blend-multiply">
+      <div className="fixed inset-0 pointer-events-none z-50 opacity-[0.05] mix-blend-multiply">
         <svg className="w-full h-full">
           <filter id="noiseFilter">
             <feTurbulence 

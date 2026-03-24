@@ -1,112 +1,94 @@
-@tailwind base; 
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Design System: "The Quiet Curator" — Architectural Serenity
+   Monochromatic cream palette, editorial typography, 0px radius, no borders for sectioning.
+   All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --font-sans: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    --font-heading: 'EB Garamond', 'Garamond', serif;
+    --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-heading: 'Newsreader', 'Georgia', serif;
 
-    /* Premium Light Mode - DEFAULT */
-    --background: 60 20% 94.1%; /* #F3F3ED - Warm Off-White */
-    --foreground: 222 47% 11%; /* Deep Charcoal Blue for text #0F172A */
+    /* Surface Hierarchy — "stacked stone slabs" */
+    --background: 58 55% 95.3%; /* #fafae9 — vellum / sun-bleached stone */
+    --foreground: 72 22% 9.4%; /* #1b1d12 — on-surface */
 
-    /* Clean Cards */
-    --card: 60 20% 94.1%; /* #F3F3ED */
-    --card-foreground: 222 47% 11%;
+    /* Cards: slightly deeper than background — "stone blocks" */
+    --card: 58 30% 93.5%; /* #f2f2e5 — subtle depth below vellum */
+    --card-foreground: 72 22% 9.4%;
 
-    --popover: 60 20% 94.1%; /* #F3F3ED */
-    --popover-foreground: 222 47% 11%;
+    --popover: 58 30% 93.5%;
+    --popover-foreground: 72 22% 9.4%;
 
-    /* Primary: Liebenberg Blue (LinkedIn-inspired) */
-    --primary: 210 100% 40%; /* #0066CC - Vibrant Professional Blue */
-    --primary-foreground: 0 0% 100%;
+    /* Primary: Black — authoritative, editorial */
+    --primary: 0 0% 0%; /* #000000 */
+    --primary-foreground: 15 5% 89%; /* #e5e2e1 — on-primary */
 
-    /* Secondary: Soft Gray/Blue */
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222 47% 11%;
+    /* Secondary: surface-container-high */
+    --secondary: 60 18% 88%; /* #e9e9d9 */
+    --secondary-foreground: 72 22% 9.4%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted: surface-container-highest */
+    --muted: 63 18% 86%; /* #e3e4d3 */
+    --muted-foreground: 72 10% 40%; /* softened on-surface */
 
-    /* Accent: Subtle Blue Tint */
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222 47% 11%;
+    /* Accent */
+    --accent: 60 18% 88%; /* same as secondary */
+    --accent-foreground: 72 22% 9.4%;
 
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 210 100% 40%;
-
-    --radius: 0.5rem;
-    
-    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04);
-
-    --sidebar-background: 60 20% 94.1%; /* #F3F3ED */
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  /* Optional Dark Mode Class for specific sections (Footer/Hero) */
-  .dark {
-    --background: 240 5.9% 4%;
-    --foreground: 0 0% 98%;
-    --card: 240 5.9% 6%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 5.9% 6%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 36 20% 90%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
-    --sidebar-background: 240 5.9% 4%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Ghost borders — barely perceptible */
+    --border: 0 0% 78%; /* #c6c6c6 — outline-variant, used at low opacity */
+    --input: 0 0% 78%;
+    --ring: 0 0% 0%; /* black focus ring */
+
+    /* 0px border radius — sharp-edged geometry */
+    --radius: 0px;
+
+    /* Surface hierarchy tokens */
+    --surface-container-low: 58 30% 92.5%; /* #f4f4e4 */
+    --surface-container-high: 60 18% 88%; /* #e9e9d9 */
+    --surface-container-highest: 63 18% 86%; /* #e3e4d3 */
+    --primary-container: 0 1% 23.5%; /* #3c3b3b */
+    --outline-variant: 0 0% 78%; /* #c6c6c6 */
+    --ghost-border: 0 0% 78%; /* used at 15-20% opacity */
+
+    /* Shadows — only for modals/floating elements */
+    --shadow-modal: 0 20px 60px rgba(27, 29, 18, 0.04);
+
+    --sidebar-background: 58 55% 95.3%;
+    --sidebar-foreground: 72 22% 9.4%;
+    --sidebar-primary: 0 0% 0%;
+    --sidebar-primary-foreground: 15 5% 89%;
+    --sidebar-accent: 60 18% 88%;
+    --sidebar-accent-foreground: 72 22% 9.4%;
+    --sidebar-border: 0 0% 78%;
+    --sidebar-ring: 0 0% 0%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/15;
   }
 
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body :where(:not(.font-heading)):not(h1) {
     font-family: var(--font-sans);
-    letter-spacing: -0.01em;
+    letter-spacing: 0;
   }
 
   h1,
@@ -118,17 +100,38 @@ All colors MUST be HSL.
   .font-heading {
     font-family: var(--font-heading);
     letter-spacing: -0.02em;
-    color: var(--foreground);
+    color: hsl(var(--foreground));
+  }
+
+  /* Ensure children of headings (em, span, strong) inherit Newsreader */
+  h1 *, h2 *, h3 *, h4 *, h5 *, h6 *, .font-heading * {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
   }
 }
 
 @layer utilities {
-  .shadow-soft {
-    box-shadow: var(--shadow-soft);
+  /* Label utility — technical luxury aesthetic */
+  .label-uppercase {
+    font-family: var(--font-sans);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    font-weight: 500;
   }
-  
-  .shadow-medium {
-    box-shadow: var(--shadow-medium);
+
+  /* Ghost border utility */
+  .ghost-border {
+    border: 1px solid hsl(var(--outline-variant) / 0.15);
+  }
+
+  .ghost-border-20 {
+    border: 1px solid hsl(var(--outline-variant) / 0.20);
+  }
+
+  /* Modal shadow — only for floating elements */
+  .shadow-modal {
+    box-shadow: var(--shadow-modal);
   }
 
   .hero-animate {
@@ -166,13 +169,11 @@ All colors MUST be HSL.
   @keyframes heroFadeUp {
     from {
       opacity: 0;
-      transform: translateY(24px) scale(0.98);
-      filter: blur(2px);
+      transform: translateY(12px) scale(0.99);
     }
     to {
       opacity: 1;
       transform: translateY(0) scale(1);
-      filter: blur(0);
     }
   }
 
@@ -193,16 +194,11 @@ All colors MUST be HSL.
   @keyframes projectFade {
     from {
       opacity: 0;
-      transform: translateY(12px) scale(0.995);
-      filter: blur(1px);
-    }
-    65% {
-      filter: blur(0);
+      transform: translateY(8px) scale(0.995);
     }
     to {
       opacity: 1;
       transform: translateY(0) scale(1);
-      filter: blur(0);
     }
   }
 }

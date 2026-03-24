@@ -1,8 +1,6 @@
 
-import { Linkedin, ShieldCheck, Code2, Database, Terminal, Mail, Phone } from "lucide-react"; // Extra iconen voor tech-vibe
+import { Linkedin, ShieldCheck, Code2, Database, Terminal, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-
 
 import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG?url";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg?url";
@@ -16,120 +14,131 @@ import {
 } from "@/components/ui/accordion";
 
 const Index = () => {
-
-
   return (
-    <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
-      {/* Hero Section */}
-      <section className="px-6 py-32 md:py-40 lg:py-48 relative overflow-hidden">
-        {/* Abstract background element */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
-        
-        <div className="mx-auto max-w-4xl text-center relative z-10">
-          <div className="inline-flex items-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 text-xs font-medium text-primary mb-6 hero-animate">
-            <span className="flex h-2 w-2 rounded-full bg-primary mr-2 animate-pulse"></span>
-            Software Development for AI-driven Solutions
-          </div>
-          
-          <h1 className="hero-animate mb-6 text-5xl font-medium tracking-tight text-foreground md:text-6xl lg:text-7xl font-heading leading-[1.1]">
-            <span className="block font-heading">Maatwerk Software.</span> <span className="block font-sans text-muted-foreground/80">Gedreven door AI.</span>
-          </h1>
-          
-          <p className="hero-animate hero-delay-2 mb-10 text-lg text-muted-foreground md:text-xl max-w-2xl mx-auto leading-relaxed">
-            Wij bouwen robuuste AI-systemen met econometrische precisie. We verzorgen het gehele traject en bouwen traditionele software gecombineerd met AI die integreert met jouw bedrijfskritische processen.
+    <div className="min-h-screen bg-background font-sans selection:bg-foreground/10">
+
+      {/* ═══════════════════════════════════════════════════
+          HERO — Asymmetric editorial layout
+          Left-heavy headline, offset body text
+      ═══════════════════════════════════════════════════ */}
+      <section className="px-6 pt-[10rem] pb-section-lg relative">
+        <div className="mx-auto max-w-6xl relative z-10">
+          {/* Quiet label — no pill, no pulse, just text */}
+          <p className="hero-animate label-uppercase text-muted-foreground mb-10">
+            Software Development &mdash; AI-driven Solutions
           </p>
-          
-          <div className="hero-animate hero-delay-3 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button 
-              variant="default" 
-              size="xl"
-              asChild
-              className="px-8 h-12 text-base font-medium"
-            >
-              <a href="https://cal.com/christianliebenberg" target="_blank" rel="noopener noreferrer">
-                Plan kennismaking
-              </a>
-            </Button>
-            <Button 
-              variant="outline" 
-              size="xl"
-              asChild
-              className="px-8 h-12 text-base font-medium bg-transparent border-input hover:bg-secondary"
-            >
-              <a href="#cases">
-                Bekijk Cases
-              </a>
-            </Button>
+
+          {/* Asymmetric headline */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
+            <div className="md:col-span-10 lg:col-span-9">
+              <h1 className="hero-animate text-[clamp(2.8rem,7vw,5.5rem)] font-heading font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
+                Maatwerk Software.
+                <br />
+                <span className="italic">Gedreven door AI.</span>
+              </h1>
+            </div>
           </div>
 
-          {/* Value Props Row - More technical */}
-          <div className="hero-animate hero-delay-3 mt-16 flex justify-center text-sm text-muted-foreground">
-            <div className="flex flex-wrap justify-center gap-y-4 gap-x-8 md:gap-x-12">
-              <div className="flex items-center gap-2.5">
-                <Code2 className="h-4 w-4 text-primary" />
-                <span className="font-medium">In-house Engineering</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <ShieldCheck className="h-4 w-4 text-primary" />
-                <span className="font-medium">GDPR / AVG Compliant</span>
-              </div>
-              <div className="flex items-center gap-2.5">
-                <Database className="h-4 w-4 text-primary" />
-                <span className="font-medium">Schaalbare Architectuur</span>
+          {/* Body text — offset to the right for editorial asymmetry */}
+          <div className="grid grid-cols-1 md:grid-cols-12 mt-12">
+            <div className="md:col-start-5 md:col-span-7 lg:col-start-5 lg:col-span-6">
+              <p className="hero-animate hero-delay-2 text-lg text-muted-foreground leading-[1.6] max-w-xl">
+                Wij bouwen robuuste AI-systemen met econometrische precisie. We verzorgen het gehele traject en bouwen traditionele software gecombineerd met AI die integreert met jouw bedrijfskritische processen.
+              </p>
+
+              <div className="hero-animate hero-delay-3 flex flex-col sm:flex-row items-start gap-4 mt-10">
+                <Button
+                  variant="default"
+                  size="xl"
+                  asChild
+                  className="px-10 h-14 text-base font-medium"
+                >
+                  <a href="https://cal.com/christianliebenberg" target="_blank" rel="noopener noreferrer">
+                    Plan kennismaking
+                  </a>
+                </Button>
+                <Button
+                  variant="outline"
+                  size="xl"
+                  asChild
+                  className="px-10 h-14 text-base font-medium"
+                >
+                  <a href="#cases">
+                    Bekijk Cases
+                  </a>
+                </Button>
               </div>
             </div>
+          </div>
+
+          {/* Value props — understated, typographic */}
+          <div className="hero-animate hero-delay-3 mt-20 flex flex-wrap gap-x-12 gap-y-4 label-uppercase text-muted-foreground">
+            <span>In-house Engineering</span>
+            <span>GDPR / AVG Compliant</span>
+            <span>Schaalbare Architectuur</span>
           </div>
         </div>
       </section>
 
-      {/* Tech Stack Marquee */}
-      <div className="border-y border-border bg-secondary/5">
+      {/* ═══════════════════════════════════════════════════
+          TECH STACK — Tonal shift, no borders
+      ═══════════════════════════════════════════════════ */}
+      <div className="bg-surface-high">
         <TechStack />
       </div>
 
-      {/* Custom Solutions Section */}
-      <section id="diensten" className="px-6 py-24 md:py-32">
-        <div className="mx-auto max-w-5xl">
-          <div className="mb-16 md:text-center max-w-3xl mx-auto">
-            <h2 className="font-heading text-3xl font-medium md:text-4xl text-foreground mb-4">
-              Onze Expertise
-            </h2>
-            <p className="text-muted-foreground text-lg">
-              Wij leveren complete oplossingen. Onze achtergrond in econometrie garandeert dat we de fundamentele wiskunde en data achter AI begrijpen en dit kunnen toepassen op bedrijfskritische processen. 
-            </p>
+      {/* ═══════════════════════════════════════════════════
+          EXPERTISE — Stone blocks on vellum
+      ═══════════════════════════════════════════════════ */}
+      <section id="diensten" className="px-6 py-section-lg">
+        <div className="mx-auto max-w-6xl">
+          {/* Asymmetric section header */}
+          <div className="grid grid-cols-1 md:grid-cols-12 mb-20">
+            <div className="md:col-span-5">
+              <p className="label-uppercase text-muted-foreground mb-4">Onze expertise</p>
+              <h2 className="font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1] text-foreground">
+                <em className="italic">Specialisaties</em>
+              </h2>
+            </div>
+            <div className="md:col-start-7 md:col-span-6 flex items-end mt-6 md:mt-0">
+              <p className="text-muted-foreground text-lg leading-[1.6]">
+                Wij leveren complete oplossingen. Onze achtergrond in econometrie garandeert dat we de fundamentele wiskunde en data achter AI begrijpen en dit kunnen toepassen op bedrijfskritische processen.
+              </p>
+            </div>
           </div>
-          
-          <div className="grid gap-6 md:grid-cols-2">
+
+          {/* Service grid — white "stone blocks" on cream */}
+          <div className="grid gap-[2px] md:grid-cols-2">
             {[
               {
-                icon: <Terminal className="h-6 w-6 text-primary" />,
+                icon: <Terminal className="h-5 w-5" />,
                 title: "Intelligent Document Processing",
                 desc: "Unstructured data omzetten naar structured output. Wij bouwen pipelines die documenten, facturen en rapporten uitlezen, verwerken en direct wegschrijven in uw ERP of CRM systemen."
               },
               {
-                icon: <Code2 className="h-6 w-6 text-primary" />,
+                icon: <Code2 className="h-5 w-5" />,
                 title: "Workflow Automation & Architectuur",
                 desc: "End-to-end procesoptimalisatie. We analyseren uw huidige processen en bouwen maatwerk AI-software om repititief werk grotendeels te automatiseren. Met human-in-the-loop voor controle."
               },
               {
-                icon: <Database className="h-6 w-6 text-primary" />,
+                icon: <Database className="h-5 w-5" />,
                 title: "Semantic Search & RAG Systems",
                 desc: "Retrieval-Augmented Generation (RAG) op uw eigen data en documenten. Veilig en afgeschermd. Maak uw interne kennisbank doorzoekbaar met AI die bronverwijzingen geeft en halluciniaties minimaliseert."
               },
               {
-                icon: <ShieldCheck className="h-6 w-6 text-primary" />,
+                icon: <ShieldCheck className="h-5 w-5" />,
                 title: "Generative AI Integration",
                 desc: "Het trainen van generatieve AI-modellen op uw bedrijfsspecifieke tone-of-voice en data. Voor geautomatiseerde klantcommunicatie of content generatie die bijna niet van menselijk te onderscheiden is."
               }
             ].map((service, i) => (
-              <div key={i} className="group relative overflow-hidden rounded-2xl border border-border bg-secondary/30 p-8 transition-all hover:bg-secondary/50 hover:border-primary/20">
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 border border-primary/20">
+              <div key={i} className="bg-surface-low p-10 md:p-12 group transition-colors duration-500 hover:bg-background">
+                <div className="mb-6 text-foreground">
                   {service.icon}
                 </div>
-                <h3 className="text-xl font-medium text-foreground mb-3">
+                <h3 className="text-xl font-normal text-foreground mb-4 leading-snug">
                   {service.title}
                 </h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
+                <p className="text-[0.95rem] text-muted-foreground leading-[1.6]">
                   {service.desc}
                 </p>
               </div>
@@ -138,34 +147,42 @@ const Index = () => {
         </div>
       </section>
 
-      {/* How It Works Section - More "Development Lifecycle" oriented */}
-      <section id="werkwijze" className="px-6 py-24 bg-secondary/5 border-y border-border">
-        <div className="mx-auto max-w-4xl">
-          <div className="mb-16 md:text-center">
-            <h2 className="font-heading text-3xl font-medium md:text-4xl mb-4">
-              Werkwijze
-            </h2>
-            <p className="text-muted-foreground">
-              Geen verassingen of verwarring, maar een transparant engineering proces.
-            </p>
+      {/* ═══════════════════════════════════════════════════
+          WERKWIJZE — Typographic numerals, no timeline
+          Tonal background shift for section boundary
+      ═══════════════════════════════════════════════════ */}
+      <section id="werkwijze" className="px-6 py-section-lg bg-surface-high">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 mb-20">
+            <div className="md:col-span-5">
+              <p className="label-uppercase text-muted-foreground mb-4">Werkwijze</p>
+              <h2 className="font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1] text-foreground">
+                <em className="italic">Ons Proces</em>
+              </h2>
+            </div>
           </div>
-          
-          <div className="space-y-8 relative before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-white/10 before:to-transparent">
+
+          <div className="space-y-0">
             {[
               { step: "01", title: "Processanalyse & Audit", desc: "We duiken diep in uw huidige situatie, processen en wensen. Waar zit de inefficiëntie? Wat is technisch haalbaar? We leveren een voorstel met duidelijk gedefinieerde scope en een budget." },
               { step: "02", title: "Proof of Concept (PoC)", desc: "Binnen 2-4 weken bouwen we een werkend prototype in een afgeschermde omgeving. We valideren de output-kwaliteit met statistische methoden. We kijken samen naar de resultaten en bespreken de volgende stappen." },
               { step: "03", title: "Production Deployment", desc: "Na validatie bouwen we in iteraties de productie-versie. Focus op security, rate-limiting, error-handling en integratie met bestaande systemen." },
               { step: "04", title: "Monitoring & Maintenance", desc: "Software leeft. Wij monitoren de performance van de modellen, updaten dependencies en zorgen dat het systeem stabiel blijft draaien en met uw organisatie meeschaalt." }
             ].map((item, i) => (
-              <div key={i} className="relative flex items-start gap-6 md:gap-10 group">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-background border border-border shadow-sm z-10 group-hover:border-primary/50 transition-colors">
-                  <span className="text-xs font-mono text-muted-foreground group-hover:text-primary">{item.step}</span>
+              <div key={i} className="grid grid-cols-1 md:grid-cols-12 py-10 md:py-14 group" style={i > 0 ? { borderTop: '1px solid hsl(0 0% 78% / 0.12)' } : undefined}>
+                {/* Large typographic numeral */}
+                <div className="md:col-span-2">
+                  <span className="font-heading text-5xl md:text-6xl font-normal text-foreground/10 group-hover:text-foreground/20 transition-colors duration-500">
+                    {item.step}
+                  </span>
                 </div>
-                <div className="rounded-xl border border-border bg-background/50 p-6 shadow-sm flex-1 transition-all group-hover:bg-background/80 group-hover:border-border">
-                  <h3 className="text-lg font-medium text-foreground">
+                <div className="md:col-span-3 mt-4 md:mt-2">
+                  <h3 className="text-xl font-normal text-foreground leading-snug">
                     {item.title}
                   </h3>
-                  <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                </div>
+                <div className="md:col-start-7 md:col-span-6 mt-4 md:mt-2">
+                  <p className="text-[0.95rem] text-muted-foreground leading-[1.6]">
                     {item.desc}
                   </p>
                 </div>
@@ -175,127 +192,133 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section id="cases" className="px-6 py-24 md:py-32">
+      {/* ═══════════════════════════════════════════════════
+          CASE STUDIES — Tonal cards, no borders
+      ═══════════════════════════════════════════════════ */}
+      <section id="cases" className="px-6 py-section-lg">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-16">
-            <h2 className="font-heading text-3xl font-medium md:text-4xl text-foreground">
-              Case Studies
+          <div className="mb-20">
+            <p className="label-uppercase text-muted-foreground mb-4">Projecten</p>
+            <h2 className="font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1] text-foreground">
+              <em className="italic">Case Studies</em>
             </h2>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+            <p className="mt-6 text-lg text-muted-foreground max-w-2xl leading-[1.6]">
               AI-gedreven software die bedrijfswaarde levert in de praktijk.
             </p>
           </div>
 
-          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden">
+          {/* Case 1 — Inbox AI */}
+          <div className="bg-surface-low overflow-hidden">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5">
+              <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low">
                 <div>
-                  <div className="flex items-center gap-3 mb-6">
-                     <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-80 brightness-0" />
+                  <div className="flex items-center gap-3 mb-8">
+                    <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-70 brightness-0" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4">
+                  <h3 className="font-heading text-2xl font-normal mb-5 leading-snug">
                     Inbox AI Architecture
                   </h3>
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-muted-foreground mb-10 leading-[1.6]">
                     "We hebben het geprobeerd met chatGPT maar dat leverde mails van te lage kwaliteit." Voor een high-volume optometrie praktijk ontwikkelden we een AI-gedreven inbox-applicatie. Het systeem is getraind op de kennisbank en tone-of-voice van de praktijk. Door de traditionele software die om de AI heen is gebouwd is deze applicatie geoptimaliseerd voor zijn specifieke use-case. Email concepten kunnen makkelijk handmatig en met AI-edit worden bijgesteld tot het gewenste resultaat is bereikt.
                   </p>
-                  
-                  <div className="space-y-4 mb-8">
-                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <span>75% reductie in tijd</span>
-                     </div>
-                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-green-500"></div>
-                        <span>Flexibel aanpasbaar door klant</span>
-                     </div>
+
+                  <div className="space-y-4 mb-10">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>75% reductie in tijd</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Flexibel aanpasbaar door klant</span>
+                    </div>
                   </div>
                 </div>
-                
+
                 <Button variant="outline" className="w-fit" asChild>
-                    <a href="https://email-drafter-nine.vercel.app/home" target="_blank" rel="noopener noreferrer">
-                      Hoe ziet het eruit?
-                    </a>
+                  <a href="https://email-drafter-nine.vercel.app/home" target="_blank" rel="noopener noreferrer">
+                    Hoe ziet het eruit?
+                  </a>
                 </Button>
               </div>
 
-              <div className="relative p-8 md:p-12 flex items-center justify-center">
-                 <div className="relative group w-full max-w-md">
-                    <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
-                      <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
-                        <iframe
-                          src="https://www.loom.com/embed/3b2657c3394a4b589e276967c56147a0"
-                          frameBorder="0"
-                          allowFullScreen
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                        />
-                      </div>
-                    </MacbookMockup>
-                 </div>
+              <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
+                <div className="relative group w-full max-w-md">
+                  <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
+                    <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
+                      <iframe
+                        src="https://www.loom.com/embed/3b2657c3394a4b589e276967c56147a0"
+                        frameBorder="0"
+                        allowFullScreen
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      />
+                    </div>
+                  </MacbookMockup>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden mt-12">
+          {/* Case 2 — Debatwijzer */}
+          <div className="bg-surface-low overflow-hidden mt-section">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-               <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5 order-last md:order-first">
+              <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low order-last md:order-first">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4">
+                  <h3 className="font-heading text-2xl font-normal mb-5 leading-snug">
                     AI Debatwijzer 2025
                   </h3>
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
-                     Een showcase van LLM en RAG technologie op grote schaal. We hebben een debat chatbot ontwikkeld die zijn informatie alleen haalt uit partijprogramma's, inclusief bronnen en citaten. Tijdens de verkiezingen in 2025 zijn er 300+ debatten gevoerd met onze software. Dit soort toepassingen werken uitstekend voor interne chatbots om met uw eigen data te praten. 
+                  <p className="text-muted-foreground mb-10 leading-[1.6]">
+                    Een showcase van LLM en RAG technologie op grote schaal. We hebben een debat chatbot ontwikkeld die zijn informatie alleen haalt uit partijprogramma's, inclusief bronnen en citaten. Tijdens de verkiezingen in 2025 zijn er 300+ debatten gevoerd met onze software. Dit soort toepassingen werken uitstekend voor interne chatbots om met uw eigen data te praten.
                   </p>
-                  
-                  <div className="space-y-4 mb-8">
-                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span>Real-time fact retrieval</span>
-                     </div>
-                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span>AI integratie</span>
-                     </div>
-                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                        <div className="w-1.5 h-1.5 rounded-full bg-blue-500"></div>
-                        <span>Bronnen</span>
-                     </div>
+
+                  <div className="space-y-4 mb-10">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Real-time fact retrieval</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>AI integratie</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Bronnen</span>
+                    </div>
                   </div>
                 </div>
-                
+
                 <Button variant="outline" className="w-fit" asChild>
-                    <a href="https://debat.liebenberg.ai" target="_blank" rel="noopener noreferrer">
-                      Probeer de applicatie
-                    </a>
+                  <a href="https://debat.liebenberg.ai" target="_blank" rel="noopener noreferrer">
+                    Probeer de applicatie
+                  </a>
                 </Button>
               </div>
 
-              <div className="relative p-8 md:p-12 flex items-center justify-center bg-secondary/5">
-                 <div className="relative group w-full max-w-md">
-                    <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
-                      <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
-                        <iframe
-                          src="https://www.loom.com/embed/ab1576ce21094b31acb0c8969efb1a0d"
-                          frameBorder="0"
-                          allowFullScreen
-                          style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                        />
-                      </div>
-                    </MacbookMockup>
-                 </div>
+              <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
+                <div className="relative group w-full max-w-md">
+                  <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
+                    <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
+                      <iframe
+                        src="https://www.loom.com/embed/ab1576ce21094b31acb0c8969efb1a0d"
+                        frameBorder="0"
+                        allowFullScreen
+                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
+                      />
+                    </div>
+                  </MacbookMockup>
+                </div>
               </div>
             </div>
           </div>
 
-          <div className="border border-border rounded-3xl bg-secondary/5 overflow-hidden mt-12">
+          {/* Case 3 — CV Generator */}
+          <div className="bg-surface-low overflow-hidden mt-section">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
-              <div className="p-8 md:p-12 flex flex-col justify-between border-b md:border-b-0 md:border-r border-border bg-secondary/5">
+              <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-4">
+                  <h3 className="font-heading text-2xl font-normal mb-5 leading-snug">
                     Consultancy CV Generator
                   </h3>
-                  <p className="text-muted-foreground mb-8 leading-relaxed">
+                  <p className="text-muted-foreground mb-10 leading-[1.6]">
                     Vanuit mijn tijd in consultancy zag ik dat consultants en managers continu bezig zijn om
                     projectervaringen te herschrijven en in de juiste huisstijl te krijgen. Daarom heb ik een platform gebouwd waar iedere
                     consultant zijn ervaring ongestructureerd kan dumpen op een eigen account. Vul de projectomschrijving in en rolt er automatisch een CV uit in
@@ -305,17 +328,17 @@ const Index = () => {
                     consultants alleen nog hoeven te controleren. Dit bespaart consultancy partijen veel tijd en geld.
                   </p>
 
-                  <div className="space-y-4 mb-8">
+                  <div className="space-y-4 mb-10">
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span className="text-foreground">&mdash;</span>
                       <span>Automatische CV's in klant-huisstijl</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span className="text-foreground">&mdash;</span>
                       <span>Snelle selectie en reviewflow voor managers</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
-                      <div className="w-1.5 h-1.5 rounded-full bg-amber-500"></div>
+                      <span className="text-foreground">&mdash;</span>
                       <span>Grote tijds- en kostenbesparing voor consultancy teams</span>
                     </div>
                   </div>
@@ -328,9 +351,9 @@ const Index = () => {
                 </Button>
               </div>
 
-              <div className="relative p-8 md:p-12 flex items-center justify-center">
+              <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
                 <div className="relative group w-full max-w-md">
-                  <MacbookMockup className="transition-transform duration-300 group-hover:scale-[1.01]">
+                  <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
                     <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
                       <iframe
                         src="https://www.loom.com/embed/634a958d7f0341ef8f26b9a7d7b09876"
@@ -344,76 +367,91 @@ const Index = () => {
               </div>
             </div>
           </div>
-          
-
         </div>
       </section>
 
-
-
-      {/* About Section - The "Why Us" */}
-      <section className="px-6 py-24 bg-gradient-to-b from-background to-secondary/10">
-        <div className="mx-auto max-w-4xl">
-           <div className="rounded-3xl border border-border bg-background/50 p-8 md:p-12 shadow-sm">
-              <div className="flex flex-col md:flex-row gap-10 items-stretch">
-                 <div className="shrink-0 w-full md:w-64 rounded-xl overflow-hidden border border-border shadow-2xl">
-                    <img src={founderPortrait} alt="Christian Liebenberg" className="w-full h-full object-cover" />
-                 </div>
-                 <div className="space-y-6">
-                    <div>
-                       <h2 className="font-heading text-2xl font-medium md:text-3xl mb-2">
-                          Waarom kiezen voor ons?
-                       </h2>
-                       <p className="text-sm font-mono text-primary/80">
-                          Christian Liebenberg | Founder & Lead Engineer | MSc Econometrics 
-                       </p>
-                    </div>
-                    
-                    <div className="prose text-muted-foreground leading-relaxed">
-                       <p>
-                          De AI-markt wordt overspoeld door 'agencies' die simpele prompts verkopen zonder fundamentele kennis. Wij doen dat anders. Liebenberg AI is gebaseerd op een achtergrond in <strong>Econometrie</strong> en data-analyse.
-                       </p>
-                       <p>
-                          Wij begrijpen de wiskunde en data achter de modellen. Dat betekent dat we weten wanneer een model betrouwbaar is, en wanneer niet. We bouwen traditionele software gecombineerd met AI die niet alleen 'werkt' in een demo, maar die <strong>veilig, schaalbaar en statistisch onderbouwd</strong> is in een productie-omgeving.
-                       </p>
-                    </div>
-
-                    <div className="pt-6 border-t border-border/50">
-                       <p className="text-xs font-medium uppercase tracking-wider text-muted-foreground/70 mb-4">
-                          Ervaring opgedaan bij:
-                       </p>
-                       <div className="flex items-center gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-300">
-                          <img src="/ING.svg" alt="ING" className="h-12 w-auto md:h-14" />
-                          <img src="/bunq.svg" alt="Bunq" className="h-20 w-auto md:h-24" />
-                       </div>
-                    </div>
-
-                    <div className="flex items-center gap-4 pt-4">
-                       <Button variant="ghost" size="sm" asChild className="gap-2 pl-0 hover:bg-transparent hover:text-primary">
-                          <a href="https://linkedin.com/in/christian-liebenberg-a0511060" target="_blank" rel="noopener noreferrer">
-                             <Linkedin className="h-4 w-4" />
-                             Connect op LinkedIn
-                          </a>
-                       </Button>
-                    </div>
-                 </div>
+      {/* ═══════════════════════════════════════════════════
+          ABOUT — Editorial portrait layout
+      ═══════════════════════════════════════════════════ */}
+      <section className="px-6 py-section-lg bg-surface-high">
+        <div className="mx-auto max-w-6xl">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16 items-start">
+            {/* Portrait — sharp edges, no shadow */}
+            <div className="md:col-span-4 lg:col-span-3">
+              <div className="overflow-hidden">
+                <img src={founderPortrait} alt="Christian Liebenberg" className="w-full h-auto object-cover" />
               </div>
-           </div>
+              <div className="mt-6">
+                <p className="label-uppercase text-muted-foreground">
+                  Christian Liebenberg
+                </p>
+                <p className="text-sm text-muted-foreground mt-1">
+                  Founder & Lead Engineer
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  MSc Econometrics
+                </p>
+              </div>
+            </div>
+
+            {/* Bio — offset for asymmetry */}
+            <div className="md:col-start-6 md:col-span-7">
+              <p className="label-uppercase text-muted-foreground mb-4">Over ons</p>
+              <h2 className="font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1] text-foreground mb-8">
+                Waarom kiezen voor <em className="italic">ons?</em>
+              </h2>
+
+              <div className="space-y-5 text-muted-foreground leading-[1.6]">
+                <p>
+                  De AI-markt wordt overspoeld door 'agencies' die simpele prompts verkopen zonder fundamentele kennis. Wij doen dat anders. Liebenberg AI is gebaseerd op een achtergrond in <strong className="text-foreground font-medium">Econometrie</strong> en data-analyse.
+                </p>
+                <p>
+                  Wij begrijpen de wiskunde en data achter de modellen. Dat betekent dat we weten wanneer een model betrouwbaar is, en wanneer niet. We bouwen traditionele software gecombineerd met AI die niet alleen 'werkt' in een demo, maar die <strong className="text-foreground font-medium">veilig, schaalbaar en statistisch onderbouwd</strong> is in een productie-omgeving.
+                </p>
+              </div>
+
+              <div className="mt-12">
+                <p className="label-uppercase text-muted-foreground mb-5">
+                  Ervaring opgedaan bij
+                </p>
+                <div className="flex items-center gap-10 opacity-40 grayscale">
+                  <img src="/ING.svg" alt="ING" className="h-12 w-auto md:h-14" />
+                  <img src="/bunq.svg" alt="Bunq" className="h-20 w-auto md:h-24" />
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <Button variant="ghost" size="sm" asChild className="gap-2 pl-0 text-muted-foreground hover:text-foreground">
+                  <a href="https://linkedin.com/in/christian-liebenberg-a0511060" target="_blank" rel="noopener noreferrer">
+                    <Linkedin className="h-4 w-4" />
+                    Connect op LinkedIn
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="px-6 py-24">
+      {/* ═══════════════════════════════════════════════════
+          FAQ — Clean accordion, spacing separation
+      ═══════════════════════════════════════════════════ */}
+      <section className="px-6 py-section-lg">
         <div className="mx-auto max-w-3xl">
-          <h2 className="font-heading text-2xl font-medium mb-10 text-center">Veelgestelde vragen</h2>
-          <Accordion type="single" collapsible className="w-full space-y-4">
+          <div className="mb-16">
+            <p className="label-uppercase text-muted-foreground mb-4">Vragen</p>
+            <h2 className="font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1] text-foreground">
+              Veelgestelde <em className="italic">vragen</em>
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="w-full space-y-6">
             {[
               { q: "Wat is het verschil tussen jullie en een standaard AI-agency?", a: "Wij zijn developers en econometristen, geen marketeers. Wij bouwen custom software en integraties in eigen beheer. Wij hebben een unieke combinatie van wiskunde, data, AI, en business kennis. Allemaal in-house. Hierdoor leveren wij oplossingen van een ander kaliber." },
               { q: "Is mijn data veilig?", a: (
                 <div className="space-y-4">
                   <p className="font-medium text-foreground">Veiligheid en Privacy staan voorop bij Liebenberg AI</p>
                   <p>Wij begrijpen dat uw bedrijfsdata gevoelig is. Daarom hebben wij ons platform gebouwd met 'Privacy by Design' als uitgangspunt.</p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     <li><strong className="text-foreground">100% Europese Hosting:</strong> Uw data verlaat de Europese Unie niet. Wij maken gebruik van beveiligde servers in Amsterdam en Frankfurt.</li>
                     <li><strong className="text-foreground">Uw data blijft van u:</strong> Wij gebruiken uw invoer nooit om onze AI-modellen te trainen. Wat u bespreekt, blijft strikt vertrouwelijk.</li>
                     <li><strong className="text-foreground">AVG/GDPR Compliant:</strong> Onze infrastructuur en processen voldoen aan de strenge Europese privacywetgeving.</li>
@@ -429,11 +467,11 @@ const Index = () => {
                 </div>
               ) }
             ].map((item, i) => (
-              <AccordionItem key={i} value={`item-${i}`} className="border border-border bg-secondary/5 px-6 rounded-lg data-[state=open]:bg-secondary/10">
-                <AccordionTrigger className="text-base font-medium hover:no-underline hover:text-primary py-4 text-left">
+              <AccordionItem key={i} value={`item-${i}`} className="bg-surface-low px-8 py-1 data-[state=open]:bg-surface-high transition-colors duration-300">
+                <AccordionTrigger className="text-base font-medium hover:no-underline py-5 text-left text-foreground">
                   {item.q}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-4 leading-relaxed">
+                <AccordionContent className="text-muted-foreground pb-6 leading-[1.6]">
                   {item.a}
                 </AccordionContent>
               </AccordionItem>
@@ -442,61 +480,60 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Contact Section */}
-      <section id="contact" className="px-6 py-32 border-t border-border relative overflow-hidden">
-        <div className="absolute inset-0 bg-primary/5 blur-[100px] pointer-events-none" />
-        <div className="mx-auto max-w-3xl text-center relative z-10">
-          <h2 className="mb-8 font-heading text-4xl font-medium md:text-5xl">
-            Klaar voor serieuze procesoptimalisatie?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
-            Plan een gesprek om te kijken of uw use-case technisch haalbaar is en wat de ROI zal zijn.
-          </p>
-          <div className="flex flex-col items-center gap-6">
-             <Button 
-               variant="default" 
-               size="xl"
-               asChild
-               className="px-12 h-14 text-lg w-full sm:w-auto"
-             >
-               <a href="https://cal.com/christianliebenberg" target="_blank" rel="noopener noreferrer">
-               Plan Kennismaking
-               </a>
-             </Button>
-             
-             <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-6 sm:gap-10 mt-4">
-                <a 
-                  href="mailto:info@liebenberg.ai" 
-                  className="flex items-center gap-2.5 text-foreground hover:text-primary transition-colors font-medium group"
+      {/* ═══════════════════════════════════════════════════
+          CONTACT — Editorial CTA
+      ═══════════════════════════════════════════════════ */}
+      <section id="contact" className="px-6 py-section-lg bg-surface-high relative">
+        <div className="mx-auto max-w-6xl relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-12">
+            <div className="md:col-span-7 lg:col-span-6">
+              <p className="label-uppercase text-muted-foreground mb-4">Contact</p>
+              <h2 className="mb-8 font-heading text-3xl font-normal md:text-[2.75rem] leading-[1.1]">
+                Klaar voor serieuze <em className="italic">procesoptimalisatie?</em>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-12 leading-[1.6] max-w-lg">
+                Plan een gesprek om te kijken of uw use-case technisch haalbaar is en wat de ROI zal zijn.
+              </p>
+
+              <Button
+                variant="default"
+                size="xl"
+                asChild
+                className="px-12 h-14 text-base font-medium"
+              >
+                <a href="https://cal.com/christianliebenberg" target="_blank" rel="noopener noreferrer">
+                  Plan Kennismaking
+                </a>
+              </Button>
+
+              <div className="flex flex-col sm:flex-row flex-wrap gap-8 sm:gap-12 mt-14">
+                <a
+                  href="mailto:info@liebenberg.ai"
+                  className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors font-medium group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
+                  <Mail className="h-4 w-4" />
                   info@liebenberg.ai
                 </a>
-                <a 
-                  href="tel:+31637220535" 
-                  className="flex items-center gap-2.5 text-foreground hover:text-primary transition-colors font-medium group"
+                <a
+                  href="tel:+31637220535"
+                  className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors font-medium group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 border border-primary/20 group-hover:bg-primary/20 transition-colors">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
+                  <Phone className="h-4 w-4" />
                   +31 6 37220535
                 </a>
-                <a 
-                  href="https://wa.me/31637220535" 
+                <a
+                  href="https://wa.me/31637220535"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2.5 text-foreground hover:text-[#25D366] transition-colors font-medium group"
+                  className="flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors font-medium group"
                 >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366]/10 border border-[#25D366]/20 group-hover:bg-[#25D366]/20 transition-colors">
-                    <svg className="h-5 w-5 fill-[#25D366]" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                  </div>
+                  <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
                   WhatsApp
                 </a>
-             </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
