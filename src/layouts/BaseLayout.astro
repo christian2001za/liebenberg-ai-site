@@ -3,7 +3,6 @@ import "../index.css";
 import GrainOverlay from "../components/design/GrainOverlay";
 import DynamicGradientBackground from "../components/design/DynamicGradientBackground";
 
-import CookieBanner from "../components/CookieBanner";
 import logo from "../assets/logo.svg";
 
 const {
@@ -50,11 +49,22 @@ const ogImage = new URL(image, Astro.site).href;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@liebenberg_ai" />
     <meta name="twitter:image" content={ogImage} />
+
+    <!-- Google Analytics (cookieloos) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G9SN9V0NGW"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('consent', 'default', {
+        'analytics_storage': 'denied'
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-G9SN9V0NGW');
+    </script>
   </head>
   <body>
     <GrainOverlay />
     <DynamicGradientBackground client:only="react" />
-    <CookieBanner client:only="react" />
     <header class="px-6 py-6 fixed top-0 w-full z-40 bg-[#fafae9]/70 backdrop-blur-[20px]">
       <div class="mx-auto flex max-w-6xl items-center justify-between">
         <a href="/" aria-label="Liebenberg AI">
