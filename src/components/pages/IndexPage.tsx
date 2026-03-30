@@ -25,16 +25,16 @@ const Index = () => {
         <div className="mx-auto max-w-6xl relative z-10">
           {/* Quiet label — no pill, no pulse, just text */}
           <p className="hero-animate label-uppercase text-muted-foreground mb-10">
-            Software Development &mdash; AI-driven Solutions
+            Maatwerk Software &mdash; Gedreven door AI
           </p>
 
           {/* Asymmetric headline */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-0">
             <div className="md:col-span-10 lg:col-span-9">
               <h1 className="hero-animate text-[clamp(2.8rem,7vw,5.5rem)] font-heading font-normal leading-[1.05] tracking-[-0.02em] text-foreground">
-                Maatwerk Software.
+                Minder Handwerk.
                 <br />
-                <span className="italic">Gedreven door AI.</span>
+                <span className="italic">Meer Resultaat.</span>
               </h1>
             </div>
           </div>
@@ -43,7 +43,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 mt-12">
             <div className="md:col-start-5 md:col-span-7 lg:col-start-5 lg:col-span-6">
               <p className="hero-animate hero-delay-2 text-lg text-muted-foreground leading-[1.6] max-w-xl">
-                Wij bouwen robuuste AI-systemen met econometrische precisie. We verzorgen het gehele traject en bouwen traditionele software gecombineerd met AI die integreert met jouw bedrijfskritische processen.
+                Wij bouwen AI-systemen die uw team uren per week besparen, wiskundig onderbouwd en klaar voor productie.
               </p>
 
               <div className="hero-animate hero-delay-3 flex flex-col sm:flex-row items-start gap-4 mt-10">
