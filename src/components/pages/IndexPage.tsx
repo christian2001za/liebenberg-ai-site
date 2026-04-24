@@ -217,7 +217,7 @@ const Index = () => {
                     Meldpunt Aziatische Hoornaar
                   </h3>
                   <p className="text-muted-foreground mb-10 leading-[1.6]">
-                    Voor NatuurlijkRob ontwikkelden we een landelijk platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar in kaart brengen. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute &mdash; alles op één gedeelde kaart. Sinds het beheer in 2024 provinciaal belegd is, vervult het platform de verbindende laag tussen honderden losse gemeentelijke sporen.
+                    We ontwikkelden een landelijk platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar in kaart brengen. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute &mdash; alles op één gedeelde kaart. Sinds het beheer in 2024 provinciaal belegd is, vervult het platform de verbindende laag tussen honderden losse gemeentelijke sporen.
                   </p>
 
                   <div className="space-y-4 mb-10">
@@ -244,11 +244,15 @@ const Index = () => {
               </div>
 
               <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
-                <div className="relative group w-full max-w-md">
+                <a
+                  href="/case-study/meldpunt-aziatische-hoornaar.html"
+                  aria-label="Lees de case study Meldpunt Aziatische Hoornaar"
+                  className="relative group w-full max-w-md block"
+                >
                   <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
                     <MeldpuntMapPreview />
                   </MacbookMockup>
-                </div>
+                </a>
               </div>
             </div>
           </div>

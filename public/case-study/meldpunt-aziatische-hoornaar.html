@@ -425,6 +425,39 @@
     .news-item{grid-template-columns:1fr; gap:6px}
     nav.top ul{display:none}
   }
+
+  @media (max-width: 640px){
+    html,body{overflow-x:hidden}
+    .wrap{padding:0 20px}
+    h1.title{font-size:clamp(36px, 9vw, 56px); max-width:none; overflow-wrap:break-word; word-break:break-word; hyphens:auto}
+    .hero-sub{font-size:16px}
+    .hero{padding:32px 0 32px}
+    section{padding:56px 0}
+    .sec-head{gap:20px; margin-bottom:36px}
+    .sec-head h2{font-size:clamp(26px, 6.5vw, 36px)}
+    .stats{grid-template-columns:1fr}
+    .stat{border-right:none !important; border-bottom:1px solid var(--line); padding:28px 20px}
+    .stat:last-child{border-bottom:none}
+    .stat .num{font-size:clamp(44px, 14vw, 64px)}
+    .impact-grid{grid-template-columns:1fr}
+    .imp{padding:24px 20px}
+    .quote-inner{padding:56px 0}
+    .quote-body{font-size:clamp(22px, 5.5vw, 30px)}
+    .quote-mark{font-size:110px}
+    .built{gap:24px 20px}
+    .built-item h3{font-size:20px}
+    .cta{padding:36px 22px; margin:48px 0}
+    .cta h2{font-size:clamp(26px, 6.5vw, 34px)}
+    .news-date,.news-src{font-size:11px}
+    .news-title{font-size:15px}
+    .news-item{padding:18px 0; gap:4px}
+    .hero-visual{margin-top:32px; aspect-ratio:4/5}
+    .hv-overlay{right:10px; top:10px; min-width:160px; padding:10px 12px; font-size:11px}
+    .hv-chrome{padding:8px 12px}
+    .hv-url{font-size:10px}
+    .serp{padding:14px}
+    footer .wrap{flex-direction:column; align-items:flex-start}
+  }
 </style>
 </head>
 <body>
@@ -466,7 +499,7 @@
   </h1>
 
   <p class="hero-sub">
-    Voor <b>NatuurlijkRob</b> ontwikkelden we een landelijk platform waar burgers, bestrijders
+    We ontwikkelden een landelijk platform waar burgers, bestrijders
     en overheden waarnemingen van de Aziatische hoornaar (officieel: geelpoothoornaar) in
     kaart brengen. Van losse melding tot gevalideerde bestrijdingsroute — alles op één kaart.
   </p>
