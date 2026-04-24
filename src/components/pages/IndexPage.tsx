@@ -6,6 +6,7 @@ import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG?url";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg?url";
 import { TechStack } from "@/components/TechStack";
 import { MacbookMockup } from "@/components/MacbookMockup";
+import { MeldpuntMapPreview } from "@/components/MeldpuntMapPreview";
 import {
   Accordion,
   AccordionContent,
@@ -207,8 +208,53 @@ const Index = () => {
             </p>
           </div>
 
-          {/* Case 1 — Inbox AI */}
+          {/* Case — Meldpunt Aziatische Hoornaar */}
           <div className="bg-surface-low overflow-hidden">
+            <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
+              <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low">
+                <div>
+                  <h3 className="font-heading text-2xl font-normal mb-5 leading-snug">
+                    Meldpunt Aziatische Hoornaar
+                  </h3>
+                  <p className="text-muted-foreground mb-10 leading-[1.6]">
+                    Voor NatuurlijkRob ontwikkelden we een landelijk platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar in kaart brengen. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute &mdash; alles op één gedeelde kaart. Sinds het beheer in 2024 provinciaal belegd is, vervult het platform de verbindende laag tussen honderden losse gemeentelijke sporen.
+                  </p>
+
+                  <div className="space-y-4 mb-10">
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Landelijke kaart met 500+ accounts en tienduizenden meldingen</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Role-based dashboards voor bestrijders, gemeenten &amp; provincies</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>#2 organisch op Google &mdash; aangeraden in AI Overview</span>
+                    </div>
+                  </div>
+                </div>
+
+                <Button variant="outline" className="w-fit" asChild>
+                  <a href="/case-study/meldpunt-aziatische-hoornaar.html">
+                    Lees de case study
+                  </a>
+                </Button>
+              </div>
+
+              <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
+                <div className="relative group w-full max-w-md">
+                  <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
+                    <MeldpuntMapPreview />
+                  </MacbookMockup>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Case — Inbox AI */}
+          <div className="bg-surface-low overflow-hidden mt-section">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
               <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low">
                 <div>

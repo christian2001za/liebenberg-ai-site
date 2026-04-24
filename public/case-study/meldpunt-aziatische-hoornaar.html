@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Case Study — Meldpunt Aziatische Hoornaar · Liebenberg AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#1b1d12;
+    --ink-2:#2a2d20;
+    --mute:#6b6d5f;
+    --line:rgba(27,29,18,.12);
+    --line-2:rgba(27,29,18,.18);
+    --cream:#f3efe6;
+    --cream-2:#ebe6d8;
+    --paper:#f7f3ea;
+    --accent:#3a5a2e;         /* forest green */
+    --accent-2:#c8a24a;       /* yellow-ochre, nod to yellow-legged hornet */
+    --danger:#a9432a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter', -apple-system, system-ui, sans-serif;
+    font-weight:400;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .mono{font-family:'JetBrains Mono', ui-monospace, monospace; font-size:12px; letter-spacing:.02em}
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--mute);
+  }
+  h1,h2,h3,h4{font-weight:500; letter-spacing:-.015em; margin:0}
+  em.serif, .serif-em{
+    font-family:'Instrument Serif', serif;
+    font-style:italic;
+    font-weight:400;
+    letter-spacing:-.01em;
+  }
+
+  /* NAV */
+  nav.top{
+    position:sticky; top:0; z-index:10;
+    background:color-mix(in oklab, var(--paper) 86%, transparent);
+    backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.top .wrap{display:flex; align-items:center; justify-content:space-between; height:64px}
+  .logo{display:flex; align-items:center; gap:10px; font-weight:600; letter-spacing:-.01em}
+  .logo img{height:22px; width:auto; display:block}
+  nav.top ul{list-style:none; display:flex; gap:28px; margin:0; padding:0; font-size:14px; color:var(--ink-2)}
+  nav.top a{text-decoration:none}
+  nav.top ul a:hover{color:var(--accent)}
+  .nav-cta{
+    padding:9px 16px; border:1px solid var(--ink); border-radius:999px;
+    font-size:13px; text-decoration:none; display:inline-flex; gap:8px; align-items:center;
+    background:var(--ink); color:var(--paper);
+    transition:transform .2s ease;
+  }
+  .nav-cta:hover{transform:translateY(-1px)}
+
+  /* BREADCRUMB */
+  .crumb{padding:28px 0 0}
+  .crumb a{color:var(--mute); text-decoration:none; font-size:13px}
+  .crumb a:hover{color:var(--ink)}
+  .crumb .sep{color:var(--line-2); margin:0 10px}
+
+  /* HERO */
+  .hero{padding:48px 0 40px; border-bottom:1px solid var(--line)}
+  .hero .kicker{display:flex; gap:12px; align-items:center; margin-bottom:28px; flex-wrap:wrap}
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 12px; border:1px solid var(--line-2); border-radius:999px;
+    font-size:12px; color:var(--ink-2); background:rgba(255,255,255,.4);
+  }
+  .pill .dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
+  .pill.live .dot{background:var(--accent); box-shadow:0 0 0 0 rgba(58,90,46,.5); animation:pulse 2s infinite}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(58,90,46,.6)}
+    70%{box-shadow:0 0 0 10px rgba(58,90,46,0)}
+    100%{box-shadow:0 0 0 0 rgba(58,90,46,0)}
+  }
+  h1.title{
+    font-size:clamp(44px, 7vw, 88px);
+    line-height:1.02;
+    letter-spacing:-.03em;
+    font-weight:500;
+    max-width:14ch;
+  }
+  h1.title .serif-em{font-size:1.04em; line-height:.95}
+  .hero-sub{
+    margin-top:28px; max-width:62ch; font-size:18px; color:var(--ink-2); line-height:1.6;
+  }
+  .hero-meta{
+    margin-top:36px; display:grid; grid-template-columns:repeat(4, 1fr); gap:24px;
+    border-top:1px solid var(--line); padding-top:24px;
+  }
+  .hero-meta dt{color:var(--mute); font-size:12px; font-family:'JetBrains Mono', monospace; letter-spacing:.08em; text-transform:uppercase; margin-bottom:6px}
+  .hero-meta dd{margin:0; font-size:15px; color:var(--ink)}
+  .hero-actions{display:flex; gap:12px; margin-top:34px; flex-wrap:wrap}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:13px 20px; border-radius:999px; font-size:14px;
+    text-decoration:none; border:1px solid var(--ink);
+    transition:transform .2s ease, background .2s ease;
+  }
+  .btn.primary{background:var(--ink); color:var(--paper)}
+  .btn.primary:hover{transform:translateY(-1px)}
+  .btn.ghost:hover{background:var(--ink); color:var(--paper)}
+  .btn svg{width:14px;height:14px}
+
+  /* HERO VISUAL */
+  .hero-visual{
+    margin-top:48px; border:1px solid var(--line); border-radius:20px; overflow:hidden;
+    background:linear-gradient(180deg, #fbf8f0, #ece6d4);
+    aspect-ratio:16/7.5; position:relative;
+  }
+  .hv-chrome{
+    display:flex; align-items:center; gap:10px;
+    padding:12px 16px; border-bottom:1px solid var(--line);
+    background:rgba(255,255,255,.5); font-size:12px; color:var(--mute);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .hv-dots{display:flex; gap:6px}
+  .hv-dots i{display:block;width:10px;height:10px;border-radius:50%;background:var(--line-2)}
+  .hv-url{margin-left:12px}
+  .hv-body{position:absolute; inset:45px 0 0 0;}
+  .map-bg{
+    position:absolute; inset:0;
+    background:
+      /* contour lines */
+      repeating-linear-gradient(45deg, transparent 0 24px, rgba(27,29,18,.035) 24px 25px),
+      repeating-linear-gradient(-20deg, transparent 0 80px, rgba(27,29,18,.04) 80px 81px),
+      radial-gradient(ellipse at 70% 40%, rgba(58,90,46,.08), transparent 60%),
+      radial-gradient(ellipse at 30% 70%, rgba(200,162,74,.12), transparent 55%);
+  }
+  .nl-outline{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:42%; opacity:.18;
+  }
+  .map-pins{position:absolute; inset:0}
+  .pin{
+    position:absolute; transform:translate(-50%,-100%);
+    display:flex; flex-direction:column; align-items:center; gap:4px;
+  }
+  .pin-dot{
+    width:14px;height:14px;border-radius:50%;
+    background:var(--danger);
+    box-shadow:0 0 0 4px rgba(169,67,42,.18), 0 2px 6px rgba(0,0,0,.18);
+  }
+  .pin.green .pin-dot{background:var(--accent); box-shadow:0 0 0 4px rgba(58,90,46,.18), 0 2px 6px rgba(0,0,0,.18)}
+  .pin.gold .pin-dot{background:var(--accent-2); box-shadow:0 0 0 4px rgba(200,162,74,.25), 0 2px 6px rgba(0,0,0,.18)}
+  .pin-label{
+    background:var(--ink); color:var(--paper);
+    padding:3px 8px; border-radius:6px; font-size:10px;
+    font-family:'JetBrains Mono', monospace; white-space:nowrap;
+    opacity:0; transform:translateY(4px); transition:all .25s;
+  }
+  .pin:hover .pin-label{opacity:1; transform:translateY(0)}
+  .hv-overlay{
+    position:absolute; right:20px; top:20px;
+    background:rgba(255,253,247,.94); border:1px solid var(--line);
+    backdrop-filter:blur(6px);
+    border-radius:12px; padding:14px 16px; min-width:220px;
+    font-size:12px;
+  }
+  .hv-overlay h5{font-size:11px; color:var(--mute); font-weight:500; margin:0 0 8px; font-family:'JetBrains Mono', monospace; letter-spacing:.08em; text-transform:uppercase}
+  .hv-overlay .row{display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px dashed var(--line); font-size:13px}
+  .hv-overlay .row:last-child{border-bottom:none}
+  .hv-overlay .row b{font-weight:500}
+
+  /* SECTIONS */
+  section{padding:80px 0; border-bottom:1px solid var(--line)}
+  .sec-head{display:flex; gap:48px; margin-bottom:56px; align-items:flex-end; flex-wrap:wrap}
+  .sec-head .label{flex:0 0 auto}
+  .sec-head h2{
+    font-size:clamp(32px, 4vw, 52px); line-height:1.05; letter-spacing:-.02em; max-width:22ch;
+  }
+  .sec-head p{color:var(--mute); max-width:42ch; margin:0 0 0 auto; font-size:15px}
+
+  /* NUMBERS */
+  .stats{
+    display:grid; grid-template-columns:repeat(4, 1fr); gap:0;
+    border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .stat{
+    padding:40px 28px;
+    border-right:1px solid var(--line);
+    position:relative;
+  }
+  .stat:last-child{border-right:none}
+  .stat .num{
+    font-family:'Instrument Serif', serif; font-style:italic;
+    font-size:clamp(54px, 6.5vw, 88px); line-height:1; letter-spacing:-.02em;
+    color:var(--ink);
+  }
+  .stat .sup{
+    font-family:'Inter', sans-serif; font-style:normal; font-weight:400;
+    font-size:.5em; color:var(--accent); vertical-align:top; margin-left:4px;
+  }
+  .stat .lbl{margin-top:14px; font-size:14px; color:var(--ink-2); line-height:1.4}
+  .stat .tag{
+    position:absolute; top:24px; right:24px;
+    font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--mute);
+    letter-spacing:.1em; text-transform:uppercase;
+  }
+
+  /* QUOTE */
+  .quote-sec{background:var(--cream); border:none}
+  .quote-inner{padding:88px 0; text-align:left; max-width:1000px; margin:0 auto}
+  .quote-mark{
+    font-family:'Instrument Serif', serif; font-style:italic;
+    font-size:160px; line-height:.6; color:var(--accent-2); margin-bottom:-10px;
+  }
+  .quote-body{
+    font-family:'Instrument Serif', serif; font-style:italic;
+    font-size:clamp(28px, 3.6vw, 46px); line-height:1.15; letter-spacing:-.01em;
+    color:var(--ink);
+  }
+  .quote-author{margin-top:40px; display:flex; gap:16px; align-items:center}
+  .avatar{
+    width:52px;height:52px; border-radius:50%;
+    background:linear-gradient(135deg, var(--accent) 0%, var(--accent) 60%, var(--accent-2) 60%);
+    display:flex; align-items:center; justify-content:center;
+    color:#fff; font-weight:500; font-size:18px;
+    box-shadow:inset 0 -8px 10px rgba(0,0,0,.15);
+  }
+  .quote-author .name{font-weight:500; font-size:15px}
+  .quote-author .role{font-size:13px; color:var(--mute)}
+
+  /* WHAT WE BUILT */
+  .built{display:grid; grid-template-columns:repeat(12, 1fr); gap:32px 40px}
+  .built-item{grid-column:span 6; padding-top:28px; border-top:1px solid var(--line)}
+  .built-item .n{
+    font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--mute); letter-spacing:.1em;
+  }
+  .built-item h3{
+    font-size:24px; letter-spacing:-.015em; margin:12px 0 12px; line-height:1.2;
+  }
+  .built-item p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.6}
+  .built-item ul{margin:18px 0 0; padding:0; list-style:none}
+  .built-item li{
+    font-size:13px; color:var(--ink-2); padding:6px 0;
+    border-bottom:1px dashed var(--line); display:flex; gap:10px;
+  }
+  .built-item li:before{content:"—"; color:var(--mute)}
+
+  /* PLATFORM GALLERY */
+  .gallery{display:grid; grid-template-columns:2fr 1fr; gap:24px}
+  .shot{
+    border:1px solid var(--line); border-radius:16px; overflow:hidden;
+    background:#fff; position:relative;
+  }
+  .shot-chrome{
+    display:flex; align-items:center; gap:10px;
+    padding:10px 14px; border-bottom:1px solid var(--line);
+    background:var(--cream); font-size:11px; color:var(--mute);
+    font-family:'JetBrains Mono', monospace;
+  }
+  .shot-body{padding:0; position:relative;}
+  .shot-placeholder{
+    aspect-ratio:16/10; display:flex; align-items:center; justify-content:center;
+    background:
+      repeating-linear-gradient(45deg, transparent 0 10px, rgba(27,29,18,.04) 10px 11px),
+      linear-gradient(180deg, #fbf8f0, #ebe6d8);
+    color:var(--mute); font-family:'JetBrains Mono', monospace; font-size:12px;
+  }
+
+  /* dashboard mockup */
+  .dash{
+    aspect-ratio:16/10; padding:20px; display:grid;
+    grid-template-columns:180px 1fr; grid-template-rows:auto 1fr;
+    gap:16px; background:#fbf8f0;
+  }
+  .dash .sidebar{
+    grid-row:1/3; background:#fff; border:1px solid var(--line); border-radius:10px;
+    padding:14px; font-size:12px;
+  }
+  .dash .sidebar .h{font-size:10px; color:var(--mute); text-transform:uppercase; letter-spacing:.1em; margin-bottom:8px; font-family:'JetBrains Mono', monospace}
+  .dash .sidebar .item{padding:6px 8px; border-radius:6px; display:flex; justify-content:space-between; color:var(--ink-2)}
+  .dash .sidebar .item.active{background:var(--ink); color:var(--paper)}
+  .dash .sidebar .item .c{font-family:'JetBrains Mono', monospace; font-size:10px; opacity:.7}
+  .dash .topbar{background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 14px; display:flex; gap:8px; align-items:center; font-size:12px}
+  .dash .topbar .chip{border:1px solid var(--line-2); padding:3px 10px; border-radius:999px; font-size:11px; color:var(--ink-2)}
+  .dash .topbar .chip.on{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+  .dash .mapbox{
+    background:
+      radial-gradient(circle at 60% 40%, rgba(58,90,46,.1), transparent 50%),
+      radial-gradient(circle at 30% 70%, rgba(200,162,74,.18), transparent 55%),
+      repeating-linear-gradient(0deg, transparent 0 18px, rgba(27,29,18,.04) 18px 19px),
+      repeating-linear-gradient(90deg, transparent 0 18px, rgba(27,29,18,.04) 18px 19px),
+      #f0ebdd;
+    border:1px solid var(--line); border-radius:10px; position:relative; overflow:hidden;
+  }
+  .dash .mapbox .p{position:absolute; width:10px; height:10px; border-radius:50%; background:var(--danger); box-shadow:0 0 0 3px rgba(169,67,42,.2)}
+  .dash .mapbox .p.g{background:var(--accent); box-shadow:0 0 0 3px rgba(58,90,46,.2)}
+  .dash .mapbox .legend{
+    position:absolute; left:12px; bottom:12px; background:rgba(255,255,255,.92);
+    border:1px solid var(--line); padding:8px 10px; border-radius:8px;
+    font-family:'JetBrains Mono', monospace; font-size:10px; color:var(--ink-2);
+    display:flex; flex-direction:column; gap:4px;
+  }
+  .dash .mapbox .legend span{display:flex; gap:6px; align-items:center}
+  .dash .mapbox .legend i{width:8px;height:8px;border-radius:50%; display:block}
+
+  /* form mockup */
+  .form-mock{padding:20px; background:#fbf8f0; aspect-ratio:1/1; display:flex; flex-direction:column; gap:14px}
+  .form-mock h4{font-size:14px; margin:0}
+  .fld{background:#fff; border:1px solid var(--line); border-radius:8px; padding:10px 12px; font-size:12px; color:var(--mute)}
+  .fld.sel{color:var(--ink)}
+  .img-up{
+    background:
+      repeating-linear-gradient(45deg, transparent 0 8px, rgba(27,29,18,.05) 8px 9px);
+    border:1px dashed var(--line-2); border-radius:8px; padding:18px 12px;
+    text-align:center; font-size:11px; color:var(--mute); font-family:'JetBrains Mono', monospace;
+  }
+  .submit{background:var(--ink); color:var(--paper); padding:10px; border-radius:8px; text-align:center; font-size:12px}
+
+  /* IMPACT GRID */
+  .impact-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr);
+    border-top:1px solid var(--line); border-left:1px solid var(--line);
+  }
+  .imp{
+    border-right:1px solid var(--line); border-bottom:1px solid var(--line);
+    padding:32px 28px;
+  }
+  .imp h4{font-size:18px; font-weight:500; margin:0 0 10px; letter-spacing:-.015em}
+  .imp p{margin:0; color:var(--ink-2); font-size:14px}
+  .imp .mono{color:var(--mute); margin-bottom:14px; display:block}
+
+  /* NEWS */
+  .news-list{display:grid; grid-template-columns:1fr; gap:0; border-top:1px solid var(--line)}
+  .news-item{
+    display:grid; grid-template-columns:120px 140px 1fr auto; gap:32px;
+    padding:22px 0; border-bottom:1px solid var(--line); align-items:center;
+    text-decoration:none; color:inherit; transition:background .2s;
+  }
+  .news-item:hover{background:var(--cream)}
+  .news-date{font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--mute)}
+  .news-src{font-size:12px; color:var(--ink-2); display:flex; gap:8px; align-items:center}
+  .news-src .dot{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  .news-title{font-size:17px; font-weight:500; letter-spacing:-.01em; line-height:1.35}
+  .news-arrow{color:var(--mute); transition:transform .2s}
+  .news-item:hover .news-arrow{transform:translateX(4px); color:var(--ink)}
+
+  /* SEO card */
+  .seo{
+    border:1px solid var(--line); border-radius:16px; padding:32px;
+    background:linear-gradient(180deg, #fbf8f0, #f1ecde);
+    display:grid; grid-template-columns:1.1fr 1fr; gap:36px; align-items:center;
+  }
+  .seo h3{font-size:28px; letter-spacing:-.02em; margin-bottom:12px}
+  .seo p{margin:0; color:var(--ink-2); max-width:40ch}
+  .serp{
+    background:#fff; border:1px solid var(--line); border-radius:12px; padding:18px;
+    font-family:-apple-system, system-ui, sans-serif;
+  }
+  .serp .sbar{
+    display:flex; gap:8px; align-items:center; padding:8px 12px;
+    background:var(--cream); border-radius:999px; font-size:12px; color:var(--mute);
+    margin-bottom:14px;
+  }
+  .serp .sres{padding:10px 0; border-top:1px dashed var(--line)}
+  .serp .sres:first-child{border-top:none}
+  .serp .url{font-size:11px; color:var(--mute)}
+  .serp .ttl{font-size:15px; color:#1a0dab; margin:2px 0}
+  .serp .desc{font-size:12px; color:var(--ink-2); line-height:1.4}
+  .serp .ai-chip{
+    display:inline-flex; gap:6px; align-items:center;
+    font-size:10px; padding:3px 8px; border-radius:999px;
+    background:linear-gradient(90deg, #5b8def, #a46cff);
+    color:#fff; font-weight:500; margin-bottom:6px;
+  }
+  .serp .ai-chip:before{content:"✦"}
+  .serp .highlight{
+    background:#fff3c7; padding:1px 3px; border-radius:3px;
+  }
+  .serp .rank-2{
+    border:1.5px solid var(--accent); border-radius:8px; padding:10px 12px; margin-top:10px;
+    background:rgba(58,90,46,.04);
+  }
+  .serp .rank-2 .url{color:var(--accent); font-weight:500}
+
+  /* CTA */
+  .cta{
+    background:var(--ink); color:var(--paper); border-radius:24px;
+    padding:72px 56px; margin:72px 0;
+    display:grid; grid-template-columns:1.2fr 1fr; gap:48px; align-items:center;
+  }
+  .cta h2{font-size:clamp(32px, 4vw, 52px); letter-spacing:-.025em; line-height:1.05; color:#fff}
+  .cta .serif-em{color:var(--accent-2)}
+  .cta p{color:rgba(247,243,234,.7); max-width:40ch; margin:18px 0 0}
+  .cta .btns{display:flex; flex-direction:column; gap:12px}
+  .cta .btn{justify-content:space-between; width:100%; border-color:rgba(255,255,255,.2)}
+  .cta .btn.primary{background:var(--paper); color:var(--ink); border-color:var(--paper)}
+  .cta .btn.ghost{background:transparent; color:var(--paper)}
+  .cta .btn.ghost:hover{background:rgba(255,255,255,.06)}
+
+  /* FOOTER */
+  footer{padding:40px 0 60px; font-size:13px; color:var(--mute)}
+  footer .wrap{display:flex; justify-content:space-between; gap:24px; flex-wrap:wrap}
+
+  @media (max-width: 900px){
+    .hero-meta{grid-template-columns:repeat(2,1fr)}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:none}
+    .stat:nth-child(1), .stat:nth-child(2){border-bottom:1px solid var(--line)}
+    .built-item{grid-column:span 12}
+    .gallery{grid-template-columns:1fr}
+    .impact-grid{grid-template-columns:repeat(2,1fr)}
+    .seo{grid-template-columns:1fr}
+    .cta{grid-template-columns:1fr; padding:44px 28px}
+    .news-item{grid-template-columns:1fr; gap:6px}
+    nav.top ul{display:none}
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="https://www.liebenberg.ai" class="logo" aria-label="Liebenberg AI">
+      <img src="/logo.svg" alt="Liebenberg AI" />
+    </a>
+    <ul>
+      <li><a href="https://www.liebenberg.ai/#diensten">Expertise</a></li>
+      <li><a href="https://www.liebenberg.ai/#werkwijze">Werkwijze</a></li>
+      <li><a href="https://www.liebenberg.ai/#cases">Cases</a></li>
+      <li><a href="https://www.liebenberg.ai/blog/">Blog</a></li>
+    </ul>
+    <a class="nav-cta" href="https://cal.com/christianliebenberg">Plan kennismaking →</a>
+  </div>
+</nav>
+
+<div class="wrap crumb">
+  <a href="https://www.liebenberg.ai/#cases">Cases</a>
+  <span class="sep">/</span>
+  <span>Meldpunt Aziatische Hoornaar</span>
+</div>
+
+<!-- HERO -->
+<header class="wrap hero">
+  <div class="kicker">
+    <span class="pill live"><span class="dot"></span> Live in productie</span>
+    <span class="pill">Maatwerk Platform</span>
+    <span class="pill">Landelijke dekking</span>
+    <span class="pill">Maatschappelijk belang</span>
+  </div>
+
+  <h1 class="title">
+    Een landelijk <span class="serif-em">meldpunt</span><br/>
+    voor een invasieve<br/>
+    exoot.
+  </h1>
+
+  <p class="hero-sub">
+    Voor <b>NatuurlijkRob</b> ontwikkelden we een landelijk platform waar burgers, bestrijders
+    en overheden waarnemingen van de Aziatische hoornaar (officieel: geelpoothoornaar) in
+    kaart brengen. Van losse melding tot gevalideerde bestrijdingsroute — alles op één kaart.
+  </p>
+
+  <div class="hero-actions">
+    <a href="https://www.meldpuntaziatischehoornaar.nl" target="_blank" rel="noopener" class="btn primary">
+      Bekijk het platform
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+    </a>
+    <a href="#impact" class="btn ghost">
+      Bekijk impact
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </div>
+
+  <dl class="hero-meta">
+    <div><dt>Klant</dt><dd>NatuurlijkRob — Rob Voesten</dd></div>
+    <div><dt>Sector</dt><dd>Natuur &amp; Biodiversiteit</dd></div>
+    <div><dt>Rol</dt><dd>Strategie, Design &amp; Engineering</dd></div>
+    <div><dt>Bereik</dt><dd>Nederland — landelijk</dd></div>
+  </dl>
+
+  <!-- Hero visual: map mock -->
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hv-chrome">
+      <div class="hv-dots"><i></i><i></i><i></i></div>
+      <span class="hv-url">meldpuntaziatischehoornaar.nl/kaart</span>
+    </div>
+    <div class="hv-body">
+      <div class="map-bg"></div>
+      <!-- stylised NL silhouette -->
+      <svg class="nl-outline" viewBox="0 0 200 260" fill="none" stroke="#1b1d12" stroke-width="1.2">
+        <path d="M60 20 L95 12 L130 22 L150 40 L165 70 L175 110 L170 140 L180 170 L165 205 L140 235 L110 245 L70 240 L45 220 L30 185 L25 150 L35 115 L30 80 L40 50 Z"/>
+      </svg>
+      <div class="map-pins">
+        <div class="pin" style="left:42%; top:52%"><span class="pin-label">Nest — Utrecht</span><span class="pin-dot"></span></div>
+        <div class="pin" style="left:38%; top:65%"><span class="pin-label">Nest — Brabant</span><span class="pin-dot"></span></div>
+        <div class="pin green" style="left:48%; top:44%"><span class="pin-label">Geverifieerd</span><span class="pin-dot"></span></div>
+        <div class="pin" style="left:55%; top:58%"><span class="pin-label">Individu gezien</span><span class="pin-dot"></span></div>
+        <div class="pin gold" style="left:46%; top:72%"><span class="pin-label">Val — vangst</span><span class="pin-dot"></span></div>
+        <div class="pin" style="left:34%; top:42%"><span class="pin-label">In behandeling</span><span class="pin-dot"></span></div>
+        <div class="pin green" style="left:52%; top:35%"><span class="pin-label">Verwijderd</span><span class="pin-dot"></span></div>
+        <div class="pin" style="left:30%; top:76%"><span class="pin-label">Nest — Limburg</span><span class="pin-dot"></span></div>
+        <div class="pin gold" style="left:58%; top:48%"><span class="pin-label">Val — Gld</span><span class="pin-dot"></span></div>
+        <div class="pin green" style="left:42%; top:30%"><span class="pin-label">Geverifieerd</span><span class="pin-dot"></span></div>
+      </div>
+      <div class="hv-overlay">
+        <h5>Live feed</h5>
+        <div class="row"><span>Nieuwe meldingen (24u)</span><b>37</b></div>
+        <div class="row"><span>In behandeling</span><b>82</b></div>
+        <div class="row"><span>Nesten verwijderd</span><b>2.463</b></div>
+        <div class="row"><span>Actieve bestrijders</span><b>68</b></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- NUMBERS -->
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Impact in cijfers</span></div>
+      <h2>Van losse meldingen naar een <span class="serif-em">landelijk netwerk</span>.</h2>
+      <p>Het platform is in korte tijd uitgegroeid tot de centrale plek voor meldingen, validatie en bestrijding — met aantoonbare adoptie door burgers, bestrijders én overheden.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="tag">Accounts</span>
+        <div class="num">500<span class="sup">+</span></div>
+        <div class="lbl">Geregistreerde bestrijders, imkers, gemeenten en provincies.</div>
+      </div>
+      <div class="stat">
+        <span class="tag">Meldingen</span>
+        <div class="num">10.000<span class="sup">+</span></div>
+        <div class="lbl">Tienduizenden gevalideerde waarnemingen — van individu tot groot zomernest.</div>
+      </div>
+      <div class="stat">
+        <span class="tag">Google SERP</span>
+        <div class="num">#2<span class="sup">org.</span></div>
+        <div class="lbl">Organische ranking op "meldpunt aziatische hoornaar".</div>
+      </div>
+      <div class="stat">
+        <span class="tag">AI Overview</span>
+        <div class="num">Top<span class="sup">pick</span></div>
+        <div class="lbl">Aangeraden in Google AI Mode &amp; AI Overview.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section class="quote-sec">
+  <div class="wrap quote-inner">
+    <div class="quote-mark">“</div>
+    <p class="quote-body">
+      Hele fijne samenwerking. Er wordt goed geluisterd, verzoeken worden snel opgepakt
+      en het platform groeit met ons mee.
+    </p>
+    <div class="quote-author">
+      <div class="avatar">RV</div>
+      <div>
+        <div class="name">Rob Voesten</div>
+        <div class="role">Bioloog &amp; Oprichter — NatuurlijkRob · Siebengewald</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE BUILT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Wat we bouwden</span></div>
+      <h2>Eén platform, <span class="serif-em">drie doelgroepen</span>.</h2>
+      <p>Melders, bestrijders en gemeenten hebben elk hun eigen workflow — maar werken op dezelfde gevalideerde dataset. We schreven het platform end-to-end: van kaart-architectuur tot role-based access.</p>
+    </div>
+
+    <div class="built">
+      <div class="built-item">
+        <span class="n">01 — Publiek meldpunt</span>
+        <h3>Meldingen zonder drempel</h3>
+        <p>Een burger ziet een nest, individu of val met vangst — en maakt binnen een minuut een melding met foto en locatie, zonder account. Precies waar de vraag om gewicht kreeg in landelijke discussies.</p>
+        <ul>
+          <li>Geo-locatie &amp; foto-upload</li>
+          <li>Type-classificatie (nest / individu / val)</li>
+          <li>Direct zichtbaar op publieke kaart</li>
+        </ul>
+      </div>
+
+      <div class="built-item">
+        <span class="n">02 — Bestrijders dashboard</span>
+        <h3>Van melding naar route</h3>
+        <p>Bestrijders valideren meldingen, plannen hun bestrijdingsroute en registreren verwijderingen — alles in één overzicht, zonder losse spreadsheets of WhatsApp-groepen.</p>
+        <ul>
+          <li>Validatie-flow met foto-review</li>
+          <li>Route-planning &amp; status-tracking</li>
+          <li>Registratie van verwijderde nesten</li>
+        </ul>
+      </div>
+
+      <div class="built-item">
+        <span class="n">03 — Gemeenten &amp; provincies</span>
+        <h3>Regio-overzicht voor beleid</h3>
+        <p>Gemeenten en provincies beheren meldingen in hun regio, zien statistieken over tijd en kunnen de bestrijding coördineren met lokale teams — cruciaal nu het beheer sinds 2024 provinciaal belegd is.</p>
+        <ul>
+          <li>Regio-filters &amp; geografische scopes</li>
+          <li>Statistieken &amp; export</li>
+          <li>Team-coördinatie per gemeente</li>
+        </ul>
+      </div>
+
+      <div class="built-item">
+        <span class="n">04 — Architectuur</span>
+        <h3>Schaalbaar, veilig, productie-klaar</h3>
+        <p>Gebouwd op dezelfde stack waar onze AI-pipelines op draaien. Role-based access, AVG-compliant data-opslag, en een kaart-laag die meeschaalt tot het piekmoment: het najaar, wanneer nesten zichtbaar worden.</p>
+        <ul>
+          <li>Next.js · Supabase · Vercel</li>
+          <li>GDPR / AVG compliant</li>
+          <li>Pieklast-bestendig (najaar)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORM GALLERY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Het platform</span></div>
+      <h2>Een kaart. <span class="serif-em">Elke melding</span>.<br/>Elk nest.</h2>
+      <p>De centrale interactieve kaart bindt alle rollen samen. Melders zien waar hun waarneming staat, bestrijders zien wat gevalideerd is, gemeenten zien wat in hun regio speelt.</p>
+    </div>
+
+    <div class="gallery">
+      <!-- Dashboard -->
+      <div class="shot">
+        <div class="shot-chrome">
+          <div class="hv-dots"><i></i><i></i><i></i></div>
+          <span style="margin-left:8px">meldpuntaziatischehoornaar.nl/kaart</span>
+        </div>
+        <div class="shot-body">
+          <div class="dash">
+            <aside class="sidebar">
+              <div class="h">Filters</div>
+              <div class="item active"><span>Alle meldingen</span><span class="c">12.408</span></div>
+              <div class="item"><span>Nesten</span><span class="c">4.612</span></div>
+              <div class="item"><span>Individuen</span><span class="c">6.584</span></div>
+              <div class="item"><span>Vallen</span><span class="c">1.212</span></div>
+              <div class="h" style="margin-top:14px">Status</div>
+              <div class="item"><span>Open</span><span class="c">1.184</span></div>
+              <div class="item"><span>Gevalideerd</span><span class="c">8.761</span></div>
+              <div class="item"><span>Verwijderd</span><span class="c">2.463</span></div>
+            </aside>
+            <div class="topbar">
+              <span class="chip on">Landelijk</span>
+              <span class="chip">Mijn regio</span>
+              <span class="chip">Laatste 30 dagen</span>
+              <span class="chip">+ Filter</span>
+              <span style="margin-left:auto; color:var(--mute); font-family:'JetBrains Mono',monospace; font-size:11px">12.408 resultaten</span>
+            </div>
+            <div class="mapbox">
+              <div class="p" style="left:28%; top:40%"></div>
+              <div class="p" style="left:35%; top:55%"></div>
+              <div class="p g" style="left:45%; top:30%"></div>
+              <div class="p" style="left:52%; top:48%"></div>
+              <div class="p g" style="left:60%; top:62%"></div>
+              <div class="p" style="left:40%; top:70%"></div>
+              <div class="p" style="left:65%; top:35%"></div>
+              <div class="p g" style="left:30%; top:72%"></div>
+              <div class="p" style="left:70%; top:52%"></div>
+              <div class="p" style="left:48%; top:80%"></div>
+              <div class="legend">
+                <span><i style="background:#a9432a"></i> Open melding</span>
+                <span><i style="background:#3a5a2e"></i> Gevalideerd</span>
+                <span><i style="background:#c8a24a"></i> Val (vangst)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="shot">
+        <div class="shot-chrome">
+          <div class="hv-dots"><i></i><i></i><i></i></div>
+          <span style="margin-left:8px">/melding — zonder account</span>
+        </div>
+        <div class="shot-body">
+          <div class="form-mock">
+            <h4>Nieuwe melding</h4>
+            <div>
+              <div class="mono" style="color:var(--mute); margin-bottom:4px">Type waarneming</div>
+              <div class="fld sel">Nest (hoog in boom) ▾</div>
+            </div>
+            <div>
+              <div class="mono" style="color:var(--mute); margin-bottom:4px">Locatie</div>
+              <div class="fld sel">51.78°N  5.91°E  · Vlaardingen</div>
+            </div>
+            <div>
+              <div class="mono" style="color:var(--mute); margin-bottom:4px">Foto</div>
+              <div class="img-up">[ drop foto — min. 1, max. 5 ]</div>
+            </div>
+            <div>
+              <div class="mono" style="color:var(--mute); margin-bottom:4px">Opmerking</div>
+              <div class="fld">Optioneel</div>
+            </div>
+            <div class="submit">Melding versturen →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAATSCHAPPELIJK BELANG -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Maatschappelijk belang</span></div>
+      <h2>Een <span class="serif-em">invasieve exoot</span>, een versnipperd beleid.<br/>Eén gedeelde dataset.</h2>
+      <p>De geelpoothoornaar eet ~11 kilo insecten per nest per seizoen. Beheer is sinds 2024 provinciaal belegd. Het platform is de verbindende laag in wat anders 300+ losse gemeentelijke sporen zou zijn.</p>
+    </div>
+
+    <div class="impact-grid">
+      <div class="imp">
+        <span class="mono">— Provincies</span>
+        <h4>Meerdere provincies</h4>
+        <p>Provincies gebruiken het platform voor regionale coördinatie, statistieken en het aansturen van bestrijdingsteams in hun beheertaak.</p>
+      </div>
+      <div class="imp">
+        <span class="mono">— Gemeenten</span>
+        <h4>Tientallen gemeenten</h4>
+        <p>Lokale gemeenten hebben accounts aangemaakt en gebruiken het dashboard om burgermeldingen in hun regio te monitoren en door te zetten.</p>
+      </div>
+      <div class="imp">
+        <span class="mono">— Bestrijders</span>
+        <h4>Gespecialiseerde teams</h4>
+        <p>Professionele bestrijders — waaronder NatuurlijkRob zelf — plannen hun werk via het platform en registreren iedere verwijdering.</p>
+      </div>
+      <div class="imp">
+        <span class="mono">— Imkers</span>
+        <h4>Het imker-netwerk</h4>
+        <p>Imkers melden waarnemingen rond bijenkasten en gebruiken de kaart om te zien of er in de buurt nesten bekend zijn.</p>
+      </div>
+      <div class="imp">
+        <span class="mono">— Burgers</span>
+        <h4>Laagdrempelig melden</h4>
+        <p>Zonder account, binnen een minuut. Dat is cruciaal: het merendeel van nesten wordt door burgers gespot, niet door professionals.</p>
+      </div>
+      <div class="imp">
+        <span class="mono">— EU &amp; NVWA</span>
+        <h4>Wettelijk kader</h4>
+        <p>De soort staat op de EU-lijst van zorgwekkende invasieve soorten. Gestructureerde data helpt Nederland bij zijn rapportageverplichting.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SEO / SERP -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Vindbaarheid</span></div>
+      <h2>De <span class="serif-em">standaard</span> voor de zoekterm.</h2>
+      <p>Burgers die een hoornaar zien googlen niet naar "Vespa velutina" — ze typen "aziatische hoornaar melden". Dát is waar het platform moet staan.</p>
+    </div>
+
+    <div class="seo">
+      <div>
+        <h3>#2 organisch &amp; aangeraden door Google AI.</h3>
+        <p>Het platform ranket op positie #2 op de kernterm én wordt door Google's AI Overview (AI Mode) genoemd als aanbevolen meldpunt. De landelijke autoriteit voor meldingen is daarmee gevestigd.</p>
+        <div style="margin-top:24px; display:flex; gap:10px; flex-wrap:wrap">
+          <span class="pill"><span class="dot"></span> #2 organisch</span>
+          <span class="pill"><span class="dot" style="background:var(--accent-2)"></span> AI Overview pick</span>
+          <span class="pill"><span class="dot" style="background:var(--danger)"></span> Hoge intent-traffic</span>
+        </div>
+      </div>
+      <div class="serp" aria-hidden="true">
+        <div class="sbar">🔍 &nbsp; aziatische hoornaar melden</div>
+        <div class="sres">
+          <div class="ai-chip">AI Overview</div>
+          <div class="desc">Om een <span class="highlight">Aziatische hoornaar</span> te melden kun je terecht bij het landelijke <span class="highlight">Meldpunt Aziatische Hoornaar</span>, dat meldingen verzamelt voor bestrijders, gemeenten en provincies…</div>
+        </div>
+        <div class="sres">
+          <div class="url">waarneming.nl › soort › vespa-velutina</div>
+          <div class="ttl">Aziatische hoornaar (Vespa velutina) — waarneming.nl</div>
+          <div class="desc">Waarnemingen van de Aziatische hoornaar in Nederland…</div>
+        </div>
+        <div class="sres rank-2">
+          <div class="url">meldpuntaziatischehoornaar.nl</div>
+          <div class="ttl">Meldpunt Aziatische Hoornaar — Waarnemingen melden</div>
+          <div class="desc">Meld een nest, een individu of een val. Voor burgers, bestrijders en gemeenten. Samen houden we de geelpoothoornaar beheersbaar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">In het nieuws</span></div>
+      <h2>Een onderwerp dat <span class="serif-em">landelijk leeft</span>.</h2>
+      <p>De afgelopen weken stond de (her-gedoopte) geelpoothoornaar opnieuw in de landelijke en regionale media. Het platform profiteert van iedere piek in aandacht.</p>
+    </div>
+
+    <div class="news-list">
+      <a class="news-item" href="https://nos.nl/artikel/2610813-naam-aziatische-hoornaar-was-verwarrend-vanaf-nu-geelpoothoornaar" target="_blank" rel="noopener">
+        <span class="news-date">17 apr 2026</span>
+        <span class="news-src"><span class="dot"></span> NOS</span>
+        <span class="news-title">"Naam Aziatische hoornaar was verwarrend, vanaf nu geelpoothoornaar"</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item" href="https://www.wassenaar.nl/aziatische-hoornaar-gespot-meld-het-en-blijf-op-afstand" target="_blank" rel="noopener">
+        <span class="news-date">21 apr 2026</span>
+        <span class="news-src"><span class="dot"></span> Gemeente Wassenaar</span>
+        <span class="news-title">"Aziatische hoornaar gespot? Meld het en blijf op afstand."</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item" href="https://www.bergen-nh.nl/nieuws/aziatische-hoornaar-gespot-zo-helpt-u-mee" target="_blank" rel="noopener">
+        <span class="news-date">16 apr 2026</span>
+        <span class="news-src"><span class="dot"></span> Gemeente Bergen</span>
+        <span class="news-title">"Aziatische hoornaar gespot: zo helpt u mee."</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item" href="https://deanderekrant.nl/aziatische-hoornaar-bedreigt-voedselvoorziening/" target="_blank" rel="noopener">
+        <span class="news-date">apr 2026</span>
+        <span class="news-src"><span class="dot"></span> De Andere Krant</span>
+        <span class="news-title">Rob Voesten: "Aziatische hoornaar bedreigt voedselvoorziening — alleen redden we dit niet."</span>
+        <span class="news-arrow">→</span>
+      </a>
+      <a class="news-item" href="https://www.gebruiksaanwijzing.net/tuin-en-klussen/aziatische-hoornaar/" target="_blank" rel="noopener">
+        <span class="news-date">apr 2026</span>
+        <span class="news-src"><span class="dot"></span> Gebruiksaanwijzing</span>
+        <span class="news-title">"Aziatische hoornaar herkennen en melden: complete gids 2026."</span>
+        <span class="news-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="wrap">
+  <div class="cta">
+    <div>
+      <h2>Bekijk het platform <span class="serif-em">live</span>.</h2>
+      <p>Van publieke kaart tot bestrijdersdashboard — meldpuntaziatischehoornaar.nl is landelijk in productie. Gratis te gebruiken, voor iedereen.</p>
+    </div>
+    <div class="btns">
+      <a class="btn primary" href="https://www.meldpuntaziatischehoornaar.nl" target="_blank" rel="noopener">
+        <span>meldpuntaziatischehoornaar.nl</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M10 7h7v7"/></svg>
+      </a>
+      <a class="btn ghost" href="https://cal.com/christianliebenberg" target="_blank" rel="noopener">
+        <span>Plan kennismaking</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Liebenberg AI · Case Study — Meldpunt Aziatische Hoornaar</span>
+    <span>
+      <a href="https://www.liebenberg.ai/#cases" style="text-decoration:none; color:var(--mute); margin-right:16px">← Andere cases</a>
+      <a href="mailto:info@liebenberg.ai" style="text-decoration:none; color:var(--mute)">info@liebenberg.ai</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,470 @@
+- generic [active] [ref=e1]:
+  - generic:
+    - img
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - link "Liebenberg AI" [ref=e6] [cursor=pointer]:
+        - /url: /
+        - img "Liebenberg AI" [ref=e7]
+      - generic [ref=e8]:
+        - navigation [ref=e9]:
+          - link "Expertise" [ref=e10] [cursor=pointer]:
+            - /url: "#diensten"
+          - link "Werkwijze" [ref=e11] [cursor=pointer]:
+            - /url: "#werkwijze"
+          - link "Cases" [ref=e12] [cursor=pointer]:
+            - /url: "#cases"
+          - link "Contact" [ref=e13] [cursor=pointer]:
+            - /url: "#contact"
+        - link "Blog" [ref=e14] [cursor=pointer]:
+          - /url: /blog/
+  - generic [ref=e16]:
+    - generic [ref=e18]:
+      - paragraph [ref=e19]: Maatwerk Software — Gedreven door AI
+      - heading "Minder Handwerk. Meer Resultaat." [level=1] [ref=e22]:
+        - text: Minder Handwerk.
+        - text: Meer Resultaat.
+      - generic [ref=e24]:
+        - paragraph [ref=e25]: Wij bouwen AI-systemen die uw team uren per week besparen, wiskundig onderbouwd en klaar voor productie.
+        - generic [ref=e26]:
+          - link "Plan kennismaking" [ref=e27] [cursor=pointer]:
+            - /url: https://cal.com/christianliebenberg
+          - link "Bekijk Cases" [ref=e28] [cursor=pointer]:
+            - /url: "#cases"
+      - generic [ref=e29]:
+        - generic [ref=e30]: In-house Engineering
+        - generic [ref=e31]: GDPR / AVG Compliant
+        - generic [ref=e32]: Schaalbare Architectuur
+    - generic [ref=e34]:
+      - paragraph [ref=e36]: Powered by best-in-class technology
+      - generic [ref=e38]:
+        - generic [ref=e39]:
+          - img "Vercel" [ref=e40]
+          - generic [ref=e41]: Vercel
+        - generic [ref=e42]:
+          - img "Railway" [ref=e43]
+          - generic [ref=e44]: Railway
+        - generic [ref=e45]:
+          - img "LangChain" [ref=e46]
+          - generic [ref=e47]: LangChain
+        - generic [ref=e48]:
+          - img "Python" [ref=e49]
+          - generic [ref=e50]: Python
+        - generic [ref=e51]:
+          - img "Gemini" [ref=e52]
+          - generic [ref=e53]: Gemini
+        - generic [ref=e54]:
+          - img "Anthropic" [ref=e55]
+          - generic [ref=e56]: Anthropic
+        - generic [ref=e57]:
+          - img "OpenAI" [ref=e58]
+          - generic [ref=e59]: OpenAI
+        - generic [ref=e60]:
+          - img "Next.js" [ref=e61]
+          - generic [ref=e62]: Next.js
+        - generic [ref=e63]:
+          - img "FastAPI" [ref=e64]
+          - generic [ref=e65]: FastAPI
+        - generic [ref=e66]:
+          - img "Azure" [ref=e67]
+          - generic [ref=e68]: Azure
+        - generic [ref=e69]:
+          - img "Supabase" [ref=e70]
+          - generic [ref=e71]: Supabase
+        - generic [ref=e72]:
+          - img "Vercel" [ref=e73]
+          - generic [ref=e74]: Vercel
+        - generic [ref=e75]:
+          - img "Railway" [ref=e76]
+          - generic [ref=e77]: Railway
+        - generic [ref=e78]:
+          - img "LangChain" [ref=e79]
+          - generic [ref=e80]: LangChain
+        - generic [ref=e81]:
+          - img "Python" [ref=e82]
+          - generic [ref=e83]: Python
+        - generic [ref=e84]:
+          - img "Gemini" [ref=e85]
+          - generic [ref=e86]: Gemini
+        - generic [ref=e87]:
+          - img "Anthropic" [ref=e88]
+          - generic [ref=e89]: Anthropic
+        - generic [ref=e90]:
+          - img "OpenAI" [ref=e91]
+          - generic [ref=e92]: OpenAI
+        - generic [ref=e93]:
+          - img "Next.js" [ref=e94]
+          - generic [ref=e95]: Next.js
+        - generic [ref=e96]:
+          - img "FastAPI" [ref=e97]
+          - generic [ref=e98]: FastAPI
+        - generic [ref=e99]:
+          - img "Azure" [ref=e100]
+          - generic [ref=e101]: Azure
+        - generic [ref=e102]:
+          - img "Supabase" [ref=e103]
+          - generic [ref=e104]: Supabase
+    - generic [ref=e106]:
+      - generic [ref=e107]:
+        - generic [ref=e108]:
+          - paragraph [ref=e109]: Onze expertise
+          - heading "Specialisaties" [level=2] [ref=e110]:
+            - emphasis [ref=e111]: Specialisaties
+        - paragraph [ref=e113]: Wij leveren complete oplossingen. Onze achtergrond in econometrie garandeert dat we de fundamentele wiskunde en data achter AI begrijpen en dit kunnen toepassen op bedrijfskritische processen.
+      - generic [ref=e114]:
+        - generic [ref=e115]:
+          - img [ref=e117]
+          - heading "Intelligent Document Processing" [level=3] [ref=e119]
+          - paragraph [ref=e120]: Unstructured data omzetten naar structured output. Wij bouwen pipelines die documenten, facturen en rapporten uitlezen, verwerken en direct wegschrijven in uw ERP of CRM systemen.
+        - generic [ref=e121]:
+          - img [ref=e123]
+          - heading "Workflow Automation & Architectuur" [level=3] [ref=e127]
+          - paragraph [ref=e128]: End-to-end procesoptimalisatie. We analyseren uw huidige processen en bouwen maatwerk AI-software om repititief werk grotendeels te automatiseren. Met human-in-the-loop voor controle.
+        - generic [ref=e129]:
+          - img [ref=e131]
+          - heading "Semantic Search & RAG Systems" [level=3] [ref=e135]
+          - paragraph [ref=e136]: Retrieval-Augmented Generation (RAG) op uw eigen data en documenten. Veilig en afgeschermd. Maak uw interne kennisbank doorzoekbaar met AI die bronverwijzingen geeft en halluciniaties minimaliseert.
+        - generic [ref=e137]:
+          - img [ref=e139]
+          - heading "Generative AI Integration" [level=3] [ref=e142]
+          - paragraph [ref=e143]: Het trainen van generatieve AI-modellen op uw bedrijfsspecifieke tone-of-voice en data. Voor geautomatiseerde klantcommunicatie of content generatie die bijna niet van menselijk te onderscheiden is.
+    - generic [ref=e145]:
+      - generic [ref=e147]:
+        - paragraph [ref=e148]: Werkwijze
+        - heading "Ons Proces" [level=2] [ref=e149]:
+          - emphasis [ref=e150]: Ons Proces
+      - generic [ref=e151]:
+        - generic [ref=e152]:
+          - generic [ref=e153]: "01"
+          - heading "Procesanalyse & Audit" [level=3] [ref=e155]
+          - paragraph [ref=e157]: We duiken diep in uw huidige situatie, processen en wensen. Waar zit de inefficiëntie? Wat is technisch haalbaar? We leveren een voorstel met duidelijk gedefinieerde scope en een budget.
+        - generic [ref=e158]:
+          - generic [ref=e159]: "02"
+          - heading "Proof of Concept (PoC)" [level=3] [ref=e161]
+          - paragraph [ref=e163]: Binnen 2-4 weken bouwen we een werkend prototype in een afgeschermde omgeving. We valideren de output-kwaliteit met statistische methoden. We kijken samen naar de resultaten en bespreken de volgende stappen.
+        - generic [ref=e164]:
+          - generic [ref=e165]: "03"
+          - heading "Production Deployment" [level=3] [ref=e167]
+          - paragraph [ref=e169]: Na validatie bouwen we in iteraties de productie-versie. Focus op security, rate-limiting, error-handling en integratie met bestaande systemen.
+        - generic [ref=e170]:
+          - generic [ref=e171]: "04"
+          - heading "Monitoring & Maintenance" [level=3] [ref=e173]
+          - paragraph [ref=e175]: Software leeft. Wij monitoren de performance van de modellen, updaten dependencies en zorgen dat het systeem stabiel blijft draaien en met uw organisatie meeschaalt.
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - paragraph [ref=e179]: Projecten
+        - heading "Case Studies" [level=2] [ref=e180]:
+          - emphasis [ref=e181]: Case Studies
+        - paragraph [ref=e182]: AI-gedreven software die bedrijfswaarde levert in de praktijk.
+      - generic [ref=e184]:
+        - generic [ref=e185]:
+          - generic [ref=e186]:
+            - heading "Meldpunt Aziatische Hoornaar" [level=3] [ref=e187]
+            - paragraph [ref=e188]: Voor NatuurlijkRob ontwikkelden we een landelijk platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar in kaart brengen. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute — alles op één gedeelde kaart. Sinds het beheer in 2024 provinciaal belegd is, vervult het platform de verbindende laag tussen honderden losse gemeentelijke sporen.
+            - generic [ref=e189]:
+              - generic [ref=e190]:
+                - generic [ref=e191]: —
+                - generic [ref=e192]: Landelijke kaart met 2.000+ gevalideerde meldingen
+              - generic [ref=e193]:
+                - generic [ref=e194]: —
+                - generic [ref=e195]: Role-based dashboards voor bestrijders, gemeenten & provincies
+              - generic [ref=e196]:
+                - generic [ref=e197]: —
+                - generic [ref=e198]: "#2 organisch op Google — aangeraden in AI Overview"
+          - link "Lees de case study" [ref=e199] [cursor=pointer]:
+            - /url: /case-study/meldpunt-aziatische-hoornaar.html
+        - generic [ref=e207]:
+          - generic [ref=e213]: meldpuntaziatischehoornaar.nl/kaart
+          - generic [ref=e214]:
+            - img [ref=e216]
+            - generic [ref=e228]:
+              - generic [ref=e229]: Live feed
+              - generic [ref=e230]:
+                - generic [ref=e231]: Nieuwe meldingen (24u)
+                - generic [ref=e232]: "37"
+              - generic [ref=e233]:
+                - generic [ref=e234]: In behandeling
+                - generic [ref=e235]: "82"
+              - generic [ref=e236]:
+                - generic [ref=e237]: Nesten verwijderd
+                - generic [ref=e238]: "412"
+              - generic [ref=e239]:
+                - generic [ref=e240]: Actieve bestrijders
+                - generic [ref=e241]: "68"
+            - generic [ref=e242]:
+              - generic [ref=e243]: Open
+              - generic [ref=e245]: Gevalideerd
+              - generic [ref=e247]: Val
+      - generic [ref=e252]:
+        - generic [ref=e253]:
+          - generic [ref=e254]:
+            - img "Logo" [ref=e256]
+            - heading "Inbox AI Architecture" [level=3] [ref=e257]
+            - paragraph [ref=e258]: "\"We hebben het geprobeerd met chatGPT maar dat leverde mails van te lage kwaliteit.\" Voor een high-volume optometrie praktijk ontwikkelden we een AI-gedreven inbox-applicatie. Het systeem is getraind op de kennisbank en tone-of-voice van de praktijk. Door de traditionele software die om de AI heen is gebouwd is deze applicatie geoptimaliseerd voor zijn specifieke use-case. Email concepten kunnen makkelijk handmatig en met AI-edit worden bijgesteld tot het gewenste resultaat is bereikt."
+            - generic [ref=e259]:
+              - generic [ref=e260]:
+                - generic [ref=e261]: —
+                - generic [ref=e262]: 75% reductie in tijd
+              - generic [ref=e263]:
+                - generic [ref=e264]: —
+                - generic [ref=e265]: Flexibel aanpasbaar door klant
+          - link "Hoe ziet het eruit?" [ref=e266] [cursor=pointer]:
+            - /url: https://email-drafter-nine.vercel.app/home
+        - iframe [ref=e275]:
+          - generic [ref=f1e9]:
+            - generic:
+              - generic [ref=f1e17]:
+                - button "Copy link" [ref=f1e19] [cursor=pointer]
+                - status [ref=f1e22]: Copy link
+                - link "Open video in Loom" [ref=f1e25] [cursor=pointer]:
+                  - /url: https://www.loom.com/share/3b2657c3394a4b589e276967c56147a0
+                - button "View comments, keyboard shortcut C" [ref=f1e30] [cursor=pointer]:
+                  - generic [ref=f1e34]: "0"
+              - generic [ref=f1e35]:
+                - button "Play the video, keyboard shortcut K" [ref=f1e36] [cursor=pointer]:
+                  - img [ref=f1e37]
+                - generic [ref=f1e42]:
+                  - generic [ref=f1e44]:
+                    - generic [ref=f1e48] [cursor=pointer]: 0.8×
+                    - generic [ref=f1e52] [cursor=pointer]: 1×
+                    - generic [ref=f1e57] [cursor=pointer]: 1.2×
+                    - generic [ref=f1e61] [cursor=pointer]: 1.5×
+                    - generic [ref=f1e65] [cursor=pointer]: 1.7×
+                    - generic [ref=f1e69] [cursor=pointer]: 2×
+                    - generic [ref=f1e73] [cursor=pointer]: 2.5×
+                  - generic [ref=f1e75]:
+                    - generic [ref=f1e76]: 2 min 21 sec
+                    - generic [ref=f1e77]: ⚡️
+                    - generic [ref=f1e78]:
+                      - generic [ref=f1e79]: 2 min 56 sec
+                      - generic [ref=f1e80]: 2 min 21 sec
+                      - generic [ref=f1e81]: 1 min 57 sec
+                      - generic [ref=f1e82]: 1 min 34 sec
+                      - generic [ref=f1e83]: 1 min 23 sec
+                      - generic [ref=f1e84]: 1 min 10 sec
+                      - generic [ref=f1e85]: 56 sec
+                - generic [ref=f1e88] [cursor=pointer]:
+                  - generic [ref=f1e89]: Powered by
+                  - img "Loom" [ref=f1e91]
+              - generic [ref=f1e98]:
+                - slider "Seek":
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img "thumb"
+                        - generic: Email Drafter Overview
+                        - time
+      - generic [ref=e279]:
+        - generic [ref=e280]:
+          - generic [ref=e281]:
+            - heading "AI Debatwijzer 2025" [level=3] [ref=e282]
+            - paragraph [ref=e283]: Een showcase van LLM en RAG technologie op grote schaal. We hebben een debat chatbot ontwikkeld die zijn informatie alleen haalt uit partijprogramma's, inclusief bronnen en citaten. Tijdens de verkiezingen in 2025 zijn er 300+ debatten gevoerd met onze software. Dit soort toepassingen werken uitstekend voor interne chatbots om met uw eigen data te praten.
+            - generic [ref=e284]:
+              - generic [ref=e285]:
+                - generic [ref=e286]: —
+                - generic [ref=e287]: Real-time fact retrieval
+              - generic [ref=e288]:
+                - generic [ref=e289]: —
+                - generic [ref=e290]: AI integratie
+              - generic [ref=e291]:
+                - generic [ref=e292]: —
+                - generic [ref=e293]: Bronnen
+          - link "Probeer de applicatie" [ref=e294] [cursor=pointer]:
+            - /url: https://debat.liebenberg.ai
+        - iframe [ref=e303]:
+          - generic [ref=f2e9]:
+            - generic:
+              - generic [ref=f2e17]:
+                - button "Copy link" [ref=f2e19] [cursor=pointer]
+                - status [ref=f2e22]: Copy link
+                - link "Open video in Loom" [ref=f2e25] [cursor=pointer]:
+                  - /url: https://www.loom.com/share/ab1576ce21094b31acb0c8969efb1a0d
+                - button "View comments, keyboard shortcut C" [ref=f2e30] [cursor=pointer]:
+                  - generic [ref=f2e34]: "0"
+              - generic [ref=f2e35]:
+                - button "Play the video, keyboard shortcut K" [ref=f2e36] [cursor=pointer]:
+                  - img [ref=f2e37]
+                - generic [ref=f2e42]:
+                  - generic [ref=f2e44]:
+                    - generic [ref=f2e48] [cursor=pointer]: 0.8×
+                    - generic [ref=f2e52] [cursor=pointer]: 1×
+                    - generic [ref=f2e57] [cursor=pointer]: 1.2×
+                    - generic [ref=f2e61] [cursor=pointer]: 1.5×
+                    - generic [ref=f2e65] [cursor=pointer]: 1.7×
+                    - generic [ref=f2e69] [cursor=pointer]: 2×
+                    - generic [ref=f2e73] [cursor=pointer]: 2.5×
+                  - generic [ref=f2e75]:
+                    - generic [ref=f2e76]: 1 min 46 sec
+                    - generic [ref=f2e77]: ⚡️
+                    - generic [ref=f2e78]:
+                      - generic [ref=f2e79]: 2 min 13 sec
+                      - generic [ref=f2e80]: 1 min 46 sec
+                      - generic [ref=f2e81]: 1 min 28 sec
+                      - generic [ref=f2e82]: 1 min 11 sec
+                      - generic [ref=f2e83]: 1 min 2 sec
+                      - generic [ref=f2e84]: 53 sec
+                      - generic [ref=f2e85]: 42 sec
+                - generic [ref=f2e88] [cursor=pointer]:
+                  - generic [ref=f2e89]: Powered by
+                  - img "Loom" [ref=f2e91]
+      - generic [ref=e307]:
+        - generic [ref=e308]:
+          - generic [ref=e309]:
+            - heading "Consultancy CV Generator" [level=3] [ref=e310]
+            - paragraph [ref=e311]: Vanuit mijn tijd in consultancy zag ik dat consultants en managers continu bezig zijn om projectervaringen te herschrijven en in de juiste huisstijl te krijgen. Daarom heb ik een platform gebouwd waar iedere consultant zijn ervaring ongestructureerd kan dumpen op een eigen account. Vul de projectomschrijving in en rolt er automatisch een CV uit in je huisstijl. Vervolgens kun je die handmatig of met AI bijstellen, waarbij het model alle context van je eerdere projecten begrijpt. Managers kunnen vanuit een overzicht consultants en projectomschrijving selecteren en direct concept-CV's genereren die de consultants alleen nog hoeven te controleren. Dit bespaart consultancy partijen veel tijd en geld.
+            - generic [ref=e312]:
+              - generic [ref=e313]:
+                - generic [ref=e314]: —
+                - generic [ref=e315]: Automatische CV's in klant-huisstijl
+              - generic [ref=e316]:
+                - generic [ref=e317]: —
+                - generic [ref=e318]: Snelle selectie en reviewflow voor managers
+              - generic [ref=e319]:
+                - generic [ref=e320]: —
+                - generic [ref=e321]: Grote tijds- en kostenbesparing voor consultancy teams
+          - link "Bekijk de demo" [ref=e322] [cursor=pointer]:
+            - /url: https://www.loom.com/embed/634a958d7f0341ef8f26b9a7d7b09876
+        - iframe [ref=e331]:
+          - generic [ref=f3e9]:
+            - generic:
+              - generic [ref=f3e17]:
+                - button "Copy link" [ref=f3e19] [cursor=pointer]
+                - status [ref=f3e22]: Copy link
+                - link "Open video in Loom" [ref=f3e25] [cursor=pointer]:
+                  - /url: https://www.loom.com/share/634a958d7f0341ef8f26b9a7d7b09876
+                - button "View comments, keyboard shortcut C" [ref=f3e30] [cursor=pointer]:
+                  - generic [ref=f3e34]: "0"
+              - generic [ref=f3e35]:
+                - button "Play the video, keyboard shortcut K" [ref=f3e36] [cursor=pointer]:
+                  - img [ref=f3e37]
+                - generic [ref=f3e42]:
+                  - generic [ref=f3e44]:
+                    - generic [ref=f3e48] [cursor=pointer]: 0.8×
+                    - generic [ref=f3e52] [cursor=pointer]: 1×
+                    - generic [ref=f3e57] [cursor=pointer]: 1.2×
+                    - generic [ref=f3e61] [cursor=pointer]: 1.5×
+                    - generic [ref=f3e65] [cursor=pointer]: 1.7×
+                    - generic [ref=f3e69] [cursor=pointer]: 2×
+                    - generic [ref=f3e73] [cursor=pointer]: 2.5×
+                  - generic [ref=f3e75]:
+                    - generic [ref=f3e76]: 2 min 44 sec
+                    - generic [ref=f3e77]: ⚡️
+                    - generic [ref=f3e78]:
+                      - generic [ref=f3e79]: 3 min 25 sec
+                      - generic [ref=f3e80]: 2 min 44 sec
+                      - generic [ref=f3e81]: 2 min 16 sec
+                      - generic [ref=f3e82]: 1 min 49 sec
+                      - generic [ref=f3e83]: 1 min 36 sec
+                      - generic [ref=f3e84]: 1 min 22 sec
+                      - generic [ref=f3e85]: 1 min 5 sec
+                - generic [ref=f3e88] [cursor=pointer]:
+                  - generic [ref=f3e89]: Powered by
+                  - img "Loom" [ref=f3e91]
+              - generic [ref=f3e98]:
+                - slider "Seek":
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - img "thumb"
+                        - generic: Introductie AI-prototype
+                        - time
+    - generic [ref=e336]:
+      - generic [ref=e337]:
+        - img "Christian Liebenberg" [ref=e339]
+        - generic [ref=e340]:
+          - paragraph [ref=e341]: Christian Liebenberg
+          - paragraph [ref=e342]: Founder & Lead Engineer
+          - paragraph [ref=e343]: MSc Econometrics
+      - generic [ref=e344]:
+        - paragraph [ref=e345]: Over ons
+        - heading "Waarom kiezen voor ons?" [level=2] [ref=e346]:
+          - text: Waarom kiezen voor
+          - emphasis [ref=e347]: ons?
+        - generic [ref=e348]:
+          - paragraph [ref=e349]:
+            - text: De AI-markt wordt overspoeld door 'agencies' die simpele prompts verkopen zonder fundamentele kennis. Wij doen dat anders. Liebenberg AI is gebaseerd op een achtergrond in
+            - strong [ref=e350]: Econometrie
+            - text: en data-analyse.
+          - paragraph [ref=e351]:
+            - text: Wij begrijpen de wiskunde en data achter de modellen. Dat betekent dat we weten wanneer een model betrouwbaar is, en wanneer niet. We bouwen traditionele software gecombineerd met AI die niet alleen 'werkt' in een demo, maar die
+            - strong [ref=e352]: veilig, schaalbaar en statistisch onderbouwd
+            - text: is in een productie-omgeving.
+        - generic [ref=e353]:
+          - paragraph [ref=e354]: Ervaring opgedaan bij
+          - generic [ref=e355]:
+            - img "ING" [ref=e356]
+            - img "Bunq" [ref=e357]
+        - link "Connect op LinkedIn" [ref=e359] [cursor=pointer]:
+          - /url: https://linkedin.com/in/christian-liebenberg-a0511060
+          - img
+          - text: Connect op LinkedIn
+    - generic [ref=e361]:
+      - generic [ref=e362]:
+        - paragraph [ref=e363]: Vragen
+        - heading "Veelgestelde vragen" [level=2] [ref=e364]:
+          - text: Veelgestelde
+          - emphasis [ref=e365]: vragen
+      - generic [ref=e366]:
+        - heading "Wat is het verschil tussen jullie en een standaard AI-agency?" [level=3] [ref=e368]:
+          - button "Wat is het verschil tussen jullie en een standaard AI-agency?" [ref=e369] [cursor=pointer]:
+            - text: Wat is het verschil tussen jullie en een standaard AI-agency?
+            - img [ref=e370]
+        - heading "Is mijn data veilig?" [level=3] [ref=e373]:
+          - button "Is mijn data veilig?" [ref=e374] [cursor=pointer]:
+            - text: Is mijn data veilig?
+            - img [ref=e375]
+        - heading "Werkt dit met mijn verouderde software (legacy)?" [level=3] [ref=e378]:
+          - button "Werkt dit met mijn verouderde software (legacy)?" [ref=e379] [cursor=pointer]:
+            - text: Werkt dit met mijn verouderde software (legacy)?
+            - img [ref=e380]
+        - heading "Hoe ziet het kostenplaatje eruit?" [level=3] [ref=e383]:
+          - button "Hoe ziet het kostenplaatje eruit?" [ref=e384] [cursor=pointer]:
+            - text: Hoe ziet het kostenplaatje eruit?
+            - img [ref=e385]
+    - generic [ref=e390]:
+      - paragraph [ref=e391]: Contact
+      - heading "Klaar voor serieuze procesoptimalisatie?" [level=2] [ref=e392]:
+        - text: Klaar voor serieuze
+        - emphasis [ref=e393]: procesoptimalisatie?
+      - paragraph [ref=e394]: Plan een gesprek om te kijken of uw use-case technisch haalbaar is en wat de ROI zal zijn.
+      - link "Plan Kennismaking" [ref=e395] [cursor=pointer]:
+        - /url: https://cal.com/christianliebenberg
+      - generic [ref=e396]:
+        - link "info@liebenberg.ai" [ref=e397] [cursor=pointer]:
+          - /url: mailto:info@liebenberg.ai
+          - img [ref=e398]
+          - text: info@liebenberg.ai
+        - link "+31 6 37220535" [ref=e401] [cursor=pointer]:
+          - /url: tel:+31637220535
+          - img [ref=e402]
+          - text: +31 6 37220535
+        - link "WhatsApp" [ref=e404] [cursor=pointer]:
+          - /url: https://wa.me/31637220535
+          - img [ref=e405]
+          - text: WhatsApp
+  - contentinfo [ref=e407]:
+    - generic [ref=e408]:
+      - generic [ref=e409]:
+        - paragraph [ref=e410]: © 2026 Liebenberg AI. Alle rechten voorbehouden.
+        - link "Privacyverklaring" [ref=e411] [cursor=pointer]:
+          - /url: /privacyverklaring
+        - link "Algemene Voorwaarden" [ref=e412] [cursor=pointer]:
+          - /url: /algemene-voorwaarden
+      - paragraph [ref=e413]: "KvK nummer: 98456598"
+  - generic [ref=e416]:
+    - button "Menu" [ref=e417]:
+      - img [ref=e419]
+      - generic: Menu
+    - button "Inspect" [ref=e423]:
+      - img [ref=e425]
+      - generic: Inspect
+    - button "Audit" [ref=e427]:
+      - generic [ref=e428]:
+        - img [ref=e429]
+        - img [ref=e432]
+      - generic: Audit
+    - button "Settings" [ref=e435]:
+      - img [ref=e437]
+      - generic: Settings
