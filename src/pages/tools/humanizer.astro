@@ -1,0 +1,32 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import HumanizerApp from "../../components/tools/HumanizerApp";
+---
+
+<BaseLayout
+  title="AI Humanizer — Liebenberg AI"
+  description="Gratis tool: plak AI-gegenereerde tekst en krijg een natuurlijkere, menselijkere versie terug. Geen account, geen e-mail."
+  canonical="https://www.liebenberg.ai/tools/humanizer/"
+>
+  <main class="px-6 py-24 md:py-32">
+    <section class="mx-auto max-w-3xl mb-12">
+      <a
+        href="/tools/"
+        class="label-uppercase text-muted-foreground hover:text-foreground transition-colors"
+      >
+        ← Tools
+      </a>
+      <h1 class="mt-6 text-4xl md:text-5xl font-heading">AI Humanizer.</h1>
+      <p class="mt-6 text-lg text-muted-foreground leading-relaxed">
+        Plak je AI-tekst, klik op humanize, klaar. De tool herkent typische
+        AI-patronen — opgeblazen significantie, em-dashes, holle drielingen,
+        vage attributies — en herschrijft ze naar iets dat klinkt als een
+        mens die het zelf opschreef.
+      </p>
+    </section>
+
+    <section class="mx-auto max-w-3xl">
+      <HumanizerApp client:load />
+    </section>
+  </main>
+</BaseLayout>
