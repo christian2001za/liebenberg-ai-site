@@ -1,6 +1,5 @@
 import type { APIRoute } from "astro";
 import Anthropic from "@anthropic-ai/sdk";
-import { track } from "@vercel/analytics/server";
 import { HUMANIZER_SYSTEM_PROMPT } from "../../lib/humanizer-prompt";
 
 export const prerender = false;
@@ -12,13 +11,6 @@ const HOUR_MS = 60 * 60 * 1000;
 const DAY_MS = 24 * HOUR_MS;
 const HOURLY_LIMIT = 5;
 const DAILY_LIMIT = 15;
-
-function bucketInputLength(n: number): "0-500" | "500-2000" | "2000-8000" | "8000-15000" {
-  if (n < 500) return "0-500";
-  if (n < 2000) return "500-2000";
-  if (n < 8000) return "2000-8000";
-  return "8000-15000";
-}
 
 type IpRecord = { hour: number[]; day: number[] };
 const rateLimitStore = new Map<string, IpRecord>();
@@ -78,7 +70,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
 
   const limit = checkRateLimit(ip);
   if (!limit.ok) {
-    void track("humanize_rate_limited", { window: limit.window });
     const message =
       limit.window === "day"
         ? "Je hebt vandaag het maximum van 15 humanizes bereikt. Probeer het morgen opnieuw."
@@ -127,10 +118,6 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     if (!output) {
       return jsonResponse({ error: "Geen output ontvangen. Probeer opnieuw." }, 502);
     }
-
-    void track("humanize_success", {
-      inputLengthBucket: bucketInputLength(text.length),
-    });
 
     return jsonResponse({ output }, 200);
   } catch (err: unknown) {
