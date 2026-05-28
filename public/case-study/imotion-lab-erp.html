@@ -38,7 +38,7 @@ window.addEventListener('error', function(e) {
     --accent:#3a5a2e;
     --accent-2:#c8a24a;
   }
-  html, body { margin: 0; padding: 0; background: var(--paper); }
+  html, body { margin: 0; padding: 0; background: var(--paper); overflow-x: hidden; }
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--ink);
@@ -1145,8 +1145,12 @@ window.EMLOrdersList = EMLOrdersList;
         if (!w || !i) return;
         const avail = w.offsetWidth;
         const s = Math.min(1, avail / FRAME_W);
-        i.style.transform = `scale(${s})`;
-        i.style.transformOrigin = 'top center';
+        // Scale from the top-left and offset to keep the (centered) frame
+        // within the wrapper — origin:center would push it off-screen on
+        // narrow viewports because the unscaled box stays 1320px wide.
+        const offset = (avail - FRAME_W * s) / 2;
+        i.style.transform = `translateX(${offset}px) scale(${s})`;
+        i.style.transformOrigin = 'top left';
         w.style.height = (height * s) + 'px';
       };
       fit();
@@ -1154,8 +1158,8 @@ window.EMLOrdersList = EMLOrdersList;
       return () => window.removeEventListener('resize', fit);
     }, [height]);
     return (
-      <div ref={wrapRef} style={{ width: '100%', position: 'relative' }}>
-        <div ref={innerRef} style={{ width: FRAME_W, margin: '0 auto' }}>
+      <div ref={wrapRef} style={{ width: '100%', position: 'relative', overflow: 'hidden' }}>
+        <div ref={innerRef} style={{ width: FRAME_W }}>
           <SafariWindow url={url} width={FRAME_W} height={height} contentBg={contentBg}>
             {children}
           </SafariWindow>
