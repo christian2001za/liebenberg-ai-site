@@ -1,0 +1,1187 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Case Study — Eye Motion Lab Praktijkportaal · Liebenberg AI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<script>
+// Suppress benign cross-origin "Script error" noise that the iframe wrapper
+// surfaces (none of our code throws — every mount renders correctly).
+const __origConsoleError = console.error;
+console.error = function(...args) {
+  const s = (args[0] && args[0].toString && args[0].toString()) || '';
+  if (s.indexOf('Script error') !== -1) return;
+  __origConsoleError.apply(console, args);
+};
+window.addEventListener('error', function(e) {
+  if (!e.filename && !e.lineno) { e.preventDefault(); e.stopImmediatePropagation(); }
+}, true);
+</script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<style>
+  :root{
+    --ink:#1b1d12;
+    --ink-2:#2a2d20;
+    --mute:#6b6d5f;
+    --line:rgba(27,29,18,.12);
+    --line-2:rgba(27,29,18,.18);
+    --cream:#f3efe6;
+    --cream-2:#ebe6d8;
+    --paper:#f7f3ea;
+    --accent:#3a5a2e;
+    --accent-2:#c8a24a;
+  }
+  html, body { margin: 0; padding: 0; background: var(--paper); }
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  a { color: inherit; }
+
+  /* Sticky top nav — back to main site */
+  nav.top {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(247,243,234,.82);
+    backdrop-filter: saturate(140%) blur(10px);
+    -webkit-backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .nav-inner {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 16px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  nav.top .logo img { height: 26px; width: auto; display: block; }
+  nav.top ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  nav.top ul a { text-decoration: none; color: var(--mute); }
+  nav.top ul a:hover { color: var(--accent); }
+
+  .page {
+    max-width: 1480px;
+    margin: 0 auto;
+    padding: 96px 60px 140px;
+  }
+  .case-head {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: end;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+  .case-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.4px;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+  .case-eyebrow::before {
+    content: '';
+    width: 28px;
+    height: 1px;
+    background: var(--line-2);
+  }
+  .case-title {
+    font-family: 'Instrument Serif', serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 0;
+    color: var(--ink);
+  }
+  .case-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+  .case-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mute);
+    text-align: right;
+    line-height: 1.7;
+  }
+  .case-meta strong { color: var(--ink); font-weight: 500; }
+
+  .frame-block {
+    margin-bottom: 96px;
+  }
+  .frame-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 22px;
+    padding: 0 4px;
+  }
+  .frame-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2.4px;
+    color: var(--mute);
+    text-transform: uppercase;
+  }
+  .frame-label {
+    font-family: 'Instrument Serif', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--ink-2);
+    font-weight: 400;
+  }
+  .frame-desc {
+    font-size: 13px;
+    color: var(--mute);
+    max-width: 360px;
+    text-align: right;
+    line-height: 1.55;
+  }
+
+  .frame-wrap {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Footer block */
+  .case-foot {
+    margin-top: 60px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--mute);
+  }
+  .case-foot a { color: var(--mute); text-decoration: none; }
+  .case-foot a:hover { color: var(--accent); }
+  .case-foot .foot-links a { margin-left: 18px; }
+
+  @media (max-width: 860px) {
+    nav.top .nav-inner { padding: 14px 24px; }
+    nav.top ul { display: none; }
+    .page { padding: 64px 24px 100px; }
+    .case-head { grid-template-columns: 1fr; }
+    .case-title { font-size: 46px; }
+    .case-meta { text-align: left; }
+    .frame-head { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .frame-desc { text-align: left; }
+    .case-foot { flex-direction: column; gap: 14px; align-items: flex-start; }
+    .case-foot .foot-links a { margin-left: 0; margin-right: 18px; }
+  }
+</style>
+<template id="__bundler_thumbnail" data-bg-color="#ebe7df">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#ebe7df"/>
+    <g transform="translate(600 400)" fill="none" stroke="#14140e" stroke-width="6">
+      <circle cx="-70" cy="0" r="140"/>
+      <circle cx="70" cy="0" r="140"/>
+      <line x1="0" y1="-160" x2="0" y2="160"/>
+    </g>
+    <text x="600" y="650" text-anchor="middle"
+      font-family="'Cormorant Garamond', Georgia, serif"
+      font-size="44" font-style="italic" fill="#8a897f">
+      Eye Motion Lab — case study
+    </text>
+  </svg>
+</template>
+</head>
+<body>
+
+<nav class="top">
+  <div class="nav-inner">
+    <a href="https://www.liebenberg.ai" class="logo" aria-label="Liebenberg AI">
+      <img src="/logo.svg" alt="Liebenberg AI" />
+    </a>
+    <ul>
+      <li><a href="https://www.liebenberg.ai/#diensten">Expertise</a></li>
+      <li><a href="https://www.liebenberg.ai/#werkwijze">Werkwijze</a></li>
+      <li><a href="https://www.liebenberg.ai/#cases">Cases</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <header class="case-head">
+    <div>
+      <div class="case-eyebrow">Case study · 2026</div>
+      <h1 class="case-title">Eye Motion Lab<br/><em>praktijkportaal voor oogzorg.</em></h1>
+    </div>
+    <div class="case-meta">
+      Client &nbsp;·&nbsp; <strong>Eye Motion Lab</strong><br/>
+      Scope &nbsp;·&nbsp; <strong>Brand, product, portal</strong><br/>
+      Year &nbsp;·&nbsp; <strong>2026</strong>
+    </div>
+  </header>
+
+  <section class="frame-block">
+    <div class="frame-head">
+      <div>
+        <div class="frame-num">01 · Public</div>
+        <div class="frame-label">Landing &amp; sign-in</div>
+      </div>
+      <div class="frame-desc">
+        Een rustige, editoriale entree. De praktijk komt binnen via een uitnodiging, zonder marketing of ruis.
+      </div>
+    </div>
+    <div class="frame-wrap" id="mount-landing"></div>
+  </section>
+
+  <section class="frame-block">
+    <div class="frame-head">
+      <div>
+        <div class="frame-num">02 · Portal</div>
+        <div class="frame-label">Nieuwe bestelling</div>
+      </div>
+      <div class="frame-desc">
+        Regels per bril, met patiëntkoppeling, varianten en losse Motion D-sets in één samenhangend formulier.
+      </div>
+    </div>
+    <div class="frame-wrap" id="mount-order"></div>
+  </section>
+
+  <section class="frame-block">
+    <div class="frame-head">
+      <div>
+        <div class="frame-num">03 · Portal</div>
+        <div class="frame-label">Bestellingen overzicht</div>
+      </div>
+      <div class="frame-desc">
+        Eén regel per bril, met eigen ordernummer en eigen status, geschikt voor parallelle verwerking.
+      </div>
+    </div>
+    <div class="frame-wrap" id="mount-list"></div>
+  </section>
+
+  <footer class="case-foot">
+    <span>© 2026 Liebenberg AI · Case Study — Eye Motion Lab</span>
+    <span class="foot-links">
+      <a href="https://www.liebenberg.ai/#cases">← Andere cases</a>
+      <a href="mailto:info@liebenberg.ai">info@liebenberg.ai</a>
+    </span>
+  </footer>
+</div>
+
+<script type="text/babel" data-presets="env,react">
+// Safari-style browser window. Light chrome, clean.
+// Exports: SafariWindow
+
+function SafariTrafficLights() {
+  return (
+    <div style={{ display: 'flex', gap: 8, paddingLeft: 16, paddingRight: 12, alignItems: 'center' }}>
+      <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#ff5f57', boxShadow: 'inset 0 0 0 0.5px rgba(0,0,0,0.06)' }} />
+      <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#febc2e', boxShadow: 'inset 0 0 0 0.5px rgba(0,0,0,0.06)' }} />
+      <div style={{ width: 12, height: 12, borderRadius: '50%', background: '#28c840', boxShadow: 'inset 0 0 0 0.5px rgba(0,0,0,0.06)' }} />
+    </div>
+  );
+}
+
+function SafariNavButtons() {
+  return (
+    <div style={{ display: 'flex', gap: 4, alignItems: 'center' }}>
+      <div style={{ width: 26, height: 26, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#bbb' }}>
+        <svg width="10" height="14" viewBox="0 0 10 14" fill="none">
+          <path d="M8 1L2 7L8 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+      <div style={{ width: 26, height: 26, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#cfcfcf' }}>
+        <svg width="10" height="14" viewBox="0 0 10 14" fill="none">
+          <path d="M2 1L8 7L2 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        </svg>
+      </div>
+    </div>
+  );
+}
+
+function SafariWindow({ url = 'eyemotionlab.com', width = 1280, height = 800, children, contentBg = '#ffffff', radius = 14 }) {
+  return (
+    <div style={{
+      width, height, borderRadius: radius, overflow: 'hidden',
+      boxShadow: '0 1px 0 rgba(255,255,255,0.6) inset, 0 30px 60px -20px rgba(15,15,20,0.25), 0 12px 30px -10px rgba(15,15,20,0.15), 0 0 0 1px rgba(0,0,0,0.06)',
+      display: 'flex', flexDirection: 'column', background: '#f6f6f6',
+      fontFamily: 'system-ui, -apple-system, sans-serif',
+    }}>
+      {/* Toolbar */}
+      <div style={{
+        height: 44,
+        background: 'linear-gradient(180deg, #f5f5f6 0%, #ececed 100%)',
+        borderBottom: '1px solid rgba(0,0,0,0.08)',
+        display: 'grid',
+        gridTemplateColumns: '1fr auto 1fr',
+        alignItems: 'center',
+        gap: 12,
+        paddingRight: 16,
+      }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <SafariTrafficLights />
+          <SafariNavButtons />
+        </div>
+        {/* URL bar */}
+        <div style={{
+          minWidth: 360,
+          maxWidth: 520,
+          height: 28,
+          borderRadius: 6,
+          background: '#e3e3e4',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 6,
+          padding: '0 14px',
+          color: '#3a3a3c',
+          fontSize: 13,
+        }}>
+          <svg width="11" height="11" viewBox="0 0 11 11" fill="none" style={{ opacity: 0.55 }}>
+            <path d="M3.5 5V3.5a2 2 0 0 1 4 0V5" stroke="currentColor" strokeWidth="1" fill="none"/>
+            <rect x="2.5" y="5" width="6" height="4.5" rx="0.5" stroke="currentColor" strokeWidth="1" fill="none"/>
+          </svg>
+          <span style={{ letterSpacing: 0.1 }}>{url}</span>
+        </div>
+        <div style={{ display: 'flex', justifyContent: 'flex-end', gap: 14, color: '#a8a8a8' }}>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="2.5" y="2.5" width="11" height="11" rx="1.5" stroke="currentColor" strokeWidth="1.2"/><path d="M2.5 6h11" stroke="currentColor" strokeWidth="1.2"/></svg>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="1.2" fill="currentColor"/><circle cx="3" cy="8" r="1.2" fill="currentColor"/><circle cx="13" cy="8" r="1.2" fill="currentColor"/></svg>
+        </div>
+      </div>
+      {/* Content */}
+      <div style={{ flex: 1, background: contentBg, overflow: 'hidden', position: 'relative' }}>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+Object.assign(window, { SafariWindow });
+
+
+// ---
+
+// EML — App sidebar (shared between order detail + orders list)
+
+const sidebarFont = "ui-sans-serif, system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif";
+
+function SidebarIcon({ kind }) {
+  const props = { width: 16, height: 16, viewBox: '0 0 16 16', fill: 'none', stroke: 'currentColor', strokeWidth: 1.4, strokeLinecap: 'round', strokeLinejoin: 'round' };
+  switch (kind) {
+    case 'dashboard': return <svg {...props}><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>;
+    case 'orders': return <svg {...props}><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M5 6h6M5 9h6M5 12h3"/></svg>;
+    case 'practices': return <svg {...props}><path d="M2 14V6l6-4 6 4v8"/><rect x="6" y="9" width="4" height="5"/></svg>;
+    case 'docs': return <svg {...props}><path d="M4 2h5l3 3v9H4z"/><path d="M9 2v3h3"/><path d="M6 9h4M6 11h4"/></svg>;
+    case 'catalog': return <svg {...props}><path d="M2 4l6-2 6 2-6 2-6-2z"/><path d="M2 4v8l6 2 6-2V4"/><path d="M8 6v8"/></svg>;
+    case 'settings': return <svg {...props}><circle cx="8" cy="8" r="2"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.5 1.5M11.5 11.5L13 13M3 13l1.5-1.5M11.5 4.5L13 3"/></svg>;
+    case 'logout': return <svg {...props}><path d="M6 14H3a1 1 0 01-1-1V3a1 1 0 011-1h3"/><path d="M10 11l3-3-3-3"/><path d="M13 8H6"/></svg>;
+    default: return null;
+  }
+}
+
+function EMLSidebar({ active = 'orders' }) {
+  const items = [
+    { id: 'dashboard', icon: 'dashboard', label: 'Dashboard' },
+    { id: 'orders', icon: 'orders', label: 'Bestellingen' },
+    { id: 'practices', icon: 'practices', label: 'Praktijken' },
+    { id: 'docs', icon: 'docs', label: 'Documenten' },
+    { id: 'catalog', icon: 'catalog', label: 'Catalogus' },
+    { id: 'settings', icon: 'settings', label: 'Instellingen' },
+  ];
+  return (
+    <aside style={{
+      width: 230,
+      flexShrink: 0,
+      background: '#fafaf8',
+      borderRight: '1px solid #e9e7e1',
+      padding: '22px 14px 18px 18px',
+      display: 'flex',
+      flexDirection: 'column',
+      fontFamily: sidebarFont,
+      color: '#2b2b29',
+    }}>
+      {/* Brand */}
+      <div style={{ marginBottom: 26, paddingLeft: 6 }}>
+        <div style={{ fontWeight: 700, fontSize: 15, letterSpacing: '-0.01em' }}>EML</div>
+        <div style={{ fontSize: 12, color: '#8a897f', marginTop: 2 }}>Beheeromgeving</div>
+      </div>
+
+      {/* Nav heading */}
+      <div style={{ fontSize: 11, color: '#9d9c91', textTransform: 'none', paddingLeft: 8, marginBottom: 8 }}>Navigatie</div>
+
+      <nav style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+        {items.map(it => (
+          <div key={it.id} style={{
+            display: 'flex', alignItems: 'center', gap: 10,
+            padding: '8px 10px', borderRadius: 8,
+            background: active === it.id ? '#ececdf' : 'transparent',
+            color: active === it.id ? '#1a1a18' : '#3b3b35',
+            fontSize: 13.5, fontWeight: active === it.id ? 500 : 400,
+            cursor: 'pointer',
+          }}>
+            <span style={{ color: active === it.id ? '#1a1a18' : '#74746a', display: 'flex' }}>
+              <SidebarIcon kind={it.icon} />
+            </span>
+            <span>{it.label}</span>
+          </div>
+        ))}
+      </nav>
+
+      <div style={{ marginTop: 'auto' }}>
+        <div style={{ paddingLeft: 8, marginBottom: 12 }}>
+          <div style={{ fontSize: 13, fontWeight: 600 }}>Admin Test</div>
+          <div style={{ fontSize: 12, color: '#8a897f' }}>admin@test.nl</div>
+        </div>
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 10,
+          padding: '8px 10px', borderRadius: 8,
+          color: '#3b3b35', fontSize: 13.5,
+        }}>
+          <span style={{ color: '#74746a', display: 'flex' }}><SidebarIcon kind="logout"/></span>
+          <span>Uitloggen</span>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+window.EMLSidebar = EMLSidebar;
+
+
+// ---
+
+// EML — Landing / Login screen (recreation, exact)
+
+const landingSerif = "'Cormorant Garamond', 'EB Garamond', 'Iowan Old Style', Georgia, serif";
+const landingMono = "'IBM Plex Mono', 'JetBrains Mono', ui-monospace, monospace";
+
+function EMLLogoMark({ size = 90 }) {
+  // Two overlapping circles with a vertical hairline through the center
+  return (
+    <svg width={size} height={size} viewBox="0 0 100 100" fill="none" stroke="#111" strokeWidth="1.2">
+      <circle cx="38" cy="50" r="28" />
+      <circle cx="62" cy="50" r="28" />
+      <line x1="50" y1="18" x2="50" y2="82" />
+    </svg>
+  );
+}
+
+function RulerTicks() {
+  const ticks = Array.from({ length: 30 });
+  return (
+    <div style={{ display: 'flex', alignItems: 'flex-end', gap: 6, height: 14 }}>
+      {ticks.map((_, i) => (
+        <div key={i} style={{
+          width: 1,
+          height: i % 5 === 0 ? 12 : 6,
+          background: '#9a9a96',
+        }} />
+      ))}
+    </div>
+  );
+}
+
+function EMLLanding() {
+  return (
+    <div style={{
+      width: '100%',
+      height: '100%',
+      display: 'grid',
+      gridTemplateColumns: '1.05fr 1fr',
+      background: '#fafaf8',
+      fontFamily: landingSerif,
+      color: '#111',
+      position: 'relative',
+    }}>
+      {/* Divider hairline */}
+      <div style={{ position: 'absolute', left: 'calc(1.05fr)', top: 0, bottom: 0 }} />
+
+      {/* LEFT */}
+      <div style={{
+        position: 'relative',
+        padding: '52px 64px',
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        {/* Top label */}
+        <div style={{
+          display: 'flex', alignItems: 'center', gap: 12,
+          fontFamily: landingMono, fontSize: 11, letterSpacing: 2,
+          color: '#8a8a86', textTransform: 'uppercase',
+        }}>
+          <span style={{ width: 28, height: 1, background: '#bdbdb8' }} />
+          <span>eyemotionlab.com</span>
+        </div>
+
+        {/* Body content centered-ish */}
+        <div style={{ marginTop: 'auto', marginBottom: 'auto', paddingTop: 60 }}>
+          <EMLLogoMark size={84} />
+          <h1 style={{
+            fontFamily: landingSerif,
+            fontWeight: 500,
+            fontSize: 78,
+            lineHeight: 1.02,
+            letterSpacing: '-0.01em',
+            margin: '38px 0 0 0',
+          }}>
+            Eye Motion<br/>Lab.
+          </h1>
+          <p style={{
+            fontStyle: 'italic',
+            fontSize: 22,
+            color: '#9a9a93',
+            margin: '20px 0 0 0',
+            fontWeight: 400,
+          }}>
+            Freedom of Movement.
+          </p>
+          <p style={{
+            fontSize: 15.5,
+            lineHeight: 1.65,
+            color: '#3a3a36',
+            margin: '64px 0 0 0',
+            maxWidth: 470,
+          }}>
+            Een portaal voor oogzorgpraktijken om brillen te bestellen,
+            patiëntdossiers te beheren en bezorging te volgen, ontworpen
+            voor rust, snelheid en precisie.
+          </p>
+        </div>
+
+        {/* Bottom row */}
+        <div style={{
+          display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end',
+          marginTop: 24,
+        }}>
+          <RulerTicks />
+        </div>
+      </div>
+
+      {/* RIGHT */}
+      <div style={{
+        background: '#f3f2ee',
+        padding: '52px 72px 52px 80px',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        borderLeft: '1px solid rgba(0,0,0,0.04)',
+      }}>
+        <div style={{ marginTop: 'auto', marginBottom: 'auto' }}>
+          <div style={{
+            display: 'flex', alignItems: 'center', gap: 12,
+            fontFamily: landingMono, fontSize: 11, letterSpacing: 2,
+            color: '#8a8a86', textTransform: 'uppercase',
+            marginBottom: 22,
+          }}>
+            <span style={{ width: 28, height: 1, background: '#bdbdb8' }} />
+            <span>inloggen</span>
+          </div>
+          <h2 style={{
+            fontFamily: landingSerif,
+            fontWeight: 500,
+            fontSize: 56,
+            lineHeight: 1.05,
+            margin: 0,
+            letterSpacing: '-0.01em',
+          }}>
+            Welkom terug.
+          </h2>
+          <p style={{
+            fontSize: 16,
+            color: '#73726d',
+            margin: '14px 0 40px 0',
+            fontFamily: landingSerif,
+          }}>
+            Log in met de gegevens die u van uw beheerder heeft ontvangen.
+          </p>
+
+          <label style={{ display: 'block', fontFamily: landingSerif, fontSize: 16, fontWeight: 600, marginBottom: 10 }}>E-mailadres</label>
+          <div style={{
+            height: 44, borderRadius: 22, border: '1px solid #d8d6cf', background: '#fafaf6',
+            padding: '0 18px', display: 'flex', alignItems: 'center',
+            fontFamily: landingSerif, fontSize: 15, color: '#b1afa6',
+            marginBottom: 22,
+          }}>u@praktijk.nl</div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 10 }}>
+            <label style={{ fontFamily: landingSerif, fontSize: 16, fontWeight: 600 }}>Wachtwoord</label>
+            <a style={{ fontFamily: landingSerif, fontSize: 14, color: '#73726d', textDecoration: 'none' }}>Wachtwoord vergeten?</a>
+          </div>
+          <div style={{
+            height: 44, borderRadius: 22, border: '1px solid #d8d6cf', background: '#fafaf6',
+            marginBottom: 28,
+          }} />
+
+          <button style={{
+            width: '100%', height: 54, borderRadius: 27, background: '#0e0e0c',
+            color: '#fff', border: 'none', fontFamily: landingSerif, fontSize: 19,
+            cursor: 'pointer', letterSpacing: '0.01em',
+          }}>Inloggen</button>
+
+          <div style={{ height: 1, background: 'rgba(0,0,0,0.08)', margin: '36px 0 24px 0' }} />
+
+          <p style={{
+            fontFamily: landingSerif, fontSize: 14.5, color: '#73726d',
+            lineHeight: 1.55, margin: 0, maxWidth: 460,
+          }}>
+            Nog geen toegang? Neem contact op met uw EML-beheerder. Accounts
+            worden alleen op uitnodiging aangemaakt.
+          </p>
+        </div>
+      </div>
+
+      {/* Footer absolute */}
+      <div style={{
+        position: 'absolute', left: 0, right: 0, bottom: 24,
+        display: 'flex', justifyContent: 'center',
+        fontFamily: landingMono, fontSize: 10.5, letterSpacing: 3,
+        color: '#8a8a86', textTransform: 'uppercase', pointerEvents: 'none',
+      }}>
+        praktijkportaal · v1
+      </div>
+    </div>
+  );
+}
+
+window.EMLLanding = EMLLanding;
+
+
+// ---
+
+// EML — Order detail / new bestelling screen
+
+const orderFont = "ui-sans-serif, system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif";
+const monoFont = "ui-monospace, 'JetBrains Mono', 'Menlo', monospace";
+
+function NumBadge({ n, tone = 'amber' }) {
+  const bg = tone === 'amber' ? '#f4e9c0' : '#e8e3d0';
+  const fg = '#8a6f1e';
+  return (
+    <div style={{
+      width: 22, height: 22, borderRadius: '50%',
+      background: bg, color: fg,
+      display: 'flex', alignItems: 'center', justifyContent: 'center',
+      fontSize: 12, fontWeight: 600,
+    }}>{n}</div>
+  );
+}
+
+function SectionLabel({ n, label }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 14 }}>
+      <NumBadge n={n} />
+      <div style={{ fontSize: 11.5, letterSpacing: 1.6, color: '#8a897f', fontWeight: 600 }}>{label}</div>
+    </div>
+  );
+}
+
+function FieldLabel({ children, optional }) {
+  return (
+    <div style={{ display: 'flex', alignItems: 'baseline', gap: 6, fontSize: 13, color: '#2b2b29', marginBottom: 6 }}>
+      <span style={{ fontWeight: 500 }}>{children}</span>
+      {optional && <span style={{ fontSize: 11.5, color: '#a4a397' }}>(optioneel)</span>}
+    </div>
+  );
+}
+
+function TextInput({ value, mono, placeholder }) {
+  return (
+    <div style={{
+      height: 36, borderRadius: 7, border: '1px solid #e3e0d6', background: '#fcfcfa',
+      padding: '0 12px', display: 'flex', alignItems: 'center',
+      fontSize: 13.5, color: value ? '#1c1c1a' : '#a4a397',
+      fontFamily: mono ? monoFont : orderFont,
+    }}>
+      {value || placeholder}
+    </div>
+  );
+}
+
+function Segmented({ options, active }) {
+  return (
+    <div style={{
+      display: 'grid', gridTemplateColumns: `repeat(${options.length}, 1fr)`,
+      borderRadius: 8, border: '1px solid #e3e0d6', padding: 3, background: '#fcfcfa', gap: 2,
+    }}>
+      {options.map((o, i) => (
+        <div key={i} style={{
+          height: 30, display: 'flex', alignItems: 'center', justifyContent: 'center',
+          borderRadius: 6,
+          background: i === active ? '#0e0e0c' : 'transparent',
+          color: i === active ? '#fff' : '#3b3b35',
+          fontSize: 13, fontWeight: i === active ? 500 : 400,
+        }}>{o}</div>
+      ))}
+    </div>
+  );
+}
+
+function Select({ value }) {
+  return (
+    <div style={{
+      height: 36, borderRadius: 7, border: '1px solid #cfcab8', background: '#fcfcfa',
+      padding: '0 12px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+      fontSize: 13.5, color: '#1c1c1a',
+      boxShadow: '0 0 0 3px rgba(167,142,60,0.08)',
+      fontFamily: monoFont,
+    }}>
+      <span>{value}</span>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+        <path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    </div>
+  );
+}
+
+function Card({ children, style }) {
+  return (
+    <div style={{
+      border: '1px solid #e9e7df', borderRadius: 12, background: '#fdfdfb',
+      padding: 18, ...style,
+    }}>{children}</div>
+  );
+}
+
+function Pill({ children, tone = 'green' }) {
+  const palette = tone === 'green'
+    ? { bg: '#e3efe3', fg: '#3a6a3a', border: '#cfe3cf' }
+    : { bg: '#efece0', fg: '#6a5a3a', border: '#e0d9c0' };
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center',
+      padding: '2px 9px', borderRadius: 10,
+      background: palette.bg, color: palette.fg,
+      border: `1px solid ${palette.border}`,
+      fontSize: 12, fontWeight: 500,
+    }}>{children}</span>
+  );
+}
+
+function GhostBtn({ children, icon }) {
+  return (
+    <button style={{
+      height: 32, padding: '0 12px', borderRadius: 8,
+      border: '1px solid #e3e0d6', background: '#fbfaf6',
+      display: 'inline-flex', alignItems: 'center', gap: 6,
+      fontFamily: orderFont, fontSize: 13, color: '#2b2b29',
+      cursor: 'pointer',
+    }}>
+      {icon && <span style={{ display: 'inline-flex' }}>{icon}</span>}
+      {children}
+    </button>
+  );
+}
+
+function PlusIcon() { return <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 2v8M2 6h8" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/></svg>; }
+function BoxIcon() { return <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M7 1L13 4v6l-6 3-6-3V4L7 1z"/><path d="M1 4l6 3 6-3M7 7v6"/></svg>; }
+function CopyIcon() { return <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><rect x="3" y="3" width="8" height="8" rx="1"/><path d="M3 9V5a2 2 0 0 1 2-2h4"/></svg>; }
+function TrashIcon() { return <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.3"><path d="M2 4h10M5 4V2.5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1V4M4 4l.7 8.5a1 1 0 0 0 1 .9h2.6a1 1 0 0 0 1-.9L10 4"/></svg>; }
+
+function EMLOrderDetail() {
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      display: 'flex',
+      background: '#f5f3ec',
+      fontFamily: orderFont,
+      color: '#1c1c1a',
+      overflow: 'hidden',
+    }}>
+      <EMLSidebar active="orders" />
+
+      <main style={{ flex: 1, overflow: 'hidden', padding: '34px 44px', position: 'relative' }}>
+        <div style={{ maxWidth: 980, margin: '0 auto' }}>
+          {/* Page header */}
+          <div style={{ marginBottom: 20 }}>
+            <div style={{ fontSize: 11.5, letterSpacing: 1.6, color: '#8a897f', fontWeight: 600, marginBottom: 6 }}>NIEUWE BESTELLING</div>
+            <h1 style={{ margin: 0, fontSize: 24, fontWeight: 600, letterSpacing: '-0.01em' }}>Bestelling opstellen</h1>
+          </div>
+
+          {/* Regel 1 header */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '4px 4px 12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontSize: 13, color: '#2b2b29' }}>Regel 1</span>
+              <Pill>Bril · patiënt-bestelling</Pill>
+            </div>
+            <div style={{ display: 'flex', gap: 18, color: '#6c6c64', fontSize: 13 }}>
+              <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}><CopyIcon /> Dupliceren</span>
+              <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}><TrashIcon /> Verwijderen</span>
+            </div>
+          </div>
+
+          {/* Regel 1 */}
+          <Card>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 22 }}>
+              {/* PATIENT */}
+              <div>
+                <SectionLabel n="1" label="PATIËNT" />
+                <FieldLabel>Patiënt-identifier</FieldLabel>
+                <TextInput value="28471" mono />
+                <div style={{ height: 14 }} />
+                <FieldLabel optional>Notitie</FieldLabel>
+                <div style={{
+                  minHeight: 92, borderRadius: 7, border: '1px solid #e3e0d6', background: '#fcfcfa',
+                  padding: '10px 12px', fontSize: 13.5,
+                }}>Mark de Vries</div>
+              </div>
+
+              {/* GLAZEN */}
+              <div>
+                <SectionLabel n="2" label="GLAZEN" />
+                <Segmented options={['Motion T', 'Motion D Replacement']} active={0} />
+                <div style={{ height: 12 }} />
+                <FieldLabel>Variant</FieldLabel>
+                <Select value="Motion T 145 080" />
+                <div style={{ height: 12 }} />
+                <FieldLabel>MONTUUR</FieldLabel>
+                <Segmented options={['Standaard', 'Eigen montuur']} active={0} />
+                <div style={{ marginTop: 10, fontSize: 12.5, color: '#74746a', lineHeight: 1.5 }}>
+                  Meerdere brillen voor deze patiënt? Klik op <b style={{ color: '#1c1c1a' }}>Dupliceren</b> bovenaan.
+                </div>
+              </div>
+            </div>
+          </Card>
+
+          {/* Regel 2 header */}
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '22px 4px 12px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+              <span style={{ fontSize: 13, color: '#2b2b29' }}>Regel 2</span>
+              <Pill>Motion D Set · praktijk-aankoop</Pill>
+            </div>
+            <div style={{ display: 'flex', gap: 18, color: '#6c6c64', fontSize: 13 }}>
+              <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}><CopyIcon /> Dupliceren</span>
+              <span style={{ display: 'inline-flex', gap: 6, alignItems: 'center' }}><TrashIcon /> Verwijderen</span>
+            </div>
+          </div>
+
+          {/* Motion D Set card */}
+          <div style={{
+            border: '1px solid #d6e3d5', borderRadius: 12, background: '#f1f7ef',
+            padding: 18,
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 8 }}>
+              <span style={{ color: '#3a6a3a', display: 'flex' }}><BoxIcon /></span>
+              <span style={{ fontSize: 12, color: '#3a6a3a', fontWeight: 700, letterSpacing: 1 }}>MOTION D SET</span>
+            </div>
+            <div style={{ fontSize: 13, color: '#3b3b35', lineHeight: 1.55, maxWidth: 760 }}>
+              Bestaat uit 16 stuks en wordt op de praktijk afgeleverd. Geen patiëntkoppeling nodig. Wil je meerdere sets? Klik op <b>Dupliceren</b> bovenaan, elke set krijgt een eigen ordernummer.
+            </div>
+            <div style={{
+              marginTop: 16, padding: '12px 14px', borderRadius: 8, background: '#fdfdfb',
+              border: '1px solid #e3ead9',
+              display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+            }}>
+              <span style={{ fontFamily: monoFont, fontSize: 13.5 }}>Motion D Set</span>
+              <span style={{ fontSize: 13.5 }}>€ 1.549,00</span>
+            </div>
+          </div>
+
+          {/* Action row */}
+          <div style={{ display: 'flex', gap: 10, marginTop: 16 }}>
+            <GhostBtn icon={<PlusIcon/>}>Bril toevoegen</GhostBtn>
+            <GhostBtn icon={<BoxIcon/>}>Motion D Set toevoegen</GhostBtn>
+          </div>
+
+          {/* Totalen */}
+          <div style={{ marginTop: 24, border: '1px solid #e9e7df', borderRadius: 12, background: '#fdfdfb', padding: '16px 20px' }}>
+            <div style={{ fontSize: 13, color: '#2b2b29', marginBottom: 10 }}>Totalen</div>
+            <Line label="Subtotaal vóór korting" value="€ 1.945,00" />
+            <Line label="Korting Motion T (1×)" value="−€ 100,00" tone="green" />
+            <Line label="Subtotaal (ex. BTW)" value="€ 1.845,00" />
+            <Line label="BTW (21%)" value="€ 387,45" />
+            <div style={{ height: 1, background: '#ece9df', margin: '10px 0' }} />
+            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+              <span style={{ color: '#1c1c1a' }}>Totaal (incl. BTW)</span>
+              <span style={{ fontWeight: 700 }}>€ 2.232,45</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating CTA */}
+        <button style={{
+          position: 'absolute', right: 44, bottom: 28,
+          height: 40, padding: '0 18px', borderRadius: 8,
+          background: '#0e0e0c', color: '#fff', border: 'none',
+          fontFamily: orderFont, fontSize: 13.5, cursor: 'pointer',
+        }}>Controleren & plaatsen</button>
+      </main>
+    </div>
+  );
+}
+
+function Line({ label, value, tone }) {
+  return (
+    <div style={{
+      display: 'flex', justifyContent: 'space-between',
+      fontSize: 13.5, padding: '4px 0',
+      color: tone === 'green' ? '#3a6a3a' : '#3b3b35',
+    }}>
+      <span>{label}</span>
+      <span>{value}</span>
+    </div>
+  );
+}
+
+window.EMLOrderDetail = EMLOrderDetail;
+
+
+// ---
+
+// EML — Orders list (Brillen) screen
+
+const listFont = "ui-sans-serif, system-ui, -apple-system, 'Inter', 'Segoe UI', sans-serif";
+const listMono = "ui-monospace, 'JetBrains Mono', 'Menlo', monospace";
+
+function StatusPill({ label }) {
+  return (
+    <span style={{
+      display: 'inline-flex', alignItems: 'center', gap: 6,
+      padding: '3px 9px 3px 8px', borderRadius: 10,
+      background: '#eef2f7', color: '#3a4a6a',
+      border: '1px solid #d8e1ec',
+      fontSize: 12, fontWeight: 500,
+    }}>
+      <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#5e7fb8' }} />
+      {label}
+    </span>
+  );
+}
+
+function AdminTag() {
+  return (
+    <span style={{
+      display: 'inline-block', padding: '1px 7px', borderRadius: 6,
+      background: '#fceee0', color: '#a35a16',
+      border: '1px solid #f3dfc6',
+      fontSize: 11, fontWeight: 500,
+    }}>Door admin</span>
+  );
+}
+
+function MonoCell({ children, dim }) {
+  return <span style={{ fontFamily: listMono, fontSize: 12.5, color: dim ? '#a09f95' : '#1c1c1a' }}>{children}</span>;
+}
+
+const ROWS = [
+  { ord: 'EML-26-0214-01', date: '19-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '28471', bril: 'Motion T 145 080', sku: 'MT-145-080', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0214', admin: false },
+  { ord: 'EML-26-0213-01', date: '19-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '30215', bril: 'Motion T 145 080', sku: 'MT-145-080', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0213', admin: false },
+  { ord: 'EML-26-0213-02', date: '19-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '30215', bril: 'Motion D Replacement 145 180', sku: 'MDR-145-180', stat: 'In behandeling', price: '€ 118,00', momentMain: 'EML-26-0213', admin: false },
+  { ord: 'EML-26-0212-01', date: '18-05-2026', prc: 'visie groep utrecht', kl: 'KL-1082', pat: '18904', bril: 'Motion T 145 080', sku: 'MT-145-080', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0212', admin: true  },
+  { ord: 'EML-26-0212-02', date: '18-05-2026', prc: 'visie groep utrecht', kl: 'KL-1082', pat: '22113', bril: 'Motion T 320 080', sku: 'MT-320-080', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0212', admin: true  },
+  { ord: 'EML-26-0211-01', date: '18-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '22113', bril: 'Motion T 230 180', sku: 'MT-230-180', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0211', admin: true  },
+  { ord: 'EML-26-0211-02', date: '18-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '—',     bril: 'Motion D Set', sku: 'MDS-002', stat: 'In behandeling', price: '€ 1.620,00', momentMain: 'EML-26-0211', admin: true  },
+  { ord: 'EML-26-0211-03', date: '18-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '19087', bril: 'Motion D Replacement 145 180', sku: 'MDR-145-180', stat: 'In behandeling', price: '€ 118,00', momentMain: 'EML-26-0211', admin: true  },
+  { ord: 'EML-26-0210-01', date: '17-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '19087', bril: 'Motion T 055 180', sku: 'MT-055-180', stat: 'In behandeling', price: '€ 248,00', momentMain: 'EML-26-0210', admin: true  },
+  { ord: 'EML-26-0210-02', date: '17-05-2026', prc: 'martens optiek',    kl: 'KL-1082', pat: '—',     bril: 'Motion D Set', sku: 'MDS-002', stat: 'In behandeling', price: '€ 1.620,00', momentMain: 'EML-26-0210', admin: true  },
+];
+
+const COLS = [
+  { k: 'ord',   label: 'Ordernummer',    w: 150 },
+  { k: 'date',  label: 'Datum',          w: 90 },
+  { k: 'prc',   label: 'Praktijk',       w: 160 },
+  { k: 'pat',   label: 'Patiënt',        w: 70 },
+  { k: 'bril',  label: 'Bril',           w: 200 },
+  { k: 'stat',  label: 'Status',         w: 130 },
+  { k: 'price', label: 'Prijs ex. BTW',  w: 110, align: 'right' },
+  { k: 'mom',   label: 'Bestelmoment',   w: 130 },
+  { k: 'act',   label: 'Actie',          w: 80, align: 'right' },
+];
+
+function EMLOrdersList() {
+  return (
+    <div style={{
+      width: '100%', height: '100%',
+      display: 'flex',
+      background: '#f5f3ec',
+      fontFamily: listFont,
+      color: '#1c1c1a',
+      overflow: 'hidden',
+    }}>
+      <EMLSidebar active="orders" />
+
+      <main style={{ flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+        {/* Top breadcrumb bar */}
+        <div style={{
+          height: 48, padding: '0 26px',
+          display: 'flex', alignItems: 'center', gap: 16,
+          borderBottom: '1px solid #e9e7e1',
+          background: '#fafaf6',
+        }}>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="#74746a" strokeWidth="1.4"><rect x="2.5" y="3" width="13" height="12" rx="1.5"/><path d="M7 3v12"/></svg>
+          <span style={{ fontSize: 13, color: '#3b3b35', fontWeight: 500 }}>EML</span>
+        </div>
+
+        <div style={{ padding: '28px 36px 0', flex: 1, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+          {/* Title row */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+            <div>
+              <h1 style={{ margin: 0, fontSize: 26, fontWeight: 600, letterSpacing: '-0.01em' }}>Brillen</h1>
+              <p style={{ margin: '6px 0 0', fontSize: 13.5, color: '#74746a' }}>Eén regel per bril met eigen ordernummer en eigen status.</p>
+            </div>
+            <button style={{
+              height: 36, padding: '0 14px', borderRadius: 8,
+              background: '#0e0e0c', color: '#fff', border: 'none',
+              fontSize: 13, cursor: 'pointer',
+            }}>+ Nieuwe bestelling</button>
+          </div>
+
+          {/* Filter row */}
+          <div style={{ display: 'flex', gap: 10, marginTop: 22 }}>
+            <div style={{
+              flex: '0 1 320px', height: 34, borderRadius: 8,
+              border: '1px solid #e3e0d6', background: '#fcfcfa',
+              padding: '0 12px', display: 'flex', alignItems: 'center',
+              fontSize: 13, color: '#a4a397',
+            }}>Zoek op praktijknaam…</div>
+            <div style={{
+              width: 90, height: 34, borderRadius: 8,
+              border: '1px solid #e3e0d6', background: '#fcfcfa',
+              padding: '0 10px', display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+              fontSize: 13, color: '#1c1c1a',
+            }}>
+              <span>all</span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M3 5l3 3 3-3" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </div>
+          </div>
+
+          {/* Table */}
+          <div style={{ marginTop: 20, flex: 1, overflow: 'hidden' }}>
+            {/* Header */}
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: COLS.map(c => `${c.w}px`).join(' '),
+              padding: '0 4px 10px',
+              borderBottom: '1px solid #ece9df',
+              fontSize: 12, color: '#8a897f',
+            }}>
+              {COLS.map(c => (
+                <div key={c.k} style={{ textAlign: c.align || 'left', fontWeight: 500 }}>{c.label}</div>
+              ))}
+            </div>
+
+            {ROWS.map((r, i) => (
+              <div key={i} style={{
+                display: 'grid',
+                gridTemplateColumns: COLS.map(c => `${c.w}px`).join(' '),
+                padding: '14px 4px',
+                borderBottom: '1px solid #f0eee5',
+                alignItems: 'center',
+                fontSize: 13,
+              }}>
+                <MonoCell>{r.ord}</MonoCell>
+                <MonoCell dim>{r.date}</MonoCell>
+                <div style={{ lineHeight: 1.25 }}>
+                  <div style={{ fontSize: 13 }}>{r.prc}</div>
+                  <MonoCell dim>{r.kl}</MonoCell>
+                </div>
+                <MonoCell>{r.pat}</MonoCell>
+                <div style={{ lineHeight: 1.25 }}>
+                  <div style={{ fontSize: 13 }}>{r.bril}</div>
+                  <MonoCell dim>{r.sku}</MonoCell>
+                </div>
+                <div><StatusPill label={r.stat} /></div>
+                <div style={{ textAlign: 'right' }}>{r.price}</div>
+                <div style={{ lineHeight: 1.3 }}>
+                  <MonoCell>{r.momentMain}</MonoCell>
+                  {r.admin && <div style={{ marginTop: 4 }}><AdminTag /></div>}
+                </div>
+                <div style={{ textAlign: 'right' }}>
+                  <button style={{
+                    height: 28, padding: '0 12px', borderRadius: 7,
+                    border: '1px solid #e3e0d6', background: '#fbfaf6',
+                    fontSize: 12.5, color: '#2b2b29', cursor: 'pointer',
+                  }}>Bekijken</button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}
+
+window.EMLOrdersList = EMLOrdersList;
+
+</script>
+
+<script type="text/babel" data-presets="env,react">
+  const FRAME_W = 1320;
+
+  function Frame({ url, height = 820, children, contentBg }) {
+    const wrapRef = React.useRef(null);
+    const innerRef = React.useRef(null);
+    React.useEffect(() => {
+      const fit = () => {
+        const w = wrapRef.current;
+        const i = innerRef.current;
+        if (!w || !i) return;
+        const avail = w.offsetWidth;
+        const s = Math.min(1, avail / FRAME_W);
+        i.style.transform = `scale(${s})`;
+        i.style.transformOrigin = 'top center';
+        w.style.height = (height * s) + 'px';
+      };
+      fit();
+      window.addEventListener('resize', fit);
+      return () => window.removeEventListener('resize', fit);
+    }, [height]);
+    return (
+      <div ref={wrapRef} style={{ width: '100%', position: 'relative' }}>
+        <div ref={innerRef} style={{ width: FRAME_W, margin: '0 auto' }}>
+          <SafariWindow url={url} width={FRAME_W} height={height} contentBg={contentBg}>
+            {children}
+          </SafariWindow>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.createRoot(document.getElementById('mount-landing')).render(
+    <Frame url="eyemotionlab.com" height={820} contentBg="#fafaf8">
+      <EMLLanding />
+    </Frame>
+  );
+
+  ReactDOM.createRoot(document.getElementById('mount-order')).render(
+    <Frame url="app.eyemotionlab.com / bestellingen / nieuw" height={1080} contentBg="#f5f3ec">
+      <EMLOrderDetail />
+    </Frame>
+  );
+
+  ReactDOM.createRoot(document.getElementById('mount-list')).render(
+    <Frame url="app.eyemotionlab.com / bestellingen" height={900} contentBg="#f5f3ec">
+      <EMLOrdersList />
+    </Frame>
+  );
+</script>
+
+</body>
+</html>

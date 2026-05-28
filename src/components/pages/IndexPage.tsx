@@ -2,7 +2,6 @@
 import { Linkedin, ShieldCheck, Code2, Database, Terminal, Mail, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import optiekglasLogo from "@/assets/liebenbergoptiekglaslogo.PNG?url";
 import founderPortrait from "@/assets/LiebenbergAI_portrait_Christian.jpeg?url";
 import { TechStack } from "@/components/TechStack";
 import { MacbookMockup } from "@/components/MacbookMockup";
@@ -44,7 +43,7 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-12 mt-12">
             <div className="md:col-start-5 md:col-span-7 lg:col-start-5 lg:col-span-6">
               <p className="hero-animate hero-delay-2 text-lg text-muted-foreground leading-[1.6] max-w-xl">
-                Wij bouwen AI-systemen die uw team uren per week besparen, wiskundig onderbouwd en klaar voor productie.
+                Wij bouwen AI-systemen die uw team uren per week bespaart, wiskundig onderbouwd en klaar voor productie.
               </p>
 
               <div className="hero-animate hero-delay-3 flex flex-col sm:flex-row items-start gap-4 mt-10">
@@ -257,53 +256,55 @@ const Index = () => {
             </div>
           </div>
 
-          {/* Case — Inbox AI */}
+          {/* Case — Eye Motion Lab */}
           <div className="bg-surface-low overflow-hidden mt-section">
             <div className="grid md:grid-cols-[1.2fr,2fr] gap-0">
               <div className="p-10 md:p-14 flex flex-col justify-between bg-surface-low">
                 <div>
-                  <div className="flex items-center gap-3 mb-8">
-                    <img src={optiekglasLogo} alt="Logo" className="h-10 w-auto opacity-70 brightness-0" />
-                  </div>
                   <h3 className="font-heading text-2xl font-normal mb-5 leading-snug">
-                    Inbox AI Architecture
+                    Eye Motion Lab Custom ERP
                   </h3>
                   <p className="text-muted-foreground mb-10 leading-[1.6]">
-                    "We hebben het geprobeerd met chatGPT maar dat leverde mails van te lage kwaliteit." Voor een high-volume optometrie praktijk ontwikkelden we een AI-gedreven inbox-applicatie. Het systeem is getraind op de kennisbank en tone-of-voice van de praktijk. Door de traditionele software die om de AI heen is gebouwd is deze applicatie geoptimaliseerd voor zijn specifieke use-case. Email concepten kunnen makkelijk handmatig en met AI-edit worden bijgesteld tot het gewenste resultaat is bereikt.
+                    Voor oogzorgbedrijf Eye Motion Lab ontwikkelden we een volledig custom ERP- en praktijkportaal. Al hun bestellingen, patiëntdossiers en bezorging lopen er van inlog tot geplaatste order doorheen. Eén regel per bril met een eigen ordernummer en status, patiëntkoppeling, varianten en losse Motion D-sets in één samenhangend formulier. Dit hebben we volledig op maat voor hen gebouwd.
                   </p>
 
                   <div className="space-y-4 mb-10">
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="text-foreground">&mdash;</span>
-                      <span>75% reductie in tijd</span>
+                      <span>Volledig custom ERP voor het hele besteltraject</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="text-foreground">&mdash;</span>
-                      <span>Flexibel aanpasbaar door klant</span>
+                      <span>Patiëntkoppeling, varianten &amp; Motion D-sets in één flow</span>
+                    </div>
+                    <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                      <span className="text-foreground">&mdash;</span>
+                      <span>Eigen ordernummer en status per bril, parallel verwerkbaar</span>
                     </div>
                   </div>
                 </div>
 
                 <Button variant="outline" className="w-fit" asChild>
-                  <a href="https://email-drafter-nine.vercel.app/home" target="_blank" rel="noopener noreferrer">
-                    Hoe ziet het eruit?
+                  <a href="/case-study/imotion-lab-erp.html">
+                    Lees de case study
                   </a>
                 </Button>
               </div>
 
               <div className="relative p-8 md:p-14 flex items-center justify-center bg-surface-high">
-                <div className="relative group w-full max-w-md">
+                <a
+                  href="/case-study/imotion-lab-erp.html"
+                  aria-label="Lees de case study Eye Motion Lab"
+                  className="relative group w-full max-w-md block"
+                >
                   <MacbookMockup className="transition-transform duration-500 group-hover:scale-[1.01]">
-                    <div style={{ position: 'relative', paddingBottom: '64.86161251504213%', height: 0 }}>
-                      <iframe
-                        src="https://www.loom.com/embed/3b2657c3394a4b589e276967c56147a0"
-                        frameBorder="0"
-                        allowFullScreen
-                        style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
-                      />
-                    </div>
+                    <img
+                      src="/case-study/eye-motion-lab-preview.png"
+                      alt="Eye Motion Lab praktijkportaal"
+                      className="block w-full h-full object-cover"
+                    />
                   </MacbookMockup>
-                </div>
+                </a>
               </div>
             </div>
           </div>
