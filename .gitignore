@@ -27,3 +27,6 @@ dist-ssr
 *.sln
 *.sw?
 .astro
+
+# Case study source bundles (2MB Figma exports, not needed in production)
+public/case-study/EML-casestudy/
