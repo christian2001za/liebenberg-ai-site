@@ -33,15 +33,24 @@ img{display:block;max-width:100%;}
 .btn-ochre:hover{background:var(--ochre-deep);}
 
 /* ===== nav ===== */
-.nav{position:fixed;top:18px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 22px;pointer-events:none;}
+/* Zijmarge schaalt mee met de schermbreedte (relatief), met een nette
+   ondergrens op kleine schermen en bovengrens op zeer brede schermen. */
+.nav{position:fixed;top:18px;left:0;right:0;z-index:100;display:flex;justify-content:center;padding:0 clamp(16px,4vw,56px);pointer-events:none;}
 .floatbar{pointer-events:auto;width:100%;max-width:var(--maxw);
   display:flex;align-items:center;justify-content:space-between;gap:22px;
-  padding:11px 12px 11px 24px;background:rgba(251,248,242,.82);
+  padding:11px 12px 11px 24px;
+  /* Bovenaan: bijna transparant, alleen lichte blur, geen rand/schaduw. */
+  background:rgba(251,248,242,.28);
+  -webkit-backdrop-filter:blur(8px) saturate(1.2);backdrop-filter:blur(8px) saturate(1.2);
+  border:1px solid rgba(226,218,203,0);border-radius:var(--r-pill);
+  box-shadow:0 0 0 0 rgba(35,49,56,0);
+  transition:padding .3s ease,box-shadow .3s ease,background .3s ease,
+             border-color .3s ease,-webkit-backdrop-filter .3s ease,backdrop-filter .3s ease;}
+/* Gescrolld: smooth naar de stevige paper-balk met rand + schaduw. */
+.floatbar.is-stuck{padding-top:9px;padding-bottom:9px;
+  background:rgba(251,248,242,.94);
   -webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);
-  border:1px solid rgba(226,218,203,.85);border-radius:var(--r-pill);
-  box-shadow:var(--shadow-float);
-  transition:padding .22s ease,box-shadow .22s ease,background .22s ease;}
-.floatbar.is-stuck{padding-top:9px;padding-bottom:9px;background:rgba(251,248,242,.94);
+  border-color:rgba(226,218,203,.85);
   box-shadow:0 1px 2px rgba(35,49,56,.06),0 16px 34px -20px rgba(35,49,56,.5);}
 .floatbar a{text-decoration:none;}
 .brand-logo{display:flex;align-items:center;}
@@ -75,8 +84,12 @@ body.menu-open .nav-toggle-bars span:nth-child(3){top:6px;transform:rotate(-45de
   background:rgba(244,239,230,.97);
   -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   opacity:0;transition:opacity .24s ease;
-  display:flex;align-items:flex-start;justify-content:center;}
-body.menu-open .mobile-menu{opacity:1;}
+  display:flex;align-items:flex-start;justify-content:center;
+  pointer-events:none;}
+/* Volledig weg wanneer verborgen: respecteer het [hidden]-attribuut zodat
+   het onzichtbare paneel geen klikken in de hero opvangt. */
+.mobile-menu[hidden]{display:none;}
+body.menu-open .mobile-menu{opacity:1;pointer-events:auto;}
 .mobile-menu-inner{width:100%;max-width:440px;padding:120px 28px 40px;
   display:flex;flex-direction:column;gap:30px;
   transform:translateY(-10px);opacity:0;transition:transform .3s ease .04s,opacity .3s ease .04s;}
