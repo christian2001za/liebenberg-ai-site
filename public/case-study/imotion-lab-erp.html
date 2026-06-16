@@ -65,7 +65,15 @@ window.addEventListener('error', function(e) {
     align-items: center;
     justify-content: space-between;
   }
-  nav.top .logo img { height: 26px; width: auto; display: block; }
+  nav.top .logo img { height: 24px; width: auto; display: block; }
+  nav.top .nav-cta {
+    padding: 10px 18px; border-radius: 999px;
+    font-family: inherit; font-size: 13px; font-weight: 600;
+    text-decoration: none; display: inline-flex; gap: 8px; align-items: center;
+    background: var(--ink); color: var(--paper); white-space: nowrap;
+    transition: transform .2s ease, background .2s ease;
+  }
+  nav.top .nav-cta:hover { transform: translateY(-1px); }
   nav.top ul {
     list-style: none;
     display: flex;
@@ -223,13 +231,15 @@ window.addEventListener('error', function(e) {
 <nav class="top">
   <div class="nav-inner">
     <a href="https://www.liebenberg.ai" class="logo" aria-label="Liebenberg AI">
-      <img src="/logo.svg" alt="Liebenberg AI" />
+      <img src="/logo-liebenberg.svg" alt="Liebenberg AI" />
     </a>
     <ul>
-      <li><a href="https://www.liebenberg.ai/#diensten">Expertise</a></li>
-      <li><a href="https://www.liebenberg.ai/#werkwijze">Werkwijze</a></li>
       <li><a href="https://www.liebenberg.ai/#cases">Cases</a></li>
+      <li><a href="https://www.liebenberg.ai/#waarom">Waarom wij</a></li>
+      <li><a href="https://www.liebenberg.ai/#werkwijze">Werkwijze</a></li>
+      <li><a href="https://www.liebenberg.ai/#faq">FAQ</a></li>
     </ul>
+    <a class="nav-cta" href="https://cal.com/christianliebenberg">Plan kennismaking →</a>
   </div>
 </nav>
 
@@ -543,7 +553,7 @@ function EMLLanding() {
         {/* Body content centered-ish */}
         <div style={{ marginTop: 'auto', marginBottom: 'auto', paddingTop: 60 }}>
           <EMLLogoMark size={84} />
-          <h1 style={{
+          <div style={{
             fontFamily: landingSerif,
             fontWeight: 500,
             fontSize: 78,
@@ -552,7 +562,7 @@ function EMLLanding() {
             margin: '38px 0 0 0',
           }}>
             Eye Motion<br/>Lab.
-          </h1>
+          </div>
           <p style={{
             fontStyle: 'italic',
             fontSize: 22,
@@ -821,7 +831,7 @@ function EMLOrderDetail() {
           {/* Page header */}
           <div style={{ marginBottom: 20 }}>
             <div style={{ fontSize: 11.5, letterSpacing: 1.6, color: '#8a897f', fontWeight: 600, marginBottom: 6 }}>NIEUWE BESTELLING</div>
-            <h1 style={{ margin: 0, fontSize: 24, fontWeight: 600, letterSpacing: '-0.01em' }}>Bestelling opstellen</h1>
+            <div style={{ margin: 0, fontSize: 24, fontWeight: 600, letterSpacing: '-0.01em' }}>Bestelling opstellen</div>
           </div>
 
           {/* Regel 1 header */}
@@ -1042,7 +1052,7 @@ function EMLOrdersList() {
           {/* Title row */}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
             <div>
-              <h1 style={{ margin: 0, fontSize: 26, fontWeight: 600, letterSpacing: '-0.01em' }}>Brillen</h1>
+              <div style={{ margin: 0, fontSize: 26, fontWeight: 600, letterSpacing: '-0.01em' }}>Brillen</div>
               <p style={{ margin: '6px 0 0', fontSize: 13.5, color: '#74746a' }}>Eén regel per bril met eigen ordernummer en eigen status.</p>
             </div>
             <button style={{

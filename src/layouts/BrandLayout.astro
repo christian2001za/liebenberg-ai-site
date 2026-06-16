@@ -1,0 +1,131 @@
+---
+/**
+ * BrandLayout — clean layout for pages in the new brand style.
+ * Pulls in brand tokens + Google fonts + SEO/meta, but NOT the old Tailwind
+ * globals (index.css), so the new design stays self-contained.
+ */
+import "../styles/brand.css";
+import "../styles/chrome.css";
+import Analytics from "@vercel/analytics/astro";
+import SiteNav from "../components/site/SiteNav.astro";
+import SiteFooter from "../components/site/SiteFooter.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  image?: string;
+  type?: string;
+  /** Render the shared floating navbar. Default true. */
+  nav?: boolean;
+  /** Render the shared footer. Default true. */
+  footer?: boolean;
+  /** Extra JSON-LD schema-objecten (bv. FAQPage) voor deze pagina. */
+  schema?: Record<string, unknown>[];
+}
+
+const {
+  title = "Liebenberg AI | Minder Handwerk. Meer Resultaat.",
+  description = "Maatwerk AI-software voor het MKB, met een wiskundige basis. Meetbaar betrouwbaar, geen black box. GDPR/AVG compliant.",
+  canonical = "https://www.liebenberg.ai/",
+  image = "/og-image.png",
+  type = "website",
+  nav = true,
+  footer = true,
+  schema = [],
+} = Astro.props;
+
+const ogImage = new URL(image, Astro.site).href;
+const siteUrl = "https://www.liebenberg.ai";
+
+// Organisatie + website structured data — staat op elke pagina.
+const baseSchema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Liebenberg AI",
+    url: siteUrl,
+    logo: `${siteUrl}/icon-512.png`,
+    image: ogImage,
+    description:
+      "Maatwerk AI-software voor het MKB, met een wiskundige basis. Meetbaar betrouwbaar, geen black box. GDPR/AVG compliant.",
+    email: "info@liebenberg.ai",
+    telephone: "+31637220535",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Nieuwe Keizersgracht 468",
+      postalCode: "1018 VG",
+      addressLocality: "Amsterdam",
+      addressCountry: "NL",
+    },
+    founder: {
+      "@type": "Person",
+      name: "Christian Liebenberg",
+      jobTitle: "Founder & Lead Engineer",
+    },
+    sameAs: ["https://linkedin.com/in/christian-liebenberg-a0511060"],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Liebenberg AI",
+    url: siteUrl,
+    inLanguage: "nl-NL",
+  },
+];
+
+const allSchema = [...baseSchema, ...schema];
+---
+
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Liebenberg AI" />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon-48x48.png" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
+
+    <meta property="og:site_name" content="Liebenberg AI" />
+    <meta property="og:locale" content="nl_NL" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Liebenberg AI — Minder handwerk. Meer resultaat." />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@liebenberg_ai" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {allSchema.map((s) => (
+      <script type="application/ld+json" set:html={JSON.stringify(s)} />
+    ))}
+
+    <Analytics />
+  </head>
+  <body>
+    {nav && <SiteNav />}
+    <slot />
+    {footer && <SiteFooter />}
+  </body>
+</html>

@@ -1,0 +1,85 @@
+---
+/**
+ * Shared floating navbar in the brand style.
+ * On the homepage, section links are in-page anchors (#cases);
+ * on subpages they point back to the homepage (/#cases).
+ * On mobile the section links collapse into a hamburger menu.
+ */
+import logoInk from "../../assets/brand/logo-horizontal.svg?url";
+
+const CAL = "https://cal.com/christianliebenberg";
+const WA = "https://wa.me/31637220535";
+
+const isHome = Astro.url.pathname === "/";
+const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+const homeHref = isHome ? "#top" : "/";
+
+const navLinks = [
+  { id: "cases", label: "Cases" },
+  { id: "waarom", label: "Waarom wij" },
+  { id: "werkwijze", label: "Werkwijze" },
+  { id: "faq", label: "FAQ" },
+];
+---
+
+<div class="nav">
+  <div class="floatbar" id="floatbar">
+    <a class="brand-logo" href={homeHref} aria-label="Liebenberg AI"><img class="lb-logo" src={logoInk} alt="Liebenberg AI" width="1351.87" height="162.15" /></a>
+    <nav>
+      {navLinks.map((l) => <a href={anchor(l.id)}>{l.label}</a>)}
+    </nav>
+    <a class="bar-cta" href={CAL}>Plan kennismaking <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobileMenu">
+      <span class="nav-toggle-bars" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+  </div>
+</div>
+
+<!-- Mobiel menu-paneel -->
+<div class="mobile-menu" id="mobileMenu" hidden>
+  <div class="mobile-menu-inner">
+    <nav class="mobile-menu-links">
+      {navLinks.map((l) => <a href={anchor(l.id)} data-mm-link>{l.label}</a>)}
+    </nav>
+    <div class="mobile-menu-cta">
+      <a class="btn btn-ink" href={CAL} data-mm-link>Plan kennismaking <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+      <a class="btn btn-wa-solid" href={WA} data-mm-link><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg>Stuur een appje</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById("floatbar");
+  function onScroll() { if (bar) bar.classList.toggle("is-stuck", window.scrollY > 20); }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Hamburger-menu
+  const toggle = document.getElementById("navToggle");
+  const menu = document.getElementById("mobileMenu");
+
+  function openMenu() {
+    if (!menu || !toggle) return;
+    menu.hidden = false;
+    // forceer reflow zodat de transitie afspeelt
+    void menu.offsetWidth;
+    document.body.classList.add("menu-open");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Menu sluiten");
+  }
+  function closeMenu() {
+    if (!menu || !toggle) return;
+    document.body.classList.remove("menu-open");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Menu openen");
+    // verberg na de transitie
+    window.setTimeout(() => { if (!document.body.classList.contains("menu-open")) menu.hidden = true; }, 260);
+  }
+  function isOpen() { return toggle?.getAttribute("aria-expanded") === "true"; }
+
+  toggle?.addEventListener("click", () => { isOpen() ? closeMenu() : openMenu(); });
+  menu?.querySelectorAll("[data-mm-link]").forEach((a) =>
+    a.addEventListener("click", () => closeMenu())
+  );
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && isOpen()) closeMenu(); });
+</script>

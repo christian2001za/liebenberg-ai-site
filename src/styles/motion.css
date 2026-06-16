@@ -1,0 +1,105 @@
+/* ===========================================================
+   motion.css — subtiele, premium micro-interacties
+   Alles degradeert netjes: zonder JS blijft alles zichtbaar,
+   en prefers-reduced-motion schakelt beweging volledig uit.
+   =========================================================== */
+
+/* --- 1. Scroll-reveal -------------------------------------
+   .reveal wordt door motion.ts op reveal-doelen gezet.
+   Standaard (geen JS) is alles gewoon zichtbaar; pas wanneer
+   JS de class toevoegt verbergen we en faden we in. */
+.js-motion .reveal{
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
+             transform .7s cubic-bezier(.22,.61,.36,1);
+  will-change:opacity, transform;
+}
+.js-motion .reveal.is-in{
+  opacity:1;
+  transform:none;
+}
+/* Gestaffelde kinderen binnen één reveal-groep */
+.js-motion .reveal[data-stagger] > *{
+  opacity:0;
+  transform:translateY(12px);
+  transition:opacity .6s cubic-bezier(.22,.61,.36,1),
+             transform .6s cubic-bezier(.22,.61,.36,1);
+}
+.js-motion .reveal[data-stagger].is-in > *{
+  opacity:1;
+  transform:none;
+}
+
+/* --- 2. Count-up tellers ----------------------------------
+   Geen aparte styling nodig; motion.ts schrijft de tussenwaarden.
+   We voorkomen alleen layout-shift door de breedte te reserveren. */
+.counter{font-variant-numeric:tabular-nums;}
+
+/* --- 3. Foto's: zwart-wit -> kleur (alleen desktop/hover) -- */
+@media (hover:hover) and (pointer:fine){
+  .founder-photo{
+    filter:grayscale(0) contrast(1);
+    transition:filter .55s ease, transform .9s cubic-bezier(.22,.61,.36,1);
+  }
+  /* hover op de omhullende media-container maakt de foto zwart-wit */
+  .hero-media:hover .founder-photo,
+  .about-media:hover .founder-photo{
+    filter:grayscale(1) contrast(1.02);
+  }
+
+  /* Browser-mockup van de case: subtiele lift + schaduw bij hover */
+  .map-card{
+    transition:transform .5s cubic-bezier(.22,.61,.36,1),
+               box-shadow .5s cubic-bezier(.22,.61,.36,1);
+  }
+  .map-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 42px 90px -34px rgba(0,0,0,.7);
+  }
+}
+
+/* --- 4. Knop- & link-verfijning ---------------------------
+   Bestaande arrow-slide blijft; we voegen een zachte lift toe. */
+.btn{
+  transition:background .18s ease, color .18s ease,
+             transform .18s cubic-bezier(.22,.61,.36,1),
+             box-shadow .25s ease;
+}
+@media (hover:hover) and (pointer:fine){
+  .btn-ink:hover,
+  .btn-ochre:hover,
+  .btn-paper:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 26px -14px rgba(35,49,56,.55);
+  }
+  .btn-ghost:hover{ transform:translateY(-2px); }
+  .btn:active{ transform:translateY(0); }
+}
+
+/* Specialisatie-kaarten & mini-cases: subtiele lift bij hover */
+@media (hover:hover) and (pointer:fine){
+  .svc, .mini, .phase{
+    transition:transform .4s cubic-bezier(.22,.61,.36,1),
+               box-shadow .4s ease, border-color .4s ease;
+  }
+  .svc:hover, .mini:hover{
+    transform:translateY(-4px);
+    box-shadow:0 24px 50px -30px rgba(35,49,56,.35);
+  }
+}
+
+/* --- Toegankelijkheid: alles uit bij reduced-motion ------- */
+@media (prefers-reduced-motion:reduce){
+  .js-motion .reveal,
+  .js-motion .reveal[data-stagger] > *{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+  .founder-photo{ filter:none !important; }
+  .btn, .map-card, .svc, .mini, .phase{
+    transition:background .18s ease, color .18s ease !important;
+    transform:none !important;
+  }
+}
