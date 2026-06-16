@@ -1,25 +1,22 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BrandLayout from "../layouts/BrandLayout.astro";
+import "../styles/content.css";
 ---
 
-<BaseLayout
+<BrandLayout
   title="Pagina niet gevonden - Liebenberg AI"
   description="Pagina niet gevonden."
   canonical="https://www.liebenberg.ai/404"
+  footer={false}
 >
-  <main class="min-h-screen bg-background text-foreground flex items-center justify-center px-6">
-    <div class="max-w-xl text-center">
-      <p class="text-xs uppercase tracking-[0.2em] text-muted-foreground">404</p>
-      <h1 class="mt-3 text-4xl md:text-5xl font-heading">Pagina niet gevonden</h1>
-      <p class="mt-4 text-muted-foreground">
-        De pagina die je zoekt bestaat niet of is verplaatst.
-      </p>
-      <a
-        href="/"
-        class="mt-8 inline-flex items-center justify-center rounded-md border border-white/10 bg-white/5 px-6 py-2 text-sm font-medium text-foreground transition-colors hover:bg-white/10"
-      >
-        Terug naar home
-      </a>
+  <main class="page" style="min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;">
+    <div class="wrap" style="max-width:560px;">
+      <p class="eyebrow" style="justify-content:center;">404</p>
+      <h1 style="font-size:clamp(36px,5vw,58px);margin-top:16px;">Pagina niet gevonden</h1>
+      <p class="lead" style="margin:18px auto 0;">De pagina die je zoekt bestaat niet of is verplaatst.</p>
+      <div style="margin-top:32px;">
+        <a class="btn btn-ink" href="/">Terug naar home</a>
+      </div>
     </div>
   </main>
-</BaseLayout>
+</BrandLayout>

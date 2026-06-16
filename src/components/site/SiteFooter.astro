@@ -1,0 +1,50 @@
+---
+/**
+ * Shared footer in the brand style. Tools + Blog live here (moved out of the navbar).
+ * Section links resolve to the homepage when on a subpage.
+ */
+import logoPaper from "../../assets/brand/logo-horizontal-paper.svg?url";
+
+const WA = "https://wa.me/31637220535";
+
+const isHome = Astro.url.pathname === "/";
+const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <img class="lb-logo" src={logoPaper} alt="Liebenberg AI" width="1351.87" height="162.15" />
+        <p>Maatwerk software, gedreven door AI. Wiskundig onderbouwd en klaar voor productie. Gebouwd in Amsterdam.</p>
+      </div>
+      <div class="foot-links">
+        <div class="foot-col">
+          <h4>Pagina</h4>
+          <a href={anchor("cases")}>Cases</a>
+          <a href={anchor("waarom")}>Waarom wij</a>
+          <a href={anchor("werkwijze")}>Werkwijze</a>
+          <a href={anchor("diensten")}>Wat we bouwen</a>
+          <a href={anchor("faq")}>FAQ</a>
+        </div>
+        <div class="foot-col">
+          <h4>Ontdek</h4>
+          <a href="/blog/">Blog</a>
+          <a href="/tools/">Tools</a>
+          <a href={anchor("contact")}>Contact</a>
+        </div>
+        <div class="foot-col">
+          <h4>Contact</h4>
+          <a href="mailto:info@liebenberg.ai">info@liebenberg.ai</a>
+          <a href="tel:+31637220535">+31 6 37220535</a>
+          <a href={WA}>WhatsApp</a>
+          <a href="https://linkedin.com/in/christian-liebenberg-a0511060">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 Liebenberg AI. Alle rechten voorbehouden. KvK 98456598.</span>
+      <span><a href="/privacyverklaring">Privacyverklaring</a> &nbsp;·&nbsp; <a href="/algemene-voorwaarden">Algemene voorwaarden</a></span>
+    </div>
+  </div>
+</footer>

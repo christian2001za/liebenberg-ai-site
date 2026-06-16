@@ -10,6 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+
+# Use npm only — keep other package managers' lockfiles out
+bun.lockb
+yarn.lock
+pnpm-lock.yaml
 *.local
 .env
 .env.*
@@ -30,3 +35,6 @@ dist-ssr
 
 # Case study source bundles (2MB Figma exports, not needed in production)
 public/case-study/EML-casestudy/
+
+# Playwright MCP screenshots/snapshots
+.playwright-mcp/

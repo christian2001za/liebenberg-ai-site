@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Liebenberg AI — Brand tokens
+   Single source of truth for the visual identity. Import this on every page.
+   See docs/BRAND.md for the principles behind these values.
+   ========================================================================== */
+
+:root {
+  /* --- Color: ink (dark) --- */
+  --ink: #233138;
+  --ink-2: #2c3a42;
+
+  /* --- Color: paper / surfaces (light) --- */
+  --paper: #f4efe6;
+  --card: #fbf8f2;
+  --canvas: #e7e1d4;
+
+  /* --- Color: text --- */
+  --soft: #5d666c;        /* muted body text */
+  --line: #e2dacb;        /* hairline borders on paper */
+
+  /* --- Color: ochre (accent) --- */
+  --ochre: #bf6a34;
+  --ochre-deep: #a85b2b;  /* hover */
+  --ochre-light: #e0a06a; /* accent on dark backgrounds */
+
+  /* --- Color: utility --- */
+  --wa-green: #22a45a;
+  --wa-green-deep: #1d9150;
+
+  /* --- Typography --- */
+  --font-serif: "EB Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+
+  /* --- Layout --- */
+  --maxw: 1180px;
+  --nav-h: 118px;         /* used for scroll-padding so anchors clear the navbar */
+
+  /* --- Radii --- */
+  --r-sm: 11px;
+  --r-md: 16px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  /* --- Shadows --- */
+  --shadow-card: 0 24px 48px -34px rgba(35, 49, 56, 0.4);
+  --shadow-float: 0 1px 2px rgba(35, 49, 56, 0.05),
+    0 22px 48px -26px rgba(35, 49, 56, 0.4);
+  --shadow-lift: 0 30px 60px -38px rgba(35, 49, 56, 0.5);
+}

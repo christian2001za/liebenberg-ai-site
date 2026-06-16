@@ -1,12 +1,420 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
-import IndexPage from "../components/pages/IndexPage";
+import BrandLayout from "../layouts/BrandLayout.astro";
+import "../styles/landing.css";
+import "../styles/motion.css";
+import founderPortrait from "../assets/LiebenbergAI_portrait_Christian.jpeg?url";
+
+const CAL = "https://cal.com/christianliebenberg";
+const WA = "https://wa.me/31637220535";
+
+// FAQ-structured data — moet één-op-één overeenkomen met de FAQ-sectie hieronder.
+const faqItems = [
+  {
+    q: "Wat kost het om AI-software of een AI-tool te laten bouwen?",
+    a: "Elk traject begint met een AI-startsprint van €2.000: in twee weken bouwen we één werkend stuk in je eigen systemen, plus een concreet vervolgplan met prijsrange. Grotere trajecten zijn maatwerk vanaf €10.000 en lopen in vaste fases, elk met een prijs die we vooraf afspreken. Zo weet je altijd waar je aan toe bent voordat je verder gaat.",
+  },
+  {
+    q: "Wat gebeurt er met mijn software als jij er straks mee zou stoppen?",
+    a: "Je code en je data zijn altijd van jou. We bouwen op een moderne, standaard stack die elke ontwikkelaar kan overnemen, dus je zit nooit vast aan één partij of een gesloten systeem. Na oplevering is er een heldere onderhoudsafspraak, zodat alles blijft draaien en doorontwikkeld kan worden.",
+  },
+  {
+    q: "Is mijn data veilig als ik AI gebruik?",
+    a: "Ja. We zijn GDPR/AVG compliant en werken met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.",
+  },
+  {
+    q: "Kan AI dit al betrouwbaar, of is het nog speelgoed?",
+    a: "Een losse chatbot is speelgoed; een goed gebouwd systeem is dat niet. Het verschil zit in meten. Ik kom uit de econometrie, dus we toetsen hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouwen menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.",
+  },
+  {
+    q: "Werkt dit met de software die ik nu al gebruik?",
+    a: "Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. We bouwen de AI in jouw bestaande proces, niet ernaast.",
+  },
+  {
+    q: "Hoe lang duurt het voordat ik iets werkends heb?",
+    a: "Binnen twee weken. De startsprint levert bewust één concreet, werkend stuk op dat je meteen gebruikt, in plaats van maandenlang bouwen zonder resultaat. Daarna gaan we in korte fases verder, elk met een afgerond resultaat.",
+  },
+  {
+    q: "Heb ik een eigen IT-afdeling of technische kennis nodig?",
+    a: "Nee, dat is juist het punt. We leveren end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; wij regelen de techniek, jij houdt de regie over je proces en je data.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.q,
+    acceptedAnswer: { "@type": "Answer", text: item.a },
+  })),
+};
 ---
 
-<BaseLayout
+<BrandLayout
   title="Liebenberg AI | Minder Handwerk. Meer Resultaat."
-  description="Wij bouwen AI-systemen die uw team uren per week besparen. Maatwerk software gedreven door AI, wiskundig onderbouwd en klaar voor productie. GDPR/AVG compliant."
+  description="Maatwerk AI-software voor het MKB, met een wiskundige basis. Meetbaar betrouwbaar, geen black box. GDPR/AVG compliant."
   canonical="https://www.liebenberg.ai/"
+  schema={[faqSchema]}
 >
-  <IndexPage client:load />
-</BaseLayout>
+  <style is:inline set:html={`:root{--founder:url(${founderPortrait})}`}></style>
+
+  <!-- 1. HERO -->
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <svg class="hero-wm" viewBox="0 0 300 120" fill="none" aria-hidden="true"><path d="M12 104 L52 82 L74 90 L94 50 L106 70 L130 24 L150 58 L168 44 L190 78 L222 92 L288 104" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div class="hero-ct">
+          <p class="eyebrow">Gebouwd in Amsterdam</p>
+          <h1><span style="white-space:nowrap">Minder handwerk.</span><br><span class="ac-italic">Meer resultaat<span class="ac-dot">.</span></span></h1>
+          <p class="hero-lede">Maatwerk AI-software voor het MKB, met een wiskundige basis. Meetbaar betrouwbaar, geen black box.</p>
+          <a class="proof-link" href="https://www.meldpuntaziatischehoornaar.nl"><span class="live"></span>Live: Meldpunt Aziatische Hoornaar<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+          <div class="cta-row">
+            <a class="btn btn-ink" href={CAL}>Plan kennismaking</a>
+            <a class="btn btn-ghost" href="#contact">Stel een vraag</a>
+          </div>
+        </div>
+      </div>
+      <div class="hero-media">
+        <div class="founder-photo"></div>
+        <div class="namecard"><div class="nm">Christian Liebenberg</div><div class="rl">Founder &amp; Lead Engineer · MSc Econometrie</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. PROOF STRIP -->
+  <section class="proofstrip" aria-label="Feiten">
+    <div class="container">
+      <div class="proof-grid">
+        <div class="proof-item"><div class="pv">1.000+</div><div class="pl">accounts live<span style="color:var(--ochre)">*</span></div></div>
+        <div class="proof-item"><div class="pv">#2</div><div class="pl">organisch op Google<span style="color:var(--ochre)">*</span></div></div>
+        <div class="proof-item"><div class="pv">EU hosted</div><div class="pl">GDPR/AVG compliant</div></div>
+        <div class="proof-item"><div class="pv">MSc</div><div class="pl">Econometrie als fundament</div></div>
+      </div>
+      <p class="proof-note"><span style="color:var(--ochre)">*</span> Op software die door ons in productie is gebouwd.</p>
+    </div>
+  </section>
+
+  <!-- 3. FEATURED CASE -->
+  <section class="sec dark" id="cases">
+    <div class="container">
+      <p class="eyebrow">Uitgelichte case</p>
+      <div class="feat-grid">
+        <div class="feat-copy">
+          <h2>Een landelijk meldpunt, live in productie.</h2>
+          <p class="desc">Een platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar op één gedeelde kaart zetten. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute. Gratis te gebruiken, voor iedereen.</p>
+          <div class="feat-metrics">
+            <div><div class="mv">1.000+</div><div class="ml">Geregistreerde accounts</div></div>
+            <div><div class="mv">10.000+</div><div class="ml">Gevalideerde meldingen</div></div>
+            <div><div class="mv">#2 organisch</div><div class="ml">Op de kernzoekterm</div></div>
+            <div><div class="mv">AI Overview</div><div class="ml">Aangeraden door Google</div></div>
+          </div>
+          <div class="feat-ctas">
+            <a class="btn btn-paper" href="https://www.meldpuntaziatischehoornaar.nl">Bekijk het platform live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+            <a class="link-arrow" href="/case-study/meldpunt-aziatische-hoornaar.html">Lees de case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+          </div>
+        </div>
+        <a class="map-card" href="https://www.meldpuntaziatischehoornaar.nl" aria-label="Open het meldpunt-platform">
+          <div class="map-chrome"><span class="dots"><i></i><i></i><i></i></span><span class="url">meldpuntaziatischehoornaar.nl/kaart</span></div>
+          <div class="map-body">
+            <span class="pin k" style="left:24%;top:30%"></span>
+            <span class="pin o" style="left:58%;top:22%"></span>
+            <span class="pin g" style="left:72%;top:48%"></span>
+            <span class="pin o" style="left:44%;top:56%"></span>
+            <span class="pin k" style="left:64%;top:70%"></span>
+            <span class="pin g" style="left:34%;top:74%"></span>
+            <div class="livefeed">
+              <div class="lf-h"><span class="ld"></span>Live feed</div>
+              <div class="lf-row"><span>Nieuwe meldingen (24u)</span><b>37</b></div>
+              <div class="lf-row"><span>In behandeling</span><b>82</b></div>
+              <div class="lf-row"><span>Nesten verwijderd</span><b>2.463</b></div>
+              <div class="lf-row"><span>Actieve bestrijders</span><b>68</b></div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. TESTIMONIAL -->
+  <section class="sec">
+    <div class="container">
+      <div class="quote">
+        <p class="q"><span class="mark">&ldquo;</span>Hele fijne samenwerking. Er wordt goed geluisterd, verzoeken worden snel opgepakt en het platform groeit met ons mee.<span class="mark">&rdquo;</span></p>
+        <div class="who">
+          <span class="av">RV</span>
+          <span><span class="nm">Rob Voesten</span><br><span class="rl">Oprichter, NatuurlijkRob</span></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHY US -->
+  <section class="sec" id="waarom" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <!-- Part 1: autoriteit -->
+      <div class="about-grid">
+        <div class="about-media">
+          <div class="about-photo"><div class="founder-photo"></div></div>
+          <div class="about-cap">
+            <div class="ac-name">Christian Liebenberg</div>
+            <div class="ac-role">Founder &amp; Lead Engineer</div>
+            <div class="ac-role">MSc Econometrie</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="eyebrow">Over ons</p>
+          <h2 style="margin-top:18px;">Waarom kiezen voor <span class="ac-italic">ons?</span></h2>
+          <p class="about-p">De AI-markt wordt overspoeld door bureaus die prompts verkopen zonder fundament eronder. Wij doen dat anders. Liebenberg AI is gebouwd op mijn achtergrond in econometrie en data-analyse.</p>
+          <p class="about-p">Ik begrijp de wiskunde en data onder de modellen. Daardoor weet ik wanneer een model te vertrouwen is en wanneer niet. We bouwen productie-software waarin AI niet alleen in een demo werkt, maar veilig, schaalbaar en statistisch onderbouwd draait in de praktijk.</p>
+          <div class="about-prev">
+            <p class="prev-line">Eerder als risk consultant gewerkt aan projecten voor o.a. ING en bunq.</p>
+            <a class="link-arrow" style="color:var(--ochre)" href="https://linkedin.com/in/christian-liebenberg-a0511060"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21H18.6v-5.3c0-1.27-.03-2.9-1.9-2.9-1.9 0-2.2 1.38-2.2 2.8V21H10z"></path></svg>Connect op LinkedIn</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Part 2: contrast -->
+      <div class="why-contrast">
+        <div class="why-head">
+          <h2 style="margin-top:0;">De meeste AI-bureaus verkopen je &lsquo;AI&rsquo;. <span class="ac-italic">Wij verkopen je een uitkomst waarvan we de kwaliteit bewijzen.</span></h2>
+        </div>
+        <div class="contrast">
+          <div class="crow">
+            <div class="bureau">Veel bureaus bouwen een mooie demo.</div>
+            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij bouwen productie en meten hoe accuraat en betrouwbaar het is:</b> accuraatheid, hallucinatie, bronvermelding.</span></div>
+          </div>
+          <div class="crow">
+            <div class="bureau">Veel bureaus leunen op prompts zonder fundament.</div>
+            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij komen uit de econometrie en begrijpen de wiskunde onder de modellen.</b> We weten wanneer een model te vertrouwen is en wanneer niet.</span></div>
+          </div>
+          <div class="crow">
+            <div class="bureau">Veel bureaus laten je achter met een black box.</div>
+            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Onze output is traceerbaar naar de bron,</b> en jij houdt de regie over je eigen data.</span></div>
+          </div>
+          <div class="crow">
+            <div class="bureau">Veel bureaus doen alles voor iedereen.</div>
+            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij leveren één ding goed:</b> end-to-end AI-software voor bedrijven zonder eigen IT-team.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. SPRINT -->
+  <section class="sec" id="sprint">
+    <div class="container">
+      <div class="sprint-card">
+        <div class="sprint-left">
+          <p class="eyebrow">Zo begin je</p>
+          <h2 style="font-size:clamp(28px,3.4vw,42px);margin-top:18px;">Begin met een AI-startsprint.</h2>
+          <div class="sprint-price">&euro;2.000<small>Twee weken. Eén vaste prijs, één werkend resultaat.</small></div>
+          <p class="sprint-foot">Grotere trajecten zijn maatwerk. De startsprint bepaalt de scope en de prijs.</p>
+          <a class="btn btn-ink sprint-cta" href="#contact">Plan je startsprint <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+        <div class="sprint-right">
+          <ul class="sprint-list">
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Eén werkend stuk AI dat je meteen gebruikt.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Een concreet vervolgplan met een heldere prijs.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Een werksessie waarin we het aan je team overdragen.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. WERKWIJZE -->
+  <section class="sec" id="werkwijze" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Werkwijze</p>
+        <h2>Lage drempel, steeds zichtbaar resultaat.</h2>
+        <p class="sh-sub">We werken in afgeronde fases, elk met een bruikbaar resultaat en een vaste prijs die we vooraf afspreken. Een prijs noemen we pas als duidelijk is wat er nodig is.</p>
+      </div>
+      <div class="phase-grid">
+        <div class="phase lead">
+          <span class="pf">Fase 0</span>
+          <h3>AI-startsprint</h3>
+          <div class="pp">&euro;2.000 · twee weken</div>
+          <p>Eén werkend stuk AI, plus een concreet vervolgplan. De laagdrempelige start.</p>
+        </div>
+        <div class="phase">
+          <span class="pf">Fase 1 en verder</span>
+          <h3>Bouwfases</h3>
+          <div class="pp">Per fase een vaste prijs, afgesproken voordat we beginnen</div>
+          <p>Elke fase levert een afgerond, bruikbaar deel op. Je ziet steeds resultaat voordat je verder gaat.</p>
+        </div>
+        <div class="phase">
+          <span class="pf">Maatwerk</span>
+          <h3>Grotere trajecten</h3>
+          <div class="pp">Op maat geprijsd</div>
+          <p>De startsprint bepaalt de scope en de prijs. Eerst helder wat er nodig is, dan pas een offerte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 8. DIENSTEN -->
+  <section class="sec" id="diensten">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Wat we bouwen</p>
+        <h2>Specialisaties.</h2>
+        <p class="sh-sub">Geen catalogus van buzzwords. Concrete software die werk uit handen neemt en waarvan je de kwaliteit kunt zien.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc"><div class="si">01</div><h3>Maatwerk AI-software</h3><p>End-to-end software voor bedrijven zonder eigen IT-team, van het eerste werkende stuk tot stabiele productie.</p></div>
+        <div class="svc"><div class="si">02</div><h3>Integraties met bestaande systemen</h3><p>Koppelingen met je ERP, CRM en workflows. Repetitief werk grotendeels geautomatiseerd, met human-in-the-loop voor controle.</p></div>
+        <div class="svc"><div class="si">03</div><h3>Documentverwerking en classificatie</h3><p>Documenten, facturen en rapporten automatisch uitlezen en als gestructureerde data wegschrijven in je eigen systemen.</p></div>
+        <div class="svc"><div class="si">04</div><h3>AI afgestemd op je huisstijl en data</h3><p>Doorzoekbare kennis en klantcommunicatie op je eigen data, met bronvermelding en controle. Geen black box.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9. OVERIGE CASES -->
+  <section class="sec" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Meer werk</p>
+        <h2>Andere projecten.</h2>
+      </div>
+      <div class="mini-grid">
+        <div class="mini">
+          <span class="mk">Custom ERP</span>
+          <h3>Eye Motion Lab</h3>
+          <p>Een volledig custom ERP- en praktijkportaal voor Eye Motion Lab, een oogzorgbedrijf. Bestellingen, patiëntdossiers, bezorging, facturatie en de volledige boekhouding lopen van inlog tot geplaatste order door één samenhangende flow.</p>
+          <a class="link-arrow" style="color:var(--ochre)" href="/case-study/imotion-lab-erp.html">Lees de case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+        <div class="mini">
+          <span class="mk">LLM &amp; RAG</span>
+          <h3>AI Debatwijzer 2025</h3>
+          <p>Een chatbot die zijn informatie alleen uit partijprogramma's haalt, inclusief bronnen en citaten. Tijdens de verkiezingen van 2025 werden er 300+ debatten mee gevoerd.</p>
+          <a class="link-arrow" style="color:var(--ochre)" href="https://debat.liebenberg.ai">Probeer de applicatie <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10. FAQ -->
+  <section class="sec" id="faq">
+    <div class="container">
+      <div class="sec-head" style="margin:0 auto;text-align:center;">
+        <p class="eyebrow" style="justify-content:center;">Vragen</p>
+        <h2>Veelgestelde vragen.</h2>
+      </div>
+      <div class="faq-wrap">
+        <div class="faq">
+          <details>
+            <summary>Wat kost het om AI-software of een AI-tool te laten bouwen?<span class="pm"></span></summary>
+            <div class="ans">Elk traject begint met een AI-startsprint van &euro;2.000: in twee weken bouwen we één werkend stuk in je eigen systemen, plus een concreet vervolgplan met prijsrange. Grotere trajecten zijn maatwerk vanaf &euro;10.000 en lopen in vaste fases, elk met een prijs die we vooraf afspreken. Zo weet je altijd waar je aan toe bent voordat je verder gaat.</div>
+          </details>
+          <details>
+            <summary>Wat gebeurt er met mijn software als jij er straks mee zou stoppen?<span class="pm"></span></summary>
+            <div class="ans">Je code en je data zijn altijd van jou. We bouwen op een moderne, standaard stack die elke ontwikkelaar kan overnemen, dus je zit nooit vast aan één partij of een gesloten systeem. Na oplevering is er een heldere onderhoudsafspraak, zodat alles blijft draaien en doorontwikkeld kan worden.</div>
+          </details>
+          <details class="feat" open>
+            <summary>Is mijn data veilig als ik AI gebruik?<span class="pm"></span></summary>
+            <div class="ans">
+              <p style="margin:0 0 16px;">Ja. We zijn GDPR/AVG compliant en werken met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.</p>
+              <p class="safe-foot">Wij beheren de infrastructuur, jij beheert de inhoud. Net als bij je huidige cloud-boekhoudpakket.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Kan AI dit al betrouwbaar, of is het nog speelgoed?<span class="pm"></span></summary>
+            <div class="ans">Een losse chatbot is speelgoed; een goed gebouwd systeem is dat niet. Het verschil zit in meten. Ik kom uit de econometrie, dus we toetsen hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouwen menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.</div>
+          </details>
+          <details>
+            <summary>Werkt dit met de software die ik nu al gebruik?<span class="pm"></span></summary>
+            <div class="ans">Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. We bouwen de AI in jouw bestaande proces, niet ernaast.</div>
+          </details>
+          <details>
+            <summary>Hoe lang duurt het voordat ik iets werkends heb?<span class="pm"></span></summary>
+            <div class="ans">Binnen twee weken. De startsprint levert bewust één concreet, werkend stuk op dat je meteen gebruikt, in plaats van maandenlang bouwen zonder resultaat. Daarna gaan we in korte fases verder, elk met een afgerond resultaat.</div>
+          </details>
+          <details>
+            <summary>Heb ik een eigen IT-afdeling of technische kennis nodig?<span class="pm"></span></summary>
+            <div class="ans">Nee, dat is juist het punt. We leveren end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; wij regelen de techniek, jij houdt de regie over je proces en je data.</div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. CONTACT -->
+  <section class="sec dark" id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Even kennismaken?</h2>
+        <p class="sh-sub">Klaar om te beginnen, of nog aan het aftasten. Kies wat bij je past.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="ccard go">
+          <h3>Klaar om te beginnen?</h3>
+          <p>Plan een belafspraak. We kijken samen of je use-case technisch haalbaar is en wat het oplevert.</p>
+          <a class="btn btn-ochre" href={CAL}>Plan een belafspraak <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+        <div class="ccard">
+          <h3>Nog aan het aftasten?</h3>
+          <p>Laat één regel achter, of stuur direct een appje. We denken vrijblijvend met je mee.</p>
+          <form id="contactForm">
+            <div class="field"><label for="cf-name">Naam</label><input id="cf-name" name="name" type="text" placeholder="Je naam" required></div>
+            <div class="field"><label for="cf-mail">E-mail</label><input id="cf-mail" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
+            <div class="field"><label for="cf-subject">Onderwerp</label><input id="cf-subject" name="subject" type="text" placeholder="Waar gaat het over?"></div>
+            <div class="field"><label for="cf-msg">Waar loop je tegenaan?</label><textarea id="cf-msg" name="message" rows="3" placeholder="Beschrijf kort je situatie of vraag" required></textarea></div>
+            <button class="btn btn-paper" type="submit" style="width:100%;justify-content:center;">Stuur bericht</button>
+            <p class="form-msg" id="formMsg">Bedankt. We nemen snel contact met je op.</p>
+          </form>
+          <div class="or-split">of</div>
+          <a class="btn btn-wa-line" href={WA}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg>Stuur een appje via WhatsApp</a>
+        </div>
+      </div>
+      <div class="contact-meta">
+        <a href="mailto:info@liebenberg.ai"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect><path d="M2 4l6 4.5L14 4"></path></svg>info@liebenberg.ai</a>
+        <a href="tel:+31637220535"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 2.5h2.5l1 3-1.7 1a8 8 0 0 0 3.7 3.7l1-1.7 3 1V13a1.5 1.5 0 0 1-1.5 1.5A11 11 0 0 1 1.5 4 1.5 1.5 0 0 1 3 2.5z"></path></svg>+31 6 37220535</a>
+        <a href="https://linkedin.com/in/christian-liebenberg-a0511060">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <a class="wa-fab" href={WA} aria-label="Stuur een appje via WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg><span class="wa-label">Stuur een appje</span></a>
+
+  <script>
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+    const msg = document.getElementById("formMsg") as HTMLParagraphElement | null;
+    if (form && msg) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector("button");
+        const data = {
+          name: (form.elements.namedItem("name") as HTMLInputElement).value,
+          email: (form.elements.namedItem("email") as HTMLInputElement).value,
+          subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
+          message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+        };
+        if (btn) { btn.textContent = "Versturen…"; btn.setAttribute("disabled", "true"); }
+        msg.classList.remove("err");
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error("send failed");
+          msg.textContent = "Bedankt. We nemen snel contact met je op.";
+          msg.style.display = "block";
+          form.reset();
+          if (btn) btn.textContent = "Verstuurd";
+        } catch {
+          msg.textContent = "Er ging iets mis. Mail ons gerust direct op info@liebenberg.ai.";
+          msg.classList.add("err");
+          msg.style.display = "block";
+          if (btn) { btn.textContent = "Stuur bericht"; btn.removeAttribute("disabled"); }
+        }
+      });
+    }
+  </script>
+
+  <script>
+    import "../scripts/motion.ts";
+  </script>
+</BrandLayout>
