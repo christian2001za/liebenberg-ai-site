@@ -187,6 +187,8 @@ section{position:relative;}
 .about-prev .link-arrow:hover svg{transform:none;}
 .why-contrast{margin-top:clamp(76px,10vh,130px);}
 .why-contrast .why-head h2{max-width:22ch;}
+.why-deep{margin-top:clamp(76px,10vh,130px);}
+.why-deep .why-head h2{max-width:22ch;}
 
 /* ===== sprint ===== */
 .sprint-card{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center;
