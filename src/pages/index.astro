@@ -3,6 +3,8 @@ import BrandLayout from "../layouts/BrandLayout.astro";
 import "../styles/landing.css";
 import "../styles/motion.css";
 import founderPortrait from "../assets/LiebenbergAI_portrait_Christian.jpeg?url";
+import founderAbout from "../assets/LAI_work.jpg?url";
+import founderContact from "../assets/LAI_contact.jpg?url";
 
 const CAL = "https://cal.com/christianliebenberg";
 const WA = "https://wa.me/31637220535";
@@ -60,7 +62,7 @@ const faqSchema = {
   canonical="https://www.liebenberg.ai/"
   schema={[faqSchema]}
 >
-  <style is:inline set:html={`:root{--founder:url(${founderPortrait})}`}></style>
+  <style is:inline set:html={`:root{--founder:url(${founderPortrait});--founder-about:url(${founderAbout});--founder-contact:url(${founderContact})}`}></style>
 
   <!-- 1. HERO -->
   <header class="hero" id="top">
@@ -370,6 +372,8 @@ const faqSchema = {
         <p class="sh-sub">Klaar om te beginnen, of ben je nog aan het aftasten? Kies wat bij je past.</p>
       </div>
       <div class="contact-grid">
+        <div class="contact-photo"><div class="founder-contact-photo"></div></div>
+        <div class="contact-cards">
         <div class="ccard go">
           <h3>Klaar om te beginnen?</h3>
           <p>Plan een belafspraak. We kijken samen of je use-case technisch haalbaar is en wat het oplevert.</p>
@@ -388,6 +392,7 @@ const faqSchema = {
           </form>
           <div class="or-split">of</div>
           <a class="btn btn-wa-line" href={WA}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg>Stuur een appje via WhatsApp</a>
+        </div>
         </div>
       </div>
       <div class="contact-meta">
