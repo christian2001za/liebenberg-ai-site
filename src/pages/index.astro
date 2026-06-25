@@ -4,7 +4,6 @@ import "../styles/landing.css";
 import "../styles/motion.css";
 import founderPortrait from "../assets/LiebenbergAI_portrait_Christian.jpeg?url";
 import founderAbout from "../assets/LAI_work.jpg?url";
-import founderContact from "../assets/LAI_contact.jpg?url";
 
 const CAL = "https://cal.com/christianliebenberg";
 const WA = "https://wa.me/31637220535";
@@ -66,7 +65,7 @@ const faqSchema = {
   canonical="https://www.liebenberg.ai/"
   schema={[faqSchema]}
 >
-  <style is:inline set:html={`:root{--founder:url(${founderPortrait});--founder-about:url(${founderAbout});--founder-contact:url(${founderContact})}`}></style>
+  <style is:inline set:html={`:root{--founder:url(${founderPortrait});--founder-about:url(${founderAbout})}`}></style>
 
   <!-- 1. HERO -->
   <header class="hero" id="top">
@@ -380,7 +379,6 @@ const faqSchema = {
         <p class="sh-sub">Klaar om te beginnen, of ben je nog aan het aftasten? Kies wat bij je past.</p>
       </div>
       <div class="contact-grid">
-        <div class="contact-photo"><div class="founder-contact-photo"></div></div>
         <div class="contact-cards">
         <div class="ccard go">
           <h3>Klaar om te beginnen?</h3>
