@@ -1,69 +1,117 @@
 /* ===========================================================
-   motion.css — subtiele, premium micro-interacties
+   motion.css — premium micro-interacties & choreografie
    Alles degradeert netjes: zonder JS blijft alles zichtbaar,
    en prefers-reduced-motion schakelt beweging volledig uit.
    =========================================================== */
 
-/* --- 1. Scroll-reveal -------------------------------------
-   .reveal wordt door motion.ts op reveal-doelen gezet.
-   Standaard (geen JS) is alles gewoon zichtbaar; pas wanneer
-   JS de class toevoegt verbergen we en faden we in. */
+:root{
+  --ease-out: cubic-bezier(.16,1,.3,1);   /* expo-achtig uitlopen */
+  --ease-soft: cubic-bezier(.22,.61,.36,1);
+}
+
+/* --- 0. Hero: openings-choreografie -----------------------
+   motion.ts zet .hero-in op de hero zodra de pagina klaar is.
+   De tekst (eyebrow, koplijnen, lede, CTA's) staat meteen stil op
+   zijn plek; alleen de foto zoomt zacht in en het chartlijntje
+   tekent zichzelf. */
+
+/* Foto: zachte zoom-settle + namecard schuift na */
+.js-motion .hero-media .founder-photo{
+  transform:scale(1.07);
+  transition:transform 1.8s var(--ease-out), filter .55s ease;
+}
+.js-motion .hero.hero-in .hero-media .founder-photo{transform:scale(1.001);}
+.js-motion .hero-media .namecard{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .7s var(--ease-out) .55s, transform .7s var(--ease-out) .55s;
+}
+.js-motion .hero.hero-in .hero-media .namecard{opacity:1;transform:none;}
+
+/* Het econometrie-lijntje tekent zichzelf (pathLength=1 in de SVG) */
+.js-motion .hero-wm path{stroke-dasharray:1;stroke-dashoffset:1;}
+.js-motion .hero.hero-in .hero-wm path{
+  stroke-dashoffset:0;
+  transition:stroke-dashoffset 2s var(--ease-soft) .35s;
+}
+
+/* --- 1. Scroll-reveal --------------------------------------
+   .reveal wordt door motion.ts op reveal-doelen gezet en na de
+   animatie weer opgeruimd, zodat hover-transities niet worden
+   overschreven. */
 .js-motion .reveal{
   opacity:0;
-  transform:translateY(14px);
-  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
-             transform .7s cubic-bezier(.22,.61,.36,1);
+  transform:translateY(20px);
+  transition:opacity .8s var(--ease-out), transform .8s var(--ease-out);
   will-change:opacity, transform;
 }
-.js-motion .reveal.is-in{
-  opacity:1;
-  transform:none;
-}
+.js-motion .reveal.is-in{opacity:1;transform:none;}
+
 /* Gestaffelde kinderen binnen één reveal-groep */
 .js-motion .reveal[data-stagger] > *{
   opacity:0;
-  transform:translateY(12px);
-  transition:opacity .6s cubic-bezier(.22,.61,.36,1),
-             transform .6s cubic-bezier(.22,.61,.36,1);
+  transform:translateY(18px);
+  transition:opacity .7s var(--ease-out), transform .7s var(--ease-out);
 }
-.js-motion .reveal[data-stagger].is-in > *{
-  opacity:1;
-  transform:none;
-}
+.js-motion .reveal[data-stagger].is-in > *{opacity:1;transform:none;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(2){transition-delay:.08s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(3){transition-delay:.16s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(4){transition-delay:.24s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(5){transition-delay:.32s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(6){transition-delay:.4s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(7){transition-delay:.48s;}
+.js-motion .reveal[data-stagger].is-in > *:nth-child(8){transition-delay:.56s;}
 
 /* --- 2. Count-up tellers ----------------------------------
    Geen aparte styling nodig; motion.ts schrijft de tussenwaarden.
-   We voorkomen alleen layout-shift door de breedte te reserveren. */
+   We voorkomen alleen layout-shift door tabellaire cijfers. */
 .counter{font-variant-numeric:tabular-nums;}
 
-/* --- 3. Foto's: zwart-wit -> kleur (alleen desktop/hover) -- */
+/* --- 3. Kaart-mockup: pins vallen, oker-pins pulsen -------- */
+.js-motion .map-card .pin{opacity:0;transform:translateY(-16px) scale(.4);}
+.js-motion .map-card.pins-in .pin{animation:pin-drop .6s cubic-bezier(.2,.9,.3,1.25) forwards;}
+.js-motion .map-card.pins-in .pin:nth-of-type(2){animation-delay:.1s;}
+.js-motion .map-card.pins-in .pin:nth-of-type(3){animation-delay:.2s;}
+.js-motion .map-card.pins-in .pin:nth-of-type(4){animation-delay:.3s;}
+.js-motion .map-card.pins-in .pin:nth-of-type(5){animation-delay:.4s;}
+.js-motion .map-card.pins-in .pin:nth-of-type(6){animation-delay:.5s;}
+@keyframes pin-drop{to{opacity:1;transform:none;}}
+
+.js-motion .map-card.pins-in .pin.o::after{
+  content:"";position:absolute;inset:-3px;border-radius:50%;
+  border:2px solid rgba(224,160,106,.7);opacity:0;
+  animation:pin-ring 3.2s ease-out infinite 1s;
+}
+@keyframes pin-ring{
+  0%{transform:scale(.6);opacity:.9;}
+  60%{transform:scale(2.3);opacity:0;}
+  100%{transform:scale(2.3);opacity:0;}
+}
+
+/* --- 4. Foto's: kleur -> zwart-wit (alleen desktop/hover) -- */
 @media (hover:hover) and (pointer:fine){
   .founder-photo{
     filter:grayscale(0) contrast(1);
-    transition:filter .55s ease, transform .9s cubic-bezier(.22,.61,.36,1);
+    transition:filter .55s ease, transform .9s var(--ease-soft);
   }
-  /* hover op de omhullende media-container maakt de foto zwart-wit */
   .hero-media:hover .founder-photo,
   .about-media:hover .founder-photo{
     filter:grayscale(1) contrast(1.02);
   }
 
-  /* Browser-mockup van de case: subtiele lift + schaduw bij hover */
+  /* Browser-mockup: 3D-tilt volgt de cursor (motion.ts) */
   .map-card{
-    transition:transform .5s cubic-bezier(.22,.61,.36,1),
-               box-shadow .5s cubic-bezier(.22,.61,.36,1);
+    transition:transform .5s var(--ease-soft),
+               box-shadow .5s var(--ease-soft);
   }
   .map-card:hover{
-    transform:translateY(-6px);
     box-shadow:0 42px 90px -34px rgba(0,0,0,.7);
   }
 }
 
-/* --- 4. Knop- & link-verfijning ---------------------------
-   Bestaande arrow-slide blijft; we voegen een zachte lift toe. */
+/* --- 5. Knop- & link-verfijning --------------------------- */
 .btn{
   transition:background .18s ease, color .18s ease,
-             transform .18s cubic-bezier(.22,.61,.36,1),
+             transform .18s var(--ease-soft),
              box-shadow .25s ease;
 }
 @media (hover:hover) and (pointer:fine){
@@ -73,33 +121,64 @@
     transform:translateY(-2px);
     box-shadow:0 14px 26px -14px rgba(35,49,56,.55);
   }
-  .btn-ghost:hover{ transform:translateY(-2px); }
-  .btn:active{ transform:translateY(0); }
+  .btn-ghost:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0) scale(.98);}
 }
 
-/* Specialisatie-kaarten & mini-cases: subtiele lift bij hover */
+/* Specialisatie-kaarten & mini-cases: lift + accent op het nummer */
 @media (hover:hover) and (pointer:fine){
   .svc, .mini, .phase{
-    transition:transform .4s cubic-bezier(.22,.61,.36,1),
+    transition:transform .4s var(--ease-soft),
                box-shadow .4s ease, border-color .4s ease;
   }
   .svc:hover, .mini:hover{
     transform:translateY(-4px);
     box-shadow:0 24px 50px -30px rgba(35,49,56,.35);
   }
+  .svc .si{transition:background .3s ease, color .3s ease, border-color .3s ease, transform .3s var(--ease-soft);}
+  .svc:hover .si{background:var(--ochre);border-color:var(--ochre);color:#fff;transform:rotate(-4deg);}
 }
+
+/* --- 6. FAQ: vloeiend open/dicht (hoogte via motion.ts) ---- */
+.faq summary .pm{transition:background .25s ease, border-color .25s ease, transform .35s var(--ease-soft);}
+.faq details[open] summary .pm{transform:rotate(90deg);}
+.faq .ans{transition:none;}
+
+/* --- 7. Mobiel menu: links druppelen binnen ---------------- */
+.mobile-menu-links a{
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s var(--ease-out), transform .4s var(--ease-out), color .15s ease;
+}
+body.menu-open .mobile-menu-links a{opacity:1;transform:none;}
+body.menu-open .mobile-menu-links a:nth-child(1){transition-delay:.06s;}
+body.menu-open .mobile-menu-links a:nth-child(2){transition-delay:.11s;}
+body.menu-open .mobile-menu-links a:nth-child(3){transition-delay:.16s;}
+body.menu-open .mobile-menu-links a:nth-child(4){transition-delay:.21s;}
+.mobile-menu-cta{
+  opacity:0;transform:translateY(12px);
+  transition:opacity .4s var(--ease-out) .26s, transform .4s var(--ease-out) .26s;
+}
+body.menu-open .mobile-menu-cta{opacity:1;transform:none;}
 
 /* --- Toegankelijkheid: alles uit bij reduced-motion ------- */
 @media (prefers-reduced-motion:reduce){
   .js-motion .reveal,
-  .js-motion .reveal[data-stagger] > *{
+  .js-motion .reveal[data-stagger] > *,
+  .js-motion .hero-media .founder-photo,
+  .js-motion .hero-media .namecard,
+  .mobile-menu-links a,
+  .mobile-menu-cta{
     opacity:1 !important;
     transform:none !important;
     transition:none !important;
   }
-  .founder-photo{ filter:none !important; }
+  .js-motion .hero-wm path{stroke-dasharray:none;stroke-dashoffset:0;transition:none;}
+  .js-motion .map-card .pin{opacity:1 !important;transform:none !important;animation:none !important;}
+  .js-motion .map-card .pin.o::after{display:none;}
+  .founder-photo{filter:none !important;}
   .btn, .map-card, .svc, .mini, .phase{
     transition:background .18s ease, color .18s ease !important;
     transform:none !important;
   }
+  .faq summary .pm{transition:none;transform:none !important;}
 }

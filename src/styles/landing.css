@@ -244,7 +244,7 @@ section{position:relative;}
 .faq summary .pm::after{top:8px;bottom:8px;left:50%;width:1.5px;transform:translateX(-50%);}
 .faq details[open] summary .pm{background:var(--ink);border-color:var(--ink);}
 .faq details[open] summary .pm::before,.faq details[open] summary .pm::after{background:var(--paper);}
-.faq details[open] summary .pm::after{opacity:0;}
+.faq details[open] summary .pm::before{opacity:0;}
 .faq .ans{padding:0 0 28px;font-size:16px;color:var(--soft);line-height:1.62;max-width:64ch;}
 .faq details.feat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-md);margin:14px 0;padding:0 26px;}
 .faq details.feat summary{padding:24px 0;}
