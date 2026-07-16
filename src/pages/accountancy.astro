@@ -1,0 +1,123 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import "../styles/landing.css";
+import "../styles/motion.css";
+
+const CAL = "https://cal.com/christianliebenberg";
+---
+
+<BrandLayout
+  title="AI voor accountants- en administratiekantoren | Liebenberg AI"
+  description="Het verzamelen, overtypen en klaarzetten: daar halen we één afgebakend stuk uit weg. Twee weken, €2.000 vast, in jullie eigen omgeving."
+  canonical="https://www.liebenberg.ai/accountancy"
+>
+  <!-- HERO -->
+  <header class="hero" id="top" style="min-height:600px;height:auto;max-height:none;">
+    <div class="hero-inner" style="grid-template-columns:1fr;">
+      <div class="hero-text" style="border-right:none;padding-top:calc(var(--nav-h) + 40px);">
+        <svg class="hero-wm" viewBox="0 0 300 120" fill="none" aria-hidden="true"><path pathLength="1" d="M12 104 L52 82 L74 90 L94 50 L106 70 L130 24 L150 58 L168 44 L190 78 L222 92 L288 104" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        <div class="hero-ct" style="margin-left:0;max-width:760px;">
+          <p class="eyebrow">Voor accountants- en administratiekantoren</p>
+          <h1 style="max-width:22ch;">Alles blijft zoals het is. <span class="ac-italic">Behalve dat ene klusje.</span></h1>
+          <p class="hero-lede" style="max-width:56ch;">Jullie pakket, jullie werkwijze, jullie mensen: daar komen we niet aan. We halen er één taak uit die nu met de hand gaat, in twee weken, draaiend in jullie eigen omgeving. Die uren houdt je team over, en het oordeel blijft bij hen.</p>
+          <div class="cta-row">
+            <a class="btn btn-ink" href={CAL}>Plan een gesprek van 30 minuten</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VOORDAT JE VERDER LEEST -->
+  <section class="sec" id="veiligheid">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Voordat je verder leest</p>
+        <h2>Het draait bij jullie. Er gaat geen klantdata naar ons toe.</h2>
+        <p class="sh-sub">We bouwen in jullie eigen omgeving, op jullie eigen licenties. Meestal is dat Microsoft, want daar staat jullie data al en daar is hij al beveiligd. Wat we opleveren draait daar, en blijft daar draaien ook als we er niet meer zijn. We bieden ook volledig open-source Europese AI aan, helemaal flexibel naar jouw voorkeur.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAT VOOR WERK -->
+  <section class="sec" id="werk" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <p class="eyebrow">Wat voor werk</p>
+      <div class="sec-head">
+        <h2>Niet het oordeel. Het werk eromheen.</h2>
+        <p class="sh-sub">Het accountantsoordeel blijft van jullie. Waar we naar kijken is het werk dat eromheen zit, waar tijd in gaat zitten en waar geen oordeel bij komt kijken.</p>
+      </div>
+      <ul class="sprint-list" style="margin-top:48px;max-width:640px;">
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Stukken binnenkrijgen en op orde krijgen. De klant levert aan wat hij denkt dat nodig is. Jullie sorteren, controleren en gaan achter de rest aan.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Gegevens uit documenten in een sheet. Datum, bedrag, tegenpartij. Verzamelen en overtypen, voordat het analyseren überhaupt begint.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>De vaste stappen van een opdracht. Wat bij elke opdracht hetzelfde gaat, maar toch elke keer met de hand.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Wat iemand in een eigen Excel of mailmap bijhoudt omdat het pakket het niet doet.</li>
+      </ul>
+      <p class="about-p" style="margin-top:36px;">Welk stuk bij jullie het meeste oplevert, weten we niet. Dat kiezen we liever samen met jullie dan dat we het van tevoren verzinnen.</p>
+    </div>
+  </section>
+
+  <!-- GEEN DEMO -->
+  <section class="sec" id="bewijs">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Geen demo</p>
+        <h2>We bouwen software die in productie blijft draaien</h2>
+        <p class="sh-sub">Meldpunt Aziatische Hoornaar: een platform voor burgers, bestrijders, gemeentes en provincies. Duizenden geregistreerde gebruikers, tientallen aangesloten gemeentes, en meldingen die in acht verschillende formats binnenkomen worden verwerkt tot één bruikbaar overzicht. End-to-end door ons gebouwd, met doorontwikkeling en onderhoud.</p>
+      </div>
+      <div class="feat-ctas" style="margin-top:32px;">
+        <a class="btn btn-ghost" href="https://www.meldpuntaziatischehoornaar.nl">Bekijk het platform live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+      </div>
+      <p class="about-p" style="margin-top:36px;">Ik ben econometrist. Voordat ik software bouwde deed ik risicomodellering voor Nederlandse banken. Daar komt mijn insteek vandaan: meten of iets klopt, en kunnen laten zien waarom.</p>
+    </div>
+  </section>
+
+  <!-- PRIJS -->
+  <section class="sec" id="prijs" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sprint-card">
+        <div class="sprint-left">
+          <p class="eyebrow">Prijs</p>
+          <h2 style="font-size:clamp(28px,3.4vw,42px);margin-top:18px;">&euro;2.000, twee weken, één werkend stuk.</h2>
+          <p class="sprint-foot" style="border-top:none;padding-top:0;margin-top:16px;">Eerst een gesprek van een half uur over waar bij jullie de tijd in gaat zitten. Komt daar iets concreets uit, dan bouwen we dat. Vaste prijs, vooraf duidelijk, en aan het eind heb je iets dat je gebruikt.</p>
+          <a class="btn btn-ink sprint-cta" href={CAL}>Plan een gesprek <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+        <div class="sprint-right">
+          <ul class="sprint-list">
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Eén afgebakend stuk, samen gekozen.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Draait in jullie eigen omgeving.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Vaste prijs, twee weken, geen open einde.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Bevalt het niet, dan stopt het daar. Geen abonnement, geen traject.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sec dark" id="contact">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Contact</p>
+        <h2>Plan een gesprek</h2>
+        <p class="sh-sub">Dertig minuten. Je hoeft niet te weten wat je wilt bouwen, dat is de helft van het gesprek. Zit er niks tussen dat de moeite waard is, dan zeggen we dat gewoon.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-cards">
+          <div class="ccard go">
+            <h3>Plan een belafspraak</h3>
+            <p>Dertig minuten, geen verplichting.</p>
+            <a class="btn btn-ochre" href={CAL}>Plan een belafspraak <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-meta">
+        <a href="mailto:christian@liebenberg.ai"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect><path d="M2 4l6 4.5L14 4"></path></svg>christian@liebenberg.ai</a>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    import "../scripts/motion.ts";
+  </script>
+</BrandLayout>
