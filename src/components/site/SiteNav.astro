@@ -20,12 +20,15 @@ const navLinks = [
   { id: "werkwijze", label: "Werkwijze" },
   { id: "faq", label: "FAQ" },
 ];
+
+const isAccountancy = Astro.url.pathname.startsWith("/accountancy");
 ---
 
 <div class="nav">
   <div class="floatbar" id="floatbar">
     <a class="brand-logo" href={homeHref} aria-label="Liebenberg AI"><img class="lb-logo" src={logoInk} alt="Liebenberg AI" width="1351.87" height="162.15" /></a>
     <nav>
+      <a href="/accountancy" class={isAccountancy ? "is-active" : ""}>Accountancy</a>
       {navLinks.map((l) => <a href={anchor(l.id)}>{l.label}</a>)}
     </nav>
     <a class="bar-cta" href={CAL}>Plan kennismaking <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
@@ -39,6 +42,7 @@ const navLinks = [
 <div class="mobile-menu" id="mobileMenu" hidden>
   <div class="mobile-menu-inner">
     <nav class="mobile-menu-links">
+      <a href="/accountancy" data-mm-link>Accountancy</a>
       {navLinks.map((l) => <a href={anchor(l.id)} data-mm-link>{l.label}</a>)}
     </nav>
     <div class="mobile-menu-cta">

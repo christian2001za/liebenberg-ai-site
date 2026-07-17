@@ -2,8 +2,10 @@
 import BrandLayout from "../layouts/BrandLayout.astro";
 import "../styles/landing.css";
 import "../styles/motion.css";
+import founderPortrait from "../assets/LiebenbergAI_portrait_Christian.jpeg?url";
 
 const CAL = "https://cal.com/christianliebenberg";
+const WA = "https://wa.me/31637220535";
 ---
 
 <BrandLayout
@@ -11,19 +13,25 @@ const CAL = "https://cal.com/christianliebenberg";
   description="Het verzamelen, overtypen en klaarzetten: daar halen we één afgebakend stuk uit weg. Twee weken, €2.000 vast, in jullie eigen omgeving."
   canonical="https://www.liebenberg.ai/accountancy"
 >
+  <style is:inline set:html={`:root{--founder:url(${founderPortrait})}`}></style>
+
   <!-- HERO -->
-  <header class="hero" id="top" style="min-height:600px;height:auto;max-height:none;">
-    <div class="hero-inner" style="grid-template-columns:1fr;">
-      <div class="hero-text" style="border-right:none;padding-top:calc(var(--nav-h) + 40px);">
+  <header class="hero" id="top">
+    <div class="hero-inner">
+      <div class="hero-text">
         <svg class="hero-wm" viewBox="0 0 300 120" fill="none" aria-hidden="true"><path pathLength="1" d="M12 104 L52 82 L74 90 L94 50 L106 70 L130 24 L150 58 L168 44 L190 78 L222 92 L288 104" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <div class="hero-ct" style="margin-left:0;max-width:760px;">
+        <div class="hero-ct">
           <p class="eyebrow">Voor accountants- en administratiekantoren</p>
-          <h1 style="max-width:22ch;">Alles blijft zoals het is. <span class="ac-italic">Behalve dat ene klusje.</span></h1>
-          <p class="hero-lede" style="max-width:56ch;">Jullie pakket, jullie werkwijze, jullie mensen: daar komen we niet aan. We halen er één taak uit die nu met de hand gaat, in twee weken, draaiend in jullie eigen omgeving. Die uren houdt je team over, en het oordeel blijft bij hen.</p>
+          <h1 style="max-width:14ch;"><span style="white-space:nowrap">Alles blijft zoals het is<span class="ac-dot">.</span></span><br><span class="ac-italic">Behalve dat ene klusje<span class="ac-dot">.</span></span></h1>
+          <p class="hero-lede">Jullie pakket, jullie werkwijze, jullie mensen: daar komen we niet aan. We halen er één taak uit die nu met de hand gaat, in twee weken, draaiend in jullie eigen omgeving. Die uren houdt je team over, en het oordeel blijft bij hen.</p>
           <div class="cta-row">
             <a class="btn btn-ink" href={CAL}>Plan een gesprek van 30 minuten</a>
           </div>
         </div>
+      </div>
+      <div class="hero-media">
+        <div class="founder-photo"></div>
+        <div class="namecard"><div class="nm">Christian Liebenberg</div><div class="rl">Founder &amp; Lead Engineer · MSc Econometrie</div></div>
       </div>
     </div>
   </header>
@@ -48,10 +56,11 @@ const CAL = "https://cal.com/christianliebenberg";
         <p class="sh-sub">Het accountantsoordeel blijft van jullie. Waar we naar kijken is het werk dat eromheen zit, waar tijd in gaat zitten en waar geen oordeel bij komt kijken.</p>
       </div>
       <ul class="sprint-list" style="margin-top:48px;max-width:640px;">
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Stukken binnenkrijgen en op orde krijgen. De klant levert aan wat hij denkt dat nodig is. Jullie sorteren, controleren en gaan achter de rest aan.</li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Gegevens uit documenten in een sheet. Datum, bedrag, tegenpartij. Verzamelen en overtypen, voordat het analyseren überhaupt begint.</li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>De vaste stappen van een opdracht. Wat bij elke opdracht hetzelfde gaat, maar toch elke keer met de hand.</li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Wat iemand in een eigen Excel of mailmap bijhoudt omdat het pakket het niet doet.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Stukken binnenkrijgen en op orde krijgen. De klant levert aan wat hij denkt dat nodig is. Jullie sorteren, controleren, verwerken en gaan achter de rest aan.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Gegevens uit documenten in een sheet of systeem overzetten. Datum, bedrag, tegenpartij. Verzamelen en overtypen, voordat het analyseren überhaupt begint.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>De vaste stappen van een opdracht, zoals de planning van een samenstelopdracht. Wat bij elke opdracht hetzelfde gaat, maar toch elke keer met de hand.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Onderzoek doen naar de risico van een klant en andere Wwft-gerelateerd handwerk.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Alles wat omslachtig in Excel wordt gedaan en bijgehouden om de huidige systemen heen omdat het pakket het niet doet.</li>
       </ul>
       <p class="about-p" style="margin-top:36px;">Welk stuk bij jullie het meeste oplevert, weten we niet. Dat kiezen we liever samen met jullie dan dat we het van tevoren verzinnen.</p>
     </div>
@@ -99,23 +108,77 @@ const CAL = "https://cal.com/christianliebenberg";
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow">Contact</p>
-        <h2>Plan een gesprek</h2>
-        <p class="sh-sub">Dertig minuten. Je hoeft niet te weten wat je wilt bouwen, dat is de helft van het gesprek. Zit er niks tussen dat de moeite waard is, dan zeggen we dat gewoon.</p>
+        <h2>Even kennismaken?</h2>
+        <p class="sh-sub">Klaar om te beginnen, of ben je nog aan het aftasten? Kies wat bij je past.</p>
       </div>
       <div class="contact-grid">
         <div class="contact-cards">
-          <div class="ccard go">
-            <h3>Plan een belafspraak</h3>
-            <p>Dertig minuten, geen verplichting.</p>
-            <a class="btn btn-ochre" href={CAL}>Plan een belafspraak <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
-          </div>
+        <div class="ccard go">
+          <h3>Klaar om te beginnen?</h3>
+          <p>Plan een belafspraak. We kijken samen of jullie use case haalbaar is en wat het oplevert.</p>
+          <a class="btn btn-ochre" href={CAL}>Plan een belafspraak <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
+        </div>
+        <div class="ccard">
+          <h3>Nog aan het aftasten?</h3>
+          <p>Laat één regel achter, of stuur direct een appje. We denken vrijblijvend met je mee.</p>
+          <form id="contactForm">
+            <div class="field"><label for="cf-name">Naam</label><input id="cf-name" name="name" type="text" placeholder="Je naam" required></div>
+            <div class="field"><label for="cf-mail">E-mail</label><input id="cf-mail" name="email" type="email" placeholder="naam@bedrijf.nl" required></div>
+            <div class="field"><label for="cf-subject">Onderwerp</label><input id="cf-subject" name="subject" type="text" placeholder="Waar gaat het over?"></div>
+            <div class="field"><label for="cf-msg">Waar loop je tegenaan?</label><textarea id="cf-msg" name="message" rows="3" placeholder="Beschrijf kort je situatie of vraag" required></textarea></div>
+            <button class="btn btn-paper" type="submit" style="width:100%;justify-content:center;">Stuur bericht</button>
+            <p class="form-msg" id="formMsg">Bedankt. We nemen snel contact met je op.</p>
+          </form>
+          <div class="or-split">of</div>
+          <a class="btn btn-wa-line" href={WA}><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg>Stuur een appje via WhatsApp</a>
+        </div>
         </div>
       </div>
       <div class="contact-meta">
-        <a href="mailto:christian@liebenberg.ai"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect><path d="M2 4l6 4.5L14 4"></path></svg>christian@liebenberg.ai</a>
+        <a href="mailto:info@liebenberg.ai"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="1.5" y="3" width="13" height="10" rx="1.5"></rect><path d="M2 4l6 4.5L14 4"></path></svg>info@liebenberg.ai</a>
+        <a href="tel:+31637220535"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 2.5h2.5l1 3-1.7 1a8 8 0 0 0 3.7 3.7l1-1.7 3 1V13a1.5 1.5 0 0 1-1.5 1.5A11 11 0 0 1 1.5 4 1.5 1.5 0 0 1 3 2.5z"></path></svg>+31 6 37220535</a>
+        <a href="https://linkedin.com/in/christian-liebenberg-a0511060">LinkedIn</a>
       </div>
     </div>
   </section>
+
+  <a class="wa-fab" href={WA} aria-label="Stuur een appje via WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.74-.86-2-.96-.27-.1-.47-.15-.66.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.64-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.66-1.6-.9-2.18-.24-.57-.48-.5-.66-.5l-.56-.01c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.22 3.08.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.74-.71 1.98-1.4.24-.68.24-1.27.17-1.39-.07-.12-.27-.2-.57-.34zM12 2a10 10 0 0 0-8.53 15.26L2 22l4.85-1.27A10 10 0 1 0 12 2zm0 18.13c-1.5 0-2.97-.4-4.25-1.16l-.3-.18-2.88.76.77-2.8-.2-.32A8.13 8.13 0 1 1 12 20.13z"></path></svg><span class="wa-label">Stuur een appje</span></a>
+
+  <script>
+    const form = document.getElementById("contactForm") as HTMLFormElement | null;
+    const msg = document.getElementById("formMsg") as HTMLParagraphElement | null;
+    if (form && msg) {
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector("button");
+        const data = {
+          name: (form.elements.namedItem("name") as HTMLInputElement).value,
+          email: (form.elements.namedItem("email") as HTMLInputElement).value,
+          subject: (form.elements.namedItem("subject") as HTMLInputElement).value,
+          message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+        };
+        if (btn) { btn.textContent = "Versturen…"; btn.setAttribute("disabled", "true"); }
+        msg.classList.remove("err");
+        try {
+          const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+          if (!res.ok) throw new Error("send failed");
+          msg.textContent = "Bedankt. We nemen snel contact met je op.";
+          msg.style.display = "block";
+          form.reset();
+          if (btn) btn.textContent = "Verstuurd";
+        } catch {
+          msg.textContent = "Er ging iets mis. Mail ons gerust direct op info@liebenberg.ai.";
+          msg.classList.add("err");
+          msg.style.display = "block";
+          if (btn) { btn.textContent = "Stuur bericht"; btn.removeAttribute("disabled"); }
+        }
+      });
+    }
+  </script>
 
   <script>
     import "../scripts/motion.ts";
