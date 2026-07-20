@@ -4,6 +4,7 @@ import "../styles/landing.css";
 import "../styles/motion.css";
 import founderPortrait from "../assets/LiebenbergAI_portrait_Christian.jpeg?url";
 import founderAbout from "../assets/LAI_work.jpg?url";
+import workshopPhoto from "../assets/workshop-presentatie.jpeg?url";
 
 const CAL = "https://cal.com/christianliebenberg";
 const WA = "https://wa.me/31637220535";
@@ -89,6 +90,14 @@ const faqSchema = {
       </div>
     </div>
   </header>
+
+  <!-- 1b. ACCOUNTANCY-BAND -->
+  <a class="acc-band" href="/accountancy">
+    <div class="container">
+      <span class="acc-band-q">Werk je op een <em>accountantskantoor</em>?</span>
+      <span class="acc-band-cta">Bekijk wat we voor jullie doen <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></span>
+    </div>
+  </a>
 
   <!-- 2. PROOF STRIP -->
   <section class="proofstrip" aria-label="Feiten">
@@ -305,6 +314,9 @@ const faqSchema = {
         <h2>Workshops &amp; hackathons.</h2>
         <p class="sh-sub">Van de basis en theorie achter AI, tot praktische toepassingen in je dagelijkse kenniswerk, tot programmeer-hackathons voor developers die AI-driven willen werken. Op aanvraag, op locatie of remote.</p>
       </div>
+      <figure class="ws-media">
+        <img src={workshopPhoto} alt="Christian Liebenberg geeft een AI-workshop over waar AI-modellen draaien" width="1206" height="871" loading="lazy" />
+      </figure>
       <div class="phase-grid">
         <div class="phase">
           <span class="pf">Fundament</span>

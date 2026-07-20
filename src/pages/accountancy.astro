@@ -21,11 +21,12 @@ const WA = "https://wa.me/31637220535";
       <div class="hero-text">
         <svg class="hero-wm" viewBox="0 0 300 120" fill="none" aria-hidden="true"><path pathLength="1" d="M12 104 L52 82 L74 90 L94 50 L106 70 L130 24 L150 58 L168 44 L190 78 L222 92 L288 104" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="hero-ct">
-          <p class="eyebrow">Voor accountants- en administratiekantoren</p>
-          <h1 style="max-width:14ch;"><span style="white-space:nowrap">Alles blijft zoals het is<span class="ac-dot">.</span></span><br><span class="ac-italic">Behalve dat ene klusje<span class="ac-dot">.</span></span></h1>
-          <p class="hero-lede">Jullie pakket, jullie werkwijze, jullie mensen: daar komen we niet aan. We halen er één taak uit die nu met de hand gaat, in twee weken, draaiend in jullie eigen omgeving. Die uren houdt je team over, en het oordeel blijft bij hen.</p>
+          <p class="eyebrow">Voor accountantskantoren</p>
+          <h1><span style="white-space:nowrap">Minder handwerk.</span><br><span class="ac-italic">Meer advies<span class="ac-dot">.</span></span></h1>
+          <p class="hero-lede">Elk kantoor heeft werk dat geen oordeel vraagt en toch tijd kost. Gegevens uit vijf systemen halen. Documenten ordenen. Overtypen. Die maandrapportage die altijd hetzelfde is.</p>
+          <p class="hero-lede">Wij zoeken samen de taak die bij jullie het meeste tijd kost, en bouwen die in twee weken in jullie eigen systemen. <strong class="lede-key">Het oordeel blijft bij je mensen.</strong></p>
           <div class="cta-row">
-            <a class="btn btn-ink" href={CAL}>Plan een gesprek van 30 minuten</a>
+            <a class="btn btn-ink" href={CAL}>Plan een gesprek</a>
           </div>
         </div>
       </div>
@@ -36,19 +37,8 @@ const WA = "https://wa.me/31637220535";
     </div>
   </header>
 
-  <!-- VOORDAT JE VERDER LEEST -->
-  <section class="sec" id="veiligheid">
-    <div class="container">
-      <div class="sec-head">
-        <p class="eyebrow">Voordat je verder leest</p>
-        <h2>Het draait bij jullie. Er gaat geen klantdata naar ons toe.</h2>
-        <p class="sh-sub">We bouwen in jullie eigen omgeving, op jullie eigen licenties. Meestal is dat Microsoft, want daar staat jullie data al en daar is hij al beveiligd. Wat we opleveren draait daar, en blijft daar draaien ook als we er niet meer zijn. We bieden ook volledig open-source Europese AI aan, helemaal flexibel naar jouw voorkeur.</p>
-      </div>
-    </div>
-  </section>
-
   <!-- WAT VOOR WERK -->
-  <section class="sec" id="werk" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <section class="sec" id="werk">
     <div class="container">
       <p class="eyebrow">Wat voor werk</p>
       <div class="sec-head">
@@ -59,10 +49,21 @@ const WA = "https://wa.me/31637220535";
         <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Stukken binnenkrijgen en op orde krijgen. De klant levert aan wat hij denkt dat nodig is. Jullie sorteren, controleren, verwerken en gaan achter de rest aan.</li>
         <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Gegevens uit documenten in een sheet of systeem overzetten. Datum, bedrag, tegenpartij. Verzamelen en overtypen, voordat het analyseren überhaupt begint.</li>
         <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>De vaste stappen van een opdracht, zoals de planning van een samenstelopdracht. Wat bij elke opdracht hetzelfde gaat, maar toch elke keer met de hand.</li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Onderzoek doen naar de risico van een klant en andere Wwft-gerelateerd handwerk.</li>
-        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Alles wat omslachtig in Excel wordt gedaan en bijgehouden om de huidige systemen heen omdat het pakket het niet doet.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Wwft-onderzoek naar klantrisico. Uitvragen, vastleggen, actueel houden, bij elke klant opnieuw.</li>
+        <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Het Excel-werk dat om jullie pakket heen loopt. Omdat het pakket het zelf niet doet.</li>
       </ul>
-      <p class="about-p" style="margin-top:36px;">Welk stuk bij jullie het meeste oplevert, weten we niet. Dat kiezen we liever samen met jullie dan dat we het van tevoren verzinnen.</p>
+      <p class="about-p" style="margin-top:28px;">Welk stuk bij jullie het meeste oplevert, verschilt per kantoor. Dat kies ik liever samen met jullie dan dat ik het vooraf verzin.</p>
+    </div>
+  </section>
+
+  <!-- WAAR HET DRAAIT -->
+  <section class="sec" id="veiligheid" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+    <div class="container">
+      <div class="sec-head">
+        <p class="eyebrow">Waar het draait</p>
+        <h2>Het draait bij jullie. Er gaat geen klantdata naar mij toe.</h2>
+        <p class="sh-sub">Ik bouw in jullie eigen omgeving, op jullie eigen licenties. Meestal is dat Microsoft, want daar staat jullie data al en daar is hij al beveiligd. Wat ik oplever draait daar, en blijft daar draaien ook als ik er niet meer ben. Volledig open-source Europese AI kan ook, naar jullie voorkeur.</p>
+      </div>
     </div>
   </section>
 
@@ -72,7 +73,8 @@ const WA = "https://wa.me/31637220535";
       <div class="sec-head">
         <p class="eyebrow">Geen demo</p>
         <h2>We bouwen software die in productie blijft draaien</h2>
-        <p class="sh-sub">Meldpunt Aziatische Hoornaar: een platform voor burgers, bestrijders, gemeentes en provincies. Duizenden geregistreerde gebruikers, tientallen aangesloten gemeentes, en meldingen die in acht verschillende formats binnenkomen worden verwerkt tot één bruikbaar overzicht. End-to-end door ons gebouwd, met doorontwikkeling en onderhoud.</p>
+        <p class="sh-sub">Meldpunt Aziatische Hoornaar: een platform voor burgers, bestrijders, gemeentes en provincies. Duizenden geregistreerde gebruikers, tientallen aangesloten gemeentes, en meldingen die in acht verschillende formats binnenkomen worden verwerkt tot één bruikbaar overzicht. End-to-end door mij gebouwd, met doorontwikkeling en onderhoud.</p>
+        <p class="sh-sub" style="margin-top:16px;">Andere sector, hetzelfde werk: aanlevering die alle kanten op gaat, omzetten naar iets waar één keer naar gekeken hoeft te worden.</p>
       </div>
       <div class="feat-ctas" style="margin-top:32px;">
         <a class="btn btn-ghost" href="https://www.meldpuntaziatischehoornaar.nl">Bekijk het platform live <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
@@ -96,7 +98,7 @@ const WA = "https://wa.me/31637220535";
             <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Eén afgebakend stuk, samen gekozen.</li>
             <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Draait in jullie eigen omgeving.</li>
             <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Vaste prijs, twee weken, geen open einde.</li>
-            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Bevalt het niet, dan stopt het daar. Geen abonnement, geen traject.</li>
+            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Bevalt het niet, dan stopt het daar. Wat erna komt, beslis je dan pas.</li>
           </ul>
         </div>
       </div>

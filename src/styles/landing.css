@@ -74,6 +74,8 @@ img{display:block;max-width:100%;}
 .hero-ct{position:relative;z-index:2;max-width:600px;margin-left:auto;width:100%;}
 .hero-text h1{font-size:clamp(48px,5.6vw,76px);margin-top:18px;max-width:13ch;}
 .hero-lede{font-size:clamp(18px,1.5vw,20px);color:var(--soft);max-width:42ch;margin:24px 0 0;line-height:1.5;}
+/* Eén gericht zwaartepunt in de lede: de geruststelling die de hele belofte draagt. */
+.lede-key{color:var(--ink);font-weight:600;}
 .proof-link{display:inline-flex;align-items:center;gap:9px;font-size:14.5px;font-weight:600;color:var(--ochre);margin-top:20px;}
 .proof-link .live{width:7px;height:7px;border-radius:50%;background:var(--ochre);flex:none;animation:pulse 2.4s ease-out infinite;}
 .proof-link svg{width:15px;height:15px;transition:transform .16s;}
@@ -91,6 +93,21 @@ img{display:block;max-width:100%;}
 .namecard .rl{font-size:12.5px;color:rgba(244,239,230,.74);margin-top:3px;}
 
 /* ===== proof strip ===== */
+/* ===== accountancy-band ===== */
+/* Rustige tussenregel op papier (geen donker bannerblok): past tussen de warme
+   hero en proofstrip. De vraag in serif zodat 'accountantskantoor' vanzelf het
+   zwaartepunt is; ochre als accent, niet als tweede knop. */
+.acc-band{display:block;background:var(--card);border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);transition:background .18s ease;}
+.acc-band:hover{background:var(--paper);}
+.acc-band .container{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:6px 16px;padding-top:16px;padding-bottom:16px;text-align:center;}
+.acc-band-q{font-family:var(--font-serif);font-size:clamp(19px,2vw,23px);color:var(--ink);line-height:1.2;}
+.acc-band-q em{font-style:italic;color:var(--ochre);}
+.acc-band-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;letter-spacing:.01em;color:var(--soft);transition:color .18s ease;}
+.acc-band:hover .acc-band-cta{color:var(--ochre);}
+.acc-band-cta svg{width:14px;height:14px;transition:transform .18s ease;}
+.acc-band:hover .acc-band-cta svg{transform:translateX(3px);}
+@media (prefers-reduced-motion: reduce){.acc-band,.acc-band-cta,.acc-band-cta svg{transition:none;}}
+
 .proofstrip{background:var(--card);border-bottom:1px solid var(--line);}
 .proofstrip .container{padding-top:44px;padding-bottom:40px;}
 .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
@@ -216,7 +233,22 @@ section{position:relative;}
 .phase.lead .pf{color:var(--ochre-light);}
 .phase.lead p{color:rgba(244,239,230,.72);}
 
-/* ===== workshops-cta ===== */
+/* ===== workshops ===== */
+/* De foto is zwart-wit; in plaats van 'm vaal te maken met opacity, laten we 'm
+   in het warme papier zakken: lichte warmte zodat het geen koud grijs eiland is,
+   een zachte onderrand-fade zoals de hero, en volle helderheid pas bij hover. */
+.ws-media{margin:44px auto 0;max-width:460px;}
+.ws-media img{
+  display:block;width:100%;height:auto;border-radius:var(--r-md);
+  filter:grayscale(.15) sepia(.12) brightness(1.02) contrast(.98);
+  opacity:.9;
+  box-shadow:var(--shadow-card);
+  -webkit-mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 82%,transparent 100%);
+  transition:filter .4s ease, opacity .4s ease;
+}
+.ws-media:hover img{filter:none;opacity:1;}
+@media (prefers-reduced-motion: reduce){.ws-media img{transition:none;}}
 .ws-cta{display:flex;justify-content:center;margin-top:40px;}
 
 /* ===== diensten ===== */
