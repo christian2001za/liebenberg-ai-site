@@ -216,6 +216,9 @@ section{position:relative;}
 .phase.lead .pf{color:var(--ochre-light);}
 .phase.lead p{color:rgba(244,239,230,.72);}
 
+/* ===== workshops-cta ===== */
+.ws-cta{display:flex;justify-content:center;margin-top:40px;}
+
 /* ===== diensten ===== */
 .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:50px;}
 .svc{border:1px solid var(--line);border-radius:18px;padding:34px 32px;background:var(--card);transition:.18s ease;}
