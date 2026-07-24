@@ -23,9 +23,10 @@ export default defineConfig({
         "https://www.liebenberg.ai/case-study/meldpunt-aziatische-hoornaar.html",
         "https://www.liebenberg.ai/case-study/imotion-lab-erp.html",
       ],
-      // Sluit losse scratch-bestanden en de 404 uit.
+      // Sluit losse scratch-bestanden, de 404 en de verborgen pagina('s) uit.
       filter: (page) =>
         !page.includes("/case-study/EML-casestudy/") &&
+        !page.includes("/accountancy/veiligexcel") &&
         !page.endsWith("/404"),
     }),
   ],

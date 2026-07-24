@@ -20,6 +20,8 @@ interface Props {
   nav?: boolean;
   /** Render the shared footer. Default true. */
   footer?: boolean;
+  /** Verberg deze pagina voor zoekmachines (noindex, nofollow). Default false. */
+  noindex?: boolean;
   /** Extra JSON-LD schema-objecten (bv. FAQPage) voor deze pagina. */
   schema?: Record<string, unknown>[];
 }
@@ -32,6 +34,7 @@ const {
   type = "website",
   nav = true,
   footer = true,
+  noindex = false,
   schema = [],
 } = Astro.props;
 
@@ -85,6 +88,7 @@ const allSchema = [...baseSchema, ...schema];
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content="Liebenberg AI" />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
