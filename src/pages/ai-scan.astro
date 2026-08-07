@@ -1,0 +1,27 @@
+---
+import BrandLayout from "../layouts/BrandLayout.astro";
+import "../styles/content.css";
+import AiScanApp from "../components/tools/AiScanApp";
+---
+
+<BrandLayout
+  title="Waar zit jouw beste AI-kans? — Liebenberg AI"
+  description="Een gesprek van tien minuten dat uitzoekt waar in jouw bedrijf AI echt iets oplevert. Geen formulier, geen verkooppraatje — dezelfde vragen die we in een echt intakegesprek stellen."
+  canonical="https://www.liebenberg.ai/ai-scan/"
+>
+  <main class="page page-wide">
+    <div class="wrap">
+      <div class="page-head">
+        <p class="eyebrow">AI-scan</p>
+        <h1>Waar zit jouw beste AI-kans?</h1>
+        <p class="lead">
+          Een gesprek van ongeveer tien minuten. Geen formulier en geen verkooppraatje — dezelfde
+          vragen die ik in een echt intakegesprek zou stellen. Aan het eind weet je welk proces
+          zich het snelst terugverdient, en waarom de andere kandidaten afvielen.
+        </p>
+      </div>
+
+      <AiScanApp client:load />
+    </div>
+  </main>
+</BrandLayout>
