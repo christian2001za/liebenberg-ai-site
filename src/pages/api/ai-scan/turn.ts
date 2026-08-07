@@ -16,9 +16,13 @@ import Anthropic from "@anthropic-ai/sdk";
 import {
   INTERVIEW_SYSTEM_PROMPT,
   MAX_TURNS,
+  REPLY_FORMAT_INSTRUCTION,
+  buildReplyInstruction,
   buildTurnInstruction,
+  stripStateLeak,
 } from "../../../lib/ai-scan/prompt";
 import {
+  SAY_TOOL_SCHEMA,
   STATE_TOOL_SCHEMA,
   type ScanState,
   canConclude,
@@ -227,25 +231,55 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     const modelIsDone = nextState.phase === "klaar";
     const done = modelIsDone || reachedLimit;
 
+    // Let op: stap 2 krijgt buildReplyInstruction, niet buildTurnInstruction.
+    // De volledige scorekaart-instructie hoort bij stap 1; geef je die hier
+    // ook mee, dan gaat het model zijn eigen administratie navertellen.
     const closingInstruction = done
-      ? "Het interview is klaar. Schrijf twee zinnen: bedank kort en zeg dat je de bevindingen op een rij gaat zetten. Stel géén vraag meer."
-      : `${buildTurnInstruction(nextState, nextTurnCount)}\n\nSchrijf nu je antwoord: één korte feitelijke spiegeling en één vraag. Geen opsommingen, geen kopjes.`;
+      ? `Het interview is klaar. Schrijf twee zinnen: bedank kort en zeg dat je de bevindingen op een rij gaat zetten. Stel géén vraag meer.\n\n${REPLY_FORMAT_INSTRUCTION}`
+      : buildReplyInstruction(nextState, nextTurnCount);
 
+    // Ook stap 2 gaat via een verplichte tool-call. Dat is niet omdat we hier
+    // gestructureerde data nodig hebben — we willen juist gewone tekst — maar
+    // omdat vrije tekst niet betrouwbaar schoon te krijgen was: het model
+    // schreef zijn administratie steeds in een nieuw formaat het antwoord in
+    // (JSON, bullets, <>…</>, kale key: value). Binnen een tool-call kan dat
+    // niet: alles wat het model zegt, zit in het veld waar het in hoort.
     const replyResponse = await anthropic.messages.create({
       model: MODEL,
       max_tokens: 400,
       system: INTERVIEW_SYSTEM_PROMPT,
+      tools: [
+        {
+          name: "say",
+          description:
+            "Zeg iets tegen de ondernemer. Dit is het enige dat hij op zijn scherm te zien krijgt.",
+          input_schema: SAY_TOOL_SCHEMA as Anthropic.Tool["input_schema"],
+        },
+      ],
+      tool_choice: { type: "tool", name: "say" },
       messages: [
         ...messages,
         { role: "user", content: `[Systeem] ${closingInstruction}` },
       ],
     });
 
-    const reply = replyResponse.content
-      .filter((block): block is Anthropic.TextBlock => block.type === "text")
-      .map((block) => block.text)
-      .join("\n")
-      .trim();
+    const sayUse = replyResponse.content.find(
+      (block): block is Anthropic.ToolUseBlock =>
+        block.type === "tool_use" && block.name === "say"
+    );
+
+    // stripStateLeak blijft als vangnet staan voor het geval het model toch
+    // iets in het tekstveld propt. Valt de tool-call weg, dan vallen we terug
+    // op de losse tekstblokken.
+    const rawReply =
+      typeof (sayUse?.input as { text?: unknown } | undefined)?.text === "string"
+        ? ((sayUse!.input as { text: string }).text)
+        : replyResponse.content
+            .filter((block): block is Anthropic.TextBlock => block.type === "text")
+            .map((block) => block.text)
+            .join("\n");
+
+    const reply = stripStateLeak(rawReply);
 
     if (!reply) {
       return jsonResponse({ error: "Geen antwoord ontvangen. Probeer opnieuw." }, 502);

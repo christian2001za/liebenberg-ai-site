@@ -153,6 +153,29 @@ export function canConclude(state: ScanState): boolean {
  * het schema en kan een injectiepoging in de klantinput hooguit een rare vraag
  * opleveren, geen gekaapte state.
  */
+/**
+ * Schema voor het zichtbare antwoord (stap 2 van een beurt).
+ *
+ * Om dezelfde reden een tool-call als hierboven, maar dan omgekeerd: we willen
+ * hier juist gewone tekst, en die kregen we met vrije tekstgeneratie niet
+ * schoon. Het model schreef zijn administratie telkens in een ander formaat
+ * mee in het antwoord — JSON, opsommingen, <>…</>, kale key: value-regels — en
+ * omdat elke beurt de hele conversatie herhaalt, kopieerde het daarna zijn
+ * eigen patroon. Filteren achteraf bleef dweilen. Binnen een tool-call bestaat
+ * het probleem niet: er is precies één veld, en daar hoort de zin in.
+ */
+export const SAY_TOOL_SCHEMA = {
+  type: "object" as const,
+  properties: {
+    text: {
+      type: "string",
+      description:
+        "Wat je tegen de ondernemer zegt, als gewone lopende tekst. Eén korte spiegelende zin, daarna één vraag. Geen kopjes, opsommingen, JSON, veldnamen of uitleg over je eigen werkwijze.",
+    },
+  },
+  required: ["text"],
+} as const;
+
 export const STATE_TOOL_SCHEMA = {
   type: "object" as const,
   properties: {
