@@ -85,7 +85,7 @@ img{display:block;max-width:100%;}
 .cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px;}
 .hero-media{position:relative;overflow:hidden;background:#cfc7b6;}
 .founder-photo{position:absolute;inset:0;background-image:var(--founder);background-size:cover;background-position:42% 22%;}
-.about-photo .founder-photo{background-image:var(--founder-about);background-position:50% 30%;}
+.about-photo .founder-photo{background-image:var(--founder-about);background-position:50% 50%;}
 .hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,49,56,0) 52%,rgba(35,49,56,.5) 100%);}
 .namecard{position:absolute;left:24px;right:24px;bottom:24px;z-index:3;background:rgba(35,49,56,.8);
   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border-radius:13px;padding:15px 18px;color:var(--paper);}
@@ -93,21 +93,6 @@ img{display:block;max-width:100%;}
 .namecard .rl{font-size:12.5px;color:rgba(244,239,230,.74);margin-top:3px;}
 
 /* ===== proof strip ===== */
-/* ===== accountancy-band ===== */
-/* Rustige tussenregel op papier (geen donker bannerblok): past tussen de warme
-   hero en proofstrip. De vraag in serif zodat 'accountantskantoor' vanzelf het
-   zwaartepunt is; ochre als accent, niet als tweede knop. */
-.acc-band{display:block;background:var(--card);border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);transition:background .18s ease;}
-.acc-band:hover{background:var(--paper);}
-.acc-band .container{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:6px 16px;padding-top:16px;padding-bottom:16px;text-align:center;}
-.acc-band-q{font-family:var(--font-serif);font-size:clamp(19px,2vw,23px);color:var(--ink);line-height:1.2;}
-.acc-band-q em{font-style:italic;color:var(--ochre);}
-.acc-band-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;letter-spacing:.01em;color:var(--soft);transition:color .18s ease;}
-.acc-band:hover .acc-band-cta{color:var(--ochre);}
-.acc-band-cta svg{width:14px;height:14px;transition:transform .18s ease;}
-.acc-band:hover .acc-band-cta svg{transform:translateX(3px);}
-@media (prefers-reduced-motion: reduce){.acc-band,.acc-band-cta,.acc-band-cta svg{transition:none;}}
-
 .proofstrip{background:var(--card);border-bottom:1px solid var(--line);}
 .proofstrip .container{padding-top:44px;padding-bottom:40px;}
 .proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;}
@@ -192,8 +177,8 @@ section{position:relative;}
 .crow .wij b{font-weight:600;}
 
 /* about / authority (part 1 of why-us) */
-.about-grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(40px,5.5vw,84px);align-items:start;}
-.about-photo{position:relative;width:100%;aspect-ratio:4/5;border-radius:var(--r-md);overflow:hidden;background:#cfc7b6;
+.about-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(40px,5.5vw,84px);align-items:start;}
+.about-photo{position:relative;width:100%;aspect-ratio:1600/1825;border-radius:var(--r-md);overflow:hidden;background:#cfc7b6;
   box-shadow:var(--shadow-lift);}
 .about-cap{margin-top:22px;}
 .about-cap .ac-name{font-size:13px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--ink-2);}
@@ -355,7 +340,7 @@ section{position:relative;}
   .crow .bureau{order:2;}
   .phase-grid,.svc-grid,.mini-grid{grid-template-columns:1fr;}
   .about-grid{grid-template-columns:1fr;}
-  .about-photo{max-width:380px;}
+  .about-photo{max-width:440px;}
   .proof-grid{grid-template-columns:1fr 1fr;gap:24px 0;}
   .proof-item{padding:6px 24px;}
   .proof-item:nth-child(odd){border-left:none;padding-left:0;}
