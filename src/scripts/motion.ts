@@ -115,8 +115,8 @@ if (mapCard && finePointer && !reduced) {
 }
 
 /* ---------- 4. Count-up tellers ---------- */
-// Parseert tekst als "1.000+", "10.000+", "#2", "300+" en telt op naar het getal,
-// met behoud van prefix (#, €) en suffix (+, "organisch", enz.).
+// Parseert tekst als "2.500+", "25.000+", "#2", "300+" en telt op naar het getal,
+// met behoud van prefix (#) en suffix (+, "organisch", enz.).
 type ParsedCounter = {
   el: HTMLElement;
   prefix: string;

@@ -189,6 +189,11 @@
   }
   .sec-head p{color:var(--mute); max-width:42ch; margin:0 0 0 auto; font-size:15px}
 
+  /* Lopende tekst in een sectie */
+  .prose{max-width:68ch}
+  .prose p{margin:0 0 18px; color:var(--ink-2); font-size:16px; line-height:1.7}
+  .prose p:last-child{margin-bottom:0}
+
   /* NUMBERS */
   .stats{
     display:grid; grid-template-columns:repeat(4, 1fr); gap:0;
@@ -469,7 +474,7 @@
     </a>
     <ul>
       <li><a href="https://www.liebenberg.ai/#cases">Cases</a></li>
-      <li><a href="https://www.liebenberg.ai/#waarom">Waarom wij</a></li>
+      <li><a href="https://www.liebenberg.ai/#waarom">Waarom bij mij</a></li>
       <li><a href="https://www.liebenberg.ai/#werkwijze">Werkwijze</a></li>
       <li><a href="https://www.liebenberg.ai/#faq">FAQ</a></li>
     </ul>
@@ -489,19 +494,19 @@
     <span class="pill live"><span class="dot"></span> Live in productie</span>
     <span class="pill">Maatwerk Platform</span>
     <span class="pill">Landelijke dekking</span>
-    <span class="pill">Maatschappelijk belang</span>
+    <span class="pill">Eigen platform</span>
   </div>
 
   <h1 class="title">
-    Een landelijk <span class="serif-em">meldpunt</span><br/>
-    voor een invasieve<br/>
-    exoot.
+    Het platform waar<br/>
+    zijn <span class="serif-em">bedrijf</span> op draait.
   </h1>
 
   <p class="hero-sub">
-    We ontwikkelden een landelijk platform waar burgers, bestrijders
-    en overheden waarnemingen van de Aziatische hoornaar (officieel: geelpoothoornaar) in
-    kaart brengen. Van losse melding tot gevalideerde bestrijdingsroute — alles op één kaart.
+    Een plaagdierbestrijder hield zijn meldingen bij in Word, Excel en losse mailtjes,
+    tot dat niet meer ging. Er bestond geen pakket dat zijn proces dekte. Ik bouwde het
+    platform waar zijn bedrijf nu op draait: van de melding die binnenkomt tot de
+    gevalideerde bestrijdingsroute, alles op één kaart.
   </p>
 
   <div class="hero-actions">
@@ -516,10 +521,10 @@
   </div>
 
   <dl class="hero-meta">
-    <div><dt>Klant</dt><dd>NatuurlijkRob — Rob Voesten</dd></div>
-    <div><dt>Sector</dt><dd>Natuur &amp; Biodiversiteit</dd></div>
-    <div><dt>Rol</dt><dd>Strategie, Design &amp; Engineering</dd></div>
-    <div><dt>Bereik</dt><dd>Nederland — landelijk</dd></div>
+    <div><dt>Klant</dt><dd>Rob Voesten, ondernemer (NatuurlijkRob)</dd></div>
+    <div><dt>Sector</dt><dd>Plaagdierbestrijding</dd></div>
+    <div><dt>Rol</dt><dd>Strategie, ontwerp en bouw</dd></div>
+    <div><dt>Bereik</dt><dd>Nederland, landelijk</dd></div>
   </dl>
 
   <!-- Hero visual: map mock -->
@@ -546,16 +551,23 @@
         <div class="pin gold" style="left:58%; top:48%"><span class="pin-label">Val — Gld</span><span class="pin-dot"></span></div>
         <div class="pin green" style="left:42%; top:30%"><span class="pin-label">Geverifieerd</span><span class="pin-dot"></span></div>
       </div>
-      <div class="hv-overlay">
-        <h5>Live feed</h5>
-        <div class="row"><span>Nieuwe meldingen (24u)</span><b>37</b></div>
-        <div class="row"><span>In behandeling</span><b>82</b></div>
-        <div class="row"><span>Nesten verwijderd</span><b>2.463</b></div>
-        <div class="row"><span>Actieve bestrijders</span><b>68</b></div>
-      </div>
     </div>
   </div>
 </header>
+
+<!-- DAARVOOR -->
+<section id="daarvoor">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Daarvoor</span></div>
+      <h2>Papier, Word en Excel, <span class="serif-em">elke gemeente anders</span>.</h2>
+    </div>
+    <div class="prose">
+      <p>Rob Voesten bestrijdt nesten van de geelpoothoornaar, in opdracht van gemeenten en provincies en op melding van burgers en imkers. Voordat het platform er was, kwamen de meldingen binnen zoals ze kwamen: op papier, in Word, in Excel, per gemeente in een ander format. Iemand moest elke melding lezen, beoordelen of het echt om een hoornaar ging, uitzoeken in welke regio het viel en wie er langs kon. Daarna bijhouden wat gedaan was, wie welke route reed, bewijs verzamelen, en aan het eind van de maand factureren uit lijsten die nooit compleet waren.</p>
+      <p>Rob was zijn tools ontgroeid. Er bestond geen pakket dat dit deed, en overstappen op iets generieks kon ook niet: het proces was te specifiek. Dus bouwde ik het.</p>
+    </div>
+  </div>
+</section>
 
 <!-- NUMBERS -->
 <section id="impact">
@@ -569,12 +581,12 @@
     <div class="stats">
       <div class="stat">
         <span class="tag">Accounts</span>
-        <div class="num">1000<span class="sup">+</span></div>
+        <div class="num">2.500<span class="sup">+</span></div>
         <div class="lbl">Geregistreerde bestrijders, imkers, gemeenten en provincies.</div>
       </div>
       <div class="stat">
         <span class="tag">Meldingen</span>
-        <div class="num">10.000<span class="sup">+</span></div>
+        <div class="num">25.000<span class="sup">+</span></div>
         <div class="lbl">Tienduizenden gevalideerde waarnemingen — van individu tot groot zomernest.</div>
       </div>
       <div class="stat">
@@ -603,7 +615,7 @@
       <div class="avatar">RV</div>
       <div>
         <div class="name">Rob Voesten</div>
-        <div class="role">Bioloog &amp; Oprichter — NatuurlijkRob · Siebengewald</div>
+        <div class="role">Ondernemer, NatuurlijkRob</div>
       </div>
     </div>
   </div>
@@ -613,9 +625,9 @@
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="label"><span class="eyebrow">Wat we bouwden</span></div>
+      <div class="label"><span class="eyebrow">Wat ik bouwde</span></div>
       <h2>Eén platform, <span class="serif-em">drie doelgroepen</span>.</h2>
-      <p>Melders, bestrijders en gemeenten hebben elk hun eigen workflow — maar werken op dezelfde gevalideerde dataset. We schreven het platform end-to-end: van kaart-architectuur tot role-based access.</p>
+      <p>Melders, bestrijders en gemeenten hebben elk hun eigen workflow — maar werken op dezelfde gevalideerde dataset. Ik schreef het platform end-to-end: van kaart-architectuur tot role-based access.</p>
     </div>
 
     <div class="built">
@@ -655,12 +667,25 @@
       <div class="built-item">
         <span class="n">04 — Architectuur</span>
         <h3>Schaalbaar, veilig, productie-klaar</h3>
-        <p>Gebouwd op dezelfde stack waar onze AI-pipelines op draaien. Role-based access, AVG-compliant data-opslag, en een kaart-laag die meeschaalt tot het piekmoment: het najaar, wanneer nesten zichtbaar worden.</p>
+        <p>Gebouwd op dezelfde stack waar mijn AI-pipelines op draaien. Role-based access, AVG-compliant data-opslag, en een kaart-laag die meeschaalt tot het piekmoment: het najaar, wanneer nesten zichtbaar worden.</p>
         <ul>
           <li>GDPR / AVG compliant</li>
           <li>Pieklast-bestendig (najaar)</li>
         </ul>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEEM VS MENS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Systeem en mens</span></div>
+      <h2>Wat het systeem zelf doet, en <span class="serif-em">wat een mens beslist</span>.</h2>
+    </div>
+    <div class="prose">
+      <p>Het systeem neemt de melding aan zonder account, registreert het type (nest, individu of val), zet de melding op de kaart en bepaalt in welke regio hij valt en bij welke bestrijder hij hoort. Eén stap laat het systeem bewust aan een mens: een bestrijder beoordeelt de foto en bevestigt of het echt een hoornaar is. Een verkeerd bevestigd nest kost een rit en een factuur. Na de verwijdering registreert de bestrijder het resultaat, en het platform telt en rapporteert.</p>
     </div>
   </div>
 </section>
@@ -685,21 +710,21 @@
           <div class="dash">
             <aside class="sidebar">
               <div class="h">Filters</div>
-              <div class="item active"><span>Alle meldingen</span><span class="c">12.408</span></div>
-              <div class="item"><span>Nesten</span><span class="c">4.612</span></div>
-              <div class="item"><span>Individuen</span><span class="c">6.584</span></div>
-              <div class="item"><span>Vallen</span><span class="c">1.212</span></div>
+              <div class="item active"><span>Alle meldingen</span><span class="c">—</span></div>
+              <div class="item"><span>Nesten</span><span class="c">—</span></div>
+              <div class="item"><span>Individuen</span><span class="c">—</span></div>
+              <div class="item"><span>Vallen</span><span class="c">—</span></div>
               <div class="h" style="margin-top:14px">Status</div>
-              <div class="item"><span>Open</span><span class="c">1.184</span></div>
-              <div class="item"><span>Gevalideerd</span><span class="c">8.761</span></div>
-              <div class="item"><span>Verwijderd</span><span class="c">2.463</span></div>
+              <div class="item"><span>Open</span><span class="c">—</span></div>
+              <div class="item"><span>Gevalideerd</span><span class="c">—</span></div>
+              <div class="item"><span>Verwijderd</span><span class="c">—</span></div>
             </aside>
             <div class="topbar">
               <span class="chip on">Landelijk</span>
               <span class="chip">Mijn regio</span>
               <span class="chip">Laatste 30 dagen</span>
               <span class="chip">+ Filter</span>
-              <span style="margin-left:auto; color:var(--mute); font-family:'JetBrains Mono',monospace; font-size:11px">12.408 resultaten</span>
+              <span style="margin-left:auto; color:var(--mute); font-family:'JetBrains Mono',monospace; font-size:11px">Resultaten</span>
             </div>
             <div class="mapbox">
               <div class="p" style="left:28%; top:40%"></div>
@@ -755,50 +780,6 @@
   </div>
 </section>
 
-<!-- MAATSCHAPPELIJK BELANG -->
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="label"><span class="eyebrow">Maatschappelijk belang</span></div>
-      <h2>Een <span class="serif-em">invasieve exoot</span>, een versnipperd beleid.<br/>Eén gedeelde dataset.</h2>
-      <p>De geelpoothoornaar eet ~11 kilo insecten per nest per seizoen. Beheer is sinds 2024 provinciaal belegd. Het platform is de verbindende laag in wat anders 300+ losse gemeentelijke sporen zou zijn.</p>
-    </div>
-
-    <div class="impact-grid">
-      <div class="imp">
-        <span class="mono">— Provincies</span>
-        <h4>Meerdere provincies</h4>
-        <p>Provincies gebruiken het platform voor regionale coördinatie, statistieken en het aansturen van bestrijdingsteams in hun beheertaak.</p>
-      </div>
-      <div class="imp">
-        <span class="mono">— Gemeenten</span>
-        <h4>Tientallen gemeenten</h4>
-        <p>Lokale gemeenten hebben accounts aangemaakt en gebruiken het dashboard om burgermeldingen in hun regio te monitoren en door te zetten.</p>
-      </div>
-      <div class="imp">
-        <span class="mono">— Bestrijders</span>
-        <h4>Gespecialiseerde teams</h4>
-        <p>Professionele bestrijders — waaronder NatuurlijkRob zelf — plannen hun werk via het platform en registreren iedere verwijdering.</p>
-      </div>
-      <div class="imp">
-        <span class="mono">— Imkers</span>
-        <h4>Het imker-netwerk</h4>
-        <p>Imkers melden waarnemingen rond bijenkasten en gebruiken de kaart om te zien of er in de buurt nesten bekend zijn.</p>
-      </div>
-      <div class="imp">
-        <span class="mono">— Burgers</span>
-        <h4>Laagdrempelig melden</h4>
-        <p>Zonder account, binnen een minuut. Dat is cruciaal: het merendeel van nesten wordt door burgers gespot, niet door professionals.</p>
-      </div>
-      <div class="imp">
-        <span class="mono">— EU &amp; NVWA</span>
-        <h4>Wettelijk kader</h4>
-        <p>De soort staat op de EU-lijst van zorgwekkende invasieve soorten. Gestructureerde data helpt Nederland bij zijn rapportageverplichting.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- SEO / SERP -->
 <section>
   <div class="wrap">
@@ -835,6 +816,19 @@
           <div class="desc">Meld een nest, een individu of een val. Voor burgers, bestrijders en gemeenten. Samen houden we de geelpoothoornaar beheersbaar.</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAATSCHAPPELIJK BELANG -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Maatschappelijk belang</span></div>
+      <h2>Een <span class="serif-em">invasieve exoot</span>,<br/>één gedeelde dataset.</h2>
+    </div>
+    <div class="prose">
+      <p>De geelpoothoornaar eet ongeveer 11 kilo insecten per nest per seizoen, en het beheer is sinds 2024 provinciaal belegd. Daardoor liep de bestrijding over honderden losse sporen: burgers die iets zagen, imkers rond hun kasten, bestrijders in het veld, en gemeenten die elk hun eigen lijst bijhielden. Het platform is de verbindende laag: één gevalideerde dataset waar al die partijen op werken, in plaats van losse meldingen die nergens samenkomen.</p>
     </div>
   </div>
 </section>
@@ -883,12 +877,31 @@
   </div>
 </section>
 
+<!-- HERKEN JE DIT -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="label"><span class="eyebrow">Het patroon</span></div>
+      <h2>Herken je <span class="serif-em">dit</span>?</h2>
+    </div>
+    <div class="prose">
+      <p>Het patroon onder dit platform is niet van hoornaars. Het is van elk proces waarin een melder, een beoordelaar en een uitvoerder in het veld samenkomen: er komt iets binnen, iemand moet het beoordelen, iemand moet erop af, en aan het eind moet het gefactureerd en geteld worden. Storingen, schades, inspecties, keuringen, onderhoud. Houdt jouw bedrijf zoiets nu met de hand bij elkaar, dan is dit de case om te lezen.</p>
+    </div>
+    <div style="margin-top:32px">
+      <a class="btn primary" href="https://cal.com/christianliebenberg" target="_blank" rel="noopener">
+        <span>Plan een kennismaking</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <div class="wrap">
   <div class="cta">
     <div>
       <h2>Bekijk het platform <span class="serif-em">live</span>.</h2>
-      <p>Van publieke kaart tot bestrijdersdashboard — meldpuntaziatischehoornaar.nl is landelijk in productie. Gratis te gebruiken, voor iedereen.</p>
+      <p>Van publieke kaart tot bestrijdersdashboard — meldpuntaziatischehoornaar.nl draait landelijk in productie.</p>
     </div>
     <div class="btns">
       <a class="btn primary" href="https://www.meldpuntaziatischehoornaar.nl" target="_blank" rel="noopener">

@@ -67,9 +67,12 @@ img{display:block;max-width:100%;}
 .bar-ghost:hover{background:var(--ink);color:var(--paper);}
 
 /* ===== hero ===== */
-.hero{min-height:760px;height:88vh;max-height:920px;display:flex;background:var(--paper);border-bottom:1px solid var(--line);}
+/* Hoogte volgt de inhoud zodra die niet meer in 88vh past: de kop is lang en
+   mag nooit onder de zwevende navbar verdwijnen. */
+.hero{min-height:min(88vh,920px);display:flex;background:var(--paper);border-bottom:1px solid var(--line);}
 .hero-inner{flex:1;display:grid;grid-template-columns:1.04fr .96fr;width:100%;max-width:none;margin:0;padding:0;}
-.hero-text{padding:56px clamp(32px,4.4vw,68px);display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-right:1px solid var(--line);}
+/* Bovenpadding houdt rekening met de navbar (top:18px + hoogte + marge). */
+.hero-text{padding:clamp(104px,13vh,132px) clamp(32px,4.4vw,68px) 56px;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;border-right:1px solid var(--line);}
 .hero-wm{position:absolute;left:-70px;top:50%;transform:translateY(-50%);width:760px;color:var(--ink);opacity:.05;z-index:0;pointer-events:none;}
 .hero-ct{position:relative;z-index:2;max-width:600px;margin-left:auto;width:100%;}
 .hero-text h1{font-size:clamp(48px,5.6vw,76px);margin-top:18px;max-width:13ch;}
@@ -326,7 +329,7 @@ section{position:relative;}
 
 /* ===== responsive ===== */
 @media(max-width:960px){
-  .hero{height:auto;max-height:none;min-height:0;}
+  .hero{min-height:0;}
   .hero-inner{grid-template-columns:1fr;}
   /* Mobiel: foto bovenaan (full-bleed), tekst eronder. */
   .hero-media{order:-1;height:min(56vh,460px);}

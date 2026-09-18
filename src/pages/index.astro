@@ -13,19 +13,19 @@ const WA = "https://wa.me/31637220535";
 const faqItems = [
   {
     q: "Wat kost het om AI-software of een AI-tool te laten bouwen?",
-    a: "Elk traject begint met een AI-startsprint van €2.000: in twee weken bouwen we één werkend stuk in je eigen systemen, plus een concreet vervolgplan met prijsrange. Grotere trajecten zijn maatwerk vanaf €10.000 en lopen in vaste fases, elk met een prijs die we vooraf afspreken. Zo weet je altijd waar je aan toe bent voordat je verder gaat.",
+    a: "Dat hangt af van wat er nodig is: één proces met een eigen scherm is iets anders dan het platform waar je bedrijf op draait. Daarom noem ik een prijs pas na een eerste gesprek, en dan als vaste prijs per fase, afgesproken voordat we beginnen. Je ziet resultaat voordat je verder gaat, en je zit nergens aan vast.",
   },
   {
     q: "Wat gebeurt er met mijn software als jij er straks mee zou stoppen?",
-    a: "Je data is altijd van jou en exporteerbaar, en we bouwen op een open, moderne stack zonder black box. In de praktijk hoef je niet te wisselen: het draaiend houden en doorontwikkelen is precies de afspraak die ik lever. En mocht het ooit nodig zijn, dan kan een andere ontwikkelaar het overnemen. Je zit nooit vast.",
+    a: "Hosting, database en domein staan op jouw naam. Ik werk erop als ontwikkelaar. Stopt de samenwerking, dan verandert er niets aan wat er draait, en kan elke andere ontwikkelaar het overnemen. Je data is van jou en exporteerbaar. Je zit nooit vast.",
   },
   {
     q: "Is mijn data veilig als ik AI gebruik?",
-    a: "Ja. We zijn GDPR/AVG compliant en werken met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.",
+    a: "Ja. Ik ben GDPR/AVG compliant en werk met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.",
   },
   {
     q: "Kan AI dit al betrouwbaar, of is het nog speelgoed?",
-    a: "Het hangt af van welk deel van het werk je de AI geeft. Het werk dat regels volgt kan AI inmiddels betrouwbaar aan, het oordeel hoort bij de mens. Een losse chatbot die alles tegelijk probeert is speelgoed, een systeem dat die scheiding respecteert en gemeten wordt niet. Vanuit mijn econometrische achtergrond toetsen we hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouwen menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.",
+    a: "Het hangt af van welk deel van het werk je de AI geeft. Het werk dat regels volgt kan AI inmiddels betrouwbaar aan, het oordeel hoort bij de mens. Een losse chatbot die alles tegelijk probeert is speelgoed, een systeem dat die scheiding respecteert en gemeten wordt niet. Vanuit mijn econometrische achtergrond toets ik hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouw ik menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.",
   },
   {
     q: "Vervangt dit mijn mensen?",
@@ -33,19 +33,19 @@ const faqItems = [
   },
   {
     q: "Er bestaat toch al software voor mijn branche?",
-    a: "Vaak wel, en als zo'n standaardpakket jullie proces dekt, moet je dat gewoon gebruiken — dan ben ik te duur. Ik kom pas in beeld als jullie manier van werken er net niet in past: als je overal Excel-bestanden naast laat lopen, dingen handmatig overtypt omdat het pakket het niet kan, of een koppeling mist die niet bestaat. De vraag is niet of er een tool is, maar of jullie werkelijke proces erin past.",
+    a: "Vaak wel, en als zo'n standaardpakket jullie proces dekt, moet je dat gewoon gebruiken, dan ben ik te duur. Ik kom pas in beeld als jullie manier van werken er net niet in past: als je overal Excel-bestanden naast laat lopen, dingen handmatig overtypt omdat het pakket het niet kan, of een koppeling mist die niet bestaat. De vraag is niet of er een tool is, maar of jullie werkelijke proces erin past.",
   },
   {
     q: "Werkt dit met de software die ik nu al gebruik?",
-    a: "Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. We bouwen de AI in jouw bestaande proces, niet ernaast.",
+    a: "Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. Ik bouw de AI in jouw bestaande proces, niet ernaast.",
   },
   {
     q: "Hoe lang duurt het voordat ik iets werkends heb?",
-    a: "Binnen twee weken. De startsprint levert bewust één concreet, werkend stuk op dat je meteen gebruikt, in plaats van maandenlang bouwen zonder resultaat. Daarna gaan we in korte fases verder, elk met een afgerond resultaat.",
+    a: "Ik werk in afgeronde fases die elk een bruikbaar resultaat opleveren, in plaats van maandenlang bouwen zonder dat je iets ziet. Je hebt dus snel iets werkends in handen, en je ziet steeds resultaat voordat je verder gaat.",
   },
   {
     q: "Heb ik een eigen IT-afdeling of technische kennis nodig?",
-    a: "Nee, dat is juist het punt. We leveren end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; wij regelen de techniek, jij houdt de regie over je proces en je data.",
+    a: "Nee, dat is juist het punt. Ik lever end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; ik regel de techniek, jij houdt de regie over je proces en je data.",
   },
 ];
 
@@ -61,8 +61,8 @@ const faqSchema = {
 ---
 
 <BrandLayout
-  title="Liebenberg AI | Minder Handwerk. Meer Resultaat."
-  description="Maatwerk AI-software voor administratief-zware MKB. Meetbaar betrouwbaar, geen black box. GDPR/AVG compliant."
+  title="Liebenberg AI | Ik automatiseer het werk dat tot vandaag alleen een mens kon doen"
+  description="Maatwerk AI-software voor ondernemers met processen die te specifiek zijn voor standaardtools. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling."
   canonical="https://www.liebenberg.ai/"
   schema={[faqSchema]}
 >
@@ -75,12 +75,12 @@ const faqSchema = {
         <svg class="hero-wm" viewBox="0 0 300 120" fill="none" aria-hidden="true"><path pathLength="1" d="M12 104 L52 82 L74 90 L94 50 L106 70 L130 24 L150 58 L168 44 L190 78 L222 92 L288 104" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path></svg>
         <div class="hero-ct">
           <p class="eyebrow">Gebouwd in Amsterdam</p>
-          <h1><span style="white-space:nowrap">Minder handwerk.</span><br><span class="ac-italic">Meer resultaat<span class="ac-dot">.</span></span></h1>
-          <p class="hero-lede">Maatwerk AI-software voor administratief-zware MKB. Meetbaar betrouwbaar, geen black box.</p>
+          <h1>Ik automatiseer het werk dat tot vandaag <span class="ac-italic">alleen een mens kon doen<span class="ac-dot">.</span></span></h1>
+          <p class="hero-lede">Maatwerk AI-software voor ondernemers met processen die te specifiek zijn voor standaardtools. Soms is dat één proces met een eigen scherm, soms het platform waar je hele bedrijf op draait. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling.</p>
           <a class="proof-link" href="https://www.meldpuntaziatischehoornaar.nl"><span class="live"></span>Live: Meldpunt Aziatische Hoornaar<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
           <div class="cta-row">
-            <a class="btn btn-ink" href={CAL}>Plan kennismaking</a>
-            <a class="btn btn-ghost" href="#contact">Stel een vraag</a>
+            <a class="btn btn-ink" href={CAL}>Plan een kennismaking</a>
+            <a class="btn btn-ghost" href="/case-study/meldpunt-aziatische-hoornaar.html">Bekijk de Hoornaar-case</a>
           </div>
         </div>
       </div>
@@ -100,18 +100,19 @@ const faqSchema = {
         <div class="proof-item"><div class="pv">EU hosted</div><div class="pl">GDPR/AVG compliant</div></div>
         <div class="proof-item"><div class="pv">MSc</div><div class="pl">Econometrie als fundament</div></div>
       </div>
-      <p class="proof-note"><span style="color:var(--ochre)">*</span> Op software die door ons in productie is gebouwd.</p>
+      <p class="proof-note"><span style="color:var(--ochre)">*</span> Op software die ik in productie heb gebouwd.</p>
     </div>
   </section>
 
   <!-- 3. FEATURED CASE -->
   <section class="sec dark" id="cases">
     <div class="container">
-      <p class="eyebrow">Uitgelichte case</p>
+      <p class="eyebrow">Uitgelichte case · Platform</p>
       <div class="feat-grid">
         <div class="feat-copy">
-          <h2>Een landelijk meldpunt, live in productie.</h2>
-          <p class="desc">Een platform waar burgers, bestrijders, gemeenten en provincies meldingen van de geelpoothoornaar op één gedeelde kaart zetten. Van drempelloze burgermelding tot gevalideerde bestrijdingsroute. Gratis te gebruiken, voor iedereen.</p>
+          <h2>Het platform waar zijn bedrijf op draait.</h2>
+          <p class="desc">Rob Voesten bestrijdt nesten van de geelpoothoornaar, in opdracht van gemeenten en op melding van burgers en imkers. Hij hield dat bij in Word, Excel en losse mailtjes, per gemeente in een ander format, tot dat niet meer ging. Er bestond geen pakket dat zijn proces dekte, en iets generieks paste niet.</p>
+          <p class="desc">Nu loopt het hele bedrijf over één platform: de melding komt binnen, het systeem bepaalt de regio en de bestrijder, een mens bevestigt of het echt een hoornaar is, en na de verwijdering telt en rapporteert het platform. Het meldpunt werd ondertussen de plek waar heel Nederland zijn meldingen doet.</p>
           <div class="feat-metrics">
             <div><div class="mv">2.500+</div><div class="ml">Geregistreerde accounts</div></div>
             <div><div class="mv">25.000+</div><div class="ml">Gevalideerde meldingen</div></div>
@@ -132,13 +133,6 @@ const faqSchema = {
             <span class="pin o" style="left:44%;top:56%"></span>
             <span class="pin k" style="left:64%;top:70%"></span>
             <span class="pin g" style="left:34%;top:74%"></span>
-            <div class="livefeed">
-              <div class="lf-h"><span class="ld"></span>Live feed</div>
-              <div class="lf-row"><span>Nieuwe meldingen (24u)</span><b>37</b></div>
-              <div class="lf-row"><span>In behandeling</span><b>82</b></div>
-              <div class="lf-row"><span>Nesten verwijderd</span><b>2.463</b></div>
-              <div class="lf-row"><span>Actieve bestrijders</span><b>68</b></div>
-            </div>
           </div>
         </a>
       </div>
@@ -167,80 +161,42 @@ const faqSchema = {
           <div class="about-photo"><div class="founder-photo"></div></div>
         </div>
         <div class="about-text">
-          <p class="eyebrow">Over ons</p>
-          <h2 style="margin-top:18px;">Waarom kiezen voor <span class="ac-italic">ons?</span></h2>
-          <p class="about-p">De AI-markt wordt overspoeld door bureaus die prompts verkopen zonder fundament eronder. Wij doen dat anders. Liebenberg AI is gebouwd op mijn achtergrond in econometrie en data-analyse.</p>
-          <p class="about-p">Daardoor bouw ik geen los experiment, maar productie-software die veilig, schaalbaar en statistisch onderbouwd in de praktijk draait. En ik bouw het niet alleen, ik blijf het draaien en doorontwikkelen. Eén aanspreekpunt dat verantwoordelijk blijft, ook nadat het live is.</p>
+          <p class="eyebrow">Over mij</p>
+          <h2 style="margin-top:18px;">Waarom <span class="ac-italic">bij mij.</span></h2>
+          <p class="about-p">De AI-markt wordt overspoeld door bureaus die prompts verkopen zonder fundament eronder. Liebenberg AI is gebouwd op een achtergrond in econometrie en risicomodellering. Daar komt één vraag vandaan die bij alles terugkomt: mag je de uitkomst geloven?</p>
+          <p class="about-p">Daarom lever ik geen los experiment maar productie-software waarvan je de kwaliteit kunt zien. Je ziet waarop een beslissing gebaseerd is, en alles waar het systeem onzeker over is komt bij een mens terecht.</p>
+          <p class="about-p">En ik bouw het niet alleen, ik blijf het draaien en doorontwikkelen. Eén aanspreekpunt dat verantwoordelijk blijft, ook nadat het live is. Want het lastige moment komt nooit op de dag van oplevering. Dat komt in maand acht, als een leverancier zijn format verandert of iemand iets doet wat niemand had voorzien.</p>
+          <p class="about-p">Je hosting, database en domein staan op jouw naam.</p>
           <div class="about-prev">
-            <p class="prev-line">Eerder als risk consultant bij Zanders gewerkt aan projecten voor o.a. ING en bunq.</p>
             <a class="link-arrow" style="color:var(--ochre)" href="https://linkedin.com/in/christian-liebenberg-a0511060"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3zM10 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.75V21H18.6v-5.3c0-1.27-.03-2.9-1.9-2.9-1.9 0-2.2 1.38-2.2 2.8V21H10z"></path></svg>Connect op LinkedIn</a>
           </div>
         </div>
       </div>
 
-      <!-- Part 2: contrast -->
-      <div class="why-contrast">
-        <div class="why-head">
-          <h2 style="margin-top:0;">De meeste AI-bureaus verkopen je &lsquo;AI&rsquo;. <span class="ac-italic">Wij verkopen je een uitkomst waarvan we de kwaliteit bewijzen.</span></h2>
-        </div>
-        <div class="contrast">
-          <div class="crow">
-            <div class="bureau">Veel bureaus bouwen een mooie demo.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij bouwen productie en meten hoe accuraat en betrouwbaar het is:</b> accuraatheid, hallucinatie, bronvermelding.</span></div>
-          </div>
-          <div class="crow">
-            <div class="bureau">Veel bureaus leunen op prompts zonder fundament.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij komen uit de econometrie en begrijpen de wiskunde onder de modellen.</b> We weten wanneer een model te vertrouwen is en wanneer niet.</span></div>
-          </div>
-          <div class="crow">
-            <div class="bureau">Veel bureaus laten je achter met een black box.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Onze output is traceerbaar naar de bron,</b> en jij houdt de regie over je eigen data.</span></div>
-          </div>
-          <div class="crow">
-            <div class="bureau">Veel bureaus doen alles voor iedereen.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij leveren één ding goed:</b> end-to-end AI-software voor bedrijven zonder eigen IT-team.</span></div>
-          </div>
-          <div class="crow">
-            <div class="bureau">Veel bureaus zetten een generiek AI-model voor je neer.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij leggen jouw eigen manier van werken vast in het systeem,</b> met jou als eindcontrole.</span></div>
-          </div>
-          <div class="crow">
-            <div class="bureau">Veel bureaus bouwen en lopen weg.</div>
-            <div class="wij"><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span><span><b>Wij bouwen het en blijven het draaien.</b> Na oplevering ben ik jullie AI-engineering-functie, zonder dat je iemand in dienst hoeft te nemen.</span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Part 3: AI voor het regelwerk -->
+      <!-- Part 2: de stap waar altijd iemand bij moest nadenken -->
       <div class="why-deep">
         <div class="why-head">
-          <h2 style="margin-top:0;">AI voor het regelwerk. <span class="ac-italic">Het oordeel blijft bij jou.</span></h2>
+          <h2 style="margin-top:0;">De stap waar <span class="ac-italic">altijd iemand bij moest nadenken.</span></h2>
         </div>
-        <p class="about-p">Elk administratief proces bestaat uit twee soorten werk. Werk dat regels volgt, en werk dat oordeel vraagt. AI heeft net het punt bereikt waarop het het regelwerk zelfstandig aankan. Het oordeel blijft mensenwerk.</p>
-        <p class="about-p">Een generieke AI-tool doet dat regelwerk met een generiek oordeel. Daarom voelt het nooit als jouw werk. Wij leggen jouw eigen manier van afwegen vast in jouw eigen systeem, en jij blijft altijd de eindcontrole en verantwoordelijk voor de uitkomst.</p>
-        <p class="about-p">Het resultaat: dezelfde mensen doen meer werk, zonder dat je de regie of de kwaliteit uit handen geeft.</p>
+        <p class="about-p">In elk bedrijf zit werk dat nooit te automatiseren was, omdat er iemand moest lezen, beoordelen of beslissen voordat er iets kon gebeuren. Een mail met een bijlage in een onvoorspelbaar format. Een offerte die per klant anders is. Een controle die altijd door een mens ging. Traditionele software liep daar vast: die doet precies wat je programmeert en kan niet omgaan met een rommelig document of een oordeel dat per geval verschilt.</p>
+        <p class="about-p">Dat kan nu wel. Ik bouw software die dat lees- en beoordeelwerk overneemt, en ik bouw het zo dat je ziet wat het systeem zelf besliste en wat het aan jou laat. Jij blijft de eindcontrole. Het systeem doet het werk ervoor.</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. SPRINT -->
-  <section class="sec" id="sprint">
+  <!-- 6. DIENSTEN -->
+  <section class="sec" id="diensten">
     <div class="container">
-      <div class="sprint-card">
-        <div class="sprint-left">
-          <p class="eyebrow">Zo begin je</p>
-          <h2 style="font-size:clamp(28px,3.4vw,42px);margin-top:18px;">Begin met een AI-startsprint.</h2>
-          <div class="sprint-price"><span class="price-num">&euro;2.000</span><small>Twee weken. Eén vaste prijs, één werkend resultaat.</small></div>
-          <p class="sprint-foot">Grotere trajecten zijn maatwerk. De startsprint bepaalt de scope en de prijs.</p>
-          <a class="btn btn-ink sprint-cta" href="#contact">Plan je startsprint <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
-        </div>
-        <div class="sprint-right">
-          <ul class="sprint-list">
-            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Eén werkend stuk AI dat je meteen gebruikt.</li>
-            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Een concreet vervolgplan met een heldere prijs.</li>
-            <li><span class="ck"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5l3.5 3.5L13 4.5"></path></svg></span>Een werksessie waarin we het aan je team overdragen.</li>
-          </ul>
-        </div>
+      <div class="sec-head">
+        <p class="eyebrow">Wat ik bouw</p>
+        <h2>Wat ik bouw.</h2>
+        <p class="sh-sub">Geen catalogus van buzzwords. Vier soorten werk waar traditionele software altijd op vastliep.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc"><div class="si">01</div><h3>Ongestructureerde input verwerken</h3><p>PDF&rsquo;s, Excels, mails, spraak en foto&rsquo;s, elk in een ander format. Het systeem leest ze, haalt eruit wat nodig is en zet het klaar in een scherm waarin jij het controleert en doorzet.</p></div>
+        <div class="svc"><div class="si">02</div><h3>Complexe documenten maken</h3><p>Planningen, offertes en documenten die per geval anders zijn. Het systeem maakt het concept op basis van jouw regels. Jij keurt goed.</p></div>
+        <div class="svc"><div class="si">03</div><h3>Koppelingen met een redeneerstap</h3><p>Twee systemen aan elkaar, met daartussen de stap die tot nu toe een mens deed: classificeren, toewijzen, kiezen.</p></div>
+        <div class="svc"><div class="si">04</div><h3>Controles die altijd door een mens gingen</h3><p>Beoordelingen en checks die je nu handmatig doet. Het systeem doet de eerste ronde en legt uit waarom. Jij ziet alleen de twijfelgevallen.</p></div>
       </div>
     </div>
   </section>
@@ -250,50 +206,41 @@ const faqSchema = {
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow">Werkwijze</p>
-        <h2>Lage drempel, steeds zichtbaar resultaat.</h2>
-        <p class="sh-sub">We werken in afgeronde fases, elk met een bruikbaar resultaat en een vaste prijs die we vooraf afspreken. Een prijs noemen we pas als duidelijk is wat er nodig is.</p>
+        <h2>Hoe het werkt.</h2>
+        <p class="sh-sub">Twee vormen, één manier van werken.</p>
       </div>
       <div class="phase-grid">
         <div class="phase lead">
-          <span class="pf">Fase 0</span>
-          <h3>AI-startsprint</h3>
-          <div class="pp">&euro;2.000 · twee weken</div>
-          <p>Eén werkend stuk AI, plus een concreet vervolgplan. De laagdrempelige start.</p>
+          <span class="pf">Vorm 1</span>
+          <h3>Eén proces</h3>
+          <p>Eén specifiek proces dat nu met de hand gaat, geautomatiseerd, met een eigen scherm waarin je het bedient. Afgerond, in gebruik, van jou.</p>
         </div>
         <div class="phase">
-          <span class="pf">Fase 1 en verder</span>
-          <h3>Bouwfases</h3>
-          <div class="pp">Per fase een vaste prijs, afgesproken voordat we beginnen</div>
-          <p>Elke fase levert een afgerond, bruikbaar deel op. Je ziet steeds resultaat voordat je verder gaat.</p>
+          <span class="pf">Vorm 2</span>
+          <h3>Platform</h3>
+          <p>Het systeem waar je bedrijf op draait. In fases, elk met een bruikbaar resultaat.</p>
         </div>
         <div class="phase">
-          <span class="pf">Maatwerk</span>
-          <h3>Grotere trajecten</h3>
-          <div class="pp">Op maat geprijsd</div>
-          <p>De startsprint bepaalt de scope en de prijs. Eerst helder wat er nodig is, dan pas een offerte.</p>
+          <span class="pf">Na oplevering</span>
+          <h3>Daarna</h3>
+          <p>Ik houd het draaiend, los op wat stuk gaat, en bouw door op wat je nodig hebt.</p>
         </div>
+      </div>
+      <p class="sh-sub" style="margin-top:28px;">Elke fase heeft een vaste prijs die we vooraf afspreken. Een prijs noem ik pas als duidelijk is wat er nodig is, en je ziet resultaat voordat je verder gaat.</p>
+      <div class="ws-cta">
+        <a class="btn btn-ink" href={CAL}>Plan een kennismaking <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
       </div>
     </div>
   </section>
 
-  <!-- 8. DIENSTEN -->
-  <section class="sec" id="diensten">
-    <div class="container">
-      <div class="sec-head">
-        <p class="eyebrow">Wat we bouwen</p>
-        <h2>Specialisaties.</h2>
-        <p class="sh-sub">Geen catalogus van buzzwords. Concrete software die werk uit handen neemt en waarvan je de kwaliteit kunt zien.</p>
-      </div>
-      <div class="svc-grid">
-        <div class="svc"><div class="si">01</div><h3>Maatwerk AI-software</h3><p>End-to-end software voor bedrijven zonder eigen IT-team, van het eerste werkende stuk tot stabiele productie.</p></div>
-        <div class="svc"><div class="si">02</div><h3>Integraties met bestaande systemen</h3><p>Koppelingen met je ERP, CRM en workflows. Repetitief werk grotendeels geautomatiseerd, met human-in-the-loop voor controle.</p></div>
-        <div class="svc"><div class="si">03</div><h3>Documentverwerking en classificatie</h3><p>Documenten, facturen en rapporten automatisch uitlezen en als gestructureerde data wegschrijven in je eigen systemen.</p></div>
-        <div class="svc"><div class="si">04</div><h3>AI afgestemd op je huisstijl en data</h3><p>Doorzoekbare kennis en klantcommunicatie op je eigen data, met bronvermelding en controle. Geen black box.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 9. WORKSHOPS & HACKATHONS -->
+  <!--
+    9. WORKSHOPS & HACKATHONS — tijdelijk van de homepage af.
+    Er loopt een besluit over het voordeur-aanbod (workshop · betaalde procesronde · geen),
+    deadline 3 oktober. Valt dat besluit op "workshop", dan komt deze sectie in aangepaste
+    vorm terug. Daarom uitgecommentarieerd in plaats van verwijderd.
+    Let op: het menu-item "Workshops" in SiteNav/SiteFooter blijft voorlopig staan.
+  -->
+  <!--
   <section class="sec" id="workshops">
     <div class="container">
       <div class="sec-head">
@@ -329,23 +276,24 @@ const faqSchema = {
       </div>
     </div>
   </section>
+  -->
 
   <!-- 10. OVERIGE CASES -->
   <section class="sec" style="background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow">Meer werk</p>
-        <h2>Andere projecten.</h2>
+        <h2>Meer cases.</h2>
       </div>
       <div class="mini-grid">
         <div class="mini">
-          <span class="mk">Custom ERP</span>
-          <h3>Eye Motion Lab</h3>
-          <p>Een volledig custom ERP- en praktijkportaal voor Eye Motion Lab, een oogzorgbedrijf. Bestellingen, patiëntdossiers, bezorging, facturatie en de volledige boekhouding lopen van inlog tot geplaatste order door één samenhangende flow.</p>
+          <span class="mk">Platform</span>
+          <h3>Het platform waar een oogzorgbedrijf op draait.</h3>
+          <p>Een volledig eigen ERP- en praktijkportaal voor Eye Motion Lab. Bestellingen, patiëntdossiers, bezorging, facturatie en de boekhouding lopen van inlog tot geplaatste order door één samenhangende flow. Gebouwd omdat er geen pakket bestond dat bij hun proces paste.</p>
           <a class="link-arrow" style="color:var(--ochre)" href="/case-study/imotion-lab-erp.html">Lees de case study <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
         </div>
         <div class="mini">
-          <span class="mk">LLM &amp; RAG</span>
+          <span class="mk">Demo</span>
           <h3>AI Debatwijzer 2025</h3>
           <p>Een chatbot die zijn informatie alleen uit partijprogramma's haalt, inclusief bronnen en citaten. Tijdens de verkiezingen van 2025 werden er 300+ debatten mee gevoerd.</p>
           <a class="link-arrow" style="color:var(--ochre)" href="https://debat.liebenberg.ai">Probeer de applicatie <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h9M9 4l4 4-4 4"></path></svg></a>
@@ -365,38 +313,42 @@ const faqSchema = {
         <div class="faq">
           <details>
             <summary>Wat kost het om AI-software of een AI-tool te laten bouwen?<span class="pm"></span></summary>
-            <div class="ans">Elk traject begint met een AI-startsprint van &euro;2.000: in twee weken bouwen we één werkend stuk in je eigen systemen, plus een concreet vervolgplan met prijsrange. Grotere trajecten zijn maatwerk vanaf &euro;10.000 en lopen in vaste fases, elk met een prijs die we vooraf afspreken. Zo weet je altijd waar je aan toe bent voordat je verder gaat.</div>
+            <div class="ans">Dat hangt af van wat er nodig is: één proces met een eigen scherm is iets anders dan het platform waar je bedrijf op draait. Daarom noem ik een prijs pas na een eerste gesprek, en dan als vaste prijs per fase, afgesproken voordat we beginnen. Je ziet resultaat voordat je verder gaat, en je zit nergens aan vast.</div>
           </details>
           <details>
             <summary>Wat gebeurt er met mijn software als jij er straks mee zou stoppen?<span class="pm"></span></summary>
-            <div class="ans">Je data is altijd van jou en exporteerbaar, en we bouwen op een open, moderne stack zonder black box. In de praktijk hoef je niet te wisselen: het draaiend houden en doorontwikkelen is precies de afspraak die ik lever. En mocht het ooit nodig zijn, dan kan een andere ontwikkelaar het overnemen. Je zit nooit vast.</div>
+            <div class="ans">Hosting, database en domein staan op jouw naam. Ik werk erop als ontwikkelaar. Stopt de samenwerking, dan verandert er niets aan wat er draait, en kan elke andere ontwikkelaar het overnemen. Je data is van jou en exporteerbaar. Je zit nooit vast.</div>
           </details>
           <details class="feat" open>
             <summary>Is mijn data veilig als ik AI gebruik?<span class="pm"></span></summary>
             <div class="ans">
-              <p style="margin:0 0 16px;">Ja. We zijn GDPR/AVG compliant en werken met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.</p>
-              <p class="safe-foot">Wij beheren de infrastructuur, jij beheert de inhoud. Net als bij je huidige cloud-boekhoudpakket.</p>
+              <p style="margin:0 0 16px;">Ja. Ik ben GDPR/AVG compliant en werk met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.</p>
+              <p class="safe-foot">Ik beheer de infrastructuur, jij beheert de inhoud. Net als bij je huidige cloud-boekhoudpakket.</p>
             </div>
           </details>
           <details>
             <summary>Kan AI dit al betrouwbaar, of is het nog speelgoed?<span class="pm"></span></summary>
-            <div class="ans">Het hangt af van welk deel van het werk je de AI geeft. Het werk dat regels volgt kan AI inmiddels betrouwbaar aan, het oordeel hoort bij de mens. Een losse chatbot die alles tegelijk probeert is speelgoed, een systeem dat die scheiding respecteert en gemeten wordt niet. Vanuit mijn econometrische achtergrond toetsen we hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouwen menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.</div>
+            <div class="ans">Het hangt af van welk deel van het werk je de AI geeft. Het werk dat regels volgt kan AI inmiddels betrouwbaar aan, het oordeel hoort bij de mens. Een losse chatbot die alles tegelijk probeert is speelgoed, een systeem dat die scheiding respecteert en gemeten wordt niet. Vanuit mijn econometrische achtergrond toets ik hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouw ik menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen.</div>
           </details>
           <details>
             <summary>Vervangt dit mijn mensen?<span class="pm"></span></summary>
             <div class="ans">Nee. De AI neemt het werk over dat vaste regels volgt. Je mensen houden het werk dat oordeel vraagt en blijven de eindcontrole. Het effect is dat je team met dezelfde mensen meer aankan, niet dat er mensen verdwijnen. In een arbeidsmarkt waar nieuwe mensen nauwelijks te vinden zijn, is dat meestal precies wat nodig is.</div>
           </details>
           <details>
+            <summary>Er bestaat toch al software voor mijn branche?<span class="pm"></span></summary>
+            <div class="ans">Vaak wel, en als zo&rsquo;n standaardpakket jullie proces dekt, moet je dat gewoon gebruiken, dan ben ik te duur. Ik kom pas in beeld als jullie manier van werken er net niet in past: als je overal Excel-bestanden naast laat lopen, dingen handmatig overtypt omdat het pakket het niet kan, of een koppeling mist die niet bestaat. De vraag is niet of er een tool is, maar of jullie werkelijke proces erin past.</div>
+          </details>
+          <details>
             <summary>Werkt dit met de software die ik nu al gebruik?<span class="pm"></span></summary>
-            <div class="ans">Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. We bouwen de AI in jouw bestaande proces, niet ernaast.</div>
+            <div class="ans">Ja, en daar zit juist de waarde. De winst zit niet in het AI-model zelf, maar in de koppeling met de systemen waar je al in werkt, zoals je boekhoudpakket, je documentsysteem of je CRM. Ik bouw de AI in jouw bestaande proces, niet ernaast.</div>
           </details>
           <details>
             <summary>Hoe lang duurt het voordat ik iets werkends heb?<span class="pm"></span></summary>
-            <div class="ans">Binnen twee weken. De startsprint levert bewust één concreet, werkend stuk op dat je meteen gebruikt, in plaats van maandenlang bouwen zonder resultaat. Daarna gaan we in korte fases verder, elk met een afgerond resultaat.</div>
+            <div class="ans">Ik werk in afgeronde fases die elk een bruikbaar resultaat opleveren, in plaats van maandenlang bouwen zonder dat je iets ziet. Je hebt dus snel iets werkends in handen, en je ziet steeds resultaat voordat je verder gaat.</div>
           </details>
           <details>
             <summary>Heb ik een eigen IT-afdeling of technische kennis nodig?<span class="pm"></span></summary>
-            <div class="ans">Nee, dat is juist het punt. We leveren end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; wij regelen de techniek, jij houdt de regie over je proces en je data.</div>
+            <div class="ans">Nee, dat is juist het punt. Ik lever end-to-end: van architectuur en bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij hoeft geen technische kennis in huis te hebben; ik regel de techniek, jij houdt de regie over je proces en je data.</div>
           </details>
         </div>
       </div>

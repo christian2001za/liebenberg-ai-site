@@ -123,59 +123,6 @@ export const MeldpuntMapPreview = () => {
           );
         })}
 
-        {/* Live feed overlay */}
-        <div
-          style={{
-            position: "absolute",
-            right: "4%",
-            top: "8%",
-            background: "rgba(255,253,247,.94)",
-            border: `1px solid ${LINE}`,
-            backdropFilter: "blur(4px)",
-            borderRadius: 8,
-            padding: "8px 10px",
-            minWidth: "32%",
-            fontSize: 9,
-            lineHeight: 1.3,
-            color: INK,
-          }}
-        >
-          <div
-            style={{
-              fontSize: 8,
-              color: MUTE,
-              fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              marginBottom: 5,
-            }}
-          >
-            Live feed
-          </div>
-          {[
-            ["Nieuwe meldingen (24u)", "37"],
-            ["In behandeling", "82"],
-            ["Nesten verwijderd", "412"],
-            ["Actieve bestrijders", "68"],
-          ].map(([label, val], i, arr) => (
-            <div
-              key={label}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                gap: 8,
-                padding: "2px 0",
-                borderBottom:
-                  i === arr.length - 1 ? "none" : `1px dashed ${LINE}`,
-                fontSize: 9,
-              }}
-            >
-              <span style={{ color: MUTE }}>{label}</span>
-              <span style={{ fontWeight: 500 }}>{val}</span>
-            </div>
-          ))}
-        </div>
-
         {/* Legend */}
         <div
           style={{
