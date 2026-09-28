@@ -66,27 +66,6 @@
    We voorkomen alleen layout-shift door tabellaire cijfers. */
 .counter{font-variant-numeric:tabular-nums;}
 
-/* --- 3. Kaart-mockup: pins vallen, oker-pins pulsen -------- */
-.js-motion .map-card .pin{opacity:0;transform:translateY(-16px) scale(.4);}
-.js-motion .map-card.pins-in .pin{animation:pin-drop .6s cubic-bezier(.2,.9,.3,1.25) forwards;}
-.js-motion .map-card.pins-in .pin:nth-of-type(2){animation-delay:.1s;}
-.js-motion .map-card.pins-in .pin:nth-of-type(3){animation-delay:.2s;}
-.js-motion .map-card.pins-in .pin:nth-of-type(4){animation-delay:.3s;}
-.js-motion .map-card.pins-in .pin:nth-of-type(5){animation-delay:.4s;}
-.js-motion .map-card.pins-in .pin:nth-of-type(6){animation-delay:.5s;}
-@keyframes pin-drop{to{opacity:1;transform:none;}}
-
-.js-motion .map-card.pins-in .pin.o::after{
-  content:"";position:absolute;inset:-3px;border-radius:50%;
-  border:2px solid rgba(224,160,106,.7);opacity:0;
-  animation:pin-ring 3.2s ease-out infinite 1s;
-}
-@keyframes pin-ring{
-  0%{transform:scale(.6);opacity:.9;}
-  60%{transform:scale(2.3);opacity:0;}
-  100%{transform:scale(2.3);opacity:0;}
-}
-
 /* --- 4. Foto's: kleur -> zwart-wit (alleen desktop/hover) -- */
 @media (hover:hover) and (pointer:fine){
   .founder-photo{
@@ -96,15 +75,6 @@
   .hero-media:hover .founder-photo,
   .about-media:hover .founder-photo{
     filter:grayscale(1) contrast(1.02);
-  }
-
-  /* Browser-mockup: 3D-tilt volgt de cursor (motion.ts) */
-  .map-card{
-    transition:transform .5s var(--ease-soft),
-               box-shadow .5s var(--ease-soft);
-  }
-  .map-card:hover{
-    box-shadow:0 42px 90px -34px rgba(0,0,0,.7);
   }
 }
 
@@ -173,10 +143,8 @@ body.menu-open .mobile-menu-cta{opacity:1;transform:none;}
     transition:none !important;
   }
   .js-motion .hero-wm path{stroke-dasharray:none;stroke-dashoffset:0;transition:none;}
-  .js-motion .map-card .pin{opacity:1 !important;transform:none !important;animation:none !important;}
-  .js-motion .map-card .pin.o::after{display:none;}
   .founder-photo{filter:none !important;}
-  .btn, .map-card, .svc, .mini, .phase{
+  .btn, .svc, .mini, .phase{
     transition:background .18s ease, color .18s ease !important;
     transform:none !important;
   }

@@ -1,9 +1,8 @@
 /* motion.ts — hero-choreografie, scroll-reveal, count-up tellers,
-   scrollspy, FAQ-accordion en kaart-tilt.
+   scrollspy, FAQ-accordion en de case-video.
    Vanilla, geen dependencies. Respecteert prefers-reduced-motion. */
 
 const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const finePointer = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
 
 // Markeer dat JS-motion actief is (CSS verbergt reveal-doelen pas hierna,
 // zodat de site zonder JS volledig zichtbaar blijft).
@@ -69,52 +68,58 @@ if (reduced) {
   revealTargets.forEach((el) => revealObserver.observe(el));
 }
 
-/* ---------- 2. Kaart-mockup: pins vallen zodra hij in beeld is ---------- */
-const mapCard = document.querySelector<HTMLElement>(".map-card");
-if (mapCard) {
-  if (reduced) {
-    mapCard.classList.add("pins-in");
-  } else {
-    const pinObserver = new IntersectionObserver(
-      (entries, obs) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            mapCard.classList.add("pins-in");
-            obs.disconnect();
-          }
-        });
-      },
-      { threshold: 0.35 }
-    );
-    pinObserver.observe(mapCard);
-  }
-}
+/* ---------- 2. Case-video: speelt gedempt af zodra hij in beeld is ----------
+   Zonder JS, bij reduced-motion of databesparing blijft het een gewone
+   video met poster en bedieningselementen. */
+const caseVideo = document.querySelector<HTMLVideoElement>(".case-video video");
+const soundBtn = document.querySelector<HTMLButtonElement>(".case-video .cv-sound");
+const saveData =
+  (navigator as Navigator & { connection?: { saveData?: boolean } }).connection?.saveData === true;
 
-/* ---------- 3. Kaart-mockup: 3D-tilt volgt de cursor ---------- */
-if (mapCard && finePointer && !reduced) {
-  let raf = 0;
-  mapCard.addEventListener("pointerenter", () => {
-    mapCard.style.transition = "transform .25s ease, box-shadow .5s ease";
-  });
-  mapCard.addEventListener("pointermove", (e) => {
-    if (raf) return;
-    raf = requestAnimationFrame(() => {
-      raf = 0;
-      const r = mapCard.getBoundingClientRect();
-      const x = (e.clientX - r.left) / r.width - 0.5;
-      const y = (e.clientY - r.top) / r.height - 0.5;
-      mapCard.style.transform =
-        `perspective(1000px) rotateX(${(-y * 3.5).toFixed(2)}deg) rotateY(${(x * 4.5).toFixed(2)}deg) translateY(-5px)`;
+if (caseVideo && soundBtn && !reduced && !saveData) {
+  const label = soundBtn.querySelector<HTMLElement>(".cv-label");
+  let inView = false;
+  let restarted = false;
+
+  caseVideo.controls = false;
+  soundBtn.hidden = false;
+
+  // Autoplay kan alsnog geweigerd worden (bv. iOS-energiebesparing):
+  // dan vallen we terug op de gewone bediening. Een AbortError (pause()
+  // tijdens snel doorscrollen) is geen weigering en negeren we.
+  const play = () =>
+    caseVideo.play().catch((err: DOMException) => {
+      if (err.name !== "NotAllowedError") return;
+      caseVideo.controls = true;
+      soundBtn.hidden = true;
     });
-  });
-  mapCard.addEventListener("pointerleave", () => {
-    if (raf) { cancelAnimationFrame(raf); raf = 0; }
-    mapCard.style.transition = "";
-    mapCard.style.transform = "";
+
+  new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        inView = entry.isIntersecting;
+        if (inView) play();
+        else caseVideo.pause();
+      });
+    },
+    { threshold: 0.5 }
+  ).observe(caseVideo);
+
+  soundBtn.addEventListener("click", () => {
+    const soundOn = caseVideo.muted;
+    caseVideo.muted = !soundOn;
+    // Eerste keer geluid aan: terug naar het begin, zodat de voice-over compleet is.
+    if (soundOn && !restarted) {
+      caseVideo.currentTime = 0;
+      restarted = true;
+    }
+    soundBtn.setAttribute("aria-pressed", String(soundOn));
+    if (label) label.textContent = soundOn ? "Geluid uit" : "Geluid aan";
+    if (inView) play();
   });
 }
 
-/* ---------- 4. Count-up tellers ---------- */
+/* ---------- 3. Count-up tellers ---------- */
 // Parseert tekst als "2.500+", "25.000+", "#2", "300+" en telt op naar het getal,
 // met behoud van prefix (#) en suffix (+, "organisch", enz.).
 type ParsedCounter = {
@@ -175,10 +180,10 @@ function animateCounter(p: ParsedCounter) {
   requestAnimationFrame(step);
 }
 
-// Tel-doelen: proof-strip, case-metrics, livefeed en de sprint-prijs.
+// Tel-doelen: proof-strip, case-metrics en de sprint-prijs.
 const counters: ParsedCounter[] = [];
 document
-  .querySelectorAll<HTMLElement>(".proof-item .pv, .feat-metrics .mv, .lf-row b, .price-num")
+  .querySelectorAll<HTMLElement>(".proof-item .pv, .feat-metrics .mv, .price-num")
   .forEach((el) => {
     const parsed = parseCounter(el);
     if (!parsed) return; // bv. "EU hosted", "MSc", "AI Overview" — overslaan
@@ -204,7 +209,7 @@ if (!reduced && counters.length) {
   counters.forEach((p) => counterObserver.observe(p.el));
 }
 
-/* ---------- 5. Scrollspy: actieve sectie in de navbar ---------- */
+/* ---------- 4. Scrollspy: actieve sectie in de navbar ---------- */
 const navLinks = Array.from(
   document.querySelectorAll<HTMLAnchorElement>(".floatbar nav a[href^='#']")
 );
@@ -238,7 +243,7 @@ if (navLinks.length) {
   }
 }
 
-/* ---------- 6. FAQ: vloeiend open- en dichtklappen ---------- */
+/* ---------- 5. FAQ: vloeiend open- en dichtklappen ---------- */
 document.querySelectorAll<HTMLDetailsElement>(".faq details").forEach((details) => {
   const summary = details.querySelector<HTMLElement>("summary");
   const content = details.querySelector<HTMLElement>(".ans");
