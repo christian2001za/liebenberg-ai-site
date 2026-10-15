@@ -207,7 +207,7 @@ Dan draait alles gewoon door. Hosting, database en domein staan op jouw naam, en
 
 ## 11. Contact
 
-**Kop:** Loopt er werk vast dat alleen een mens kan doen?
+**Kop:** Waar loopt het bij jou vast?
 
 **Tekst:** Plan een kennismaking van een half uur. We kijken of je proces te automatiseren is en wat het oplevert. Past het, dan is een werksessie van een uur de volgende stap.
 
