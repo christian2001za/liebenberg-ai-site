@@ -64,3 +64,8 @@
 .tool-card p { grid-column: 1; color: var(--fg-2); font-size: 15px; max-width: 60ch; }
 .tool-card .link-arrow { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
 .tool-card:hover .link-arrow { color: var(--fg); }
+
+/* 404: gravure van een bomschuit op het strand */
+.page-404 { min-height: 70vh; }
+.gravure-404 { width: 300px; height: auto; margin-bottom: 8px; }
+@media (max-width: 520px) { .gravure-404 { width: 220px; } }

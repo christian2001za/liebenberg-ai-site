@@ -15,6 +15,8 @@ import ProcessDiagram from "../components/brand/ProcessDiagram.astro";
 import ContactBlock from "../components/brand/ContactBlock.astro";
 import Gravure from "../components/brand/Gravure.astro";
 import { findGravure } from "../lib/gravures";
+import { findStilleven } from "../lib/stillevens";
+import { Image } from "astro:assets";
 import type { IconName } from "../components/brand/icons";
 import { CAL } from "../lib/site";
 import "../styles/case.css";
@@ -47,6 +49,7 @@ const {
 } = Astro.props;
 
 const hasGravure = !!findGravure(gravure, "kop");
+const stilleven = findStilleven(gravure);
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -99,6 +102,13 @@ const articleSchema = {
         <div class="prose-block"><slot name="before" /></div>
       </div>
     </section>
+
+    <!-- 4b. Stilleven: sfeerbeeld, geen bewijs. Alleen als het bestand bestaat. -->
+    {stilleven && (
+      <div class="wrap case-stilleven">
+        <Image src={stilleven} alt="" widths={[800, 1200, 1600]} sizes="(max-width: 1168px) 100vw, 1120px" loading="lazy" />
+      </div>
+    )}
 
     <!-- 5. Wat ik bouwde -->
     <section class="section" aria-labelledby="bouwde-kop">

@@ -15,3 +15,5 @@
 .case-media .app img, .case-media .app video { width: 100%; height: auto; display: block; }
 .case-stats { margin-top: clamp(32px, 4vw, 48px); }
 .case-page .split-duty .head .ico { color: var(--fg); }
+.case-stilleven { padding-bottom: clamp(56px, 8vw, 96px); }
+.case-stilleven img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-2); }

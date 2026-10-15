@@ -4,8 +4,13 @@ Lijngravures in één inktkleur (#233138) op een transparante achtergrond. Gemaa
 
 | Bestand | Gebruik |
 |---|---|
-| `hoornaar.png` | Master (± 1340 px) |
-| `hoornaar-480.png` | Kop van de case-pagina (160 px op 3x) |
-| `hoornaar-192.png` | Case-lijst op de homepage (64 px op 3x) |
+| `<case>.png` | Master (± 1300-1400 px) |
+| `<case>-480.png` | Kop van de case-pagina (160 px op 3x) |
+| `<case>-192.png` | Case-lijst op de homepage (64 px op 3x) |
 
-Nog te maken, in dezelfde stijl: evenemententent, bril (Eye Motion Lab), bomschuit (404).
+| Case | Bestandsnaam | Onderwerp | Status |
+|---|---|---|---|
+| Meldpunt Aziatische Hoornaar | `hoornaar` | Geelpoothoornaar, bovenaanzicht | ✅ |
+| AI-salessysteem evenementenbranche | `evenementen` | Evenemententent met scheerlijnen | ✅ |
+| Eye Motion Lab | `eye-motion-lab` | Ronde bril, driekwart aanzicht | ✅ |
+| 404-pagina | `404` | Vissersboot op het strand, liggend (± 1:1), randen zacht uitlopend. Alleen `404.png`, geen kleine versies. | ✅ |
