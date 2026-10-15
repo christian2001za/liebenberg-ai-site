@@ -1,5 +1,6 @@
 ---
-/** Eén keer per pagina: de iconen als <symbol>, zodat SVG-schema's ze met <use> kunnen tekenen. */
+/** Eén keer per pagina: het logo en de iconen als <symbol>, zodat Logo en de SVG-schema's ze met <use> tekenen. */
+import logoRaw from "../../assets/huisstijl/logo.svg?raw";
 const icons = import.meta.glob("../../assets/huisstijl/icons/*.svg", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
 const symbols = Object.entries(icons)
   .map(([path, raw]) => {
@@ -8,5 +9,7 @@ const symbols = Object.entries(icons)
     return `<symbol id="i-${name}" viewBox="0 0 24 24">${inner}</symbol>`;
   })
   .join("");
+const logoInner = logoRaw.replace(/^[\s\S]*?<svg[^>]*>/, "").replace(/<\/svg>\s*$/, "");
+const logoSymbol = `<symbol id="lai-logo" viewBox="0 0 1351.87 162.15">${logoInner}</symbol>`;
 ---
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" set:html={symbols} />
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" set:html={logoSymbol + symbols} />

@@ -1,9 +1,10 @@
 ---
-/** Het woordmerk, inline zodat de kleuren uit de tokens komen (ink + oker op "AI"). */
-import raw from "../../assets/huisstijl/logo.svg?raw";
-
+/**
+ * Het woordmerk. Het pad staat één keer per pagina als <symbol id="lai-logo"> (zie IconSprite);
+ * hier alleen een verwijzing, zodat de HTML licht blijft. Kleuren komen uit de tokens:
+ * currentColor (ink) en var(--ochre) op "AI".
+ */
 interface Props { class?: string }
 const { class: cls = "" } = Astro.props;
-const svg = raw.replace("<svg ", `<svg class="logo ${cls}" role="img" aria-label="Liebenberg AI" `);
 ---
-<Fragment set:html={svg} />
+<svg class={`logo ${cls}`.trim()} viewBox="0 0 1351.87 162.15" role="img" aria-label="Liebenberg AI"><use href="#lai-logo" /></svg>
