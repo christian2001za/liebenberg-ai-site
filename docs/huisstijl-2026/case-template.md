@@ -10,10 +10,11 @@ Niet elke case heeft elke sectie nodig. De volgorde staat vast.
 
 | # | Sectie | Inhoud |
 |---|---|---|
-| 1 | **Kop** | Mono-label (`Platform · Bestrijding · Live` of `· In ontwikkeling, oplevering Q4 2026`), H1 van één zin, één zin eronder over de klant en wat er nu draait. Knop "Plan een kennismaking". |
+| 1 | **Kop** | Gravure van de case als embleem (`src/assets/huisstijl/gravures/`, ± 160 px, links naast of boven de titel; ontbreekt hij nog, dan weglaten). Mono-label (`Platform · Bestrijding · Live` of `· In ontwikkeling, oplevering Q4 2026`), H1 van één zin, één zin eronder over de klant en wat er nu draait. Knop "Plan een kennismaking". |
 | 2 | **Productbeeld** | Echte screenshot of video van het product, in een productframe op een schilderijvlak (`mesdag-bomschuiten-voor-anker.jpg` of `mesdag-kalme-zee.jpg`). Bij een case in ontwikkeling: de demo of een schets. Video's muted, met controls, geen autoplay met geluid. |
 | 3 | **Cijfers** | Cijferstrip in mono, alleen echte en actuele cijfers. Weglaten als er nog geen zijn. |
 | 4 | **Hoe het was** | Twee of drie korte alinea's: hoe het werk liep, waar het vastzat, wat dat de eigenaar kostte aan groei. In de woorden van de klant. |
+| 4b | **Stilleven** | Tussenbeeld uit `src/assets/huisstijl/stillevens/` (`<case>-stilleven.jpg`), volle breedte of in het raster, radius 10. Alleen als het bestand bestaat. Sfeerbeeld, geen bewijs. |
 | 5 | **Wat ik bouwde** | Lijst met haarlijnen (geen kaarten), elk item met een icoon uit de eigen set, een korte titel en één of twee zinnen. |
 | 6 | **Hoe het werkt** | Processchema in de lijnstijl: de echte stappen, met de plek waar een mens beslist. |
 | 7 | **Wat het systeem zelf doet en wat het aan jou laat** | Kort blok. Dit is het verhaal van het merk; elke case laat het concreet zien. |

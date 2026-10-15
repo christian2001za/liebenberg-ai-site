@@ -148,7 +148,7 @@ Met `prefers-reduced-motion: reduce` staat alles stil en toont de productloop zi
 
 ## 7. Fotografie
 
-Echte mensen, echte plekken, daglicht. Gebruik het portret (`src/assets/LiebenbergAI_portrait_Christian.jpeg`) in de sectie Over en de kantoorfoto met het logo op de muur (`src/assets/LAI_kantoor.jpg`) bij werkwijze of contact. Geen AI-gegenereerde foto's van mensen. Geen stockfoto's.
+Echte mensen, echte plekken, daglicht. Gebruik het portret (`src/assets/LiebenbergAI_portrait_Christian.jpeg`) in de sectie Over en de kantoorfoto met het logo op de muur (`src/assets/LAI_kantoor.jpg`) bij werkwijze of contact. Geen AI-gegenereerde foto's van mensen. Geen stockfoto's. AI-beelden mogen alleen zonder mensen en handen, zonder tekst en nooit als bewijs: gravures als embleem per case, stillevens en documentaire detailbeelden als tussenbeeld (spelregels en prompts in de vault-brief hieronder). De volledige shotlist met plekken op de site staat in de vault: `~/Developer/Second Brain/01 Bedrijf/Fotoshoot — shotlist & brief (okt 2026).md`. Tot de nieuwe foto's er zijn: alleen het portret en de kantoorfoto gebruiken, en lege plekken liever weglaten dan vullen.
 
 ---
 

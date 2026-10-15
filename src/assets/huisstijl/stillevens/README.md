@@ -10,5 +10,9 @@ Stille, grijze stillevens van werkvoorwerpen in de manier van Hammershøi en de 
 | `evenementen-stilleven-16x9.jpg` | Evenementen | 16:9 uitsnede. |
 | `algemeen-stilleven.jpg` | Geen specifieke case | 3:2, 1600 px. Homepage (Voor wie of Wat ik bouw), blog-headers, cases zonder eigen stilleven. |
 | `algemeen-stilleven-16x9.jpg` | Geen specifieke case | 16:9 uitsnede. |
+| `werkwijze-stilleven.jpg` | Werkwijze | 3:2, 1600 px. Homepage, Hoe het werkt (naast de werksessie) of een werkwijze-pagina. |
+| `werkwijze-stilleven-16x9.jpg` | Werkwijze | 16:9 uitsnede. |
+| `eye-motion-lab-stilleven.jpg` | Eye Motion Lab | 3:2, 1600 px. Tussenbeeld. |
+| `eye-motion-lab-stilleven-16x9.jpg` | Eye Motion Lab | 16:9 uitsnede. |
 
-Nog te maken, in dezelfde stijl: Eye Motion Lab (`eye-motion-lab-stilleven`: bril, paslens, pakketje), werkwijze (notitieboek, rolmaat, telefoon).
+De serie is compleet: drie cases, algemeen en werkwijze.
