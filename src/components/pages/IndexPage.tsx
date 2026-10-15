@@ -222,7 +222,7 @@ const Index = () => {
                   <div className="space-y-4 mb-10">
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="text-foreground">&mdash;</span>
-                      <span>Landelijke kaart met 2500+ accounts en tienduizenden meldingen</span>
+                      <span>Landelijke kaart met 3500+ accounts en 35.000+ meldingen</span>
                     </div>
                     <div className="flex items-center gap-3 text-sm text-muted-foreground">
                       <span className="text-foreground">&mdash;</span>
