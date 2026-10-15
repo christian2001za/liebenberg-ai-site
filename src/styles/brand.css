@@ -38,6 +38,7 @@
   --dur-1: 160ms;
   --dur-2: 280ms;
   --dur-3: 2200ms;
+  --dur-nav: 440ms; /* menubalk in- en uitschuiven: lang genoeg om de curve te voelen */
 
   /* Vorm en raster (BRAND §4) */
   --r-1: 6px;
