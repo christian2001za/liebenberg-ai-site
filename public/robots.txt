@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://www.liebenberg.ai/sitemap.xml
+Sitemap: https://www.liebenberg.ai/sitemap-index.xml
