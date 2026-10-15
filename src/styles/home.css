@@ -17,7 +17,9 @@
 
 .werkwijze-head { display: grid; grid-template-columns: 7fr 5fr; gap: 24px clamp(24px, 4vw, 56px); align-items: end; margin-bottom: clamp(32px, 4vw, 48px); }
 .werkwijze-head .section-head { margin-bottom: 0; }
-.office img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-2); }
+/* Stillevens: sfeerbeeld, radius 10, op mobiel volle breedte */
+.stilleven { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-2); }
+.voorwie-side { display: grid; gap: 28px; align-content: start; }
 .not-stuck { display: grid; grid-template-columns: 4fr 8fr; gap: 8px clamp(24px, 4vw, 56px); margin-top: clamp(48px, 6vw, 72px); padding-top: 24px; border-top: 1px solid var(--line); }
 .not-stuck p { color: var(--fg-2); max-width: 60ch; }
 
@@ -46,7 +48,6 @@
 
 @media (max-width: 900px) {
   .werkwijze-head, .not-stuck, .about { grid-template-columns: 1fr; }
-  .office img { aspect-ratio: 16 / 10; }
   .about img { max-width: 360px; }
 }
 @media (max-width: 520px) {

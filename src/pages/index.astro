@@ -13,6 +13,8 @@ import "../styles/home.css";
 import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
 import office from "../assets/LAI_kantoor.jpg";
+import stilAlgemeen from "../assets/huisstijl/stillevens/algemeen-stilleven.jpg";
+import stilWerkwijze from "../assets/huisstijl/stillevens/werkwijze-stilleven.jpg";
 import { CAL, LINKEDIN } from "../lib/site";
 import heroPainting from "../assets/huisstijl/schilderijen/mesdag-kalme-zee.jpg?url";
 
@@ -135,7 +137,10 @@ const steps = [
     <!-- 3. Voor wie -->
     <section class="section" aria-labelledby="voorwie-kop">
       <div class="wrap split">
-        <div><h2 class="t-h2" id="voorwie-kop">Voor wie dit is.</h2></div>
+        <div class="voorwie-side">
+          <h2 class="t-h2" id="voorwie-kop">Voor wie dit is.</h2>
+          <Image class="stilleven" src={stilAlgemeen} alt="" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 360px" loading="lazy" />
+        </div>
         <div class="prose-block">
           <p>Denk aan bestrijders, verhuurbedrijven, installateurs en transporteurs. Bedrijven waar het werk buiten gebeurt, in het veld of in het magazijn. De aanvragen komen binnen via mail, WhatsApp en de telefoon, en iemand op kantoor typt ze over, plant ze in en zet de factuur klaar. Zolang dat met de hand gaat, groeit je bedrijf zo hard als die persoon kan typen.</p>
           <p class="big-line">Als je volgende maand twee keer zoveel aanvragen kreeg, wie zou ze dan verwerken?</p>
@@ -225,9 +230,7 @@ const steps = [
             <h2 id="werkwijze-kop">Hoe het werkt.</h2>
             <p>Je ziet iets werkends op je eigen proces, met een vaste prijs erbij, voordat je iets betaalt.</p>
           </div>
-          <figure class="office">
-            <Image src={office} alt="Het kantoor van Liebenberg AI in Amsterdam, met het logo op de muur" widths={[480, 800]} sizes="(max-width: 900px) 100vw, 420px" loading="lazy" />
-          </figure>
+          <Image class="stilleven" src={stilWerkwijze} alt="" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 460px" loading="lazy" />
         </div>
         <ol class="steps">
           {steps.map((s, i) => (
@@ -275,6 +278,8 @@ const steps = [
     </section>
 
     <!-- 11. Contact -->
-    <ContactBlock />
+    <ContactBlock>
+      <Image slot="photo" src={office} alt="Het kantoor van Liebenberg AI in Amsterdam, met het logo op de muur" widths={[480, 800]} sizes="(max-width: 900px) 100vw, 420px" loading="lazy" />
+    </ContactBlock>
   </main>
 </BrandLayout>
