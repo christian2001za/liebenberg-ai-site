@@ -13,18 +13,20 @@ export default defineConfig({
   site: "https://www.liebenberg.ai",
   output: "static",
   adapter: vercel(),
+  // De case studies waren losse HTML-bestanden; de oude URL's blijven werken via een 301.
+  redirects: {
+    "/case-study/meldpunt-aziatische-hoornaar.html": { status: 301, destination: "/case-study/meldpunt-aziatische-hoornaar/" },
+    "/case-study/ai-sales-evenementenbranche.html": { status: 301, destination: "/case-study/ai-sales-evenementenbranche/" },
+    "/case-study/imotion-lab-erp.html": { status: 301, destination: "/case-study/imotion-lab-erp/" },
+  },
   integrations: [
     react(),
     tailwind(),
     sitemap({
-      // De case studies zijn statische HTML in /public en zijn dus geen Astro-routes;
-      // we voegen ze hier expliciet toe zodat ze in de sitemap komen.
-      customPages: [
-        "https://www.liebenberg.ai/case-study/meldpunt-aziatische-hoornaar.html",
-        "https://www.liebenberg.ai/case-study/imotion-lab-erp.html",
-      ],
-      // Sluit losse scratch-bestanden, de 404 en de verborgen pagina('s) uit.
+      // De case studies zijn nu Astro-pagina's en komen vanzelf in de sitemap.
+      // Sluit de oude .html-redirects, losse scratch-bestanden, de 404 en de verborgen pagina('s) uit.
       filter: (page) =>
+        !page.endsWith(".html") &&
         !page.includes("/case-study/EML-casestudy/") &&
         !page.includes("/accountancy/veiligexcel") &&
         !page.endsWith("/404"),

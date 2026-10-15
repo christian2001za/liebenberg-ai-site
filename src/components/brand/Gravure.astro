@@ -1,0 +1,20 @@
+---
+/** Embleem-gravure van een case. Rendert niets als het bestand (nog) ontbreekt. Zie src/lib/gravures.ts. */
+import { findGravure, GRAVURE_PX, type GravureSize } from "../../lib/gravures";
+
+interface Props { name?: string; size: GravureSize; class?: string }
+const { name, size, class: cls = "" } = Astro.props;
+const img = findGravure(name, size);
+const px = GRAVURE_PX[size];
+---
+{img && (
+  <img
+    class:list={["gravure", `gravure-${size}`, cls]}
+    src={img.src}
+    width={px}
+    height={px}
+    alt=""
+    loading={size === "kop" ? "eager" : "lazy"}
+    decoding="async"
+  />
+)}

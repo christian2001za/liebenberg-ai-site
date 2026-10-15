@@ -263,7 +263,7 @@ export default function HumanizerApp() {
 
       <p className="text-sm text-muted-foreground border-t border-border/15 pt-6">
         Gratis te gebruiken, maximaal 5 keer per uur en 15 keer per dag per
-        bezoeker. Je tekst wordt niet opgeslagen, we sturen alleen jouw input
+        bezoeker. Je tekst wordt niet opgeslagen, ik stuur alleen jouw input
         live door naar het taalmodel en geven het resultaat direct terug.
       </p>
     </div>

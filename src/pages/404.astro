@@ -1,5 +1,7 @@
 ---
 import BrandLayout from "../layouts/BrandLayout.astro";
+import { Image } from "astro:assets";
+import boot from "../assets/huisstijl/gravures/404.png";
 import "../styles/content.css";
 ---
 
@@ -9,13 +11,14 @@ import "../styles/content.css";
   canonical="https://www.liebenberg.ai/404"
   footer={false}
 >
-  <main class="page" style="min-height:70vh;display:flex;align-items:center;justify-content:center;text-align:center;">
-    <div class="wrap" style="max-width:560px;">
-      <p class="eyebrow" style="justify-content:center;">404</p>
-      <h1 style="font-size:clamp(36px,5vw,58px);margin-top:16px;">Pagina niet gevonden</h1>
-      <p class="lead" style="margin:18px auto 0;">De pagina die je zoekt bestaat niet of is verplaatst.</p>
-      <div style="margin-top:32px;">
-        <a class="btn btn-ink" href="/">Terug naar home</a>
+  <main class="page page-404">
+    <div class="wrap page-head">
+      <Image class="gravure-404" src={boot} alt="" widths={[300, 600, 900]} sizes="300px" />
+      <p class="label">404</p>
+      <h1>Pagina niet gevonden</h1>
+      <p class="lead">De pagina die je zoekt bestaat niet of is verplaatst.</p>
+      <div>
+        <a class="btn btn-primary" href="/">Terug naar home</a>
       </div>
     </div>
   </main>

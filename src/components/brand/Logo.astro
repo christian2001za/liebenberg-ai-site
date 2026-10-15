@@ -1,0 +1,9 @@
+---
+/** Het woordmerk, inline zodat de kleuren uit de tokens komen (ink + oker op "AI"). */
+import raw from "../../assets/huisstijl/logo.svg?raw";
+
+interface Props { class?: string }
+const { class: cls = "" } = Astro.props;
+const svg = raw.replace("<svg ", `<svg class="logo ${cls}" role="img" aria-label="Liebenberg AI" `);
+---
+<Fragment set:html={svg} />

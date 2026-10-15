@@ -1,0 +1,36 @@
+/* Case studies. Componenten staan in components.css. */
+.case-head { padding-block: clamp(40px, 6vw, 72px) clamp(32px, 4vw, 48px); }
+.case-head .wrap { display: grid; gap: 20px; justify-items: start; }
+.case-title { display: grid; gap: 24px clamp(24px, 4vw, 48px); align-items: start; }
+.case-title.has-gravure { grid-template-columns: 160px minmax(0, 1fr); }
+.case-title-txt { display: grid; gap: 20px; justify-items: start; min-width: 0; }
+@media (max-width: 760px) {
+  .case-title.has-gravure { grid-template-columns: 1fr; }
+  .case-title .gravure-kop { width: 120px; height: 120px; }
+}
+.case-head h1 { max-width: 22ch; }
+.case-head .back { text-decoration: none; margin-bottom: 8px; transition: color var(--dur-1) var(--ease); }
+.case-head .back:hover { color: var(--fg); }
+.case-media { padding-bottom: clamp(56px, 8vw, 96px); }
+.case-media .app img, .case-media .app video { width: 100%; height: auto; display: block; }
+.case-stats { margin-top: clamp(32px, 4vw, 48px); }
+.case-page .split-duty .head .ico { color: var(--fg); }
+.case-stilleven { padding-bottom: clamp(56px, 8vw, 96px); }
+.case-stilleven img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-2); }
+
+/* In het nieuws: lijst met haarlijnen, mono-bron en titel */
+.news { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.news li { border-bottom: 1px solid var(--line); }
+.news a, .news .row-static {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 16px 12px; margin-inline: -12px;
+  border-radius: var(--r-1); text-decoration: none; transition: background-color var(--dur-1) var(--ease);
+}
+.news a:hover { background-color: var(--surface); }
+.news .label, .news .t { grid-column: 1; }
+.news .t { font-size: 16px; line-height: 1.45; }
+.news .arr { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--font-mono); color: var(--muted); transition: color var(--dur-1) var(--ease), transform var(--dur-2) var(--ease); }
+.news a:hover .arr { color: var(--fg); transform: translate(2px, -2px); }
+
+/* Extra blok vóór Wat ik bouwde (bijvoorbeeld: Zoeken waar niemand anders zoekt) */
+.case-between .items { border-top: 1px solid var(--line); }
+.case-between .section-head { align-content: start; }

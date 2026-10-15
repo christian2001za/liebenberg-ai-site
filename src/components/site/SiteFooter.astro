@@ -1,50 +1,44 @@
 ---
-/**
- * Shared footer in the brand style. Tools + Blog live here (moved out of the navbar).
- * Section links resolve to the homepage when on a subpage.
- */
-import logoPaper from "../../assets/brand/logo-horizontal-paper.svg?url";
-
-const WA = "https://wa.me/31637220535";
+/** Footer in de nieuwe stijl. WhatsApp staat hier en in het contactblok, nergens zwevend. */
+import Logo from "../brand/Logo.astro";
+import { WA, MAIL, PHONE, PHONE_HREF, LINKEDIN } from "../../lib/site";
 
 const isHome = Astro.url.pathname === "/";
 const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 ---
-
-<footer class="footer">
-  <div class="container">
-    <div class="foot-top">
-      <div class="foot-brand">
-        <img class="lb-logo" src={logoPaper} alt="Liebenberg AI" width="1351.87" height="162.15" />
-        <p>Maatwerk software, gedreven door AI. Wiskundig onderbouwd en klaar voor productie. Gebouwd in Amsterdam.</p>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <Logo />
+        <p class="claim">Maatwerk AI-software voor bedrijven waar het werk groeit. Gebouwd in Amsterdam.</p>
       </div>
-      <div class="foot-links">
-        <div class="foot-col">
-          <h4>Pagina</h4>
-          <a href={anchor("cases")}>Cases</a>
-          <a href={anchor("waarom")}>Waarom bij mij</a>
+      <div class="cols">
+        <div>
+          <span class="label">Pagina</span>
+          <a href={anchor("werk")}>Werk</a>
+          <a href={anchor("over")}>Over</a>
           <a href={anchor("werkwijze")}>Werkwijze</a>
-          <a href={anchor("diensten")}>Wat ik bouw</a>
-          <a href={anchor("faq")}>FAQ</a>
+          <a href={anchor("vragen")}>Vragen</a>
         </div>
-        <div class="foot-col">
-          <h4>Ontdek</h4>
-          <a href="/blog/">Blog</a>
+        <div>
+          <span class="label">Meer</span>
           <a href="/tools/">Tools</a>
           <a href={anchor("contact")}>Contact</a>
         </div>
-        <div class="foot-col">
-          <h4>Contact</h4>
-          <a href="mailto:info@liebenberg.ai">info@liebenberg.ai</a>
-          <a href="tel:+31637220535">+31 6 37220535</a>
+        <div>
+          <span class="label">Contact</span>
+          <a href={`mailto:${MAIL}`}>{MAIL}</a>
+          <a href={PHONE_HREF}>{PHONE}</a>
           <a href={WA}>WhatsApp</a>
-          <a href="https://linkedin.com/in/christian-liebenberg-a0511060">LinkedIn</a>
+          <a href={LINKEDIN}>LinkedIn</a>
         </div>
       </div>
     </div>
-    <div class="foot-bottom">
-      <span>&copy; 2026 Liebenberg AI. Alle rechten voorbehouden. KvK 98456598.</span>
-      <span><a href="/privacyverklaring">Privacyverklaring</a> &nbsp;·&nbsp; <a href="/algemene-voorwaarden">Algemene voorwaarden</a></span>
+    <div class="bottom label">
+      <span>© 2026 Liebenberg AI · KvK 98456598</span>
+      <span><a href="/privacyverklaring">Privacyverklaring</a> · <a href="/algemene-voorwaarden">Algemene voorwaarden</a></span>
+      <span>Schilderijen: Rijksmuseum, publiek domein</span>
     </div>
   </div>
 </footer>

@@ -1,0 +1,16 @@
+---
+/** Productframe: wit, rand, radius 10, schaduw. Met optionele titelbalk. */
+import Icon from "./Icon.astro";
+import type { IconName } from "./icons";
+interface Props { title?: string; icon?: IconName; meta?: string; class?: string }
+const { title, icon, meta, class: cls = "" } = Astro.props;
+---
+<div class:list={["app", cls]}>
+  {title && (
+    <div class="app-bar">
+      <b>{icon && <Icon name={icon} />}{title}</b>
+      {meta && <span class="label">{meta}</span>}
+    </div>
+  )}
+  <div class="app-media"><slot /></div>
+</div>

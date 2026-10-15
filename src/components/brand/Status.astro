@@ -1,0 +1,6 @@
+---
+/** Status: klein vlak met stip. ok (groen), warn (amber) of neutraal. */
+interface Props { tone?: "ok" | "warn" | "neutral"; class?: string; id?: string }
+const { tone = "neutral", class: cls = "", id } = Astro.props;
+---
+<span class:list={["status", tone !== "neutral" && tone, cls]} id={id}><slot /></span>

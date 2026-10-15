@@ -1,0 +1,38 @@
+---
+/**
+ * Contactblok: kop en tekst links, brede band met het zeegezicht en één ink-knop in het midden.
+ */
+import Button from "./Button.astro";
+import Stage from "./Stage.astro";
+import ContactForm from "./ContactForm.astro";
+import { CAL, WA, MAIL, PHONE, PHONE_HREF } from "../../lib/site";
+
+interface Props {
+  title?: string;
+  text?: string;
+  id?: string;
+}
+const {
+  title = "Waar loopt het bij jou vast?",
+  text = "Plan een kennismaking van een half uur. We kijken of je proces te automatiseren is en wat het oplevert. Past het, dan is een werksessie van een uur de volgende stap.",
+  id = "contact",
+} = Astro.props;
+---
+<section class="section" id={id} aria-labelledby={`${id}-kop`}>
+  <div class="wrap contact">
+    <div class="txt">
+      <span class="label">Contact</span>
+      <h2 id={`${id}-kop`}>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <Stage painting="zee" pad={false}>
+      <Button href={CAL} variant="stage" arrow>Plan een kennismaking</Button>
+    </Stage>
+    <span class="credit">Achtergrond: Willem Roelofs, Zeegezicht bij Heijst, Rijksmuseum</span>
+    <div class="contact-small">
+      <p>Nog aan het aftasten? Laat één regel achter, of <a href={WA}>stuur een appje</a>.</p>
+      <ContactForm />
+      <p class="contact-meta"><a href={`mailto:${MAIL}`}>{MAIL}</a><a href={PHONE_HREF}>{PHONE}</a></p>
+    </div>
+  </div>
+</section>

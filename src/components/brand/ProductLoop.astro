@@ -1,0 +1,106 @@
+---
+/**
+ * Productloop voor de hero (BRAND §6.2), 10 seconden:
+ * nieuwe melding verschijnt, systeem leest foto 1 en 2, meter vult tot 64% en stopt vóór de
+ * drempel van 85%, status wordt "Naar jou", knoppen verschijnen, paneel dimt, opnieuw.
+ * Start meteen. Bij prefers-reduced-motion staat de eindtoestand er.
+ * De HTML is de eindtoestand, zodat de pagina zonder JS ook klopt.
+ */
+import Icon from "./Icon.astro";
+import Stage from "./Stage.astro";
+---
+<div class="product-loop" data-loop>
+  <Stage painting="lucht" class="hero-stage">
+    <div class="app">
+      <div class="app-bar"><b><Icon name="melding" />Meldingen</b><span class="label">Regio Zuid · vandaag</span></div>
+      <div class="app-grid">
+        <div class="app-list">
+          <table class="t">
+            <thead><tr><th>Melding</th><th>Plaats</th><th>Soort</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr class="sel loop-row" data-l="row"><td class="id">#35216</td><td>Sittard</td><td data-l="soort">Onzeker</td><td><span class="status warn" data-l="status">Naar jou</span></td></tr>
+              <tr><td class="id">#35215</td><td>Heerlen</td><td>Geelpoothoornaar</td><td><span class="status ok">Ingepland</span></td></tr>
+              <tr><td class="id">#35214</td><td>Venlo</td><td>Geelpoothoornaar</td><td><span class="status ok">Toegewezen</span></td></tr>
+              <tr><td class="id">#35213</td><td>Roermond</td><td>Europese hoornaar</td><td><span class="status">Afgewezen</span></td></tr>
+              <tr><td class="id">#35212</td><td>Weert</td><td>Geelpoothoornaar</td><td><span class="status ok">Gefactureerd</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="app-detail loop-detail" data-l="detail">
+          <p class="title">Melding #35216 · Sittard</p>
+          <dl class="kv">
+            <dt>Binnen</dt><dd>zojuist via het meldpunt</dd>
+            <dt>Foto's</dt><dd>2 bijgevoegd</dd>
+            <dt>Herkenning</dt><dd class="loop-herk" data-l="herk">Geelpoothoornaar</dd>
+          </dl>
+          <div class="meter">
+            <div class="track"><div class="fill" data-l="fill" style="width:64%"></div><div class="tick" style="left:85%"></div></div>
+            <div class="legend"><span>Zekerheid <span data-l="pct">64</span>%</span><span>Drempel 85%</span></div>
+          </div>
+          <div class="row loop-fade" data-l="actions">
+            <span class="btn btn-primary btn-sm" aria-hidden="true">Bevestig soort</span>
+            <span class="btn btn-secondary btn-sm" aria-hidden="true">Vraag nieuwe foto</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </Stage>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-loop]").forEach((root) => {
+    const $ = (k: string) => root.querySelector<HTMLElement>(`[data-l="${k}"]`)!;
+    const row = $("row"), soort = $("soort"), status = $("status"), herk = $("herk");
+    const fill = $("fill"), pct = $("pct"), actions = $("actions");
+    const detail = $("detail");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    let timers: number[] = [];
+    let raf = 0;
+
+    const at = (ms: number, fn: () => void) => timers.push(window.setTimeout(fn, ms));
+    const stop = () => { timers.forEach(clearTimeout); timers = []; cancelAnimationFrame(raf); };
+    const setStatus = (cls: string, txt: string) => { status.className = "status" + (cls ? " " + cls : ""); status.textContent = txt; };
+    const setHerk = (txt: string, reading = false) => { herk.textContent = txt; herk.classList.toggle("reading", reading); };
+    const countTo = (target: number, dur: number) => {
+      const t0 = performance.now();
+      cancelAnimationFrame(raf);
+      const step = (now: number) => {
+        const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        pct.textContent = String(Math.round(target * e));
+        if (k < 1) raf = requestAnimationFrame(step);
+      };
+      step(t0);
+    };
+
+    function finalState() {
+      stop();
+      fill.classList.remove("anim"); fill.style.width = "64%"; pct.textContent = "64";
+      setHerk("Geelpoothoornaar"); soort.textContent = "Onzeker"; setStatus("warn", "Naar jou");
+      actions.classList.remove("hide");
+      row.classList.remove("off"); detail.classList.remove("dim");
+    }
+
+    function cycle() {
+      stop();
+      fill.classList.remove("anim"); fill.style.width = "0%"; pct.textContent = "0";
+      setHerk("wacht", true); soort.textContent = "…"; setStatus("", "Nieuw");
+      actions.classList.add("hide");
+      row.classList.add("off"); detail.classList.remove("dim");
+      void fill.offsetWidth;
+      at(300, () => row.classList.remove("off"));
+      at(900, () => { setStatus("busy", "Leest"); setHerk("foto 1 van 2", true); });
+      at(1700, () => { setHerk("foto 2 van 2", true); fill.classList.add("anim"); fill.style.width = "64%"; countTo(64, 2200); });
+      at(3900, () => { setHerk("Geelpoothoornaar"); soort.textContent = "Onzeker"; });
+      at(4300, () => setStatus("warn", "Naar jou"));
+      at(4700, () => actions.classList.remove("hide"));
+      at(9400, () => { detail.classList.add("dim"); row.classList.add("off"); });
+      at(10000, cycle);
+    }
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) finalState(); else if (!reduce) cycle();
+    });
+    if (reduce) finalState(); else cycle();
+  });
+</script>

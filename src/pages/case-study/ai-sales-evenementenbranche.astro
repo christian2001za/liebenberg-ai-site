@@ -1,0 +1,73 @@
+---
+import CaseLayout from "../../layouts/CaseLayout.astro";
+import { Image } from "astro:assets";
+import platform from "../../assets/cases/evenementen-platform.png";
+import Icon from "../../components/brand/Icon.astro";
+---
+<CaseLayout
+  seoTitle="Case: salessysteem voor de evenementenbranche | Liebenberg AI"
+  description="Voor een verhuurbedrijf in de evenementenbranche vindt het systeem de relevante evenementen en de organisatoren erachter, benadert ze op het juiste moment en handelt daarna offertes, boekingen en facturen af."
+  canonical="https://www.liebenberg.ai/case-study/ai-sales-evenementenbranche/"
+  gravure="evenementen"
+  label="Platform · Evenementenverhuur · In ontwikkeling, oplevering Q4 2026"
+  title="De juiste evenementen, op het juiste moment."
+  intro="Een verhuurbedrijf in de evenementenbranche zocht zijn klanten met de hand. Ik bouw één systeem dat de evenementen en de organisatoren erachter vindt, ze benadert als ze hun programma vastleggen, en daarna de offerte, de boeking en de factuur afhandelt."
+  painting="lucht"
+  mediaCaption="Illustratie van het platform. Namen en cijfers zijn verzonnen; de klant blijft voorlopig anoniem."
+  built={[
+    { icon: "lezen", title: "Een eigen zoeker", text: "Hij vindt het evenement en de organisator, het bureau of de locatie erachter, ontdubbeld tot één partij per organisator." },
+    { icon: "drempel", title: "Beoordelen en het moment bepalen", text: "Elke lead wordt gewogen op de regels van de eigenaar: wat voor feest, welke regio, welk seizoen. Bureaus en locaties met meerdere evenementen per jaar worden herkend, en elke lead krijgt een moment om te benaderen." },
+    { icon: "maken", title: "Benaderen en opvolgen", text: "Een dorpsfeest krijgt een andere mail dan een evenementenbureau. Het systeem stuurt de eerste mail en de opvolging vanaf het eigen domein, en stopt zodra er een reactie komt." },
+    { icon: "factuur", title: "Van reactie tot factuur", text: "Reacties komen bij de juiste lead terecht. Van daaruit gaan de offerte, de boeking in de agenda en de factuur via de koppeling met het boekhoudpakket." },
+  ]}
+  diagram={{
+    label: "Schema: het systeem vindt evenementen op het web en in vergunningen, beoordeelt ze op de regels van de eigenaar, benadert de organisator en volgt op. Bij een reactie beslist de eigenaar over gesprek, prijs en boeking. De factuur gaat via het boekhoudpakket.",
+    steps: [
+      { icon: "lezen", title: "Vinden", sub: "web, agenda's, vergunningen" },
+      { icon: "drempel", title: "Beoordelen", sub: "regels van de eigenaar" },
+      { icon: "maken", title: "Benaderen", sub: "mail per soort lead, opvolging" },
+      { icon: "mens", title: "Eigenaar beslist", sub: "gesprek, prijs, boeking", tone: "mens" },
+      { icon: "factuur", title: "Factuur", sub: "via het boekhoudpakket", tone: "ok" },
+    ],
+    note: "Het systeem wordt in fases gebouwd en per fase opgeleverd. Het geheel staat in het vierde kwartaal van 2026.",
+  }}
+  duty={{
+    system: [
+      "Het web, vergunningen en kaartgegevens doorzoeken",
+      "Leads beoordelen, ontdubbelen en aanvullen",
+      "Het moment bepalen om te benaderen",
+      "De eerste mail en de opvolging versturen",
+      "Reacties herkennen en aan de juiste lead koppelen",
+    ],
+    humanTitle: "De eigenaar",
+    human: [
+      "De regels bepalen: welke feesten, welke regio",
+      "Het gesprek voeren als iemand reageert",
+      "Prijs en offerte vaststellen",
+      "De boeking bevestigen",
+    ],
+  }}
+>
+  <Image slot="media" src={platform} alt="Illustratie van het platform: een lijst evenementen, een kaart met aantallen per gebied en de details van één evenement met de organisator erachter" widths={[800, 1400, 2272]} sizes="(max-width: 1168px) 100vw, 1040px" loading="eager" />
+
+  <Fragment slot="before">
+    <p>Het bedrijf verzorgt entertainment op dorpsfeesten, braderieën, festivals en bedrijfsfeesten. De vraag is er. Het probleem is vinden: elk dorp heeft zijn eigen feestweek, elke organisator zijn eigen site of helemaal geen. Wie erachter zit en hoe je die bereikt, staat zelden op één plek.</p>
+    <p>Daar komt de timing bij. Organisatoren leggen hun programma voor het volgende seizoen vroeg vast. Wie pas belt als de posters hangen, is te laat.</p>
+    <p>Het zoeken, beoordelen, mailen en opvolgen deed de eigenaar allemaal zelf, naast het werk dat hij eigenlijk wil doen. Mails, offertes, agenda en facturen stonden in losse programma's.</p>
+  </Fragment>
+
+  <section class="section case-between" slot="between" aria-labelledby="zoeken-kop">
+    <div class="wrap split">
+      <div class="section-head" style="margin-bottom:0">
+        <h2 class="t-h2" id="zoeken-kop">Zoeken waar niemand anders zoekt.</h2>
+        <p>Een gewone leadlijst kent bedrijven, geen dorpsfeesten. Daarom zoekt het systeem in drie soorten bronnen en voegt het alles samen tot één lijst.</p>
+      </div>
+      <ul class="items">
+        <li><Icon name="lezen" /><h3>Sites en agenda's</h3><p>Gerichte zoekvragen per gemeente en per dorp. Het systeem leest de gevonden pagina's, haalt er evenementen, data en organisatoren uit en volgt agenda's door naar de feesten zelf.</p></li>
+        <li><Icon name="planning" /><h3>Feesten voordat ze bekend zijn</h3><p>Gemeenten publiceren aangevraagde evenementenvergunningen, elk op hun eigen manier. Het systeem trekt die publicaties gelijk en vindt zo feesten met datum, vaak maanden vooruit.</p></li>
+        <li><Icon name="koppeling" /><h3>Locaties en tussenpartijen</h3><p>Zalen, partycentra, cafés, campings en evenementenbureaus uit openbare kaart- en bedrijfsgegevens. Eén goed contact daar levert vaak meerdere boekingen per jaar op.</p></li>
+        <li><Icon name="controle" /><h3>Bronbewijs onder elk veld</h3><p>Elk gegeven krijgt de pagina mee waar het vandaan komt. Wat niet op de bron staat, komt niet in de lijst. Zo is elke lead na te lopen.</p></li>
+      </ul>
+    </div>
+  </section>
+</CaseLayout>

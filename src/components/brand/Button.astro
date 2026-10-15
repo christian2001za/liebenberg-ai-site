@@ -1,0 +1,22 @@
+---
+/**
+ * Knop (BRAND §5). variant: primary (ink), secondary (rand), link (onderlijn), stage (ink op een schilderij).
+ * arrow: pijl in mono erachter.
+ */
+interface Props {
+  href?: string;
+  variant?: "primary" | "secondary" | "link" | "stage";
+  size?: "md" | "sm";
+  arrow?: boolean;
+  type?: "button" | "submit";
+  class?: string;
+  [key: string]: unknown;
+}
+const { href, variant = "primary", size = "md", arrow = false, type = "button", class: cls = "", ...rest } = Astro.props;
+const classes = ["btn", `btn-${variant}`, size === "sm" && "btn-sm", cls].filter(Boolean).join(" ");
+---
+{href ? (
+  <a class={classes} href={href} {...rest}><slot />{arrow && <span class="arr" aria-hidden="true">→</span>}</a>
+) : (
+  <button class={classes} type={type} {...rest}><slot />{arrow && <span class="arr" aria-hidden="true">→</span>}</button>
+)}
