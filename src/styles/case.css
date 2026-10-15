@@ -17,3 +17,20 @@
 .case-page .split-duty .head .ico { color: var(--fg); }
 .case-stilleven { padding-bottom: clamp(56px, 8vw, 96px); }
 .case-stilleven img { width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--r-2); }
+
+/* In het nieuws: lijst met haarlijnen, mono-bron en titel */
+.news { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.news li { border-bottom: 1px solid var(--line); }
+.news a, .news .row-static {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 24px; padding: 16px 12px; margin-inline: -12px;
+  border-radius: var(--r-1); text-decoration: none; transition: background-color var(--dur-1) var(--ease);
+}
+.news a:hover { background-color: var(--surface); }
+.news .label, .news .t { grid-column: 1; }
+.news .t { font-size: 16px; line-height: 1.45; }
+.news .arr { grid-column: 2; grid-row: 1 / span 2; align-self: center; font-family: var(--font-mono); color: var(--muted); transition: color var(--dur-1) var(--ease), transform var(--dur-2) var(--ease); }
+.news a:hover .arr { color: var(--fg); transform: translate(2px, -2px); }
+
+/* Extra blok vóór Wat ik bouwde (bijvoorbeeld: Zoeken waar niemand anders zoekt) */
+.case-between .items { border-top: 1px solid var(--line); }
+.case-between .section-head { align-content: start; }

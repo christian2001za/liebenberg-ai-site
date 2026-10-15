@@ -4,7 +4,8 @@
  * Vaste volgorde: kop, productbeeld, cijfers, hoe het was, wat ik bouwde, hoe het werkt,
  * systeem en mens, citaat, contact. Secties zonder inhoud vallen weg.
  *
- * Slots: "media" (productbeeld), "before" (alinea's Hoe het was), "quote" (citaat).
+ * Slots: "media" (productbeeld), "before" (alinea's Hoe het was), "between" (extra blok vóór
+ * Wat ik bouwde), "quote" (citaat). Prop "news": korte lijst "In het nieuws" na het citaat.
  */
 import BrandLayout from "./BrandLayout.astro";
 import Button from "../components/brand/Button.astro";
@@ -41,11 +42,13 @@ interface Props {
   diagram?: { label: string; steps: DiagramNode[]; branch?: { cond: string; yes: DiagramNode; no: DiagramNode }; note?: string };
   duty: { system: string[]; human: string[]; humanTitle?: string; text?: string };
   links?: { href: string; label: string }[];
+  /** In het nieuws: datum, bron, titel en optioneel een link naar buiten. */
+  news?: { date: string; source: string; title: string; href?: string }[];
 }
 
 const {
   seoTitle, description, canonical, image, gravure, label, title, intro, painting = "warm", mediaCaption,
-  stats, statsNote, built, diagram, duty, links = [],
+  stats, statsNote, built, diagram, duty, links = [], news = [],
 } = Astro.props;
 
 const hasGravure = !!findGravure(gravure, "kop");
@@ -110,6 +113,8 @@ const articleSchema = {
       </div>
     )}
 
+    {Astro.slots.has("between") && <slot name="between" />}
+
     <!-- 5. Wat ik bouwde -->
     <section class="section" aria-labelledby="bouwde-kop">
       <div class="wrap split">
@@ -154,6 +159,27 @@ const articleSchema = {
     {Astro.slots.has("quote") && (
       <section class="section">
         <div class="wrap"><slot name="quote" /></div>
+      </section>
+    )}
+
+    <!-- 8b. In het nieuws -->
+    {news.length > 0 && (
+      <section class="section" aria-labelledby="nieuws-kop">
+        <div class="wrap split">
+          <div><h2 class="t-h2" id="nieuws-kop">In het nieuws.</h2></div>
+          <ul class="news">
+            {news.map((n) => {
+              const body = (
+                <Fragment>
+                  <span class="label">{n.date} · {n.source}</span>
+                  <span class="t">{n.title}</span>
+                  {n.href && <span class="arr" aria-hidden="true">↗</span>}
+                </Fragment>
+              );
+              return <li>{n.href ? <a href={n.href} rel="noopener" target="_blank">{body}</a> : <div class="row-static">{body}</div>}</li>;
+            })}
+          </ul>
+        </div>
       </section>
     )}
 
