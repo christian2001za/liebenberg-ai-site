@@ -12,7 +12,6 @@ import ContactBlock from "../components/brand/ContactBlock.astro";
 import "../styles/home.css";
 import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
-import kantoor from "../assets/huisstijl/fotos/kantoor-hoek.jpg";
 import stilAlgemeen from "../assets/huisstijl/stillevens/algemeen-stilleven.jpg";
 import stilWerkwijze from "../assets/huisstijl/stillevens/werkwijze-stilleven.jpg";
 import { CAL, LINKEDIN } from "../lib/site";
@@ -204,12 +203,6 @@ const steps = [
           </dl>
           <div><Button href={LINKEDIN} variant="link" arrow>Connect op LinkedIn</Button></div>
         </div>
-      </div>
-      <div class="wrap">
-        <figure class="kantoor">
-          <Image src={kantoor} alt="Hoek van het kantoor: twee fauteuils naar elkaar toe, een plant en het logo van Liebenberg AI op de muur" widths={[400, 720, 1080]} sizes="(max-width: 760px) 100vw, 360px" loading="lazy" />
-          <figcaption class="label">Kantoor in Amsterdam</figcaption>
-        </figure>
       </div>
     </section>
 

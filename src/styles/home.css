@@ -28,10 +28,6 @@
 .about .txt { display: grid; gap: 18px; justify-items: start; }
 .about h2 { font-size: clamp(28px, 3.4vw, 40px); line-height: 1.08; letter-spacing: -.028em; }
 .about p { color: var(--fg-2); max-width: 56ch; }
-/* Kantoorfoto klein onder Over: 4 van de 12 kolommen */
-.kantoor { margin: clamp(40px, 5vw, 64px) 0 0; width: calc((100% - 11 * var(--gutter)) / 12 * 4 + 3 * var(--gutter)); display: grid; gap: 10px; }
-.kantoor img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-2); }
-@media (max-width: 760px) { .kantoor { width: 100%; } }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; border-top: 1px solid var(--line); margin: 0; width: 100%; }
 .facts div { padding-top: 14px; display: grid; gap: 4px; align-content: start; }
 .facts dd { margin: 0; font-weight: 500; font-size: 15px; line-height: 1.4; }
