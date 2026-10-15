@@ -1,6 +1,7 @@
 ---
 /** Productframe: wit, rand, radius 10, schaduw. Met optionele titelbalk. */
-import Icon, { type IconName } from "./Icon.astro";
+import Icon from "./Icon.astro";
+import type { IconName } from "./icons";
 interface Props { title?: string; icon?: IconName; meta?: string; class?: string }
 const { title, icon, meta, class: cls = "" } = Astro.props;
 ---
