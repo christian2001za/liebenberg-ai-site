@@ -15,7 +15,11 @@ interface Props {
 }
 const { label, steps, branch, note } = Astro.props;
 
-const W = 184, H = 56, GAP = 44, X0 = 8;
+// Breedte volgt de langste regel: mono 11px ≈ 6.7px per teken, sans 13px ≈ 7.2px.
+const fit = (n: Node) => Math.max(n.sub.length * 6.7, n.title.length * 7.2) + 60;
+const W = Math.max(176, ...steps.map(fit));
+const BW = branch ? Math.max(220, fit(branch.yes), fit(branch.no)) : 0;
+const H = 56, GAP = 44, X0 = 8;
 const hasBranch = !!branch;
 const height = hasBranch ? 240 : 120;
 const cy = height / 2;
@@ -23,12 +27,12 @@ const nodes = steps.map((s, i) => ({ ...s, x: X0 + i * (W + GAP), y: cy - H / 2 
 const lastX = nodes.length ? nodes[nodes.length - 1].x + W : X0;
 const dx = lastX + GAP + 48; // middelpunt ruit
 const outX = dx + 48 + 80;
-const width = hasBranch ? outX + 240 + 8 : lastX + 8;
+const width = hasBranch ? outX + BW + 8 : lastX + 8;
 const cls = (t?: string) => (t === "mens" ? "node warn" : t === "ok" ? "node ok" : "node");
 const uid = `ah-${Math.random().toString(36).slice(2, 8)}`;
 ---
 <figure class="figure" style="margin:0">
-  <svg class="diagram" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label} style={`min-width:${Math.min(width, 1100) * 0.72}px`}>
+  <svg class="diagram" viewBox={`0 0 ${width} ${height}`} role="img" aria-label={label} style={`min-width:${Math.round(Math.min(width, 1400) * 0.7)}px`}>
     <defs><marker id={uid} viewBox="0 0 8 8" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path class="arrow" d="M0 0 8 4 0 8z" /></marker></defs>
     {nodes.map((n, i) => (
       <g>
@@ -51,7 +55,7 @@ const uid = `ah-${Math.random().toString(36).slice(2, 8)}`;
         <text class="m warn-t" x={dx + 62} y={cy + 76}>nee</text>
         {[{ n: branch.yes, y: cy - 68 - H / 2 }, { n: branch.no, y: cy + 68 - H / 2 }].map(({ n, y }) => (
           <g>
-            <rect class={cls(n.tone)} x={outX} y={y} width="240" height={H} rx="8" />
+            <rect class={cls(n.tone)} x={outX} y={y} width={BW} height={H} rx="8" />
             <use href={`#i-${n.icon}`} class="ic" x={outX + 14} y={y + 18} width="20" height="20" />
             <text x={outX + 44} y={y + 24}>{n.title}</text>
             <text class="m" x={outX + 44} y={y + 42}>{n.sub}</text>

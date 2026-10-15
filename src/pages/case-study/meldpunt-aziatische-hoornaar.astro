@@ -1,0 +1,80 @@
+---
+import CaseLayout from "../../layouts/CaseLayout.astro";
+import Quote from "../../components/brand/Quote.astro";
+---
+<CaseLayout
+  seoTitle="Case: Meldpunt Aziatische Hoornaar | Liebenberg AI"
+  description="Rob Voesten bestrijdt de geelpoothoornaar voor gemeenten. Zijn werk liep via Word, Excel en losse mailtjes. Nu loopt alles door één platform, van melding tot uitvoerder tot factuur."
+  canonical="https://www.liebenberg.ai/case-study/meldpunt-aziatische-hoornaar/"
+  label="Platform · Bestrijding · Live"
+  title="Het platform waar zijn bedrijf op draait."
+  intro="Rob Voesten bestrijdt de geelpoothoornaar in opdracht van gemeenten en provincies. Zijn werk loopt nu door één platform, van melding tot uitvoerder tot factuur, met een landelijk meldpunt ervoor."
+  painting="warm"
+  links={[{ href: "https://www.meldpuntaziatischehoornaar.nl", label: "Bekijk het platform live" }]}
+  mediaCaption="Video zonder geluid: hoe het werk van Word en Excel naar één platform ging."
+  stats={[
+    { v: "3.500+", k: "Geregistreerde accounts" },
+    { v: "35.000+", k: "Meldingen" },
+    { v: "#1", k: "Organisch op de kernzoekterm" },
+    { v: "AI Overview", k: "Aangeraden in Google's AI Overview" },
+  ]}
+  statsNote="Stand oktober 2026."
+  built={[
+    { icon: "melding", title: "Een meldpunt zonder drempel", text: "Een burger of imker meldt een nest, een hoornaar of een val met vangst binnen een minuut, met foto en locatie. Een account is niet nodig." },
+    { icon: "planning", title: "Van melding naar route", text: "Bestrijders beoordelen meldingen, plannen hun route en registreren welke nesten verwijderd zijn. Losse spreadsheets en WhatsApp-groepen zijn niet meer nodig." },
+    { icon: "lezen", title: "Overzicht per gemeente en provincie", text: "Gemeenten en provincies zien de meldingen in hun regio, met cijfers over tijd en een export. Sinds 2024 ligt het beheer bij de provincies." },
+    { icon: "factuur", title: "Van verwijderd nest tot factuur", text: "Wat gedaan is, wordt geteld en gefactureerd vanuit dezelfde gegevens. Aan het eind van de maand hoeft niemand meer lijsten bij elkaar te zoeken." },
+    { icon: "controle", title: "Gebouwd voor het najaar", text: "Toegang per rol, de database in de EU en een kaart die de piek aankan als de nesten in het najaar zichtbaar worden." },
+  ]}
+  diagram={{
+    label: "Schema: een melding komt binnen met foto en locatie, het systeem bepaalt type, plek, regio en bestrijder, de bestrijder beoordeelt de foto. Is het een hoornaar, dan gaat de melding op de route en wordt het nest verwijderd, geteld en gefactureerd. Zo niet, dan wordt de melding afgewezen.",
+    steps: [
+      { icon: "melding", title: "Melding binnen", sub: "foto en locatie, geen account" },
+      { icon: "lezen", title: "Systeem plaatst", sub: "type, kaart, regio, bestrijder" },
+      { icon: "mens", title: "Bestrijder beoordeelt", sub: "de foto", tone: "mens" },
+    ],
+    branch: {
+      cond: "hoornaar?",
+      yes: { icon: "planning", title: "Op de route", sub: "verwijderd, geteld, gefactureerd", tone: "ok" },
+      no: { icon: "controle", title: "Afgewezen", sub: "geen rit, geen factuur" },
+    },
+  }}
+  duty={{
+    text: "Eén stap laat het systeem bewust aan een mens. Een verkeerd bevestigd nest kost een rit en een factuur.",
+    system: [
+      "De melding aannemen, ook zonder account",
+      "Het type vastleggen: nest, hoornaar of val",
+      "De melding op de kaart zetten",
+      "Bepalen in welke regio hij valt en bij welke bestrijder hij hoort",
+      "Tellen en rapporteren wat er verwijderd is",
+    ],
+    humanTitle: "De bestrijder",
+    human: [
+      "Op de foto beoordelen of het echt een hoornaar is",
+      "De route rijden en het nest verwijderen",
+      "Het resultaat vastleggen",
+    ],
+  }}
+>
+  <div class="app-media" slot="media">
+    <video
+      src="/video/hoornaar-case.mp4"
+      poster="/video/hoornaar-case-poster.jpg"
+      muted
+      playsinline
+      preload="none"
+      controls
+      width="1280"
+      height="720"
+      aria-label="Video: hoe het Meldpunt Aziatische Hoornaar van Word en Excel naar één platform ging"
+    ></video>
+  </div>
+
+  <Fragment slot="before">
+    <p>Rob Voesten bestrijdt nesten van de geelpoothoornaar, in opdracht van gemeenten en provincies en op melding van burgers en imkers. De meldingen kwamen binnen zoals ze kwamen: op papier, in Word, in Excel, per gemeente in een ander format.</p>
+    <p>Iemand moest elke melding lezen, beoordelen of het echt om een hoornaar ging, uitzoeken in welke regio hij viel en wie erop af kon. Daarna bijhouden wat er gedaan was, en aan het eind van de maand factureren uit lijsten die nooit compleet waren.</p>
+    <p>Rob was zijn tools ontgroeid. Een pakket dat dit deed bestond niet, en elk najaar, als de nesten zichtbaar worden, komt de piek. Zonder dat platform zou hij de vraag niet aankunnen.</p>
+  </Fragment>
+
+  <Quote slot="quote" name="Rob Voesten" role="Oprichter, NatuurlijkRob">"Hele fijne samenwerking. Er wordt goed geluisterd, verzoeken worden snel opgepakt en het platform groeit met ons mee."</Quote>
+</CaseLayout>

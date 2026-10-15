@@ -1,0 +1,10 @@
+/* Case studies. Componenten staan in components.css. */
+.case-head { padding-block: clamp(40px, 6vw, 72px) clamp(32px, 4vw, 48px); }
+.case-head .wrap { display: grid; gap: 20px; justify-items: start; }
+.case-head h1 { max-width: 22ch; }
+.case-head .back { text-decoration: none; margin-bottom: 8px; transition: color var(--dur-1) var(--ease); }
+.case-head .back:hover { color: var(--fg); }
+.case-media { padding-bottom: clamp(56px, 8vw, 96px); }
+.case-media .app img, .case-media .app video { width: 100%; height: auto; display: block; }
+.case-stats { margin-top: clamp(32px, 4vw, 48px); }
+.case-page .split-duty .head .ico { color: var(--fg); }

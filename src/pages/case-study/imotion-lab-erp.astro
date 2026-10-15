@@ -1,0 +1,53 @@
+---
+import CaseLayout from "../../layouts/CaseLayout.astro";
+import { Image } from "astro:assets";
+import login from "../../assets/cases/eye-motion-lab-inlog.png";
+---
+<CaseLayout
+  seoTitle="Case: Eye Motion Lab, ERP en praktijkportaal | Liebenberg AI"
+  description="Een eigen ERP en praktijkportaal voor Eye Motion Lab. Bestellingen, patiëntdossiers, bezorging, facturatie en boekhouding lopen in één flow, van inlog tot geplaatste order."
+  canonical="https://www.liebenberg.ai/case-study/imotion-lab-erp/"
+  label="Platform · Oogzorg · Live"
+  title="Het ERP waar een oogzorgbedrijf op draait."
+  intro="Een eigen ERP en praktijkportaal voor Eye Motion Lab. Bestellingen, patiëntdossiers, bezorging, facturatie en boekhouding lopen in één flow, van inlog tot geplaatste order."
+  painting="warm"
+  mediaCaption="Het praktijkportaal van Eye Motion Lab. Praktijken komen alleen binnen op uitnodiging."
+  built={[
+    { icon: "maken", title: "Bestellen per bril", text: "Een praktijk zet per bril een regel, met de koppeling naar de patiënt, het glas, de variant en het montuur. Sets voor de praktijk zelf gaan in hetzelfde formulier." },
+    { icon: "planning", title: "Eén regel per bril", text: "Elke bril krijgt een eigen ordernummer en een eigen status, zodat bestellingen naast elkaar verwerkt kunnen worden." },
+    { icon: "mens", title: "Een portaal op uitnodiging", text: "Praktijken komen alleen binnen op uitnodiging en zien hun eigen bestellingen en patiënten." },
+    { icon: "lezen", title: "Een beheeromgeving", text: "Eye Motion Lab ziet bestellingen, praktijken, documenten en de catalogus op één plek." },
+    { icon: "factuur", title: "Bezorging en facturatie", text: "Na de bestelling lopen bezorging, facturatie en boekhouding door dezelfde flow." },
+  ]}
+  diagram={{
+    label: "Schema: een praktijk logt in op uitnodiging, voert een bestelling in per bril, controleert en plaatst hem. Het systeem geeft elke bril een eigen ordernummer en status, daarna volgen bezorging en factuur.",
+    steps: [
+      { icon: "mens", title: "Praktijk logt in", sub: "op uitnodiging" },
+      { icon: "maken", title: "Bestelling", sub: "een regel per bril" },
+      { icon: "controle", title: "Praktijk plaatst", sub: "na controle", tone: "mens" },
+      { icon: "planning", title: "Ordernummer per bril", sub: "met een eigen status" },
+      { icon: "factuur", title: "Bezorging en factuur", sub: "in dezelfde flow", tone: "ok" },
+    ],
+  }}
+  duty={{
+    system: [
+      "Een bestelling opdelen in één regel per bril",
+      "Elke bril een eigen ordernummer en status geven",
+      "Subtotaal, korting en btw uitrekenen",
+      "Bezorging en facturatie in dezelfde flow zetten",
+    ],
+    humanTitle: "De praktijk en Eye Motion Lab",
+    human: [
+      "De bestelling controleren en plaatsen",
+      "De bestellingen in behandeling nemen",
+      "Bepalen welke praktijk toegang krijgt",
+    ],
+  }}
+>
+  <Image slot="media" src={login} alt="Het inlogscherm van het praktijkportaal van Eye Motion Lab" widths={[800, 1400, 2738]} sizes="(max-width: 1168px) 100vw, 1040px" loading="eager" />
+
+  <Fragment slot="before">
+    <p>Eye Motion Lab levert brillen aan oogzorgpraktijken. Elke bestelling is per patiënt anders: het glas, de variant, het montuur. Daarnaast bestellen praktijken sets voor zichzelf, zonder patiënt erbij.</p>
+    <p>Er bestond geen pakket dat bij dat proces paste. Daarom kwam er een eigen systeem, met een portaal voor de praktijken en een beheeromgeving voor Eye Motion Lab zelf.</p>
+  </Fragment>
+</CaseLayout>

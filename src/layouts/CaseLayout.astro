@@ -1,0 +1,142 @@
+---
+/**
+ * CaseLayout — één opbouw voor alle case studies (docs/huisstijl-2026/case-template.md).
+ * Vaste volgorde: kop, productbeeld, cijfers, hoe het was, wat ik bouwde, hoe het werkt,
+ * systeem en mens, citaat, contact. Secties zonder inhoud vallen weg.
+ *
+ * Slots: "media" (productbeeld), "before" (alinea's Hoe het was), "quote" (citaat).
+ */
+import BrandLayout from "./BrandLayout.astro";
+import Button from "../components/brand/Button.astro";
+import Icon from "../components/brand/Icon.astro";
+import Stage from "../components/brand/Stage.astro";
+import StatStrip from "../components/brand/StatStrip.astro";
+import ProcessDiagram from "../components/brand/ProcessDiagram.astro";
+import ContactBlock from "../components/brand/ContactBlock.astro";
+import type { IconName } from "../components/brand/icons";
+import { CAL } from "../lib/site";
+import "../styles/case.css";
+
+type DiagramNode = { icon: IconName; title: string; sub: string; tone?: "mens" | "ok" };
+
+interface Props {
+  seoTitle: string;
+  description: string;
+  canonical: string;
+  image?: string;
+  label: string;
+  title: string;
+  intro: string;
+  painting?: "lucht" | "warm";
+  mediaCaption?: string;
+  stats?: { v: string; k: string }[];
+  statsNote?: string;
+  built: { icon: IconName; title: string; text: string }[];
+  diagram?: { label: string; steps: DiagramNode[]; branch?: { cond: string; yes: DiagramNode; no: DiagramNode }; note?: string };
+  duty: { system: string[]; human: string[]; humanTitle?: string; text?: string };
+  links?: { href: string; label: string }[];
+}
+
+const {
+  seoTitle, description, canonical, image, label, title, intro, painting = "warm", mediaCaption,
+  stats, statsNote, built, diagram, duty, links = [],
+} = Astro.props;
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: title,
+  description,
+  inLanguage: "nl-NL",
+  author: { "@type": "Person", name: "Christian Liebenberg" },
+  publisher: { "@type": "Organization", name: "Liebenberg AI" },
+  mainEntityOfPage: canonical,
+};
+---
+<BrandLayout title={seoTitle} description={description} canonical={canonical} image={image} type="article" schema={[articleSchema]}>
+  <main class="case-page">
+    <!-- 1. Kop -->
+    <section class="case-head">
+      <div class="wrap">
+        <a class="back label" href="/#werk">← Werk</a>
+        <span class="label">{label}</span>
+        <h1 class="t-h1">{title}</h1>
+        <p class="t-lead">{intro}</p>
+        <div class="row" style="gap:24px">
+          <Button href={CAL} arrow>Plan een kennismaking</Button>
+          {links.map((l) => <Button href={l.href} variant="link" arrow>{l.label}</Button>)}
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Productbeeld -->
+    <section class="case-media">
+      <div class="wrap">
+        <Stage painting={painting}>
+          <div class="app"><slot name="media" /></div>
+        </Stage>
+        {mediaCaption && <p class="figure-note">{mediaCaption}</p>}
+        <!-- 3. Cijfers -->
+        {stats && stats.length > 0 && <StatStrip class="case-stats" items={stats} note={statsNote} />}
+      </div>
+    </section>
+
+    <!-- 4. Hoe het was -->
+    <section class="section" aria-labelledby="was-kop">
+      <div class="wrap split">
+        <div><h2 class="t-h2" id="was-kop">Hoe het was.</h2></div>
+        <div class="prose-block"><slot name="before" /></div>
+      </div>
+    </section>
+
+    <!-- 5. Wat ik bouwde -->
+    <section class="section" aria-labelledby="bouwde-kop">
+      <div class="wrap split">
+        <div><h2 class="t-h2" id="bouwde-kop">Wat ik bouwde.</h2></div>
+        <ul class="items">
+          {built.map((b) => <li><Icon name={b.icon} /><h3>{b.title}</h3><p>{b.text}</p></li>)}
+        </ul>
+      </div>
+    </section>
+
+    <!-- 6. Hoe het werkt -->
+    {diagram && (
+      <section class="section" aria-labelledby="werkt-kop">
+        <div class="wrap">
+          <div class="section-head"><h2 id="werkt-kop">Hoe het werkt.</h2></div>
+          <ProcessDiagram label={diagram.label} steps={diagram.steps} branch={diagram.branch} note={diagram.note} />
+        </div>
+      </section>
+    )}
+
+    <!-- 7. Wat het systeem zelf doet en wat het aan jou laat -->
+    <section class="section" aria-labelledby="duty-kop">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="duty-kop">Wat het systeem zelf doet en wat het aan jou laat.</h2>
+          {duty.text && <p>{duty.text}</p>}
+        </div>
+        <div class="split-duty">
+          <div>
+            <span class="head"><Icon name="controle" />Het systeem</span>
+            <ul>{duty.system.map((s) => <li>{s}</li>)}</ul>
+          </div>
+          <div>
+            <span class="head"><Icon name="mens" />{duty.humanTitle ?? "De mens"}</span>
+            <ul>{duty.human.map((s) => <li>{s}</li>)}</ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Citaat -->
+    {Astro.slots.has("quote") && (
+      <section class="section">
+        <div class="wrap"><slot name="quote" /></div>
+      </section>
+    )}
+
+    <!-- 9. Contact -->
+    <ContactBlock />
+  </main>
+</BrandLayout>
