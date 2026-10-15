@@ -34,8 +34,8 @@ const canonical = `https://www.liebenberg.ai/blog/${post.slug}/`;
       <p class="meta">
         {post.data.pubDate.toLocaleDateString("nl-NL", { year: "numeric", month: "long", day: "numeric" })}
       </p>
-      <h1 style="font-size:clamp(34px,4.6vw,54px);margin-top:14px;">{post.data.title}</h1>
-      <p class="lead" style="margin-top:18px;">{post.data.description}</p>
+      <h1 style="margin-top:12px;">{post.data.title}</h1>
+      <p class="lead" style="margin-top:16px;">{post.data.description}</p>
       {post.data.heroImage && (
         <img src={post.data.heroImage} alt={post.data.title} class="article-hero" />
       )}
