@@ -1,4 +1,5 @@
 ---
+import AutoVideo from "../components/brand/AutoVideo.astro";
 import BrandLayout from "../layouts/BrandLayout.astro";
 import Button from "../components/brand/Button.astro";
 import Icon from "../components/brand/Icon.astro";
@@ -76,10 +77,9 @@ const faqSchema = {
 };
 
 const proof = [
-  { v: "3.500+", k: "Geregistreerde accounts" },
-  { v: "35.000+", k: "Verwerkte meldingen" },
-  { v: "#1", k: "Organisch op de kernzoekterm" },
-  { v: "EU", k: "Hosting, op jouw naam" },
+  { v: "3.500+", k: "Accounts op software van Liebenberg AI" },
+  { v: "EU", k: "Europees gehost", sub: "GDPR/AVG compliant" },
+  { v: "MSc", k: "Econometrie" },
 ];
 
 const hoornaarStats = [
@@ -128,7 +128,7 @@ const steps = [
         <ProductLoop />
 
         <!-- 2. Bewijs -->
-        <StatStrip class="hero-stats" items={proof} note="Op het Hoornaar-platform, stand oktober 2026." />
+        <StatStrip class="hero-stats" items={proof} />
       </div>
     </section>
 
@@ -164,17 +164,13 @@ const steps = [
         </div>
         <Stage painting="warm">
           <div class="app">
-            <video
+            <AutoVideo
               src="/video/hoornaar-case.mp4"
               poster="/video/hoornaar-case-poster.jpg"
-              muted
-              playsinline
-              preload="none"
-              controls
-              width="1280"
-              height="720"
-              aria-label="Video: hoe het Meldpunt Aziatische Hoornaar van Word en Excel naar één platform ging"
-            ></video>
+              width={1280}
+              height={720}
+              label="Video: hoe het Meldpunt Aziatische Hoornaar van Word en Excel naar één platform ging"
+            />
           </div>
         </Stage>
         <StatStrip items={hoornaarStats} />
@@ -182,6 +178,25 @@ const steps = [
         <div class="row" style="gap:24px">
           <Button href={HOORNAAR_CASE} arrow>Lees de case study</Button>
           <Button href={HOORNAAR_LIVE} variant="link" arrow>Bekijk het platform live</Button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Over -->
+    <section class="section" id="over" aria-labelledby="over-kop">
+      <div class="wrap about">
+        <Image src={portrait} alt="Portret van Christian Liebenberg" widths={[400, 720]} sizes="(max-width: 900px) 360px, 420px" loading="lazy" />
+        <div class="txt">
+          <span class="label">Over</span>
+          <h2 id="over-kop">Eén aanspreekpunt dat bouwt, host en blijft.</h2>
+          <p>Bij alles wat ik bouw komt dezelfde vraag terug: mag je de uitkomst geloven? Die vraag neem ik mee uit mijn werk als risk consultant, waar ik modellen voor banken toetste. Daar leer je dat iets dat er overtuigend uitziet nog niet hoeft te kloppen. Dus laat ik zien waarop het systeem een beslissing baseert, en gaat alles waar het onzeker over is naar een mens.</p>
+          <p>Ik bouw het zelf en blijf verantwoordelijk als het live staat. Het lastige moment komt namelijk nooit op de dag van oplevering. Dat komt in maand acht, als een leverancier zijn format verandert of iemand iets doet wat niemand had voorzien.</p>
+          <dl class="facts">
+            <div><dt class="label">Opleiding</dt><dd>MSc Econometrie</dd></div>
+            <div><dt class="label">Eerder</dt><dd>Risk consultant bij Zanders, voor onder meer ING en bunq</dd></div>
+            <div><dt class="label">Kantoor</dt><dd>Amsterdam</dd></div>
+          </dl>
+          <div><Button href={LINKEDIN} variant="link" arrow>Connect op LinkedIn</Button></div>
         </div>
       </div>
     </section>
@@ -224,25 +239,6 @@ const steps = [
         <div class="not-stuck">
           <h3 class="t-h3">Je zit niet aan mij vast.</h3>
           <p>Je data blijft van jou en de software draait op jouw naam. Wil je ooit verder met een ander, dan kan dat.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 8. Over -->
-    <section class="section" id="over" aria-labelledby="over-kop">
-      <div class="wrap about">
-        <Image src={portrait} alt="Portret van Christian Liebenberg" widths={[400, 720]} sizes="(max-width: 900px) 360px, 420px" loading="lazy" />
-        <div class="txt">
-          <span class="label">Over</span>
-          <h2 id="over-kop">Eén aanspreekpunt dat bouwt, host en blijft.</h2>
-          <p>Bij alles wat ik bouw komt dezelfde vraag terug: mag je de uitkomst geloven? Die vraag neem ik mee uit mijn werk als risk consultant, waar ik modellen voor banken toetste. Daar leer je dat iets dat er overtuigend uitziet nog niet hoeft te kloppen. Dus laat ik zien waarop het systeem een beslissing baseert, en gaat alles waar het onzeker over is naar een mens.</p>
-          <p>Ik bouw het zelf en blijf verantwoordelijk als het live staat. Het lastige moment komt namelijk nooit op de dag van oplevering. Dat komt in maand acht, als een leverancier zijn format verandert of iemand iets doet wat niemand had voorzien.</p>
-          <dl class="facts">
-            <div><dt class="label">Opleiding</dt><dd>MSc Econometrie</dd></div>
-            <div><dt class="label">Eerder</dt><dd>Risk consultant bij Zanders, voor onder meer ING en bunq</dd></div>
-            <div><dt class="label">Kantoor</dt><dd>Amsterdam</dd></div>
-          </dl>
-          <div><Button href={LINKEDIN} variant="link" arrow>Connect op LinkedIn</Button></div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 ---
+import AutoVideo from "../../components/brand/AutoVideo.astro";
 import CaseLayout from "../../layouts/CaseLayout.astro";
 import Quote from "../../components/brand/Quote.astro";
 ---
@@ -11,7 +12,7 @@ import Quote from "../../components/brand/Quote.astro";
   intro="Rob Voesten bestrijdt de geelpoothoornaar in opdracht van gemeenten en provincies. Zijn werk loopt nu door één platform, van melding tot uitvoerder tot factuur, met een landelijk meldpunt ervoor."
   painting="warm"
   links={[{ href: "https://www.meldpuntaziatischehoornaar.nl", label: "Bekijk het platform live" }]}
-  mediaCaption="Video zonder geluid: hoe het werk van Word en Excel naar één platform ging."
+  mediaCaption="Hoe het werk van Word en Excel naar één platform ging."
   stats={[
     { v: "3.500+", k: "Geregistreerde accounts" },
     { v: "35.000+", k: "Meldingen" },
@@ -57,17 +58,13 @@ import Quote from "../../components/brand/Quote.astro";
   }}
 >
   <div class="app-media" slot="media">
-    <video
-      src="/video/hoornaar-case.mp4"
-      poster="/video/hoornaar-case-poster.jpg"
-      muted
-      playsinline
-      preload="none"
-      controls
-      width="1280"
-      height="720"
-      aria-label="Video: hoe het Meldpunt Aziatische Hoornaar van Word en Excel naar één platform ging"
-    ></video>
+    <AutoVideo
+              src="/video/hoornaar-case.mp4"
+              poster="/video/hoornaar-case-poster.jpg"
+              width={1280}
+              height={720}
+              label="Video: hoe het Meldpunt Aziatische Hoornaar van Word en Excel naar één platform ging"
+            />
   </div>
 
   <Fragment slot="before">
