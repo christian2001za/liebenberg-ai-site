@@ -2,6 +2,8 @@
 /**
  * Navigatie (BRAND §5): logo links, Werk · Werkwijze · Over · Vragen, primaire knop rechts.
  * Op de homepage zijn de links ankers; op subpagina's wijzen ze naar de homepage.
+ * De balk plakt bovenaan: naar beneden scrollen schuift hem weg, omhoog scrollen haalt hem
+ * meteen terug, waar je ook op de pagina bent.
  */
 import Logo from "../brand/Logo.astro";
 import Button from "../brand/Button.astro";
@@ -16,7 +18,7 @@ const links = [
   { id: "vragen", label: "Vragen" },
 ];
 ---
-<header class="site-nav">
+<header class="site-nav" data-site-nav>
   <div class="wrap">
     <a class="logo-link" href="/" aria-label="Liebenberg AI, naar de homepage"><Logo /></a>
     <nav aria-label="Hoofdmenu">
@@ -25,3 +27,30 @@ const links = [
     <Button href={CAL} size="sm">Plan een kennismaking</Button>
   </div>
 </header>
+
+<script>
+  const nav = document.querySelector<HTMLElement>("[data-site-nav]");
+  if (nav) {
+    let lastY = window.scrollY;
+    let ticking = false;
+    const DELTA = 6; // kleine trillingen negeren
+
+    const update = () => {
+      ticking = false;
+      const y = Math.max(0, window.scrollY);
+      const dy = y - lastY;
+      if (Math.abs(dy) < DELTA) return;
+      const pastNav = y > nav.offsetHeight;
+      // Weg bij naar beneden scrollen (voorbij de balk), terug bij elke beweging omhoog.
+      nav.classList.toggle("is-hidden", dy > 0 && pastNav && !nav.contains(document.activeElement));
+      nav.classList.toggle("is-scrolled", y > 0);
+      lastY = y;
+    };
+
+    window.addEventListener("scroll", () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }, { passive: true });
+    // Toetsenbord: met Tab in het menu komt de balk altijd terug.
+    nav.addEventListener("focusin", () => nav.classList.remove("is-hidden"));
+  }
+</script>

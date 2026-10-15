@@ -57,7 +57,7 @@
 /* ---------- Basis ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
 html, body { margin: 0; }
 body {
   background: var(--bg);
