@@ -1,49 +1,146 @@
 /* ==========================================================================
-   Liebenberg AI — Brand tokens
-   Single source of truth for the visual identity. Import this on every page.
-   See docs/BRAND.md for the principles behind these values.
+   Liebenberg AI — huisstijl "rustig vakwerk"
+   Bron van waarheid voor tokens en basisstijl. Principes en uitleg: docs/BRAND.md.
+   Alle kleuren staan hier. Elders altijd var(--token), nooit een losse hex-code.
    ========================================================================== */
 
+@import "@fontsource-variable/geist/wght.css";
+@import "@fontsource-variable/geist-mono/wght.css";
+
 :root {
-  /* --- Color: ink (dark) --- */
-  --ink: #233138;
-  --ink-2: #2c3a42;
+  /* Kleur (BRAND §2). Alleen een licht thema op de site. */
+  --bg: #f7f7f4;
+  --surface: #efeee9;
+  --raised: #ffffff;
+  --line: #e4e3dd;
+  --line-strong: #d2d0c8;
+  --muted: #73776f;
+  --fg-2: #4a5357;
+  --fg: #1e272b;
+  --brand: #233138;
+  --on-brand: #f4f5f2;
+  --ochre: #bf6a34; /* alleen in het logo */
+  --ok: #2f7d5b;
+  --ok-bg: #e5f0ea;
+  --warn: #9a5f0c;
+  --warn-bg: #f8eedb;
 
-  /* --- Color: paper / surfaces (light) --- */
-  --paper: #f4efe6;
-  --card: #fbf8f2;
-  --canvas: #e7e1d4;
+  /* Eén zachte schaduw, alleen op productframes en de knop op een schilderij. */
+  --shadow: 0 1px 2px rgba(30, 35, 30, .05), 0 18px 48px -18px rgba(30, 35, 30, .28);
+  --shadow-btn: 0 10px 30px -10px rgba(20, 25, 25, .45);
 
-  /* --- Color: text --- */
-  --soft: #5d666c;        /* muted body text */
-  --line: #e2dacb;        /* hairline borders on paper */
+  /* Typografie (BRAND §3) */
+  --font-sans: "Geist Variable", "Helvetica Neue", Arial, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", Menlo, monospace;
 
-  /* --- Color: ochre (accent) --- */
-  --ochre: #bf6a34;
-  --ochre-deep: #a85b2b;  /* hover */
-  --ochre-light: #e0a06a; /* accent on dark backgrounds */
+  /* Beweging (BRAND §6) */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --dur-1: 160ms;
+  --dur-2: 280ms;
+  --dur-3: 2200ms;
 
-  /* --- Color: utility --- */
-  --wa-green: #22a45a;
-  --wa-green-deep: #1d9150;
+  /* Vorm en raster (BRAND §4) */
+  --r-1: 6px;
+  --r-2: 10px;
+  --r-3: 14px;
+  --wrap: 1120px;
+  --gutter: 24px;
+  --side: 24px;
 
-  /* --- Typography --- */
-  --font-serif: "EB Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: "Figtree", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
-
-  /* --- Layout --- */
-  --maxw: 1180px;
-  --nav-h: 118px;         /* used for scroll-padding so anchors clear the navbar */
-
-  /* --- Radii --- */
-  --r-sm: 11px;
-  --r-md: 16px;
-  --r-lg: 22px;
-  --r-pill: 999px;
-
-  /* --- Shadows --- */
-  --shadow-card: 0 24px 48px -34px rgba(35, 49, 56, 0.4);
-  --shadow-float: 0 1px 2px rgba(35, 49, 56, 0.05),
-    0 22px 48px -26px rgba(35, 49, 56, 0.4);
-  --shadow-lift: 0 30px 60px -38px rgba(35, 49, 56, 0.5);
+  color-scheme: light;
 }
+
+@media (max-width: 520px) {
+  :root { --side: 16px; }
+}
+
+/* ---------- Basis ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 24px; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, p, figure, blockquote { margin: 0; }
+h1, h2, h3, h4 { font-weight: 500; text-wrap: balance; }
+p { text-wrap: pretty; }
+a { color: inherit; }
+img, video, svg { display: block; max-width: 100%; }
+img, video { height: auto; }
+::selection { background: var(--brand); color: var(--on-brand); }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; border-radius: 4px; }
+
+/* Korrel over de hele pagina: 160px-tegel, je ziet hem pas als je ernaar zoekt. */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  background-image: url("../assets/huisstijl/grain.png");
+  background-size: 160px;
+}
+
+/* ---------- Raster ---------- */
+.wrap { max-width: calc(var(--wrap) + 2 * var(--side)); margin-inline: auto; padding-inline: var(--side); }
+
+/* ---------- Typografie ---------- */
+.t-display { font-size: clamp(38px, 5.6vw, 68px); line-height: 1.02; letter-spacing: -.038em; font-weight: 500; }
+.t-h1 { font-size: clamp(32px, 4vw, 44px); line-height: 1.06; letter-spacing: -.03em; font-weight: 500; }
+.t-h2 { font-size: 28px; line-height: 1.15; letter-spacing: -.02em; font-weight: 500; }
+.t-h3 { font-size: 20px; line-height: 1.3; letter-spacing: -.012em; font-weight: 500; }
+.t-lead { font-size: 19px; line-height: 1.55; color: var(--fg-2); max-width: 54ch; }
+.t-body { font-size: 16px; line-height: 1.6; color: var(--fg-2); max-width: 65ch; }
+.t-small { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.label { font-family: var(--font-mono); font-size: 12px; line-height: 1.4; letter-spacing: .02em; color: var(--muted); font-weight: 400; }
+
+@media (max-width: 520px) {
+  .t-lead { font-size: 17.5px; }
+}
+
+/* ---------- Beweging ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* ---------- Brug voor de React-tools (Tailwind-klassen als text-foreground) ----------
+   De tools op /tools en /ai-scan gebruiken hsl(var(--…)). Zelfde kleuren als hierboven. */
+:root {
+  --background: 60 18% 96.7%;     /* = --bg */
+  --foreground: 198 18% 14.3%;    /* = --fg */
+  --muted-foreground: 90 4% 45%;  /* = --muted */
+  --border: 52 9% 87.6%;          /* = --line */
+  --destructive: 8 60% 42%;
+  --radius: 6px;
+}
+
+/* ---------- Legacy: alleen voor /accountancy/veiligexcel ----------
+   Die pagina blijft bewust onaangeroerd en gebruikt nog de oude tokennamen.
+   Hier gekoppeld aan de nieuwe waarden, zodat hij leesbaar blijft. */
+.ve {
+  --ink: var(--brand);
+  --paper: var(--bg);
+  --card: var(--raised);
+  --soft: var(--fg-2);
+  --ochre: var(--fg);
+  --ochre-deep: var(--brand);
+  --ochre-light: var(--on-brand);
+  --r-sm: var(--r-1);
+  --r-md: var(--r-2);
+  --r-lg: var(--r-3);
+  --r-pill: var(--r-1);
+  --shadow-card: var(--shadow);
+  --shadow-lift: var(--shadow);
+  padding-block: 40px 0;
+}
+.ve h1, .ve h2, .ve h3 { letter-spacing: -.02em; line-height: 1.12; }
+.ve .eyebrow { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.ve .btn-ochre { background: var(--brand); color: var(--on-brand); }

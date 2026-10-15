@@ -1,11 +1,11 @@
 ---
 /**
- * BrandLayout — clean layout for pages in the new brand style.
- * Pulls in brand tokens + Google fonts + SEO/meta, but NOT the old Tailwind
- * globals (index.css), so the new design stays self-contained.
+ * BrandLayout — de layout voor elke pagina in de huisstijl "rustig vakwerk" (docs/BRAND.md).
+ * Laadt de tokens, de zelf gehoste Geist-fonts, de componentstijl, de korrel en SEO/meta.
  */
 import "../styles/brand.css";
-import "../styles/chrome.css";
+import "../styles/components.css";
+import IconSprite from "../components/brand/IconSprite.astro";
 import Analytics from "@vercel/analytics/astro";
 import SiteNav from "../components/site/SiteNav.astro";
 import SiteFooter from "../components/site/SiteFooter.astro";
@@ -16,9 +16,9 @@ interface Props {
   canonical?: string;
   image?: string;
   type?: string;
-  /** Render the shared floating navbar. Default true. */
+  /** Toon de navigatie. Default true. */
   nav?: boolean;
-  /** Render the shared footer. Default true. */
+  /** Toon de footer. Default true. */
   footer?: boolean;
   /** Verberg deze pagina voor zoekmachines (noindex, nofollow). Default false. */
   noindex?: boolean;
@@ -28,7 +28,7 @@ interface Props {
 
 const {
   title = "Liebenberg AI | Ik automatiseer het werk dat tot vandaag alleen een mens kon doen",
-  description = "Maatwerk AI-software voor ondernemers met processen die te specifiek zijn voor standaardtools. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling.",
+  description = "Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan. Eerst een werkende demo op je eigen proces, met een vaste prijs vooraf.",
   canonical = "https://www.liebenberg.ai/",
   image = "/og-image.png",
   type = "website",
@@ -51,7 +51,7 @@ const baseSchema = [
     logo: `${siteUrl}/icon-512.png`,
     image: ogImage,
     description:
-      "Maatwerk AI-software voor ondernemers met processen die te specifiek zijn voor standaardtools. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling.",
+      "Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan.",
     email: "info@liebenberg.ai",
     telephone: "+31637220535",
     address: {
@@ -64,7 +64,7 @@ const baseSchema = [
     founder: {
       "@type": "Person",
       name: "Christian Liebenberg",
-      jobTitle: "Founder & Lead Engineer",
+      jobTitle: "Oprichter",
     },
     sameAs: ["https://linkedin.com/in/christian-liebenberg-a0511060"],
   },
@@ -91,12 +91,6 @@ const allSchema = [...baseSchema, ...schema];
     {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={canonical} />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
 
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -113,7 +107,7 @@ const allSchema = [...baseSchema, ...schema];
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Liebenberg AI — maatwerk AI-software voor ondernemers." />
+    <meta property="og:image:alt" content="Liebenberg AI, maatwerk AI-software voor bedrijven waar het werk groeit." />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@liebenberg_ai" />
@@ -128,6 +122,7 @@ const allSchema = [...baseSchema, ...schema];
     <Analytics />
   </head>
   <body>
+    <IconSprite />
     {nav && <SiteNav />}
     <slot />
     {footer && <SiteFooter />}
