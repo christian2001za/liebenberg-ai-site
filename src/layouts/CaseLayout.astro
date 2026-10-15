@@ -13,6 +13,8 @@ import Stage from "../components/brand/Stage.astro";
 import StatStrip from "../components/brand/StatStrip.astro";
 import ProcessDiagram from "../components/brand/ProcessDiagram.astro";
 import ContactBlock from "../components/brand/ContactBlock.astro";
+import Gravure from "../components/brand/Gravure.astro";
+import { findGravure } from "../lib/gravures";
 import type { IconName } from "../components/brand/icons";
 import { CAL } from "../lib/site";
 import "../styles/case.css";
@@ -24,6 +26,8 @@ interface Props {
   description: string;
   canonical: string;
   image?: string;
+  /** Naam van de embleem-gravure (src/assets/huisstijl/gravures/<naam>-480.png). Ontbreekt hij, dan valt de plek weg. */
+  gravure?: string;
   label: string;
   title: string;
   intro: string;
@@ -38,9 +42,11 @@ interface Props {
 }
 
 const {
-  seoTitle, description, canonical, image, label, title, intro, painting = "warm", mediaCaption,
+  seoTitle, description, canonical, image, gravure, label, title, intro, painting = "warm", mediaCaption,
   stats, statsNote, built, diagram, duty, links = [],
 } = Astro.props;
+
+const hasGravure = !!findGravure(gravure, "kop");
 
 const articleSchema = {
   "@context": "https://schema.org",
@@ -59,12 +65,17 @@ const articleSchema = {
     <section class="case-head">
       <div class="wrap">
         <a class="back label" href="/#werk">← Werk</a>
-        <span class="label">{label}</span>
-        <h1 class="t-h1">{title}</h1>
-        <p class="t-lead">{intro}</p>
-        <div class="row" style="gap:24px">
-          <Button href={CAL} arrow>Plan een kennismaking</Button>
-          {links.map((l) => <Button href={l.href} variant="link" arrow>{l.label}</Button>)}
+        <div class:list={["case-title", hasGravure && "has-gravure"]}>
+          {hasGravure && <Gravure name={gravure} size="kop" />}
+          <div class="case-title-txt">
+            <span class="label">{label}</span>
+            <h1 class="t-h1">{title}</h1>
+            <p class="t-lead">{intro}</p>
+            <div class="row" style="gap:24px">
+              <Button href={CAL} arrow>Plan een kennismaking</Button>
+              {links.map((l) => <Button href={l.href} variant="link" arrow>{l.label}</Button>)}
+            </div>
+          </div>
         </div>
       </div>
     </section>

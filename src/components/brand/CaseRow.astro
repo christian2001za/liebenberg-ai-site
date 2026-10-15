@@ -1,9 +1,17 @@
 ---
-/** Case-regel: mono-label, titel, één zin, pijl rechts. */
-interface Props { href: string; label: string; title: string }
-const { href, label, title } = Astro.props;
+/**
+ * Case-regel: optioneel embleem-gravure (64 px), mono-label, titel, één zin, pijl rechts.
+ * gravure: naam van de gravure van de case (zie src/lib/gravures.ts); ontbreekt hij, dan geen plek.
+ */
+import Gravure from "./Gravure.astro";
+import { findGravure } from "../../lib/gravures";
+
+interface Props { href: string; label: string; title: string; gravure?: string }
+const { href, label, title, gravure } = Astro.props;
+const hasGravure = !!findGravure(gravure, "lijst");
 ---
-<a class="case" href={href}>
+<a class:list={["case", hasGravure && "has-gravure"]} href={href}>
+  {hasGravure && <Gravure name={gravure} size="lijst" />}
   <span class="label">{label}</span>
   <h3>{title}</h3>
   <p><slot /></p>

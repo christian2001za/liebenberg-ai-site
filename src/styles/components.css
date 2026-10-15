@@ -118,6 +118,19 @@
   transition: transform var(--dur-2) var(--ease), color var(--dur-1) var(--ease);
 }
 .case:hover .arr { transform: translateX(4px); color: var(--fg); }
+.case.has-gravure { grid-template-columns: 64px minmax(0, 1fr) auto; column-gap: 20px; }
+.case.has-gravure .label, .case.has-gravure h3, .case.has-gravure p { grid-column: 2; }
+.case.has-gravure .arr { grid-column: 3; }
+.case .gravure { grid-column: 1; grid-row: 1 / span 3; align-self: start; }
+
+/* ---------- Gravure (embleem per case) ---------- */
+.gravure { display: block; flex: none; object-fit: contain; }
+.gravure-kop { width: 160px; height: 160px; }
+.gravure-lijst { width: 64px; height: 64px; }
+@media (max-width: 520px) {
+  .case.has-gravure { grid-template-columns: 48px minmax(0, 1fr) auto; column-gap: 14px; }
+  .gravure-lijst { width: 48px; height: 48px; }
+}
 
 /* ---------- Citaat ---------- */
 .quote { display: grid; gap: 16px; max-width: 760px; }
