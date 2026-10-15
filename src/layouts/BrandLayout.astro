@@ -119,6 +119,8 @@ const allSchema = [...baseSchema, ...schema];
       <script type="application/ld+json" set:html={JSON.stringify(s)} />
     ))}
 
+    <slot name="head" />
+
     <Analytics />
   </head>
   <body>

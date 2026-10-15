@@ -13,6 +13,7 @@ import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
 import office from "../assets/LAI_kantoor.jpg";
 import { CAL, LINKEDIN } from "../lib/site";
+import heroPainting from "../assets/huisstijl/schilderijen/mesdag-kalme-zee.jpg?url";
 
 const HOORNAAR_CASE = "/case-study/meldpunt-aziatische-hoornaar/";
 const HOORNAAR_LIVE = "https://www.meldpuntaziatischehoornaar.nl";
@@ -109,6 +110,7 @@ const steps = [
   canonical="https://www.liebenberg.ai/"
   schema={[faqSchema]}
 >
+  <link slot="head" rel="preload" as="image" href={heroPainting} fetchpriority="high" />
   <main>
     <!-- 1. Hero -->
     <section class="hero" aria-labelledby="hero-kop">

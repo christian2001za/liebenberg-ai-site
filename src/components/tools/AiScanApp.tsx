@@ -389,8 +389,8 @@ export default function AiScanApp() {
 
         <p className="text-sm text-muted-foreground border-t border-border/15 pt-6">
           Je antwoorden worden opgeslagen om het advies te kunnen maken en om de scan te
-          verbeteren. Laat je geen e-mailadres achter, dan verwijderen we het gesprek na 90 dagen.
-          Meer daarover in onze{" "}
+          verbeteren. Laat je geen e-mailadres achter, dan verwijder ik het gesprek na 90 dagen.
+          Meer daarover in de{" "}
           <a href="/privacyverklaring/" className="underline hover:no-underline">
             privacyverklaring
           </a>
@@ -544,7 +544,7 @@ export default function AiScanApp() {
   return (
     <div className="space-y-8">
       <section className="bg-card ghost-border-20 p-8 md:p-10">
-        <p className="label-uppercase text-muted-foreground mb-3">Wat we hebben gevonden</p>
+        <p className="label-uppercase text-muted-foreground mb-3">Wat er uit het gesprek kwam</p>
         <div className="text-foreground">
           {diagnosis ? <Markdown text={diagnosis} /> : <p>De diagnose wordt opgesteld…</p>}
         </div>
