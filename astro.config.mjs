@@ -12,6 +12,9 @@ const __dirname = path.dirname(__filename);
 export default defineConfig({
   site: "https://www.liebenberg.ai",
   output: "static",
+  // CSS inline in de HTML: geen aparte stylesheet-request, dus geen flits van ongestylede
+  // HTML bij het laden (Safari op iOS liet die zien terwijl de CSS nog binnenkwam).
+  build: { inlineStylesheets: "always" },
   adapter: vercel(),
   // De case studies waren losse HTML-bestanden; de oude URL's blijven werken via een 301.
   redirects: {
