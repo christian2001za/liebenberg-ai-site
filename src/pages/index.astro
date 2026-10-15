@@ -13,7 +13,7 @@ import "../styles/home.css";
 import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
 import stilAlgemeen from "../assets/huisstijl/stillevens/algemeen-stilleven.jpg";
-import stilWerkwijze from "../assets/huisstijl/stillevens/werkwijze-stilleven.jpg";
+import stilWerkwijze from "../assets/huisstijl/stillevens/werkwijze-stilleven-16x9.jpg";
 import { CAL, LINKEDIN } from "../lib/site";
 import heroPainting from "../assets/huisstijl/schilderijen/mesdag-kalme-zee.jpg?url";
 
@@ -23,47 +23,36 @@ const HOORNAAR_LIVE = "https://www.meldpuntaziatischehoornaar.nl";
 // De FAQ staat hier één keer en voedt zowel het FAQPage-schema als de sectie hieronder.
 const faqItems = [
   {
-    q: "Hoe ziet de eerste stap eruit?",
-    a: ["We beginnen met een werksessie van een uur. Daarin tekenen we uit hoe het werk nu loopt en waar het vastzit. Het liefst zit daar ook degene bij die het werk nu doet, want die weet waar het in de praktijk misgaat. Daarna kom ik terug met een werkende demo op jouw eigen proces en een voorstel met de kosten, de termijnen en wat je precies krijgt. Tot dan kost het je niets, en je zit nergens aan vast."],
-  },
-  {
     q: "Wat kost het om AI-software of een AI-tool te laten bouwen?",
-    a: ["Dat hangt af van wat er nodig is: één proces met een eigen scherm is iets anders dan het platform waar je bedrijf op draait. Daarom begin ik met een werksessie en een werkende demo op jouw proces, zonder kosten. Daarna krijg je een voorstel met een vaste prijs per fase, die je kent voordat we beginnen. Geen uurtje-factuurtje, en je ziet resultaat voordat je verder gaat."],
+    a: ["Dat hangt af van wat er nodig is. Na de werksessie en de demo krijg je een vaste prijs per fase, voordat we beginnen."],
   },
   {
     q: "Vervangt dit mijn mensen?",
-    a: ["Nee. De AI neemt het werk over dat vaste regels volgt. Je mensen houden het werk dat oordeel vraagt en blijven de eindcontrole. Het effect is dat je met dezelfde mensen meer klussen aanneemt. In een arbeidsmarkt waar nieuwe mensen nauwelijks te vinden zijn, is dat meestal precies wat nodig is."],
+    a: ["Nee. Het systeem doet het werk dat regels volgt; je mensen houden het oordeel. Zo neem je met dezelfde mensen meer klussen aan."],
   },
   {
     q: "Er bestaat toch al software voor mijn branche?",
-    a: ["Vaak wel, en als zo'n pakket jullie proces dekt, moet je dat gewoon gebruiken. Dan ben ik te duur. Ik kom pas in beeld als jullie manier van werken er net niet in past: als je overal Excel naast laat lopen, dingen overtypt omdat het pakket het niet kan, of een koppeling mist. Het gaat erom of jullie werkelijke proces erin past."],
+    a: ["Vaak wel, en past het, gebruik het dan. Ik kom pas in beeld als je Excel ernaast laat lopen of dingen overtypt."],
   },
   {
     q: "Werkt dit met de software die ik nu al gebruik?",
-    a: ["Ja, en daar zit de waarde. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM. Je mensen blijven in hun eigen schermen werken."],
-  },
-  {
-    q: "Heb ik een eigen IT-afdeling of technische kennis nodig?",
-    a: ["Nee. Ik regel alles, van de bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij houdt de regie over je proces en je data."],
+    a: ["Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM."],
   },
   {
     q: "Wat gebeurt er met mijn software als jij er straks mee zou stoppen?",
-    a: ["Dan draait alles gewoon door. Hosting, database en domein staan op jouw naam, en een andere ontwikkelaar kan het overnemen. Je data is van jou en altijd te exporteren."],
+    a: ["Dan draait alles door. Het staat op jouw naam en een andere ontwikkelaar kan het overnemen."],
   },
   {
     q: "Is mijn data veilig als ik AI gebruik?",
-    a: [
-      "Ja. Ik ben GDPR/AVG compliant en werk met Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen. Toegang is rolgebaseerd, output is traceerbaar naar de bron, en er is menselijk toezicht ingebouwd waar dat nodig is.",
-      "Ik beheer de infrastructuur, jij beheert de inhoud. Net als bij je huidige cloud-boekhoudpakket.",
-    ],
+    a: ["Ja. Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen."],
   },
   {
     q: "Kan AI dit al betrouwbaar, of is het nog speelgoed?",
-    a: ["Het hangt af van welk deel van het werk je de AI geeft. Het werk dat regels volgt kan AI inmiddels betrouwbaar aan, het oordeel hoort bij de mens. Een losse chatbot die alles tegelijk probeert is speelgoed, een systeem dat die scheiding respecteert en gemeten wordt niet. Vanuit mijn econometrische achtergrond toets ik hoe accuraat en betrouwbaar de output is, met aandacht voor hallucinatie en bronvermelding, en bouw ik menselijk toezicht in waar fouten niet mogen. Daardoor weet je wanneer je het kunt vertrouwen, in plaats van het te hopen."],
+    a: ["Voor werk dat regels volgt wel. Ik meet hoe vaak het systeem goed zit en stuur alles waar het twijfelt naar een mens."],
   },
   {
     q: "Hoe lang duurt het voordat ik iets werkends heb?",
-    a: ["Ik werk in afgeronde fases die elk een bruikbaar resultaat opleveren, in plaats van maandenlang bouwen zonder dat je iets ziet. Je hebt dus snel iets werkends in handen, en je ziet steeds resultaat voordat je verder gaat."],
+    a: ["De demo zie je binnen ongeveer een week na de werksessie. Daarna levert elke fase iets bruikbaars op."],
   },
 ];
 
@@ -91,17 +80,17 @@ const hoornaarStats = [
 ];
 
 const builds = [
-  { icon: "melding", t: "Aanvragen die alle kanten op binnenkomen", p: "Mail, WhatsApp, formulieren, foto's, een voicememo. Het systeem leest ze, haalt eruit wat nodig is en zet alles klaar in één scherm, waar jij het controleert en doorzet." },
-  { icon: "maken", t: "Offertes en planningen die per klus anders zijn", p: "Het systeem maakt het concept op basis van jouw prijzen en regels. Jij kijkt het na en verstuurt." },
-  { icon: "koppeling", t: "Systemen die niet met elkaar praten", p: "Je planning, je boekhouding en je CRM aan elkaar, inclusief de stap die nu iemand doet: indelen en toewijzen." },
-  { icon: "controle", t: "Controles die nu iemand een dag kosten", p: "Het systeem doet de eerste ronde en legt uit waarom. Jij ziet alleen de twijfelgevallen." },
+  { icon: "melding", t: "Aanvragen die alle kanten op binnenkomen", p: "Mail, WhatsApp, foto's, een voicememo. Het systeem leest ze en zet alles klaar in één scherm." },
+  { icon: "maken", t: "Offertes en planningen die per klus anders zijn", p: "Het systeem maakt het concept op basis van jouw prijzen. Jij kijkt het na." },
+  { icon: "koppeling", t: "Systemen die niet met elkaar praten", p: "Planning, boekhouding en CRM aan elkaar, inclusief de stap die nu iemand doet." },
+  { icon: "controle", t: "Controles die nu iemand een dag kosten", p: "Het systeem doet de eerste ronde. Jij ziet alleen de twijfelgevallen." },
 ] as const;
 
 const steps = [
-  { t: "Werksessie", p: "In een uur tekenen we samen uit hoe het werk nu loopt en waar het vastzit. Met jou, en liefst met degene die het werk nu doet, want die weet waar het in de praktijk misgaat." },
-  { t: "Demo en voorstel", p: "Daarna kom ik terug met een werkende demo op jouw eigen proces, en een voorstel met wat het kost, hoe lang het duurt en wat je precies krijgt. Tot hier kost het je niets." },
-  { t: "Bouwen in fases", p: "Eén proces met een eigen scherm, of het platform waar je hele bedrijf op draait. Elke fase heeft een vaste prijs die je vooraf kent, en je gebruikt het resultaat voordat we verder gaan. Uurtje-factuurtje doe ik niet." },
-  { t: "Daarna", p: "Ik houd het draaiend, los op wat stuk gaat en bouw door op wat je nodig hebt. Wil je het onderhoud later zelf doen of bij een ander beleggen, dan kan dat." },
+  { t: "Werksessie", p: "In een uur tekenen we uit hoe het werk nu loopt. Liefst met degene die het nu doet." },
+  { t: "Demo en voorstel", p: "Daarna een werkende demo op jouw proces, met een vaste prijs en planning. Tot hier kost het niets." },
+  { t: "Bouwen in fases", p: "Eén proces of een heel platform, in fases met een vaste prijs. Geen uurtje-factuurtje." },
+  { t: "Daarna", p: "Ik houd het draaiend en bouw door. Het draait op jouw naam, dus verder met een ander kan altijd." },
 ];
 ---
 
@@ -119,7 +108,7 @@ const steps = [
         <div class="hero-txt">
           <a class="live" href={HOORNAAR_LIVE}><i aria-hidden="true"></i>Live: Meldpunt Aziatische Hoornaar</a>
           <h1 class="t-display" id="hero-kop">Ik automatiseer het werk dat tot vandaag alleen een mens kon doen.</h1>
-          <p class="t-lead">Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan. Meldingen, aanvragen, werkbonnen en planningen die nu nog met de hand gaan. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling.</p>
+          <p class="t-lead">Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan. Meldingen, aanvragen, werkbonnen en planningen die nu nog met de hand gaan.</p>
           <div class="row">
             <Button href={CAL} arrow>Plan een kennismaking</Button>
             <Button href={HOORNAAR_CASE} variant="secondary">Bekijk de Hoornaar-case</Button>
@@ -141,7 +130,7 @@ const steps = [
           <Image class="stilleven" src={stilAlgemeen} alt="" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 360px" loading="lazy" />
         </div>
         <div class="prose-block">
-          <p>Denk aan bestrijders, verhuurbedrijven, installateurs en transporteurs. Bedrijven waar het werk buiten gebeurt, in het veld of in het magazijn. De aanvragen komen binnen via mail, WhatsApp en de telefoon, en iemand op kantoor typt ze over, plant ze in en zet de factuur klaar. Zolang dat met de hand gaat, groeit je bedrijf zo hard als die persoon kan typen.</p>
+          <p class="t-lead">Denk aan bestrijders, verhuurbedrijven, installateurs en transporteurs. De aanvragen komen binnen via mail, WhatsApp en de telefoon, en iemand op kantoor typt ze over. Zolang dat met de hand gaat, groeit je bedrijf zo hard als die persoon kan typen.</p>
           <p class="big-line">Als je volgende maand twee keer zoveel aanvragen kreeg, wie zou ze dan verwerken?</p>
         </div>
       </div>
@@ -152,8 +141,7 @@ const steps = [
       <div class="wrap split">
         <div><h2 class="t-h2" id="kern-kop">De stap waar altijd iemand bij moest nadenken.</h2></div>
         <div class="prose-block">
-          <p>In elk bedrijf zit werk dat nooit te automatiseren was, omdat er iemand moest lezen, beoordelen of beslissen voordat er iets kon gebeuren. Een aanvraag via WhatsApp met drie foto's en een adres. Een offerte die per klant anders is. Een controle die altijd door een mens ging. Gewone software liep daar vast: die doet precies wat je programmeert en kan niets met een rommelig bericht of een oordeel dat per geval verschilt.</p>
-          <p>Dat kan nu wel. Ik bouw software die dat lees- en beoordeelwerk overneemt, en ik bouw het zo dat je ziet wat het systeem zelf besliste en wat het aan jou laat. Jij blijft de eindcontrole. Daardoor neem je meer klussen aan zonder er iemand bij te zetten.</p>
+          <p class="kern-txt">Een aanvraag via WhatsApp met drie foto's. Een offerte die per klant anders is. Gewone software liep daar vast, want er moest iemand lezen en beslissen. Ik bouw software die dat werk overneemt, en je ziet wat het systeem zelf besliste en wat het aan jou laat.</p>
         </div>
       </div>
     </section>
@@ -193,12 +181,12 @@ const steps = [
         <div class="txt">
           <span class="label">Over</span>
           <h2 id="over-kop">Ik bouw het, en ik blijf erbij.</h2>
-          <p>Ik ben Christian. Ik bouw maatwerksoftware voor bedrijven waarvan het werk niet in een standaardpakket past: de planning, de aanvragen en de administratie waar het bedrijf op draait. Soms zit daar AI in, vaak is het gewoon goede software die doet wat hij moet doen.</p>
-          <p>Ik heb econometrie gestudeerd en werkte daarna als risk consultant bij Zanders, aan modellen voor onder meer ING en bunq. Daar heb ik geleerd om niets aan te nemen voordat het is nagerekend. Dat doe ik nu met de software die ik bouw.</p>
-          <p>Je hebt één vast aanspreekpunt, en als er iets is, bel of app je gewoon. De software draait op jouw naam en je data is van jou.</p>
+          <p>Ik ben Christian. Ik bouw maatwerksoftware voor bedrijven waarvan het werk niet in een standaardpakket past. Soms zit daar AI in, vaak is het gewoon goede software.</p>
+          <p>Ik heb econometrie gestudeerd en toetste daarna risicomodellen voor banken. Daar leerde ik niets aan te nemen voordat het is nagerekend.</p>
+          <p>Je hebt één vast aanspreekpunt. Als er iets is, bel of app je gewoon.</p>
           <dl class="facts">
             <div><dt class="label">Opleiding</dt><dd>MSc Econometrie</dd></div>
-            <div><dt class="label">Eerder</dt><dd>Risk consultant bij Zanders, voor onder meer ING en bunq</dd></div>
+            <div><dt class="label">Eerder</dt><dd>Zanders (ING, bunq)</dd></div>
             <div><dt class="label">Kantoor</dt><dd>Amsterdam</dd></div>
           </dl>
           <div><Button href={LINKEDIN} variant="link" arrow>Connect op LinkedIn</Button></div>
@@ -229,7 +217,7 @@ const steps = [
             <h2 id="werkwijze-kop">Hoe het werkt.</h2>
             <p>Je ziet iets werkends op je eigen proces, met een vaste prijs erbij, voordat je iets betaalt.</p>
           </div>
-          <Image class="stilleven" src={stilWerkwijze} alt="" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 460px" loading="lazy" />
+          <Image class="stilleven stilleven-breed" src={stilWerkwijze} alt="" widths={[480, 800, 1200]} sizes="(max-width: 900px) 100vw, 360px" loading="lazy" />
         </div>
         <ol class="steps">
           {steps.map((s, i) => (
@@ -237,12 +225,6 @@ const steps = [
           ))}
         </ol>
         <div class="row" style="margin-top:40px"><Button href={CAL} arrow>Plan een kennismaking</Button></div>
-
-        <!-- 7b. Je zit niet aan mij vast -->
-        <div class="not-stuck">
-          <h3 class="t-h3">Je zit niet aan mij vast.</h3>
-          <p>Je data blijft van jou en de software draait op jouw naam. Wil je ooit verder met een ander, dan kan dat.</p>
-        </div>
       </div>
     </section>
 
@@ -252,10 +234,10 @@ const steps = [
         <div class="section-head"><h2 id="cases-kop">Meer cases.</h2></div>
         <div class="cases">
           <CaseRow gravure="evenementen" href="/case-study/ai-sales-evenementenbranche/" label="Platform · Evenementenverhuur · In ontwikkeling, oplevering Q4 2026" title="De juiste evenementen, op het juiste moment.">
-            Voor een verhuurbedrijf in de evenementenbranche vindt het systeem de relevante evenementen, de organisatoren erachter en hun contactgegevens, uit het hele web en uit vergunningsaanvragen. Het benadert ze op het juiste moment en volgt op. Daarna lopen offertes, boekingen en facturatie door hetzelfde systeem.
+            Vindt evenementen en hun organisatoren, benadert ze op het goede moment en regelt de boeking.
           </CaseRow>
           <CaseRow gravure="eye-motion-lab" href="/case-study/imotion-lab-erp/" label="Platform · Oogzorg · Live" title="Het ERP waar een oogzorgbedrijf op draait.">
-            Een eigen ERP en praktijkportaal voor Eye Motion Lab. Bestellingen, patiëntdossiers, bezorging, facturatie en boekhouding lopen in één flow, van inlog tot geplaatste order. Gebouwd omdat er geen pakket bestond dat bij hun proces paste.
+            Bestellingen, dossiers, bezorging en facturatie in één systeem, omdat geen pakket paste.
           </CaseRow>
         </div>
       </div>

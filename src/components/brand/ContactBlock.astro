@@ -14,7 +14,7 @@ interface Props {
 }
 const {
   title = "Waar loopt het bij jou vast?",
-  text = "Plan een kennismaking van een half uur. We kijken of je proces te automatiseren is en wat het oplevert. Past het, dan is een werksessie van een uur de volgende stap.",
+  text = "Plan een kennismaking van een half uur. Past het, dan volgt een werksessie.",
   id = "contact",
 } = Astro.props;
 ---
@@ -28,7 +28,6 @@ const {
     <Stage painting="zee" pad={false}>
       <Button href={CAL} variant="stage" arrow>Plan een kennismaking</Button>
     </Stage>
-    <span class="credit">Achtergrond: Willem Roelofs, Zeegezicht bij Heijst, Rijksmuseum</span>
     <div class="contact-small">
       <p>Nog aan het aftasten? Laat één regel achter, of <a href={WA}>stuur een appje</a>.</p>
       <ContactForm />
