@@ -11,8 +11,8 @@ const isHome = Astro.url.pathname === "/";
 const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
 const links = [
   { id: "werk", label: "Werk" },
-  { id: "werkwijze", label: "Werkwijze" },
   { id: "over", label: "Over" },
+  { id: "werkwijze", label: "Werkwijze" },
   { id: "vragen", label: "Vragen" },
 ];
 ---
