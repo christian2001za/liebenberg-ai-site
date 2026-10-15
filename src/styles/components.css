@@ -247,10 +247,6 @@ table.t tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--fg); }
 /* ---------- Contactblok ---------- */
 .contact { display: grid; gap: 28px; }
 .contact .txt { display: grid; gap: 14px; }
-.contact-head.has-photo { display: grid; grid-template-columns: 7fr 5fr; gap: 24px clamp(24px, 4vw, 56px); align-items: end; }
-.contact-photo { margin: 0; }
-.contact-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--r-2); }
-@media (max-width: 900px) { .contact-head.has-photo { grid-template-columns: 1fr; } }
 .contact h2 { font-size: clamp(28px, 3.6vw, 44px); line-height: 1.06; letter-spacing: -.03em; max-width: 18ch; }
 .contact p { color: var(--fg-2); max-width: 54ch; }
 .contact .stage { height: 240px; display: grid; place-items: center; }

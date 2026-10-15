@@ -1,7 +1,6 @@
 ---
 /**
  * Contactblok: kop en tekst links, brede band met het zeegezicht en één ink-knop in het midden.
- * Slot "photo": optionele foto rechts naast de kop (op de homepage de kantoorfoto).
  */
 import Button from "./Button.astro";
 import Stage from "./Stage.astro";
@@ -21,13 +20,10 @@ const {
 ---
 <section class="section" id={id} aria-labelledby={`${id}-kop`}>
   <div class="wrap contact">
-    <div class:list={["contact-head", Astro.slots.has("photo") && "has-photo"]}>
-      <div class="txt">
-        <span class="label">Contact</span>
-        <h2 id={`${id}-kop`}>{title}</h2>
-        <p>{text}</p>
-      </div>
-      {Astro.slots.has("photo") && <figure class="contact-photo"><slot name="photo" /></figure>}
+    <div class="txt">
+      <span class="label">Contact</span>
+      <h2 id={`${id}-kop`}>{title}</h2>
+      <p>{text}</p>
     </div>
     <Stage painting="zee" pad={false}>
       <Button href={CAL} variant="stage" arrow>Plan een kennismaking</Button>

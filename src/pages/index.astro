@@ -12,7 +12,6 @@ import ContactBlock from "../components/brand/ContactBlock.astro";
 import "../styles/home.css";
 import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
-import office from "../assets/LAI_kantoor.jpg";
 import stilAlgemeen from "../assets/huisstijl/stillevens/algemeen-stilleven.jpg";
 import stilWerkwijze from "../assets/huisstijl/stillevens/werkwijze-stilleven.jpg";
 import { CAL, LINKEDIN } from "../lib/site";
@@ -278,8 +277,6 @@ const steps = [
     </section>
 
     <!-- 11. Contact -->
-    <ContactBlock>
-      <Image slot="photo" src={office} alt="Het kantoor van Liebenberg AI in Amsterdam, met het logo op de muur" widths={[480, 800]} sizes="(max-width: 900px) 100vw, 420px" loading="lazy" />
-    </ContactBlock>
+    <ContactBlock />
   </main>
 </BrandLayout>
