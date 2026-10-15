@@ -25,14 +25,14 @@ Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie nie
 
 **Live-regel:** Live: Meldpunt Aziatische Hoornaar
 
-**H1:** Ik automatiseer het werk dat tot vandaag alleen een mens kon doen. *(ongewijzigd)*
+**H1:** Ik automatiseer het werk dat tot vandaag alleen een mens kon doen.
 
 **Subregel:**
-Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan. Meldingen, aanvragen, werkbonnen en planningen die nu nog met de hand gaan. Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling.
+Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie niet meekan. Meldingen, aanvragen, werkbonnen en planningen die nu nog met de hand gaan.
 
 **Knoppen:** Plan een kennismaking · Bekijk de Hoornaar-case
 
-> *Was:* "Maatwerk AI-software voor ondernemers met processen die te specifiek zijn voor standaardtools. Soms is dat één proces met een eigen scherm, soms het platform waar je hele bedrijf op draait." Het onderscheid één proces / platform verhuist naar "Hoe het werkt", waar het meer zegt.
+> *Ingekort (15 okt):* "Eén aanspreekpunt, van eerste gesprek tot doorontwikkeling" eruit; dat zegt de sectie Over.
 
 ## 2. Bewijs
 
@@ -47,28 +47,24 @@ Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie nie
 
 Cijfers staan er meteen, zonder optellende animatie.
 
-## 3. Voor wie *(nieuw)*
+## 3. Voor wie
 
 **Kop:** Voor wie dit is.
 
 **Tekst:**
-Denk aan bestrijders, verhuurbedrijven, installateurs en transporteurs. Bedrijven waar het werk buiten gebeurt, in het veld of in het magazijn. De aanvragen komen binnen via mail, WhatsApp en de telefoon, en iemand op kantoor typt ze over, plant ze in en zet de factuur klaar. Zolang dat met de hand gaat, groeit je bedrijf zo hard als die persoon kan typen.
+Denk aan bestrijders, verhuurbedrijven, installateurs en transporteurs. De aanvragen komen binnen via mail, WhatsApp en de telefoon, en iemand op kantoor typt ze over. Zolang dat met de hand gaat, groeit je bedrijf zo hard als die persoon kan typen.
 
 **Losse regel eronder, groter gezet:**
 Als je volgende maand twee keer zoveel aanvragen kreeg, wie zou ze dan verwerken?
 
-> Waarom: dit is de derde filtervraag uit Huidige Focus, omgedraaid tot een vraag die de lezer zichzelf stelt. Wie "niemand" denkt, is de koper.
-
 ## 4. Kernblok
 
-**Kop:** De stap waar altijd iemand bij moest nadenken. *(ongewijzigd)*
+**Kop:** De stap waar altijd iemand bij moest nadenken.
 
 **Tekst:**
-In elk bedrijf zit werk dat nooit te automatiseren was, omdat er iemand moest lezen, beoordelen of beslissen voordat er iets kon gebeuren. Een aanvraag via WhatsApp met drie foto's en een adres. Een offerte die per klant anders is. Een controle die altijd door een mens ging. Gewone software liep daar vast: die doet precies wat je programmeert en kan niets met een rommelig bericht of een oordeel dat per geval verschilt.
+Een aanvraag via WhatsApp met drie foto's. Een offerte die per klant anders is. Gewone software liep daar vast, want er moest iemand lezen en beslissen. Ik bouw software die dat werk overneemt, en je ziet wat het systeem zelf besliste en wat het aan jou laat.
 
-Dat kan nu wel. Ik bouw software die dat lees- en beoordeelwerk overneemt, en ik bouw het zo dat je ziet wat het systeem zelf besliste en wat het aan jou laat. Jij blijft de eindcontrole. Daardoor neem je meer klussen aan zonder er iemand bij te zetten.
-
-> *Gewijzigd:* het eerste voorbeeld komt uit de wereld van de klant (was: "Een mail met een bijlage in een onvoorspelbaar format"), "traditionele" wordt "gewone", en de laatste zin landt op capaciteit (was: "Het systeem doet het werk ervoor").
+> *Ingekort (15 okt):* van 129 naar ± 50 woorden. De capaciteitszin staat al bij Voor wie.
 
 ## 5. Uitgelichte case: Hoornaar
 
@@ -92,21 +88,17 @@ Rob Voesten bestrijdt de geelpoothoornaar voor gemeenten. Zijn werk liep via Wor
 
 **Intro:** Vier soorten werk waar gewone software altijd op vastliep.
 
-> *Geschrapt:* "Geen catalogus van buzzwords." Die zin praat over de tekst in plaats van over de klant.
-
 **Aanvragen die alle kanten op binnenkomen**
-Mail, WhatsApp, formulieren, foto's, een voicememo. Het systeem leest ze, haalt eruit wat nodig is en zet alles klaar in één scherm, waar jij het controleert en doorzet.
+Mail, WhatsApp, foto's, een voicememo. Het systeem leest ze en zet alles klaar in één scherm.
 
 **Offertes en planningen die per klus anders zijn**
-Het systeem maakt het concept op basis van jouw prijzen en regels. Jij kijkt het na en verstuurt.
+Het systeem maakt het concept op basis van jouw prijzen. Jij kijkt het na.
 
 **Systemen die niet met elkaar praten**
-Je planning, je boekhouding en je CRM aan elkaar, inclusief de stap die nu iemand doet: indelen en toewijzen.
+Planning, boekhouding en CRM aan elkaar, inclusief de stap die nu iemand doet.
 
 **Controles die nu iemand een dag kosten**
-Het systeem doet de eerste ronde en legt uit waarom. Jij ziet alleen de twijfelgevallen.
-
-> *Was:* "Ongestructureerde input verwerken", "Complexe documenten maken", "Koppelingen met een redeneerstap", "Controles die altijd door een mens gingen". Dezelfde vier dingen, nu in de woorden van de klant.
+Het systeem doet de eerste ronde. Jij ziet alleen de twijfelgevallen.
 
 ## 7. Hoe het werkt
 
@@ -115,42 +107,37 @@ Het systeem doet de eerste ronde en legt uit waarom. Jij ziet alleen de twijfelg
 **Intro:** Je ziet iets werkends op je eigen proces, met een vaste prijs erbij, voordat je iets betaalt.
 
 **1. Werksessie**
-In een uur tekenen we samen uit hoe het werk nu loopt en waar het vastzit. Met jou, en liefst met degene die het werk nu doet, want die weet waar het in de praktijk misgaat.
+In een uur tekenen we uit hoe het werk nu loopt. Liefst met degene die het nu doet.
 
 **2. Demo en voorstel**
-Daarna kom ik terug met een werkende demo op jouw eigen proces, en een voorstel met wat het kost, hoe lang het duurt en wat je precies krijgt. Tot hier kost het je niets.
+Daarna een werkende demo op jouw proces, met een vaste prijs en planning. Tot hier kost het niets.
 
 **3. Bouwen in fases**
-Eén proces met een eigen scherm, of het platform waar je hele bedrijf op draait. Elke fase heeft een vaste prijs die je vooraf kent, en je gebruikt het resultaat voordat we verder gaan. Uurtje-factuurtje doe ik niet.
+Eén proces of een heel platform, in fases met een vaste prijs. Geen uurtje-factuurtje.
 
 **4. Daarna**
-Ik houd het draaiend, los op wat stuk gaat en bouw door op wat je nodig hebt. Wil je het onderhoud later zelf doen of bij een ander beleggen, dan kan dat.
+Ik houd het draaiend en bouw door. Het draait op jouw naam, dus verder met een ander kan altijd.
 
 **Knop:** Plan een kennismaking
 
-> Hier mag wél nummering: het is een echte volgorde. *Was:* demo vóór de werksessie, en "Een prijs noem ik pas als duidelijk is wat er nodig is". Dat laatste zit nu in stap 2.
-
-## 7b. Je zit niet aan mij vast *(nieuw, één regel onder Hoe het werkt)*
-
-**Kop:** Je zit niet aan mij vast.
-
-**Tekst:** Je data blijft van jou en de software draait op jouw naam. Wil je ooit verder met een ander, dan kan dat.
+> *Ingekort (15 okt):* stappen van 32-38 naar 15-19 woorden. Het blok "Je zit niet aan mij vast" vervalt; de kern staat nu in stap 4.
 
 ## 8. Over Christian
 
-**Kop:** Eén aanspreekpunt dat bouwt, host en blijft.
-*(Alternatief, als je de oude kop wilt houden: "Waarom bij mij.")*
+**Kop:** Ik bouw het, en ik blijf erbij.
 
 **Tekst:**
-Bij alles wat ik bouw komt dezelfde vraag terug: mag je de uitkomst geloven? Die vraag neem ik mee uit mijn werk als risk consultant, waar ik modellen voor banken toetste. Daar leer je dat iets dat er overtuigend uitziet nog niet hoeft te kloppen. Dus laat ik zien waarop het systeem een beslissing baseert, en gaat alles waar het onzeker over is naar een mens.
+Ik ben Christian. Ik bouw maatwerksoftware voor bedrijven waarvan het werk niet in een standaardpakket past. Soms zit daar AI in, vaak is het gewoon goede software.
 
-Ik bouw het zelf en blijf verantwoordelijk als het live staat. Het lastige moment komt namelijk nooit op de dag van oplevering. Dat komt in maand acht, als een leverancier zijn format verandert of iemand iets doet wat niemand had voorzien.
+Ik heb econometrie gestudeerd en toetste daarna risicomodellen voor banken. Daar leerde ik niets aan te nemen voordat het is nagerekend.
 
-**Feitjes naast het portret:** MSc Econometrie · Eerder risk consultant bij Zanders, voor onder meer ING en bunq · Kantoor in Amsterdam
+Je hebt één vast aanspreekpunt. Als er iets is, bel of app je gewoon.
+
+**Feitjes naast het portret:** Opleiding: MSc Econometrie · Eerder: Zanders (ING, bunq) · Kantoor: Amsterdam
 
 **Link:** Connect op LinkedIn
 
-> *Geschrapt:* "De AI-markt wordt overspoeld door bureaus die prompts verkopen zonder fundament eronder." Een steek naar anderen is de opening die elke AI-bouwer gebruikt. De eigen vraag is sterker.
+> *Ingekort (15 okt):* Zanders/ING/bunq stond twee keer; "de software draait op jouw naam" staat nu bij Hoe het werkt, stap 4.
 
 ## 9. Meer cases
 
@@ -158,62 +145,55 @@ Ik bouw het zelf en blijf verantwoordelijk als het live staat. Het lastige momen
 
 **Platform · Evenementenverhuur · In ontwikkeling, oplevering Q4 2026**
 *De juiste evenementen, op het juiste moment.*
-Voor een verhuurbedrijf in de evenementenbranche vindt het systeem de relevante evenementen, de organisatoren erachter en hun contactgegevens, uit het hele web en uit vergunningsaanvragen. Het benadert ze op het juiste moment en volgt op. Daarna lopen offertes, boekingen en facturatie door hetzelfde systeem.
-
-> *Gefixt:* "onze eigen scraper" brak de ik-regel.
+Vindt evenementen en hun organisatoren, benadert ze op het goede moment en regelt de boeking.
 
 **Platform · Oogzorg · Live**
 *Het ERP waar een oogzorgbedrijf op draait.*
-Een eigen ERP en praktijkportaal voor Eye Motion Lab. Bestellingen, patiëntdossiers, bezorging, facturatie en boekhouding lopen in één flow, van inlog tot geplaatste order. Gebouwd omdat er geen pakket bestond dat bij hun proces paste.
+Bestellingen, dossiers, bezorging en facturatie in één systeem, omdat geen pakket paste.
 
-**AI Debatwijzer 2025:** voorstel om van de homepage te halen en naar een aparte projectenpagina te verplaatsen. Het is een chatbot, en de FAQ noemt "een losse chatbot" juist speelgoed. Voor de ICP voegt hij niets toe.
+> Een case-regel is één zin; het verhaal staat op de case-pagina.
 
 ## 10. Vragen
 
-Bestaande vragen blijven. Aanpassingen per antwoord:
-
-**Nieuw, als eerste vraag: Hoe ziet de eerste stap eruit?**
-We beginnen met een werksessie van een uur. Daarin tekenen we uit hoe het werk nu loopt en waar het vastzit. Het liefst zit daar ook degene bij die het werk nu doet, want die weet waar het in de praktijk misgaat. Daarna kom ik terug met een werkende demo op jouw eigen proces en een voorstel met de kosten, de termijnen en wat je precies krijgt. Tot dan kost het je niets, en je zit nergens aan vast.
+Acht vragen, elk antwoord één of twee zinnen. Schema (`faqItems`) en sectie gelijk houden.
 
 **Wat kost het om AI-software of een AI-tool te laten bouwen?**
-Dat hangt af van wat er nodig is: één proces met een eigen scherm is iets anders dan het platform waar je bedrijf op draait. Daarom begin ik met een werksessie en een werkende demo op jouw proces, zonder kosten. Daarna krijg je een voorstel met een vaste prijs per fase, die je kent voordat we beginnen. Geen uurtje-factuurtje, en je ziet resultaat voordat je verder gaat.
+Dat hangt af van wat er nodig is. Na de werksessie en de demo krijg je een vaste prijs per fase, voordat we beginnen.
 
 **Vervangt dit mijn mensen?**
-Nee. De AI neemt het werk over dat vaste regels volgt. Je mensen houden het werk dat oordeel vraagt en blijven de eindcontrole. Het effect is dat je met dezelfde mensen meer klussen aanneemt. In een arbeidsmarkt waar nieuwe mensen nauwelijks te vinden zijn, is dat meestal precies wat nodig is.
+Nee. Het systeem doet het werk dat regels volgt; je mensen houden het oordeel. Zo neem je met dezelfde mensen meer klussen aan.
 
 **Er bestaat toch al software voor mijn branche?**
-Vaak wel, en als zo'n pakket jullie proces dekt, moet je dat gewoon gebruiken. Dan ben ik te duur. Ik kom pas in beeld als jullie manier van werken er net niet in past: als je overal Excel naast laat lopen, dingen overtypt omdat het pakket het niet kan, of een koppeling mist. Het gaat erom of jullie werkelijke proces erin past.
-
-> *Was:* "De vraag is niet of er een tool is, maar of…" Dat niet-X-maar-Y-patroon is een van de bekendste AI-kenmerken.
+Vaak wel, en past het, gebruik het dan. Ik kom pas in beeld als je Excel ernaast laat lopen of dingen overtypt.
 
 **Werkt dit met de software die ik nu al gebruik?**
-Ja, en daar zit de waarde. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM. Je mensen blijven in hun eigen schermen werken.
-
-> *Was:* "De winst zit niet in het AI-model zelf, maar in de koppeling… niet ernaast." Twee keer hetzelfde patroon.
-
-**Heb ik een eigen IT-afdeling of technische kennis nodig?**
-Nee. Ik regel alles, van de bouw tot hosting en doorontwikkeling, met één aanspreekpunt. Jij houdt de regie over je proces en je data.
-
-> *Was:* "end-to-end" en "dat is juist het punt". Jargon en vulling.
+Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM.
 
 **Wat gebeurt er met mijn software als jij er straks mee zou stoppen?**
-Dan draait alles gewoon door. Hosting, database en domein staan op jouw naam, en een andere ontwikkelaar kan het overnemen. Je data is van jou en altijd te exporteren.
+Dan draait alles door. Het staat op jouw naam en een andere ontwikkelaar kan het overnemen.
 
-> *Ingekort:* "Ik werk erop als ontwikkelaar" en "Je zit nooit vast" eruit; dat zegt 7b al.
+**Is mijn data veilig als ik AI gebruik?**
+Ja. Europese hosting, een verwerkersovereenkomst, en je data wordt nooit gebruikt om modellen te trainen.
 
-**Ongewijzigd:** "Is mijn data veilig als ik AI gebruik?", "Kan AI dit al betrouwbaar, of is het nog speelgoed?", "Hoe lang duurt het voordat ik iets werkends heb?"
+**Kan AI dit al betrouwbaar, of is het nog speelgoed?**
+Voor werk dat regels volgt wel. Ik meet hoe vaak het systeem goed zit en stuur alles waar het twijfelt naar een mens.
 
-⚠️ **Voor de bouw:** de FAQ staat dubbel in `src/pages/index.astro` (het `faqItems`-schema en de sectie). Beide gelijk houden.
+**Hoe lang duurt het voordat ik iets werkends heb?**
+De demo zie je binnen ongeveer een week na de werksessie. Daarna levert elke fase iets bruikbaars op.
+
+> *Ingekort (15 okt):* van 10 vragen en ± 520 woorden naar 8 vragen en ± 180. Weg: "Hoe ziet de eerste stap eruit?" (staat bij Hoe het werkt) en "Heb ik een eigen IT-afdeling nodig?" (staat bij Over).
 
 ## 11. Contact
 
 **Kop:** Waar loopt het bij jou vast?
 
-**Tekst:** Plan een kennismaking van een half uur. We kijken of je proces te automatiseren is en wat het oplevert. Past het, dan is een werksessie van een uur de volgende stap.
+**Tekst:** Plan een kennismaking van een half uur. Past het, dan volgt een werksessie.
 
 **Knop (op het zeegezicht):** Plan een kennismaking
 
 **Daaronder, klein:** Nog aan het aftasten? Laat één regel achter, of stuur een appje. info@liebenberg.ai · +31 6 37220535
+
+> De bronvermelding van het schilderij ("Achtergrond: Willem Roelofs, Zeegezicht bij Heijst, Rijksmuseum") verhuist naar de footer.
 
 ## 12. Footer
 
@@ -222,6 +202,8 @@ Dan draait alles gewoon door. Hosting, database en domein staan op jouw naam, en
 > *Was:* "Maatwerk software, gedreven door AI. Wiskundig onderbouwd en klaar voor productie." Die zin kan op elke AI-site staan.
 
 ---
+
+**Bronvermelding (klein, mono):** Schilderijen: Rijksmuseum (publiek domein).
 
 ## Grens met de voorwaarden *(intern, niet voor op de site)*
 
