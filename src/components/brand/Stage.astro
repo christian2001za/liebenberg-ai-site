@@ -1,0 +1,14 @@
+---
+/**
+ * Schilderijvlak: een gedempt Haagse School-schilderij als podium. Staat nooit los:
+ * er ligt altijd een productscherm of een knop op.
+ */
+interface Props {
+  painting?: "lucht" | "warm" | "zee" | "avond";
+  pad?: boolean;
+  class?: string;
+  style?: string;
+}
+const { painting = "lucht", pad = true, class: cls = "", style } = Astro.props;
+---
+<div class:list={["stage", `p-${painting}`, pad && "stage-pad", cls]} style={style}><slot /></div>

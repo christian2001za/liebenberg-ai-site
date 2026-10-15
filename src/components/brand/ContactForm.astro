@@ -1,0 +1,49 @@
+---
+/** Eén regel achterlaten. Stuurt naar /api/contact. */
+import Button from "./Button.astro";
+---
+<form class="contact-form" id="contactForm" novalidate>
+  <div class="field cf-msg">
+    <label for="cf-msg">Welk werk loopt vast?</label>
+    <input id="cf-msg" name="message" type="text" required maxlength="5000" placeholder="Bijvoorbeeld: aanvragen komen binnen per mail en WhatsApp" />
+  </div>
+  <div class="field">
+    <label for="cf-name">Naam</label>
+    <input id="cf-name" name="name" type="text" required maxlength="120" autocomplete="name" />
+  </div>
+  <div class="field">
+    <label for="cf-mail">E-mail</label>
+    <input id="cf-mail" name="email" type="email" required maxlength="200" autocomplete="email" />
+  </div>
+  <div class="cf-send">
+    <Button type="submit" variant="secondary">Verstuur</Button>
+    <p class="cf-status t-small" role="status" aria-live="polite"></p>
+  </div>
+</form>
+
+<script>
+  const form = document.getElementById("contactForm") as HTMLFormElement | null;
+  const status = form?.querySelector<HTMLParagraphElement>(".cf-status");
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const btn = form.querySelector<HTMLButtonElement>("button[type=submit]");
+    const get = (n: string) => (form.elements.namedItem(n) as HTMLInputElement).value;
+    if (btn) btn.disabled = true;
+    if (status) status.textContent = "Versturen…";
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name: get("name"), email: get("email"), message: get("message") }),
+      });
+      if (!res.ok) throw new Error("send failed");
+      form.reset();
+      if (status) status.textContent = "Dank je. Ik neem contact met je op.";
+    } catch {
+      if (status) status.textContent = "Dat ging mis. Mail me gerust op info@liebenberg.ai.";
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+  });
+</script>

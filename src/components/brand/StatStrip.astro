@@ -1,0 +1,13 @@
+---
+/** Cijferstrip: vier cijfers in mono, gescheiden door haarlijnen, label eronder. Cijfers staan er meteen. */
+interface Props { items: { v: string; k: string }[]; note?: string; class?: string }
+const { items, note, class: cls = "" } = Astro.props;
+---
+<div class={cls}>
+  <dl class="stats">
+    {items.map((s) => (
+      <div class="stat"><dt class="k">{s.k}</dt><dd class="v">{s.v}</dd></div>
+    ))}
+  </dl>
+  {note && <p class="label stats-note">{note}</p>}
+</div>

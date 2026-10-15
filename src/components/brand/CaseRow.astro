@@ -1,0 +1,11 @@
+---
+/** Case-regel: mono-label, titel, één zin, pijl rechts. */
+interface Props { href: string; label: string; title: string }
+const { href, label, title } = Astro.props;
+---
+<a class="case" href={href}>
+  <span class="label">{label}</span>
+  <h3>{title}</h3>
+  <p><slot /></p>
+  <span class="arr" aria-hidden="true">→</span>
+</a>
