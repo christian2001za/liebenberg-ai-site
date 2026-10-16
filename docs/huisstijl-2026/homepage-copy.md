@@ -36,16 +36,15 @@ Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie nie
 
 ## 2. Bewijs
 
-| Cijfer | Label |
-|---|---|
-| 3.500+ | Geregistreerde accounts |
-| 35.000+ | Verwerkte meldingen |
-| #1 | Organisch op de kernzoekterm |
-| EU | Hosting, op jouw naam |
+| Cijfer | Label | Klein eronder |
+|---|---|---|
+| 3.500+ | Accounts op software van Liebenberg AI | |
+| EU | Europees gehost | GDPR/AVG compliant |
+| MSc | Econometrie | |
 
-**Voetnoot:** Op het Hoornaar-platform, stand oktober 2026.
+Geen voetnoot. Cijfers staan er meteen, zonder optellende animatie.
 
-Cijfers staan er meteen, zonder optellende animatie.
+> *Gewijzigd (15 okt):* de cijfers gaan over Liebenberg AI, niet specifiek over Hoornaar. Weg: "35.000+ verwerkte meldingen", "#1 organisch" en de voetnoot "Op het Hoornaar-platform, stand oktober 2026". De Hoornaar-cijfers staan bij de uitgelichte case (§5).
 
 ## 3. Voor wie
 
