@@ -2,7 +2,7 @@
 /**
  * Navigatie (BRAND §5): logo links, Werk · Werkwijze · Over · Vragen, primaire knop rechts.
  * Op de homepage zijn de links ankers; op subpagina's wijzen ze naar de homepage.
- * De balk plakt bovenaan en schuift mee met het scrollen (zie het script onderaan).
+ * De balk plakt bovenaan: omlaag scrollen schuift hem weg, omhoog scrollen haalt hem terug.
  */
 import Logo from "../brand/Logo.astro";
 import Button from "../brand/Button.astro";
@@ -29,47 +29,39 @@ const links = [
 
 <script>
   /*
-   * De menubalk beweegt mee met het scrollen, niet met een timer: 10 px scrollen schuift de
-   * balk 10 px. Langzaam scrollen is dus langzaam bewegen. Omhoog scrollen haalt hem op
-   * dezelfde manier terug, waar je ook op de pagina bent. Stop je halverwege, dan glijdt
-   * hij naar helemaal open of helemaal dicht, zodat hij nooit half blijft hangen.
+   * Verbergen bij omlaag scrollen, tonen bij omhoog scrollen (het headroom-patroon):
+   * twee toestanden, een kleine drempel per richting tegen trillen, en pas weg als je
+   * voorbij de balk zelf bent. De beweging zelf is een CSS-overgang (zie .site-nav).
    */
   const nav = document.querySelector<HTMLElement>("[data-site-nav]");
   if (nav) {
+    const TOLERANCE = 8; // px in één richting voordat de balk wisselt
     let lastY = Math.max(0, window.scrollY);
-    let offset = 0; // 0 = helemaal zichtbaar, height = helemaal weg
-    let height = nav.offsetHeight;
+    let run = 0; // opgetelde scroll in de huidige richting (+ omlaag, - omhoog)
     let ticking = false;
-    let idle = 0;
 
-    const apply = () => { nav.style.transform = offset ? `translateY(${-offset}px)` : ""; };
-
-    const snap = () => {
-      if (offset === 0 || offset === height) return;
-      nav.classList.add("is-snapping");
-      offset = offset > height / 2 && window.scrollY > height ? height : 0;
-      apply();
-    };
+    const setHidden = (hidden: boolean) => nav.classList.toggle("is-hidden", hidden);
 
     const update = () => {
       ticking = false;
       const y = Math.max(0, window.scrollY);
       const dy = y - lastY;
       lastY = y;
-      nav.classList.remove("is-snapping");
-      // Bovenaan de pagina altijd zichtbaar; anders meeschuiven met de scroll.
-      offset = y <= 0 ? 0 : Math.min(height, Math.max(0, offset + dy));
-      if (nav.contains(document.activeElement)) offset = 0;
-      apply();
-      clearTimeout(idle);
-      idle = window.setTimeout(snap, 140);
+      if (dy === 0) return;
+
+      // Richting gewisseld: opnieuw beginnen met tellen.
+      if ((dy > 0 && run < 0) || (dy < 0 && run > 0)) run = 0;
+      run += dy;
+
+      if (y <= nav.offsetHeight) setHidden(false); // bovenaan altijd zichtbaar
+      else if (run > TOLERANCE && !nav.contains(document.activeElement)) setHidden(true);
+      else if (run < -TOLERANCE) setHidden(false);
     };
 
     window.addEventListener("scroll", () => {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
-    window.addEventListener("resize", () => { height = nav.offsetHeight; }, { passive: true });
-    // Toetsenbord: met Tab in het menu komt de balk altijd helemaal terug.
-    nav.addEventListener("focusin", () => { nav.classList.add("is-snapping"); offset = 0; apply(); });
+    // Toetsenbord: met Tab in het menu komt de balk altijd terug.
+    nav.addEventListener("focusin", () => setHidden(false));
   }
 </script>
