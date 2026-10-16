@@ -143,7 +143,7 @@ Je hebt één vast aanspreekpunt. Als er iets is, bel of app je gewoon.
 **Kop:** Meer cases.
 
 **Platform · Evenementenverhuur · In ontwikkeling, oplevering Q4 2026**
-*De juiste evenementen, op het juiste moment.*
+*Een AI-CRM dat leads vindt en benadert in de evenementenbranche.*
 Vindt evenementen en hun organisatoren, benadert ze op het goede moment en regelt de boeking.
 
 **Platform · Oogzorg · Live**
