@@ -48,14 +48,14 @@
 .site-nav.is-hidden { transform: translateY(-100%); }
 .site-nav .wrap { display: flex; align-items: center; gap: 32px; padding-block: 18px; }
 .site-nav .logo-link { display: block; flex: none; }
-.site-nav .logo { width: 150px; height: auto; }
+.site-nav .logo { width: 184px; height: auto; }
 .site-nav nav { display: flex; gap: 28px; flex: 1; font-size: 14.5px; color: var(--fg-2); }
 .site-nav nav a { text-decoration: none; transition: color var(--dur-1) var(--ease); }
 .site-nav nav a:hover { color: var(--fg); }
 @media (max-width: 760px) {
   .site-nav .wrap { justify-content: space-between; gap: 16px; }
   .site-nav nav { display: none; }
-  .site-nav .logo { width: 132px; }
+  .site-nav .logo { width: 156px; }
 }
 
 /* ---------- Logo ---------- */
@@ -276,7 +276,7 @@ table.t tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--fg); }
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--line); margin-top: clamp(64px, 8vw, 112px); padding-block: 48px 40px; font-size: 14px; color: var(--fg-2); }
 .site-footer .top { display: grid; grid-template-columns: 5fr 7fr; gap: 32px var(--gutter); }
-.site-footer .logo { width: 150px; margin-bottom: 16px; }
+.site-footer .logo { width: 184px; margin-bottom: 18px; }
 .site-footer .claim { max-width: 36ch; }
 .site-footer .cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .site-footer .cols div { display: grid; gap: 8px; align-content: start; }
