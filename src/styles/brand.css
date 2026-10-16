@@ -63,7 +63,7 @@
 html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
 html, body { margin: 0; }
 body {
-  background: var(--bg);
+  background: transparent; /* kleur en korrel komen van html */
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: 16px;
@@ -82,13 +82,12 @@ img, video { height: auto; }
 /* Alleen voor schermlezers */
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 
-/* Korrel over de hele pagina: 160px-tegel, je ziet hem pas als je ernaar zoekt. */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  pointer-events: none;
+/* Korrel over de hele pagina: 160px-tegel, je ziet hem pas als je ernaar zoekt.
+   Als achtergrond van html en de menubalk, niet als vaste laag over de pagina:
+   Safari 26 op iPhone kleurt de statusbalk naar het bovenste vaste element, en een
+   doorzichtige korrel-laag liet daar de pagina doorschijnen. */
+html { background-color: var(--bg); }
+html, .site-nav {
   background-image: url("../assets/huisstijl/grain.png");
   background-size: 160px;
 }
@@ -117,7 +116,7 @@ body::after {
 }
 
 /* ---------- Brug voor de React-tools (Tailwind-klassen als text-foreground) ----------
-   De tools op /tools en /ai-scan gebruiken hsl(var(--…)). Zelfde kleuren als hierboven. */
+   Werd gebruikt door de tools (nu in archief/tools). Zelfde kleuren als hierboven. */
 :root {
   --background: 60 18% 96.7%;     /* = --bg */
   --foreground: 198 18% 14.3%;    /* = --fg */
