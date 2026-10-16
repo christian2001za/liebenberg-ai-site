@@ -35,10 +35,12 @@
 
   /* Beweging (BRAND §6) */
   --ease: cubic-bezier(.2, .7, .2, 1);
+  /* Voor iets dat zelf in en uit beeld schuift (de menubalk): rustig begin en rustig eind. */
+  --ease-in-out: cubic-bezier(.45, 0, .2, 1);
   --dur-1: 160ms;
   --dur-2: 280ms;
   --dur-3: 2200ms;
-  --dur-nav: 440ms; /* menubalk in- en uitschuiven: lang genoeg om de curve te voelen */
+  --dur-move: 320ms; /* in- en uitschuiven van de menubalk */
 
   /* Vorm en raster (BRAND §4) */
   --r-1: 6px;

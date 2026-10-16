@@ -2,8 +2,7 @@
 /**
  * Navigatie (BRAND §5): logo links, Werk · Werkwijze · Over · Vragen, primaire knop rechts.
  * Op de homepage zijn de links ankers; op subpagina's wijzen ze naar de homepage.
- * De balk plakt bovenaan: naar beneden scrollen schuift hem weg, omhoog scrollen haalt hem
- * meteen terug, waar je ook op de pagina bent.
+ * De balk plakt bovenaan: omlaag scrollen schuift hem weg, omhoog scrollen haalt hem terug.
  */
 import Logo from "../brand/Logo.astro";
 import Button from "../brand/Button.astro";
@@ -29,36 +28,40 @@ const links = [
 </header>
 
 <script>
+  /*
+   * Verbergen bij omlaag scrollen, tonen bij omhoog scrollen (het headroom-patroon):
+   * twee toestanden, een kleine drempel per richting tegen trillen, en pas weg als je
+   * voorbij de balk zelf bent. De beweging zelf is een CSS-overgang (zie .site-nav).
+   */
   const nav = document.querySelector<HTMLElement>("[data-site-nav]");
   if (nav) {
-    let lastY = window.scrollY;
-    let downRun = 0; // hoeveel px er achter elkaar naar beneden is gescrold
+    const TOLERANCE = 8; // px in één richting voordat de balk wisselt
+    let lastY = Math.max(0, window.scrollY);
+    let run = 0; // opgetelde scroll in de huidige richting (+ omlaag, - omhoog)
     let ticking = false;
-    const HIDE_AFTER = 24; // pas weg na een echte beweging omlaag, niet bij elk trillertje
+
+    const setHidden = (hidden: boolean) => nav.classList.toggle("is-hidden", hidden);
 
     const update = () => {
       ticking = false;
       const y = Math.max(0, window.scrollY);
       const dy = y - lastY;
-      if (Math.abs(dy) < 3) return; // kleine trillingen negeren (trackpad)
       lastY = y;
-      nav.classList.toggle("is-scrolled", y > 0);
-      if (dy < 0) {
-        // Omhoog: meteen terug, waar je ook op de pagina bent.
-        downRun = 0;
-        nav.classList.remove("is-hidden");
-        return;
-      }
-      downRun += dy;
-      if (downRun > HIDE_AFTER && y > nav.offsetHeight && !nav.contains(document.activeElement)) {
-        nav.classList.add("is-hidden");
-      }
+      if (dy === 0) return;
+
+      // Richting gewisseld: opnieuw beginnen met tellen.
+      if ((dy > 0 && run < 0) || (dy < 0 && run > 0)) run = 0;
+      run += dy;
+
+      if (y <= nav.offsetHeight) setHidden(false); // bovenaan altijd zichtbaar
+      else if (run > TOLERANCE && !nav.contains(document.activeElement)) setHidden(true);
+      else if (run < -TOLERANCE) setHidden(false);
     };
 
     window.addEventListener("scroll", () => {
       if (!ticking) { ticking = true; requestAnimationFrame(update); }
     }, { passive: true });
     // Toetsenbord: met Tab in het menu komt de balk altijd terug.
-    nav.addEventListener("focusin", () => nav.classList.remove("is-hidden"));
+    nav.addEventListener("focusin", () => setHidden(false));
   }
 </script>

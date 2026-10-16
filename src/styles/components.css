@@ -42,10 +42,10 @@
 .site-nav {
   position: sticky; top: 0; z-index: 40;
   background: var(--bg); border-bottom: 1px solid var(--line);
-  transition: transform var(--dur-nav) var(--ease);
+  transition: transform var(--dur-move) var(--ease-in-out);
   will-change: transform;
 }
-.site-nav.is-hidden { transform: translateY(-100%); }
+.site-nav.is-hidden { transform: translate3d(0, -100%, 0); }
 .site-nav .wrap { display: flex; align-items: center; gap: 32px; padding-block: 18px; }
 .site-nav .logo-link { display: block; flex: none; }
 .site-nav .logo { width: 184px; height: auto; }
