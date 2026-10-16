@@ -69,3 +69,11 @@
 .page-404 { min-height: 70vh; }
 .gravure-404 { width: 300px; height: auto; margin-bottom: 8px; }
 @media (max-width: 520px) { .gravure-404 { width: 220px; } }
+
+/* Tabel in lopende tekst: scrolt op smalle schermen binnen zijn eigen blok */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1.4em 0; border-top: 1px solid var(--line); }
+.table-wrap table { min-width: 720px; font-size: 14.5px; line-height: 1.5; }
+.table-wrap th, .table-wrap td { vertical-align: top; padding: 12px 16px 12px 0; }
+.table-wrap td:first-child { color: var(--fg); font-weight: 500; }
+.table-wrap:focus-visible { outline-offset: 4px; }
+.page .updated { font-size: 14px; color: var(--muted); }
