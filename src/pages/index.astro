@@ -9,6 +9,7 @@ import CaseRow from "../components/brand/CaseRow.astro";
 import Quote from "../components/brand/Quote.astro";
 import ProductLoop from "../components/brand/ProductLoop.astro";
 import ContactBlock from "../components/brand/ContactBlock.astro";
+import Koppelingen from "../components/brand/Koppelingen.astro";
 import "../styles/home.css";
 import { Image } from "astro:assets";
 import portrait from "../assets/LiebenbergAI_portrait_Christian.jpeg";
@@ -36,7 +37,7 @@ const faqItems = [
   },
   {
     q: "Werkt dit met de software die ik nu al gebruik?",
-    a: ["Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM."],
+    a: ["Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je mail, planning, boekhouding of CRM. Heeft een pakket geen koppeling, dan zoek ik een andere weg, bijvoorbeeld via een export."],
   },
   {
     q: "Wat gebeurt er met mijn software als jij er straks mee zou stoppen?",
@@ -206,6 +207,7 @@ const steps = [
             <li><Icon name={b.icon} /><h3>{b.t}</h3><p>{b.p}</p></li>
           ))}
         </ul>
+        <Koppelingen />
       </div>
     </section>
 
