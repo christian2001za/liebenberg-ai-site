@@ -1,0 +1,43 @@
+---
+/**
+ * Strook "Werkt met wat je al gebruikt": korte tekst en één rij logo's in één kleur.
+ * Logo's en bronnen: src/assets/huisstijl/koppelingen/ (zie de README daar).
+ * Merken zonder nette SVG staan als naam in Geist Mono.
+ */
+const svgs = import.meta.glob("../../assets/huisstijl/koppelingen/*.svg", { query: "?raw", import: "default", eager: true }) as Record<string, string>;
+const svg = (file: string) => svgs[`../../assets/huisstijl/koppelingen/${file}.svg`];
+
+const merken: { naam: string; file?: string; breed?: boolean }[] = [
+  { naam: "Gmail", file: "gmail" },
+  { naam: "Outlook" },
+  { naam: "Google Agenda", file: "google-agenda" },
+  { naam: "WhatsApp", file: "whatsapp" },
+  { naam: "Excel" },
+  { naam: "Exact Online", file: "exact-online", breed: true },
+  { naam: "Moneybird", file: "moneybird", breed: true },
+  { naam: "e-Boekhouden", file: "e-boekhouden", breed: true },
+  { naam: "Mollie" },
+  { naam: "HubSpot", file: "hubspot" },
+];
+
+const render = (m: (typeof merken)[number]) => {
+  const raw = m.file && svg(m.file);
+  if (!raw) return null;
+  return raw.replace("<svg ", `<svg class="${m.breed ? "woordmerk" : "beeldmerk"} logo-${m.file}" role="img" aria-label="${m.naam}" `).replace(/(<svg[^>]*>)/, `$1<title>${m.naam}</title>`);
+};
+---
+<div class="koppelingen">
+  <div class="txt">
+    <h3 class="t-h3">Werkt met wat je al gebruikt.</h3>
+    <p>Je mail, agenda, boekhouding, facturatie en CRM. Heeft een pakket een koppeling, dan sluit ik daarop aan. Heeft het die niet, dan is er meestal toch een weg, via een export, een gedeelde map of de mailbox. Je hoeft niet over op een ander systeem.</p>
+  </div>
+  <div class="rij">
+    <span class="label">Werkt met</span>
+    <ul class="logos" role="list">
+      {merken.map((m) => {
+        const s = render(m);
+        return <li>{s ? <Fragment set:html={s} /> : <span class="naam" title={m.naam}>{m.naam}</span>}</li>;
+      })}
+    </ul>
+  </div>
+</div>

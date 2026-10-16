@@ -99,6 +99,17 @@ Planning, boekhouding en CRM aan elkaar, inclusief de stap die nu iemand doet.
 **Controles die nu iemand een dag kosten**
 Het systeem doet de eerste ronde. Jij ziet alleen de twijfelgevallen.
 
+### Strook onder de vier items: werkt met wat je al gebruikt
+
+**Kop (klein, h3):** Werkt met wat je al gebruikt.
+
+**Tekst:**
+Je mail, agenda, boekhouding, facturatie en CRM. Heeft een pakket een koppeling, dan sluit ik daarop aan. Heeft het die niet, dan is er meestal toch een weg, via een export, een gedeelde map of de mailbox. Je hoeft niet over op een ander systeem.
+
+**Logo's, één rij, met het label "Werkt met":** Gmail · Outlook · Google Agenda · WhatsApp · Excel · Exact Online · Moneybird · e-Boekhouden · Mollie · HubSpot
+
+> In één kleur (`--fg-2`, gedimd, vol bij hover), geen links. Bestanden en bronnen: `src/assets/huisstijl/koppelingen/`. Outlook, Excel en Mollie staan als naam in mono, omdat er geen nette eenkleurige SVG is.
+
 ## 7. Hoe het werkt
 
 **Kop:** Hoe het werkt.
@@ -166,7 +177,7 @@ Nee. Het systeem doet het werk dat regels volgt; je mensen houden het oordeel. Z
 Vaak wel, en past het, gebruik het dan. Ik kom pas in beeld als je Excel ernaast laat lopen of dingen overtypt.
 
 **Werkt dit met de software die ik nu al gebruik?**
-Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je planning, je boekhouding of je CRM.
+Ja. Ik koppel het aan de systemen waar je al in werkt, zoals je mail, planning, boekhouding of CRM. Heeft een pakket geen koppeling, dan zoek ik een andere weg, bijvoorbeeld via een export.
 
 **Wat gebeurt er met mijn software als jij er straks mee zou stoppen?**
 Dan draait alles door. Het staat op jouw naam en een andere ontwikkelaar kan het overnemen.

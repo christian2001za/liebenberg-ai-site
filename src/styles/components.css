@@ -301,3 +301,28 @@ table.t tr.sel td:first-child { box-shadow: inset 2px 0 0 var(--fg); }
 }
 @media (max-width: 520px) { .contact-form { grid-template-columns: 1fr; } }
 .hero-stage.p-lucht { background-position: center 12%; }
+
+/* ---------- Strook: werkt met wat je al gebruikt ---------- */
+.koppelingen { display: grid; gap: 24px; margin-top: clamp(40px, 5vw, 56px); padding-top: 28px; border-top: 1px solid var(--line); }
+.koppelingen .txt { display: grid; gap: 10px; max-width: 64ch; }
+.koppelingen .txt p { color: var(--fg-2); }
+.koppelingen .rij { display: flex; align-items: center; gap: 12px 28px; flex-wrap: wrap; }
+.koppelingen .logos { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; flex-wrap: wrap; gap: 14px 28px; }
+.koppelingen .logos li { display: flex; align-items: center; color: var(--fg-2); opacity: .55; transition: opacity var(--dur-1) var(--ease); }
+.koppelingen .logos li:hover { opacity: 1; }
+/* Gelijke optische grootte: beeldmerken 20 px, woordmerken iets lager zodat ze niet zwaarder ogen */
+.koppelingen .beeldmerk { height: 20px; width: auto; display: block; }
+.koppelingen .woordmerk { height: 16px; width: auto; display: block; }
+.koppelingen .logo-exact-online { height: 13px; }
+.koppelingen .logo-moneybird { height: 17px; }
+.koppelingen .logo-e-boekhouden { height: 24px; }
+.koppelingen .naam { font-family: var(--font-mono); font-size: 14px; line-height: 20px; letter-spacing: -.01em; }
+@media (max-width: 520px) {
+  .koppelingen .rij { align-items: flex-start; flex-direction: column; }
+  .koppelingen .logos { gap: 14px 16px; }
+  .koppelingen .naam { font-size: 13px; }
+  .koppelingen .beeldmerk { height: 18px; }
+  .koppelingen .logo-exact-online { height: 12px; }
+  .koppelingen .logo-moneybird { height: 15px; }
+  .koppelingen .logo-e-boekhouden { height: 21px; }
+}
