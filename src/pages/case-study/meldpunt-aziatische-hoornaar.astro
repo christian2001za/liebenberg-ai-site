@@ -2,6 +2,10 @@
 import AutoVideo from "../../components/brand/AutoVideo.astro";
 import CaseLayout from "../../layouts/CaseLayout.astro";
 import Quote from "../../components/brand/Quote.astro";
+import Stage from "../../components/brand/Stage.astro";
+import { Image } from "astro:assets";
+import bezoekers from "../../assets/cases/hoornaar-bezoekers.png";
+import googleKlikken from "../../assets/cases/hoornaar-google-klikken.png";
 ---
 <CaseLayout
   seoTitle="Case: Meldpunt Aziatische Hoornaar | Liebenberg AI"
@@ -80,6 +84,23 @@ import Quote from "../../components/brand/Quote.astro";
     <p>Iemand moest elke melding lezen, beoordelen of het echt om een hoornaar ging, uitzoeken in welke regio hij viel en wie erop af kon. Daarna bijhouden wat er gedaan was, en aan het eind van de maand factureren uit lijsten die nooit compleet waren.</p>
     <p>Rob was zijn tools ontgroeid. Een pakket dat dit deed bestond niet, en elk najaar, als de nesten zichtbaar worden, komt de piek. Zonder dat platform zou hij de vraag niet aankunnen.</p>
   </Fragment>
+
+  <section class="section case-between case-found" slot="between" aria-labelledby="gevonden-kop">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 class="t-h2" id="gevonden-kop">Gevonden worden.</h2>
+        <p>Vanaf de lancering ging het snel. Wie op de hoornaar zoekt, vindt het meldpunt bovenaan in Google, en de AI Overview van Google raadt het als eerste aan. Inmiddels komen er elke maand bijna 50.000 bezoekers op het meldpunt, waarvan 22.000 via Google.</p>
+        <p>Ik schreef de pagina's in de woorden waarmee mensen zoeken, met een uitgebreide lijst veelgestelde vragen die elk een eigen, kort antwoord krijgen. Daardoor komt het meldpunt bij veel zoekvragen naar boven.</p>
+      </div>
+      <Stage painting="lucht">
+        <div class="found-grid">
+          <div class="app"><div class="app-media"><Image src={bezoekers} alt="Bezoekersstatistieken van meldpuntaziatischehoornaar.nl over de afgelopen 28 dagen: 47.500 unieke bezoekers, 55.300 bezoeken en 158.000 paginaweergaven, met elke dag tussen de 1.100 en 2.500 bezoekers." widths={[800, 1400]} sizes="(max-width: 900px) 100vw, 760px" loading="lazy" /></div></div>
+          <div class="app"><div class="app-media"><Image src={googleKlikken} alt="Melding van Google Search Console: meldpuntaziatischehoornaar.nl kreeg in de afgelopen 28 dagen 22.000 klikken via Google Zoeken." widths={[320, 512]} sizes="(max-width: 760px) 200px, 260px" loading="lazy" /></div></div>
+        </div>
+      </Stage>
+      <p class="figure-note">Bezoekers per dag en klikken via Google in de laatste 28 dagen, stand oktober 2026.</p>
+    </div>
+  </section>
 
   <Quote slot="quote" name="Rob Voesten" role="Oprichter, NatuurlijkRob">"Hele fijne samenwerking. Er wordt goed geluisterd, verzoeken worden snel opgepakt en het platform groeit met ons mee."</Quote>
 </CaseLayout>
