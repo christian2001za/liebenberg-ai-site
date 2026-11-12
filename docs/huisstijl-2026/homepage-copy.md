@@ -38,7 +38,7 @@ Maatwerk AI-software voor bedrijven waar het werk groeit en de administratie nie
 
 | Cijfer | Label | Klein eronder |
 |---|---|---|
-| 3.500+ | Accounts op software van Liebenberg AI | |
+| 4.000+ | Accounts op software van Liebenberg AI | |
 | EU | Europees gehost | GDPR/AVG compliant |
 | MSc | Econometrie | |
 
@@ -74,7 +74,7 @@ Een aanvraag via WhatsApp met drie foto's. Een offerte die per klant anders is. 
 **Tekst:**
 Rob Voesten bestrijdt de geelpoothoornaar voor gemeenten. Zijn werk liep via Word, Excel en losse mailtjes. Nu loopt alles door één platform, van melding tot uitvoerder tot factuur. Zonder dat platform zou hij de vraag niet aankunnen.
 
-**Cijfers:** 3.500+ accounts · 35.000+ meldingen · #1 organisch · aangeraden in Google's AI Overview
+**Cijfers:** 4.000+ accounts · 40.000+ meldingen · #1 organisch · aangeraden in Google's AI Overview
 
 **Citaat (ongewijzigd):**
 "Hele fijne samenwerking. Er wordt goed geluisterd, verzoeken worden snel opgepakt en het platform groeit met ons mee." Rob Voesten, oprichter NatuurlijkRob
