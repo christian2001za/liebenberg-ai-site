@@ -24,7 +24,7 @@ Niet elke case heeft elke sectie nodig. De volgorde staat vast.
 ## Regels
 
 - **Ik-vorm** en de rest van de stem uit `docs/BRAND.md` §8. Geen "wij", "ons" of "onze".
-- **Cijfers kloppen overal hetzelfde.** Hoornaar: 3.500+ accounts, 35.000+ meldingen, #1 organisch op de kernzoekterm, aangeraden in Google's AI Overview (stand oktober 2026). Op de huidige Hoornaar-casepagina staat nog "#2": dat wordt #1.
+- **Cijfers kloppen overal hetzelfde.** Hoornaar: 4.000+ accounts, 40.000+ meldingen, #1 organisch op de kernzoekterm, aangeraden in Google's AI Overview (stand november 2026). Op de huidige Hoornaar-casepagina staat nog "#2": dat wordt #1.
 - **Geen verzonnen details.** Feiten komen uit de bestaande casepagina's en de vault-notities (alleen lezen):
   - Hoornaar: `~/Developer/Second Brain/04 Projecten/Hoornaar Platform.md`
   - Evenementen (Karafan): `~/Developer/Second Brain/02 Mensen & Bedrijven/Bedrijven/Juuls Karafan.md` en `~/Developer/Second Brain/04 Projecten/Juuls Karafan — Voorstel v4 (3 sep, volledige scope).md`, plus `public/case-study/ai-sales-evenementenbranche.html`. Let op: prijzen en voorstelbedragen uit die notities gaan niet de site op.
